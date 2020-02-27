@@ -2,7 +2,7 @@ const csv = require('csv-parse');
 const fs = require('fs');
 const path = require('path');
 
-const csvPath = path.join('..', 'COVID-19', 'csse_covid_19_data', 'csse_covid_19_time_series', 'time_series_19-covid-Confirmed.csv');
+const csvPath = path.join('COVID-19', 'csse_covid_19_data', 'csse_covid_19_time_series', 'time_series_19-covid-Confirmed.csv');
 
 // The list of non-date data items in each row
 let dataItems = [
@@ -72,7 +72,7 @@ fs.createReadStream(csvPath)
       days: days,
       locations: locations
     };
-    fs.writeFile(path.join('..', 'data', 'data.json'), JSON.stringify(data), (err) => {
+    fs.writeFile(path.join('site', 'data', 'data.json'), JSON.stringify(data), (err) => {
       if (err) {
         console.error('Failed to write data: %s', err);
       }
