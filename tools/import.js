@@ -55,6 +55,8 @@ fs.createReadStream(csvPath)
     // Store location
     let location = {};
     dataItems.forEach(item => location[item] = normalizeString(row[item]));
+    location.Lat = parseFloat(location.Lat);
+    location.Long = parseFloat(location.Long);
     let locationId = locations.push(location) - 1;
     location.id = locationId;
 
@@ -63,7 +65,7 @@ fs.createReadStream(csvPath)
       days[day] = days[day] || [];
       days[day].push({
         id: locationId,
-        cases: row[day]
+        cases: parseInt(row[day], 10)
       });
     }
   })

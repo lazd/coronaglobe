@@ -241,7 +241,7 @@ gt.App.prototype.setStyle = function(styleName) {
 
 // Marker management
 gt.App.prototype.add = function(data) {
-	this.count += parseInt(data.total, 10);
+	this.count += data.total;
 
 	this.countEl.innerText = this.count.toLocaleString()+' '+(this.count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
 
