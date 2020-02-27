@@ -65,6 +65,21 @@ gt.util = {
 		return args;
 	},
 
+	setHashFromArgs: function(args) {
+		var hash = '#';
+		var count = 0;
+		for (var arg in args) {
+			if (count > 1) {
+				hash += '&';
+			}
+
+			hash += arg+'='+args[arg];
+
+			count++;
+		}
+		window.location.hash = hash;
+	},
+
 	extend: function() {
 		var objs = arguments;
 		var result = objs[0];
