@@ -24,7 +24,6 @@ gt.App = function(options) {
 
 	// Create a container
 	// Create an element for output
-	this.el.insertAdjacentHTML('beforeend', document.getElementById('gt_template').innerHTML);
 	this.container = this.el.querySelector('.gt_container');
 	this.countEl = this.container.querySelector('.gt_count');
 	this.overlay = this.container.querySelector('.gt_overlay');
@@ -410,7 +409,7 @@ gt.App.prototype.loadData = function(time) {
 			}
 		}
 	});
-	req.open('GET', '/data/data.json');
+	req.open('GET', 'data/data.json');
 	req.send();
 };
 

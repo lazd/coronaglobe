@@ -7,11 +7,11 @@ gt.Globe = function(options) {
 	// Setup globe mesh
 	var globeGeometry = new THREE.SphereGeometry(this.radius, 40, 30);
 	var globeMaterial = new THREE.MeshPhongMaterial();
-	globeMaterial.map = THREE.ImageUtils.loadTexture('/images/globe/earthmap4k.jpg', null, this.handleLoad);
-	// globeMaterial.map = THREE.ImageUtils.loadTexture('/images/globe/earthgrid.png', null, this.handleLoad); // Lat/Long grid
-	globeMaterial.bumpMap = THREE.ImageUtils.loadTexture('/images/globe/earthbump4k.jpg', null, this.handleLoad);
+	globeMaterial.map = THREE.ImageUtils.loadTexture('images/globe/earthmap4k.jpg', null, this.handleLoad);
+	// globeMaterial.map = THREE.ImageUtils.loadTexture('images/globe/earthgrid.png', null, this.handleLoad); // Lat/Long grid
+	globeMaterial.bumpMap = THREE.ImageUtils.loadTexture('images/globe/earthbump4k.jpg', null, this.handleLoad);
 	globeMaterial.bumpScale = 2;
-	// globeMaterial.specularMap = THREE.ImageUtils.loadTexture('/images/globe/earth_specular_2048.jpg', null, this.handleLoad);
+	// globeMaterial.specularMap = THREE.ImageUtils.loadTexture('images/globe/earth_specular_2048.jpg', null, this.handleLoad);
 	this.globeMesh = new THREE.Mesh(globeGeometry, globeMaterial);
 
 	// Since the earth is static, disable auto-updating of its matrix
@@ -21,7 +21,7 @@ gt.Globe = function(options) {
 	// Setup cloud mesh
 	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 32, 32);
 	var cloudMaterial = new THREE.MeshPhongMaterial({
-		map: THREE.ImageUtils.loadTexture('/images/globe/earthclouds4k.png', null, this.handleLoad),
+		map: THREE.ImageUtils.loadTexture('images/globe/earthclouds4k.png', null, this.handleLoad),
 		opacity: 0.8,
 		transparent: true,
 		depthWrite: false
