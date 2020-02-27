@@ -4,7 +4,10 @@
   "description": "A 3D heatmap of the COVID-19 virus",
   "main": "index.js",
   "scripts": {
-    "update": "node tools/import.js",
+    "update": "npm run fetch && npm run import && npm run push && npm run deploy",
+    "fetch": "git submodule update --remote",
+    "import": "node tools/import.js",
+    "push": "git commit site -m \"feat: update data\" && git push -u origin master",
     "build": "parcel site/index.html",
     "deploy": "ghpages -p site/"
   },
@@ -24,9 +27,7 @@
   "homepage": "https://github.com/lazd/covid19heat#readme",
   "devDependencies": {
     "csv": "^5.3.1",
-    "parcel": "^2.0.0-alpha.3.2"
-  },
-  "dependencies": {
+    "parcel": "^2.0.0-alpha.3.2",
     "ghpages": "^0.0.10"
   }
 }
