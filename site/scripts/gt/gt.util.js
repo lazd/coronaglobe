@@ -1,4 +1,4 @@
-import * as THREE from 'three/build/three.module.js';
+import * as THREE from 'three';
 
 const util = {
 	// Convert a latitude/longitude pair to a 3D point

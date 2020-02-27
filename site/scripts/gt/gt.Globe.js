@@ -1,23 +1,26 @@
 import util from './gt.util.js';
-import * as THREE from 'three/build/three.module.js';
+import * as THREE from 'three';
 
 const Globe = function(options) {
 	// Store options
 	util.extend(this, Globe.defaults, options);
 
-	this.handleLoad = this.handleLoad.bind(this, 2);
+	this.handleLoad = this.handleLoad.bind(this, 3);
 
 	var loader = new THREE.TextureLoader();
 
 	// Setup globe mesh
 	var globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
-	var globeMaterial = new THREE.MeshPhongMaterial();
+	var globeMaterial = new THREE.MeshPhongMaterial({
+		shininess: 20
+	});
 	// Main texture
 	globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthgrid.png'), this.handleLoad); // Lat/Long grid
+
 	// Bump map (disabled to work around broken optimized bundle)
-	// globeMaterial.bumpMap = loader.load(require('url:../../textures/globe/earthbump4k.jpg'), this.handleLoad);
-	// globeMaterial.bumpScale = 2;
+	globeMaterial.bumpMap = loader.load(require('url:../../textures/globe/earthbump4k.jpg'), this.handleLoad);
+	globeMaterial.bumpScale = 2;
 
 	this.globeMesh = new THREE.Mesh(globeGeometry, globeMaterial);
 	this.globeMesh.name = 'Globe';
@@ -27,13 +30,12 @@ const Globe = function(options) {
 	this.globeMesh.updateMatrix();
 
 	// Setup cloud mesh
-	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 32, 32);
+	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 48, 48);
 	var cloudMaterial = new THREE.MeshPhongMaterial({
 		map: loader.load(require('url:../../textures/globe/earthclouds4k.png'), this.handleLoad),
 		opacity: 0.8,
 		transparent: true,
-		depthWrite: false,
-		depthTest: false // work around broken optimized bundle
+		depthWrite: false
 	});
 	this.cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
 	this.cloudMesh.name = 'Clouds';

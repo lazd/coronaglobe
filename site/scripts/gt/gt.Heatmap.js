@@ -1,4 +1,4 @@
-import * as THREE from 'three/build/three.module.js';
+import * as THREE from 'three';
 import util from './gt.util.js';
 import WebGLHeatmap from './lib/webgl-heatmap.js';
 
@@ -67,7 +67,10 @@ Heatmap.prototype.add = function(data) {
 
 	// Tell THREE to update the texture from the canvas
 	// Commented out due to smooth hack
-	// this.texture.needsUpdate = true;
+	this.texture.needsUpdate = true;
+
+	this.heatmap.update();
+	this.heatmap.display();
 };
 
 Heatmap.prototype.update = function(timeDiff, time) {

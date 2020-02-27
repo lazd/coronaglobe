@@ -1,5 +1,5 @@
 import util from './gt.util.js';
-import * as THREE from 'three/build/three.module.js';
+import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import Globe from './gt.Globe.js';
 import Skybox from './gt.Skybox.js';
@@ -84,7 +84,7 @@ const App = function(options) {
 	this.ambientLight = new THREE.AmbientLight(0x222222, 5);
 	scene.add(this.ambientLight);
 
-	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 1000);
+	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 750);
 	cameraLight.position.set(0, 0, this.cameraDistance);
 	camera.add(cameraLight);
 
@@ -155,6 +155,7 @@ App.defaults = {
 	cameraDistance: 600,
 	debug: false,
 	pauseOnBlur: true,
+	realtimeHeatmap: false,
 
 	watchGPS: false,
 	startAtGPS: true,
@@ -166,7 +167,8 @@ App.defaults = {
 
 	heatmapStyles: {
 		default: {}
-	}};
+	}
+};
 
 // Animation
 App.prototype.animate = function(time) {
@@ -178,7 +180,7 @@ App.prototype.animate = function(time) {
 	this.globe.update(timeDiff, time);
 
 	// Only update the heatmap if we're running
-	if (this.running)
+	if (this.running && this.realtimeHeatmap)
 		this.heatmap.update(timeDiff, time);
 
 	// Re-align the sun every minute

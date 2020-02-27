@@ -1,4 +1,4 @@
-import * as THREE from 'three/build/three.module.js';
+import * as THREE from 'three';
 import util from './gt.util.js';
 
 const Marker = function(options) {
