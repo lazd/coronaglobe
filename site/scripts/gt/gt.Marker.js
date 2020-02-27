@@ -1,5 +1,8 @@
-gt.Marker = function(options) {
-	this.location = gt.util.latLongToVector3(options.location[0], options.location[1], options.radius);
+import * as THREE from 'three/build/three.module.js';
+import util from './gt.util.js';
+
+const Marker = function(options) {
+	this.location = util.latLongToVector3(options.location[0], options.location[1], options.radius);
 
 	var geometry = new THREE.SphereGeometry(1);
 	var material = new THREE.MeshPhongMaterial({
@@ -14,3 +17,5 @@ gt.Marker = function(options) {
 
 	options.scene.add(this.mesh)
 };
+
+export default Marker;

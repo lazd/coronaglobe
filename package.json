@@ -2,14 +2,15 @@
   "name": "covid19heat",
   "version": "1.0.0",
   "description": "A 3D heatmap of the COVID-19 virus",
-  "main": "index.js",
+  "main": "dist/index.html",
   "scripts": {
     "update": "npm run fetch && npm run import && npm run push && npm run deploy",
     "fetch": "git submodule update --remote",
     "import": "node tools/import.js",
     "push": "git commit site COVID-19 -m \"feat: update data\" && git push -u origin master",
-    "build": "parcel site/index.html",
-    "deploy": "ghpages -p site/"
+    "dev": "parcel site/index.html",
+    "build": "parcel build site/index.html",
+    "deploy": "npm run build && ghpages -p dist/"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,8 @@
   "homepage": "https://github.com/lazd/covid19heat#readme",
   "devDependencies": {
     "csv": "^5.3.1",
+    "ghpages": "^0.0.10",
     "parcel": "^2.0.0-alpha.3.2",
-    "ghpages": "^0.0.10"
+    "three": "^0.113.2"
   }
 }

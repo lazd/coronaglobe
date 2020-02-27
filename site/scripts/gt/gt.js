@@ -1,4 +1,6 @@
-var gt = {
+import App from './gt.App.js';
+
+const gt = {
 	config: {
 		earthRadius: 200,
 		markerRadius: 200,
@@ -46,6 +48,8 @@ var gt = {
 		},
 	},
 	init: function() {
-		gt.app = new gt.App(gt.config);
+		gt.app = new App(gt.config);
 	}
 };
+
+window.addEventListener('load', gt.init);

@@ -1,11 +1,15 @@
-gt.Heatmap = function(options) {
+import * as THREE from 'three/build/three.module.js';
+import util from './gt.util.js';
+import WebGLHeatmap from './lib/webgl-heatmap.js';
+
+const Heatmap = function(options) {
 	this.set(options);
 
 	this.lastUpdate = 0;
 
 	this.canvas = document.createElement('canvas');
 
-	this.heatmap = createWebGLHeatmap({
+	this.heatmap = new WebGLHeatmap({
 		canvas: this.canvas,
 		width: this.width,
 		height: this.height
@@ -35,7 +39,7 @@ gt.Heatmap = function(options) {
 	this.scene.add(this.mesh);
 };
 
-gt.Heatmap.defaults = {
+Heatmap.defaults = {
 	radius: 200,
 	width: 4096,
 	height: 2048,
@@ -46,15 +50,15 @@ gt.Heatmap.defaults = {
 	decayFactor: 0
 };
 
-gt.Heatmap.prototype.set = function(options) {
-	gt.util.extend(this, this.constructor.defaults, options);
+Heatmap.prototype.set = function(options) {
+	util.extend(this, this.constructor.defaults, options);
 
 	// Invert decay factor
 	this.decayFactor = this.decayFactor === 0 ? 0 : 1 - this.decayFactor;
 };
 
-gt.Heatmap.prototype.add = function(data) {
-	var pos = gt.util.latLongTo2dCoordinate(data.location[0], data.location[1], this.width, this.height)
+Heatmap.prototype.add = function(data) {
+	var pos = util.latLongTo2dCoordinate(data.location[0], data.location[1], this.width, this.height)
 	if (pos.x === 0) {
 		console.error('Got 0,0 location', data)
 	}
@@ -65,7 +69,7 @@ gt.Heatmap.prototype.add = function(data) {
 	// this.texture.needsUpdate = true;
 };
 
-gt.Heatmap.prototype.update = function(timeDiff, time) {
+Heatmap.prototype.update = function(timeDiff, time) {
 	if (time - this.lastUpdate < 1000/this.fps) return;
 
 	this.lastUpdate = time;
@@ -85,3 +89,5 @@ gt.Heatmap.prototype.update = function(timeDiff, time) {
 	this.heatmap.update();
 	this.heatmap.display();
 };
+
+export default Heatmap;

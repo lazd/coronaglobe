@@ -1,4 +1,6 @@
-gt.util = {
+import * as THREE from 'three/build/three.module.js';
+
+const util = {
 	// Convert a latitude/longitude pair to a 3D point
 	latLongToVector3: function(lat, lon, radius) {
 		var phi = (lon+90)*Math.PI/180; // Lon
@@ -14,8 +16,6 @@ gt.util = {
 	// Convert a latitude/longitude pair to a X/Y coordiante pair
 	// Via http://stackoverflow.com/a/14457180/1170723
 	latLongTo2dCoordinate: function(latitude, longitude, mapWidth, mapHeight) {
-
-
 		var pos = {};
 
 		// Get X value
@@ -23,7 +23,7 @@ gt.util = {
 		// pos.x = (longitude+180)*(mapWidth/360);
 		
 		// Convert from degrees to radians
-		var latRad = gt.util.deg2rad(latitude);
+		var latRad = util.deg2rad(latitude);
 
 		// Get Y value
 		var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2))) * Math.cos(latRad/Math.PI*2); // Close enough
@@ -93,3 +93,5 @@ gt.util = {
 		return result;
 	}
 };
+
+export default util;

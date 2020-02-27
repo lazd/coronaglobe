@@ -1,5 +1,14 @@
-gt.App = function(options) {
-	gt.util.extend(this, gt.App.defaults, options);
+import util from './gt.util.js';
+import * as THREE from 'three/build/three.module.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import Globe from './gt.Globe.js';
+import Skybox from './gt.Skybox.js';
+import Heatmap from './gt.Heatmap.js';
+
+import data from '../../data/data.json';
+
+const App = function(options) {
+	util.extend(this, App.defaults, options);
 	this.el = (this.el && this.el.nodeType) || (this.el && document.querySelector(this.el)) || document.body;
 
 	// Permanantly bind animate so we don't have to call it in funny ways
@@ -67,27 +76,26 @@ gt.App = function(options) {
 	scene.add(camera);
 
 	// Setup lights
-	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF);
+	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
 	scene.add(this.directionalLight);
 
-	this.ambientLight = new THREE.AmbientLight(0x222222, 10);
+	this.ambientLight = new THREE.AmbientLight(0x222222, 5);
 	scene.add(this.ambientLight);
 
-	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 1500);
+	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 1000);
 	cameraLight.position.set(0, 0, this.cameraDistance);
 	camera.add(cameraLight);
 
 	this.setSunPosition();
 
 	// Add controls
-	// this.controls = new THREE.TrackballControls(this.camera, this.el);
-	this.controls = new THREE.OrbitControls(this.camera, this.container);
+	this.controls = new OrbitControls(this.camera, this.container);
 
 	// Show spinner
 	this.showSpinner();
 
 	// Add globe
-	this.globe = new gt.Globe({
+	this.globe = new Globe({
 		scene: scene,
 		radius: this.earthRadius,
 		cloudRadius: this.cloudRadius,
@@ -96,14 +104,12 @@ gt.App = function(options) {
 	});
 
 	// Add skybox
-	this.skybox = new gt.Skybox({
-		scene: scene,
-		path: 'images/skybox',
-		prefix: 'Purple_Nebula_'
+	this.skybox = new Skybox({
+		scene: scene
 	});
 
 	// Add heatmap
-	this.heatmap = new gt.Heatmap({
+	this.heatmap = new Heatmap({
 		scene: scene,
 		radius: this.earthRadius + 1
 	});
@@ -130,13 +136,13 @@ gt.App = function(options) {
 	if (this.debug || this.fps)
 		this.addStats();
 
-	this.loadData();
+	this.loadData(data);
 
 	// Start animation
 	this.animate(0);
 };
 
-gt.App.defaults = {
+App.defaults = {
 	fps: false,
 	menus: true,
 	count: true,
@@ -161,7 +167,7 @@ gt.App.defaults = {
 	}};
 
 // Animation
-gt.App.prototype.animate = function(time) {
+App.prototype.animate = function(time) {
 	var timeDiff = time - this.lastTime;
 	this.lastTime = time;
 
@@ -180,7 +186,7 @@ gt.App.prototype.animate = function(time) {
 	}
 
 	// Slowly set time for today's date
-	// this.setSunPosition(gt.util.getDOY(), time / 1000 % 24);
+	// this.setSunPosition(util.getDOY(), time / 1000 % 24);
 
 	// Test year + day
 	// this.setSunPosition(time / 100 % 365, time / 24 % 24);
@@ -192,14 +198,14 @@ gt.App.prototype.animate = function(time) {
 		this.stats.update();
 };
 
-gt.App.prototype.render = function() {
+App.prototype.render = function() {
 	this.renderer.render(this.scene, this.camera);
 };
 
-gt.App.prototype.setSunPosition = function(dayOfYear, utcHour) {
+App.prototype.setSunPosition = function(dayOfYear, utcHour) {
 	if (typeof dayOfYear === 'undefined' || typeof dayOfYear === 'undefined') {
 		var d = new Date();
-		dayOfYear = gt.util.getDOY(d);
+		dayOfYear = util.getDOY(d);
 		utcHour = d.getUTCHours();
 	}
 
@@ -210,41 +216,41 @@ gt.App.prototype.setSunPosition = function(dayOfYear, utcHour) {
 
 	// Calculate declination angle
 	// Via http://pveducation.org/pvcdrom/properties-of-sunlight/declination-angle
-	var sunAngle = 23.45*Math.sin(gt.util.deg2rad(360/365 * (dayOfYear-81)));
+	var sunAngle = 23.45*Math.sin(util.deg2rad(360/365 * (dayOfYear-81)));
 
 	// Calcuate the 3D position of the sun
-	var sunPos = gt.util.latLongToVector3(sunAngle, sunLong, 1500);
+	var sunPos = util.latLongToVector3(sunAngle, sunLong, 1500);
 	this.directionalLight.position.copy(sunPos);
 	// console.log('%s on %d day of year: Sun at longitude %s, angle %s', utcHour.toFixed(3), dayOfYear, sunLong.toFixed(3), sunAngle.toFixed(3));
 };
 
-gt.App.prototype.moveToGPS = function() {
+App.prototype.moveToGPS = function() {
 	// Ask for and go to user's position
 	navigator.geolocation.getCurrentPosition((function(pos) {
 		this.rotateTo(pos);
 	}).bind(this));
 };
 
-gt.App.prototype.startWatchingGPS = function() {
+App.prototype.startWatchingGPS = function() {
 	// Ask for and watch user's position
 	this._geoWatchID = navigator.geolocation.watchPosition(this.handleGeolocationChange.bind(this));
 	this.watchGPS = true;
 };
 
-gt.App.prototype.stopWatchingGPS = function() {
+App.prototype.stopWatchingGPS = function() {
 	this.locationButton.classList.remove('gt_selected');
 	navigator.geolocation.clearWatch(this._geoWatchID);
 	this.watchGPS = false;
 };
 
-gt.App.prototype.setParametersFromHash = function(styleName) {
-	var style = gt.util.getHashArgs().style;
+App.prototype.setParametersFromHash = function(styleName) {
+	var style = util.getHashArgs().style;
 	if (!style)
 		style = this.heatmapStyle;
 	this.setStyle(style);
 
-	var lat = gt.util.getHashArgs().lat;
-	var long = gt.util.getHashArgs().long;
+	var lat = util.getHashArgs().lat;
+	var long = util.getHashArgs().long;
 	if (lat && long) {
 		this.rotateTo({
 			coords: {
@@ -255,16 +261,16 @@ gt.App.prototype.setParametersFromHash = function(styleName) {
 	}
 };
 
-gt.App.prototype.setStyle = function(styleName) {
+App.prototype.setStyle = function(styleName) {
 	this.typeSelect.value = styleName;
 	this.heatmap.set(this.heatmapStyles[styleName]);
-	gt.util.setHashFromArgs({
+	util.setHashFromArgs({
 		style: styleName
 	});
 };
 
 // Marker management
-gt.App.prototype.add = function(data) {
+App.prototype.add = function(data) {
 	this.count += data.total;
 
 	this.countEl.innerText = this.count.toLocaleString()+' '+(this.count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
@@ -273,7 +279,7 @@ gt.App.prototype.add = function(data) {
 	// this.addMarker(data); // Markers are very, very slow
 };
 
-gt.App.prototype.addMarker = function(data) {
+App.prototype.addMarker = function(data) {
 	// Create a new marker instance
 	var marker = new gt.Marker({
 		user: data.user,
@@ -287,46 +293,47 @@ gt.App.prototype.addMarker = function(data) {
 	this.markers.push(marker);
 };
 
-gt.App.prototype.rotateTo = function(pos) {
+App.prototype.rotateTo = function(pos) {
 	// TODO: Animate rotation smoothly
-	this.camera.position = gt.util.latLongToVector3(pos.coords.latitude, pos.coords.longitude, this.cameraDistance);
+	let vec3 = util.latLongToVector3(pos.coords.latitude, pos.coords.longitude, this.cameraDistance);
+	this.camera.position.set(vec3.x, vec3.y, vec3.z);
 	this.camera.lookAt(this.scene.position);
 };
 
-gt.App.prototype.showOverlay = function(type) {
+App.prototype.showOverlay = function(type) {
 	this.overlay.classList.remove('hide');
 	if (type)
 		this.indicator.className = 'gt_'+type;
 };
 
-gt.App.prototype.hideOverlay = function(type) {
+App.prototype.hideOverlay = function(type) {
 	this.overlay.classList.add('hide');
 	if (type)
 		this.indicator.className = 'gt_'+type;
 };
 
 // Handlers
-gt.App.prototype.showSpinner = function() {
+App.prototype.showSpinner = function() {
 	this.showOverlay('loading gt_icon-spinner');
 };
 
-gt.App.prototype.hideSpinner = function() {
+App.prototype.hideSpinner = function() {
 	this.hideOverlay('loading gt_icon-spinner');
 };
 
-gt.App.prototype.handleLoaded = function() {
+App.prototype.handleLoaded = function() {
 	this.hideSpinner();
 	this.loaded = true;
 };
 
-gt.App.prototype.togglePause = function() {
+App.prototype.togglePause = function() {
 	if (this.running)
 		this.pause();
 	else
 		this.play();
 }
 
-gt.App.prototype.pause = function() {
+App.prototype.pause = function() {
 	if (this.loaded) {
 		this.showOverlay('paused');
 		this.pauseButton.classList.remove('gt_icon-pause');
@@ -336,7 +343,7 @@ gt.App.prototype.pause = function() {
 	}
 };
 
-gt.App.prototype.play = function() {
+App.prototype.play = function() {
 	if (this.loaded) {
 		this.hideOverlay('paused');
 		this.pauseButton.classList.remove('gt_icon-play');
@@ -346,19 +353,19 @@ gt.App.prototype.play = function() {
 	}
 };
 
-gt.App.prototype.handleBlur = function() {
+App.prototype.handleBlur = function() {
 	if (this.pauseOnBlur) {
 		this.pause();
 	}
 };
 
-gt.App.prototype.handleFocus = function() {
+App.prototype.handleFocus = function() {
 	if (this.pauseOnBlur) {
 		this.play();
 	}
 };
 
-gt.App.prototype.toggleGPS = function() {
+App.prototype.toggleGPS = function() {
 	if (this.watchGPS) {
 		this.stopWatchingGPS();
 	}
@@ -367,14 +374,14 @@ gt.App.prototype.toggleGPS = function() {
 	}
 };
 
-gt.App.prototype.handleGeolocationChange = function(pos) {
+App.prototype.handleGeolocationChange = function(pos) {
 	if (this.watchGPS) {
 		this.rotateTo(pos);
 		this.locationButton.classList.add('gt_selected');
 	}
 };
 
-gt.App.prototype.handleWindowResize = function() {
+App.prototype.handleWindowResize = function() {
 	// Remove ourselves from the equation to get a valid measurement
 	this.canvas.style.display = 'none';
 
@@ -392,7 +399,7 @@ gt.App.prototype.handleWindowResize = function() {
 };
 
 // Debug methods
-gt.App.prototype.addTestData = function() {
+App.prototype.addTestData = function() {
 	this.add({
 		label: 'SF',
 		location: [37.7835916, -122.4091141]
@@ -407,38 +414,43 @@ gt.App.prototype.addTestData = function() {
 	}
 };
 
-gt.App.prototype.loadData = function(time) {
+App.prototype.loadData = function(data) {
+	var locations = data.locations;
+	var latestDate = Object.keys(data.days).pop();
+	var latestLocations = data.days[latestDate];
+	console.log('Showing data for %s', latestDate);
+	for (var locationData of latestLocations) {
+		var location = locations[locationData.id];
+		var cases = locationData.cases;
+		if (cases) {
+			var size = (Math.log(locationData.cases) / Math.log(1.5)) + 2;
+			var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region']
+			console.log(locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
+			this.add({
+				total: cases,
+				location: [location.Lat, location.Long],
+				size: size,
+				intensity: 0.7
+			});
+		}
+	}
+};
+
+App.prototype.fetchData = function() {
 	var app = this;
 	var req = new XMLHttpRequest();
 	req.addEventListener('load', function() {
-		var data = app.data = JSON.parse(req.responseText);
-
-		var locations = data.locations;
-		var latestDate = Object.keys(data.days).pop();
-		var latestLocations = data.days[latestDate];
-		console.log('Showing data for %s', latestDate);
-		for (var locationData of latestLocations) {
-			var location = locations[locationData.id];
-			var cases = locationData.cases;
-			if (cases) {
-				var size = ((Math.log(locationData.cases) / Math.log(1.5)) + 1) * 4.5;
-				var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region']
-				console.log(locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
-				app.add({
-					total: cases,
-					location: [location.Lat, location.Long],
-					size: size,
-					intensity: 0.7
-				});
-			}
-		}
+		var data = JSON.parse(req.responseText);
+		app.loadData(data);
 	});
 	req.open('GET', 'data/data.json');
 	req.send();
 };
 
-gt.App.prototype.addStats = function() {
+App.prototype.addStats = function() {
 	this.stats = new Stats();
 	this.stats.domElement.className = 'gt_stats gt_bottom gt_left';
 	this.container.appendChild(this.stats.domElement);
 };
+
+export default App;
