@@ -108,20 +108,23 @@ gt.App = function(options) {
 		radius: this.earthRadius + 1
 	});
 
-	// Set default style
-	this.setStyleFromHash();
+	// Watch GPS position
+	if (this.watchGPS)
+		this.startWatchingGPS();
+
+	if (this.startAtGPS)
+		this.moveToGPS();
+
+	// Set default parameters based on hash
+	this.setParametersFromHash();
 
 	// Add listeners
-	window.addEventListener('hashchange', this.setStyleFromHash.bind(this));
+	window.addEventListener('hashchange', this.setParametersFromHash.bind(this));
 	window.addEventListener('resize', this.handleWindowResize.bind(this));
 	window.addEventListener('blur', this.handleBlur.bind(this));
 	window.addEventListener('focus', this.handleFocus.bind(this));
 	this.pauseButton.addEventListener('click', this.togglePause.bind(this))
-	this.locationButton.addEventListener('click', this.toggleGPS.bind(this))
-
-	// Watch GPS position
-	if (this.watchGPS)
-		this.startWatchingGPS();
+	this.locationButton.addEventListener('click', this.moveToGPS.bind(this))
 
 	// Add debug information
 	if (this.debug || this.fps)
@@ -145,7 +148,8 @@ gt.App.defaults = {
 	debug: false,
 	pauseOnBlur: true,
 
-	watchGPS: true,
+	watchGPS: false,
+	startAtGPS: true,
 
 	itemName: 'item',
 	itemNamePlural: 'items',
@@ -214,6 +218,13 @@ gt.App.prototype.setSunPosition = function(dayOfYear, utcHour) {
 	// console.log('%s on %d day of year: Sun at longitude %s, angle %s', utcHour.toFixed(3), dayOfYear, sunLong.toFixed(3), sunAngle.toFixed(3));
 };
 
+gt.App.prototype.moveToGPS = function() {
+	// Ask for and go to user's position
+	navigator.geolocation.getCurrentPosition((function(pos) {
+		this.rotateTo(pos);
+	}).bind(this));
+};
+
 gt.App.prototype.startWatchingGPS = function() {
 	// Ask for and watch user's position
 	this._geoWatchID = navigator.geolocation.watchPosition(this.handleGeolocationChange.bind(this));
@@ -221,27 +232,40 @@ gt.App.prototype.startWatchingGPS = function() {
 };
 
 gt.App.prototype.stopWatchingGPS = function() {
-		this.locationButton.classList.remove('gt_selected');
+	this.locationButton.classList.remove('gt_selected');
 	navigator.geolocation.clearWatch(this._geoWatchID);
 	this.watchGPS = false;
 };
 
-gt.App.prototype.setStyleFromHash = function(styleName) {
+gt.App.prototype.setParametersFromHash = function(styleName) {
 	var style = gt.util.getHashArgs().style;
 	if (!style)
 		style = this.heatmapStyle;
 	this.setStyle(style);
+
+	var lat = gt.util.getHashArgs().lat;
+	var long = gt.util.getHashArgs().long;
+	if (lat && long) {
+		this.rotateTo({
+			coords: {
+				latitude: lat,
+				longitude: long
+			}
+		});
+	}
 };
 
 gt.App.prototype.setStyle = function(styleName) {
 	this.typeSelect.value = styleName;
 	this.heatmap.set(this.heatmapStyles[styleName]);
-	window.location.hash='#style='+styleName;
+	gt.util.setHashFromArgs({
+		style: styleName
+	});
 };
 
 // Marker management
 gt.App.prototype.add = function(data) {
-	this.count += parseInt(data.total, 10);
+	this.count += data.total;
 
 	this.countEl.innerText = this.count.toLocaleString()+' '+(this.count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
 
