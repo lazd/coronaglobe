@@ -98,7 +98,7 @@ gt.App = function(options) {
 	// Add skybox
 	this.skybox = new gt.Skybox({
 		scene: scene,
-		path: '/images/skybox',
+		path: 'images/skybox',
 		prefix: 'Purple_Nebula_'
 	});
 
