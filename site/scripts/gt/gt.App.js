@@ -7,6 +7,8 @@ import Heatmap from './gt.Heatmap.js';
 
 import data from '../../data/data.json';
 
+window.THREE = THREE;
+
 const App = function(options) {
 	util.extend(this, App.defaults, options);
 	this.el = (this.el && this.el.nodeType) || (this.el && document.querySelector(this.el)) || document.body;
@@ -68,11 +70,11 @@ const App = function(options) {
 	this.container.appendChild(this.canvas);
 
 	// Create scene
-	var scene = this.scene = new THREE.Scene();
+	var scene = this.scene = window.scene = new THREE.Scene();
 
 	// Setup camera
 	var camera = this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.1, 100000);
-	camera.position.z = -550;
+	camera.position.set(0, 0 -550);
 	scene.add(camera);
 
 	// Setup lights
@@ -423,14 +425,15 @@ App.prototype.loadData = function(data) {
 		var location = locations[locationData.id];
 		var cases = locationData.cases;
 		if (cases) {
-			var size = (Math.log(locationData.cases) / Math.log(1.5)) + 2;
+			var size = ((Math.log(locationData.cases) / Math.log(1.5)) + 1) * 4.5;
+			var intensity = 0.7;
 			var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region']
 			console.log(locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
 			this.add({
 				total: cases,
 				location: [location.Lat, location.Long],
 				size: size,
-				intensity: 0.7
+				intensity: intensity
 			});
 		}
 	}

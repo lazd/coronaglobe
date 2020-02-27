@@ -23,13 +23,14 @@ const Heatmap = function(options) {
 	texture.premultiplyAlpha = true;
 
 	// Setup mesh
-	this.geometry = new THREE.SphereGeometry(this.radius, 40, 30);
+	this.geometry = new THREE.SphereGeometry(this.radius, 32, 32);
 	this.material = new THREE.MeshPhongMaterial({
 		map: this.texture,
 		transparent: true,
 		depthWrite: false
 	});
 	this.mesh = new THREE.Mesh(this.geometry, this.material);
+	this.mesh.name = 'Heatmap';
 
 	// Since the heatmap is static, disable auto-updating of its matrix
 	this.mesh.matrixAutoUpdate = false;
