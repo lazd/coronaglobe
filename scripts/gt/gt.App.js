@@ -409,7 +409,7 @@ gt.App.prototype.loadData = function(time) {
 			}
 		}
 	});
-	req.open('GET', '/data/data.json');
+	req.open('GET', 'data/data.json');
 	req.send();
 };
 
