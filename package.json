@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "update": "node tools/import.js",
-    "build": "parcel site/index.html"
+    "build": "parcel site/index.html",
+    "deploy": "ghpages -p site/"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
   "devDependencies": {
     "csv": "^5.3.1",
     "parcel": "^2.0.0-alpha.3.2"
+  },
+  "dependencies": {
+    "ghpages": "^0.0.10"
   }
 }
