@@ -37,6 +37,7 @@ const App = function(options) {
 	// Create a container
 	// Create an element for output
 	this.container = this.el.querySelector('.gt_container');
+	this.ui = this.el.querySelector('.gt_ui');
 	this.countEl = this.container.querySelector('.gt_count');
 	this.overlay = this.container.querySelector('.gt_overlay');
 	this.indicator = this.container.querySelector('.gt_indicator');
@@ -50,6 +51,11 @@ const App = function(options) {
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
 	}
+
+	this.ui.addEventListener('mousedown', function(evt) {
+		// Prevent OrbitControls from breaking events
+		evt.stopPropagation();
+	}, true);
 
 	// Listen to visualization type change
 	this.typeSelect.addEventListener('change', function(evt) {

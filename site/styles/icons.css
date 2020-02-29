@@ -9,8 +9,8 @@
 	font-style: normal;
 }
 
-.gt_select,
-[class*="gt_icon-"] {
+.gt_select:before,
+.gt_icon:before {
 	font-family: 'icomoon' !important;
 	speak: none;
 	font-style: normal;
@@ -21,36 +21,36 @@
 	-webkit-font-smoothing: antialiased;
 }
 .gt_select:before,
-.gt_icon-menu:before {
+.gt_icon--menu:before {
 	content: "\e001";
 }
-.gt_icon-search:before {
+.gt_icon--search:before {
 	content: "\e000";
 }
-.gt_icon-pause:before {
+.gt_icon--pause:before {
 	content: "\e002";
 }
-.gt_icon-play:before {
+.gt_icon--play:before {
 	content: "\e003";
 }
-.gt_icon-location:before {
+.gt_icon--location:before {
 	content: "\e004";
 }
-.gt_icon-cloud:before {
+.gt_icon--cloud:before {
 	content: "\e005";
 }
-.gt_icon-lightning:before {
+.gt_icon--lightning:before {
 	content: "\e006";
 }
-.gt_icon-sun:before {
+.gt_icon--sun:before {
 	content: "\e007";
 }
-.gt_icon-fire:before {
+.gt_icon--fire:before {
 	content: "\e008";
 }
-.gt_icon-earth:before {
+.gt_icon--earth:before {
 	content: "\e009";
 }
-.gt_icon-spinner:before {
+.gt_icon--spinner:before {
 	content: "\e00a";
 }

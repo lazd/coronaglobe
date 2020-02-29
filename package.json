@@ -27,9 +27,14 @@
   },
   "homepage": "https://github.com/lazd/covid19heat#readme",
   "devDependencies": {
+    "@parcel/resolver-default": "^2.0.0-alpha.3",
+    "@parcel/transformer-postcss": "^2.0.0-alpha.3",
+    "@parcel/transformer-raw": "^2.0.0-alpha.3",
+    "autoprefixer": "^9.7.4",
     "csv": "^5.3.1",
     "ghpages": "^0.0.10",
     "parcel": "^2.0.0-alpha.3.2",
+    "postcss-nested": "^4.2.1",
     "three": "0.87",
     "three-orbitcontrols": "2.96.0"
   }

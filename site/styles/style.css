@@ -1,3 +1,16 @@
+:root {
+  --gt-component-focus-color: rgb(38, 128, 235);
+
+  --gt-component-background-color: rgba(100, 100, 100, 0.50);
+  --gt-component-background-color-hover: rgba(100, 100, 100, 0.55);
+  --gt-component-background-color-focus: var(--gt-component-background-color-hover);
+
+  --gt-component-border-radius: 4px;
+
+  --gt-component-focus-width: 2px;
+  --gt-component-focus-blur: 2px;
+}
+
 html {
 	overflow: hidden
 }
@@ -13,11 +26,6 @@ body {
 	height: 100%;
 	background: black;
 
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
 	user-select: none;
 
 	cursor: crosshair;
@@ -30,18 +38,27 @@ body {
 	display: block;
 }
 
-#fps, #ms,
 .gt_output,
 .gt_select select,
 .gt_button,
 .gt_input {
 	margin: 10px;
 
-	border-radius: 5px;
-	background: rgba(100, 100, 100, 0.50);
+	border: none;
+	border-radius: var(--gt-component-border-radius);
+	background-color: var(--gt-component-background-color);
+
+	&:hover {
+		background-color: var(--gt-component-background-color-hover);
+	}
+
+	&:focus {
+		outline: none;
+		background-color: var(--gt-component-background-color-focus);
+    box-shadow: 0 0 var(--gt-component-focus-blur) var(--gt-component-focus-width) var(--gt-component-focus-color);
+	}
 }
 
-#fps, #ms,
 .gt_output,
 .gt_layer {
 	z-index: 1; /* Position below overlays */
@@ -64,7 +81,6 @@ body {
 }
 
 .gt_button {
-	border: none;
 	height: 38px;
 
 	font-size: 16px;
@@ -164,8 +180,6 @@ body {
 	margin: 0;
 
 	padding: 0px 10px;
-
-	border: none;
 
 	font-size: 20px;
 

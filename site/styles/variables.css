@@ -1,0 +1,9 @@
+:root {
+  --gt-focus-color: rgb(38, 128, 235);
+
+  --gt-component-border-color: rgb(150, 150, 150);
+  --gt-component-background-color: rgba(100, 100, 100, 0.50);
+
+  --gt-component-border-radius: 5px;
+  --gt-component-border-width: 1px;
+}
