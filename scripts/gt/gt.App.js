@@ -421,7 +421,7 @@ gt.App.prototype.loadData = function(time) {
 			var location = locations[locationData.id];
 			var cases = locationData.cases;
 			if (cases) {
-				var size = (Math.log(locationData.cases) / Math.log(1.5)) + 2;
+				var size = ((Math.log(locationData.cases) / Math.log(1.5)) + 1) * 4.5;
 				var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region']
 				console.log(locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
 				app.add({

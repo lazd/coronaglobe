@@ -37,8 +37,8 @@ gt.Heatmap = function(options) {
 
 gt.Heatmap.defaults = {
 	radius: 200,
-	width: 1024,
-	height: 512,
+	width: 4096,
+	height: 2048,
 	fps: 32,
 	size: 20,
 	intensity: 0.03,
