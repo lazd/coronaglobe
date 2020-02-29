@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import util from './gt.util.js';
 
 const Marker = function(options) {
-	this.location = util.latLongToVector3(options.location[0], options.location[1], options.radius);
+	this.data = options.data;
 
 	var geometry = new THREE.SphereGeometry(1);
 	var material = new THREE.MeshPhongMaterial({
@@ -13,7 +13,7 @@ const Marker = function(options) {
 	});
 
 	this.mesh = new THREE.Mesh(geometry, material);
-	this.mesh.position = this.location;
+	this.mesh.position.copy(util.latLongToVector3(options.location[0], options.location[1], options.radius));
 
 	options.scene.add(this.mesh)
 };
