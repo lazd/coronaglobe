@@ -65,8 +65,13 @@ const App = function(options) {
 	};
 
 	this.ui.addEventListener('mousedown', stopProp);
+	this.ui.addEventListener('mousemove', stopProp);
+	this.ui.addEventListener('mouseup', stopProp);
+	this.ui.addEventListener('contextmenu', stopProp);
+	this.ui.addEventListener('wheel', stopProp);
 	this.ui.addEventListener('touchstart', stopProp);
 	this.ui.addEventListener('touchmove', stopProp);
+	this.ui.addEventListener('touchend', stopProp);
 	this.ui.addEventListener('keydown', stopProp);
 
 	// Listen to visualization type change
