@@ -1,6 +1,6 @@
 import util from './gt.util.js';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import OrbitControls from 'three-orbitcontrols';
 import Globe from './gt.Globe.js';
 import Skybox from './gt.Skybox.js';
 import Heatmap from './gt.Heatmap.js';
