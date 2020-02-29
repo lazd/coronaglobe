@@ -56,8 +56,8 @@ const util = {
 	getHashArgs: function() {
 		var args = {};
 		var argString = window.location.hash.replace(/^#/, '');
-		var argPars = argString.split('&');
-		argPars.forEach(function(argPair) {
+		var argPairs = argString.split('&');
+		argPairs.forEach(function(argPair) {
 			var argParts = argPair.split('=');
 			args[argParts[0]] = argParts[1];
 		});
@@ -69,15 +69,21 @@ const util = {
 		var hash = '#';
 		var count = 0;
 		for (var arg in args) {
-			if (count > 1) {
+			var value = args[arg];
+			if (!value) {
+				continue;
+			}
+
+			if (count > 0) {
 				hash += '&';
 			}
 
-			hash += arg+'='+args[arg];
+			hash += `${arg}=${value}`;
 
 			count++;
 		}
-		window.location.hash = hash;
+
+		history.replaceState(null, null, hash);
 	},
 
 	extend: function() {
@@ -91,6 +97,10 @@ const util = {
 			}
 		}
 		return result;
+	},
+
+	round: function(number, factor) {
+		return Math.round(number * factor) / factor;
 	}
 };
 

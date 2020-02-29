@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import OrbitControls from 'three-orbitcontrols';
 import Globe from './gt.Globe.js';
 import Skybox from './gt.Skybox.js';
+import Marker from './gt.Marker.js';
 import Heatmap from './gt.Heatmap.js';
 
 import data from '../../data/data.json';
@@ -52,8 +53,13 @@ const App = function(options) {
 
 	// Listen to visualization type change
 	this.typeSelect.addEventListener('change', function(evt) {
-		var style = evt.target.value;
-		this.setStyle(style);
+		var type = evt.target.value;
+		// this.setType(type);
+	}.bind(this));
+
+	// Listen to mouseup events to detect scroll stop
+	this.container.addEventListener('mouseup', function(evt) {
+		this.setHashFromParameters();
 	}.bind(this));
 
 	// Get width of element
@@ -78,17 +84,12 @@ const App = function(options) {
 	scene.add(camera);
 
 	// Setup lights
-	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
-	scene.add(this.directionalLight);
-
 	this.ambientLight = new THREE.AmbientLight(0x222222, 5);
 	scene.add(this.ambientLight);
 
 	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 750);
 	cameraLight.position.set(0, 0, this.cameraDistance);
 	camera.add(cameraLight);
-
-	this.setSunPosition();
 
 	// Add controls
 	this.controls = new OrbitControls(this.camera, this.container);
@@ -120,14 +121,15 @@ const App = function(options) {
 	if (this.watchGPS)
 		this.startWatchingGPS();
 
-	if (this.startAtGPS)
+	var args = util.getHashArgs();
+	if (this.startAtGPS && !args.lat && !args.long)
 		this.moveToGPS();
 
 	// Set default parameters based on hash
 	this.setParametersFromHash();
 
 	// Add listeners
-	window.addEventListener('hashchange', this.setParametersFromHash.bind(this));
+	window.addEventListener('popstate', this.setParametersFromHash.bind(this));
 	window.addEventListener('resize', this.handleWindowResize.bind(this));
 	window.addEventListener('blur', this.handleBlur.bind(this));
 	window.addEventListener('focus', this.handleFocus.bind(this));
@@ -161,13 +163,7 @@ App.defaults = {
 	startAtGPS: true,
 
 	itemName: 'item',
-	itemNamePlural: 'items',
-
-	heatmapStyle: 'default',
-
-	heatmapStyles: {
-		default: {}
-	}
+	itemNamePlural: 'items'
 };
 
 // Animation
@@ -185,15 +181,9 @@ App.prototype.animate = function(time) {
 
 	// Re-align the sun every minute
 	if (time - this.lastSunAlignment > 1000*60) {
-		this.setSunPosition();
+		this.globe.setSunPosition();
 		this.lastSunAlignment = time;
 	}
-
-	// Slowly set time for today's date
-	// this.setSunPosition(util.getDOY(), time / 1000 % 24);
-
-	// Test year + day
-	// this.setSunPosition(time / 100 % 365, time / 24 % 24);
 
 	this.render();
 	requestAnimationFrame(this.animate);
@@ -204,28 +194,6 @@ App.prototype.animate = function(time) {
 
 App.prototype.render = function() {
 	this.renderer.render(this.scene, this.camera);
-};
-
-App.prototype.setSunPosition = function(dayOfYear, utcHour) {
-	if (typeof dayOfYear === 'undefined' || typeof dayOfYear === 'undefined') {
-		var d = new Date();
-		dayOfYear = util.getDOY(d);
-		utcHour = d.getUTCHours();
-	}
-
-	var sunFraction = utcHour / 24;
-
-	// Calculate the longitude based on the fact that the 12th hour UTC should be sun at 0° latitude
-	var sunLong = sunFraction * -360 + 180;
-
-	// Calculate declination angle
-	// Via http://pveducation.org/pvcdrom/properties-of-sunlight/declination-angle
-	var sunAngle = 23.45*Math.sin(util.deg2rad(360/365 * (dayOfYear-81)));
-
-	// Calcuate the 3D position of the sun
-	var sunPos = util.latLongToVector3(sunAngle, sunLong, 1500);
-	this.directionalLight.position.copy(sunPos);
-	// console.log('%s on %d day of year: Sun at longitude %s, angle %s', utcHour.toFixed(3), dayOfYear, sunLong.toFixed(3), sunAngle.toFixed(3));
 };
 
 App.prototype.moveToGPS = function() {
@@ -248,13 +216,10 @@ App.prototype.stopWatchingGPS = function() {
 };
 
 App.prototype.setParametersFromHash = function(styleName) {
-	var style = util.getHashArgs().style;
-	if (!style)
-		style = this.heatmapStyle;
-	this.setStyle(style);
+	let args = util.getHashArgs();
 
-	var lat = util.getHashArgs().lat;
-	var long = util.getHashArgs().long;
+	var lat = parseFloat(args.lat);
+	var long = parseFloat(args.long);
 	if (lat && long) {
 		this.rotateTo({
 			coords: {
@@ -265,11 +230,25 @@ App.prototype.setParametersFromHash = function(styleName) {
 	}
 };
 
-App.prototype.setStyle = function(styleName) {
-	this.typeSelect.value = styleName;
-	this.heatmap.set(this.heatmapStyles[styleName]);
+App.prototype.setHashFromParameters = function() {
+	var lat = 0;
+	var long = 0;
+	var amithuzalAngle = this.controls.getAzimuthalAngle();
+	var polarAngle = this.controls.getPolarAngle();
+	lat = (util.rad2deg(polarAngle - Math.PI / 2) * -1);
+	long = util.rad2deg(amithuzalAngle - Math.PI / 2);
+
+	if (long <= -180) {
+		long = 360 + long;
+	}
+
+	// Round
+	long = util.round(long, 1000);
+	lat = util.round(lat, 1000);
+
 	util.setHashFromArgs({
-		style: styleName
+		lat: lat,
+		long: long
 	});
 };
 
@@ -285,7 +264,7 @@ App.prototype.add = function(data) {
 
 App.prototype.addMarker = function(data) {
 	// Create a new marker instance
-	var marker = new gt.Marker({
+	var marker = new Marker({
 		user: data.user,
 		tweet: data.tweet,
 		location: data.location,

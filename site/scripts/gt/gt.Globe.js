@@ -5,9 +5,11 @@ const Globe = function(options) {
 	// Store options
 	util.extend(this, Globe.defaults, options);
 
-	this.handleLoad = this.handleLoad.bind(this, 3);
+	// Initialize root object
+	this.root = new THREE.Object3D();
 
 	var loader = new THREE.TextureLoader();
+	this.handleLoad = this.handleLoad.bind(this, 3);
 
 	// Setup globe mesh
 	var globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
@@ -28,6 +30,7 @@ const Globe = function(options) {
 	// Since the earth is static, disable auto-updating of its matrix
 	this.globeMesh.matrixAutoUpdate = false;
 	this.globeMesh.updateMatrix();
+	this.root.add(this.globeMesh);
 
 	// Setup cloud mesh
 	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 48, 48);
@@ -39,13 +42,13 @@ const Globe = function(options) {
 	});
 	this.cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
 	this.cloudMesh.name = 'Clouds';
-
-	// Initialize root object
-	this.root = new THREE.Object3D();
+	this.root.add(this.cloudMesh);
 
 	// Add objects to root object
-	this.root.add(this.globeMesh);
-	this.root.add(this.cloudMesh);
+	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
+	this.root.add(this.directionalLight);
+
+	this.setSunPosition();
 
 	// Add root to scene
 	this.scene.add(this.root);
@@ -67,5 +70,28 @@ Globe.prototype.update = function(time) {
 	// Gently rotate the clouds around the earth as a function of time passed
 	this.cloudMesh.rotation.set(0, this.cloudMesh.rotation.y + time * this.cloudSpeed, 0);
 };
+
+Globe.prototype.setSunPosition = function(dayOfYear, utcHour) {
+	if (typeof dayOfYear === 'undefined' || typeof dayOfYear === 'undefined') {
+		var d = new Date();
+		dayOfYear = util.getDOY(d);
+		utcHour = d.getUTCHours();
+	}
+
+	var sunFraction = utcHour / 24;
+
+	// Calculate the longitude based on the fact that the 12th hour UTC should be sun at 0° latitude
+	var sunLong = sunFraction * -360 + 180;
+
+	// Calculate declination angle
+	// Via http://pveducation.org/pvcdrom/properties-of-sunlight/declination-angle
+	var sunAngle = 23.45*Math.sin(util.deg2rad(360/365 * (dayOfYear-81)));
+
+	// Calcuate the 3D position of the sun
+	var sunPos = util.latLongToVector3(sunAngle, sunLong, 1500);
+	this.directionalLight.position.copy(sunPos);
+	// console.log('%s on %d day of year: Sun at longitude %s, angle %s', utcHour.toFixed(3), dayOfYear, sunLong.toFixed(3), sunAngle.toFixed(3));
+};
+
 
 export default Globe;
