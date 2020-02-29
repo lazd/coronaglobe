@@ -59,15 +59,15 @@ const App = function(options) {
 		}
 	});
 
-	this.ui.addEventListener('mousedown', (evt) => {
+	let stopProp = (evt) => {
 		// Prevent OrbitControls from breaking events
 		evt.stopPropagation();
-	});
+	};
 
-	this.ui.addEventListener('keydown', (evt) => {
-		// Prevent OrbitControls from breaking events
-		evt.stopPropagation();
-	});
+	this.ui.addEventListener('mousedown', stopProp);
+	this.ui.addEventListener('touchstart', stopProp);
+	this.ui.addEventListener('touchmove', stopProp);
+	this.ui.addEventListener('keydown', stopProp);
 
 	// Listen to visualization type change
 	this.typeSelect.addEventListener('change', (evt) => {
@@ -135,13 +135,15 @@ const App = function(options) {
 		radius: this.earthRadius + 1
 	});
 
-	// Watch GPS position
-	if (this.watchGPS)
-		this.startWatchingGPS();
+	if (window.location.protocol === 'https:') {
+		// Watch GPS position
+		if (this.watchGPS)
+			this.startWatchingGPS();
 
-	var args = util.getHashArgs();
-	if (this.startAtGPS && !args.lat && !args.long)
-		this.moveToGPS();
+		var args = util.getHashArgs();
+		if (this.startAtGPS && !args.lat && !args.long)
+			this.moveToGPS();
+	}
 
 	// Set default parameters based on hash
 	this.setParametersFromHash();

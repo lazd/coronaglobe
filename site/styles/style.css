@@ -20,7 +20,7 @@
   --gt-slider-thumb-height: 24px;
   --gt-slider-thumb-width: var(--gt-slider-thumb-height);
   --gt-slider-thumb-border-radius: 100%;
-  --gt-slider-track-height: 6px;
+  --gt-slider-track-height: 12px;
   --gt-slider-thumb-outline-color: rgb(0, 0, 0);
   --gt-slider-thumb-outline-width: 3px;
 }
@@ -116,7 +116,7 @@ body {
 
 		background-color: var(--gt-component-background-color);
 
-		border-radius: var(--gt-component-border-radius);
+		border-radius: var(--gt-slider-track-height);
 	  box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
 
 		cursor: pointer;
@@ -157,7 +157,6 @@ body {
 .gt_select select,
 .gt_button {
 	padding: 10px 14px;
-	min-width: 47px;
 
 	text-align: center;
 	font-family: Helvetica, sans-serif;
@@ -173,6 +172,12 @@ body {
 
 .gt_count {
 	font-weight: bold;
+}
+
+.gt_date {
+	text-align: center;
+	flex-shrink: 0;
+	width: 80px;
 }
 
 .gt_input,

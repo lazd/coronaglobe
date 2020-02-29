@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<!-- Ensure correct presentation on iOS -->
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
+
+		<!-- Enable save to homescreen -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!-- Custom title -->
+		<meta name="apple-mobile-web-app-title" content="COVID-19 Heatmap">
+
 		<title>COVID-19 Heatmap</title>
 		<meta charset="utf-8">
 		<meta name="description" content="Heatmap representation of COVID-19 on WebGl 3D world map.">
@@ -13,7 +23,7 @@
 		<div class="gt_container">
 			<div class="gt_ui">
 				<div class="gt_layer gt_top gt_middle">
-					<input type="range" class="gt_slider gt_dateSlider" placeholder="location" />
+					<input type="range" min="0" step="1" class="gt_slider gt_dateSlider" placeholder="location" />
 					<div class="gt_output gt_date">-</div>
 				</div>
 				<div class="gt_layer gt_search gt_bottom gt_left">
