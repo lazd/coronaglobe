@@ -41,7 +41,7 @@ function normalizeString(string) {
   if (string === 'None') {
     return '';
   }
-  return string;
+  return string.trim();
 }
 
 let locations = [];
