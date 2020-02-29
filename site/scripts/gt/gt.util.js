@@ -25,11 +25,13 @@ const util = {
 		// Convert from degrees to radians
 		var latRad = util.deg2rad(latitude);
 
+		var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2)));
+
+		// Adjust the coordinate position for the projection, sort of
+		mercN *= Math.cos(latRad/Math.PI*1.92);
+
 		// Get Y value
-		var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2))) * Math.cos(latRad/Math.PI*2); // Close enough
 		pos.y = (mapHeight/2)-(mapWidth*mercN/(2*Math.PI));
-		// var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2)));
-		// pos.y  = (mapHeight/2)-(mapWidth*mercN/(2*Math.PI));
 
 		if (isNaN(pos.y) || isNaN(pos.x)) {
 			throw new Error('Failed to calculate position for '+latitude+','+longitude);
