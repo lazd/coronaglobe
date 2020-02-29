@@ -1,19 +1,38 @@
 :root {
-  --gt-component-focus-color: rgb(38, 128, 235);
 
-  --gt-component-background-color: rgba(100, 100, 100, 0.50);
-  --gt-component-background-color-hover: rgba(100, 100, 100, 0.55);
+  --gt-component-background-color: rgb(60, 60, 60);
+  --gt-component-background-color-hover: rgb(75, 75, 75);
   --gt-component-background-color-focus: var(--gt-component-background-color-hover);
 
+  --gt-component-height: 38px;
+  --gt-component-margin: 8px;
+  --gt-component-font-size: 16px;
   --gt-component-border-radius: 4px;
 
-  --gt-component-focus-width: 2px;
-  --gt-component-focus-blur: 2px;
+  --gt-component-focus-color: rgb(38, 128, 235);
+  --gt-component-focus-width: 3px;
+  --gt-component-focus-blur: 1px;
+
+  --gt-component-shadow-color: rgba(20, 20, 20, 0.25);
+  --gt-component-shadow-width: 2px;
+  --gt-component-shadow-blur: 4px;
+
+  --gt-slider-thumb-height: 24px;
+  --gt-slider-thumb-width: var(--gt-slider-thumb-height);
+  --gt-slider-thumb-border-radius: 100%;
+  --gt-slider-track-height: 6px;
+  --gt-slider-thumb-outline-color: rgb(0, 0, 0);
+  --gt-slider-thumb-outline-width: 3px;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 html {
 	overflow: hidden
 }
+
 body {
 	margin: 0;
 }
@@ -42,11 +61,14 @@ body {
 .gt_select select,
 .gt_button,
 .gt_input {
-	margin: 10px;
+	height: var(--gt-component-height);
+	margin: var(--gt-component-margin);
 
 	border: none;
 	border-radius: var(--gt-component-border-radius);
 	background-color: var(--gt-component-background-color);
+
+  box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
 
 	&:hover {
 		background-color: var(--gt-component-background-color-hover);
@@ -59,19 +81,82 @@ body {
 	}
 }
 
-.gt_output,
+.gt_slider {
+	width: 100%; /* Specific width is required for Firefox. */
+	margin: var(--gt-component-margin);
+
+	background: transparent; /* Otherwise white in Chrome */
+
+	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+
+	&:focus {
+		outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+	}
+
+	&::-webkit-slider-thumb {
+		height: var(--gt-slider-thumb-height);
+		width: var(--gt-slider-thumb-width);
+
+		margin-top: calc(var(--gt-slider-thumb-height) / -2 + var(--gt-slider-track-height) / 2);
+
+		border-radius: var(--gt-slider-thumb-border-radius);
+
+		background-color: var(--gt-component-background-color);
+    border: var(--gt-slider-thumb-outline-width) solid var(--gt-slider-thumb-outline-color);
+
+	  box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
+
+		cursor: pointer;
+		-webkit-appearance: none;
+	}
+
+	&::-webkit-slider-runnable-track {
+		width: 100%;
+		height: var(--gt-slider-track-height);
+
+		background-color: var(--gt-component-background-color);
+
+		border-radius: var(--gt-component-border-radius);
+	  box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
+
+		cursor: pointer;
+	}
+
+	&:hover {
+		&::-webkit-slider-thumb {
+			background-color: var(--gt-component-background-color-hover);
+		}
+		&::-webkit-slider-runnable-track {
+			background-color: var(--gt-component-background-color-hover);
+		}
+	}
+
+	&:focus {
+		&::-webkit-slider-thumb {
+	    border-color: var(--gt-component-focus-color);
+		}
+
+		&::-webkit-slider-runnable-track {
+			background-color: var(--gt-component-background-color-focus);
+		}
+	}
+}
+
 .gt_layer {
 	z-index: 1; /* Position below overlays */
 	position: absolute;
 	top: 0;
 	left: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .gt_input,
 .gt_output,
 .gt_select select,
 .gt_button {
-	padding: 10px;
+	padding: 10px 14px;
 	min-width: 47px;
 
 	text-align: center;
@@ -81,51 +166,9 @@ body {
 }
 
 .gt_button {
-	height: 38px;
+	height: var(--gt-component-height);
 
-	font-size: 16px;
-	line-height: 15px;
-}
-
-.gt_stats {
-	position: absolute !important;
-	height: 52px;
-	width: 96px !important;
-	opacity: 1 !important;
-	opacity: 0.55 !important;
-}
-
-#fps, #ms {
-	/*position: relative !important;*/
-	padding: 0 !important;
-	overflow: hidden;
-	background-color: rgba(0, 0, 0, 0.5) !important;
-}
-
-#fpsText, #msText {
-	position: absolute;
-	z-index: 1;
-	top: 2px;
-	left: 4px;
-
-	width: 1.125em !important;
-	overflow: hidden;
-	white-space: nowrap;
-
-	font-family: monospace !important;
-	font-size: 12px !important;
-	font-weight: normal !important;
-	color: rgba(255, 255, 255, 0.5) !important;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
-}
-
-#fpsGraph, #msGraph {
-	border-radius: 3px;
-	background-color: rgb(50, 120, 170) !important;
-}
-
-#fpsGraph > span, #msGraph > span {
-	background-color: rgb(100, 100, 100) !important;
+	font-size: var(--gt-component-font-size);
 }
 
 .gt_count {
@@ -134,7 +177,6 @@ body {
 
 .gt_input,
 .gt_select {
-	margin: 10px;
 	display: inline-block; /* Stack horizontally like text */
 	position: relative; /* Position the :before pseudo-element relative to us */
 	vertical-align: top; /* Line up correctly with buttons */
@@ -172,9 +214,6 @@ body {
 	position: static;
 	display: inline-block;
 
-	box-sizing: border-box;
-	line-height: 25px;
-	height: 38px;
 	overflow: visible;
 
 	margin: 0;
@@ -199,9 +238,6 @@ body {
 
 .gt_input {
 	text-align: left;
-	height: 38px;
-
-	margin: 10px;
 
 	cursor: text;
 }
@@ -333,6 +369,12 @@ Via http://stackoverflow.com/questions/9991523/hide-div-after-css3-animation
 	position: absolute;
 	right: auto;
 	left: 0;
+}
+
+.gt_middle {
+	position: absolute;
+	left: 0;
+	right: 0;
 }
 
 /* Keyframes per https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */

@@ -21,9 +21,6 @@ const App = function(options) {
 	// Hold markers
 	this.markers = [];
 
-	// Track # of tweets
-	this.count = 0;
-
 	// Track time change for render loop
 	this.lastTime = 0;
 	this.lastSunAlignment = 0;
@@ -47,26 +44,41 @@ const App = function(options) {
 	this.pauseButton = this.container.querySelector('.gt_pauseButton');
 	this.locationButton = this.container.querySelector('.gt_locationButton');
 	this.indicator = this.container.querySelector('.gt_indicator');
+	this.slider = this.container.querySelector('.gt_dateSlider');
+	this.date = this.container.querySelector('.gt_date');
 
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
 	}
 
-	this.ui.addEventListener('mousedown', function(evt) {
+	this.slider.addEventListener('input', () => {
+		let dateIndex = this.slider.value;
+		let dateString = Object.keys(data.days)[dateIndex];
+		if (dateString) {
+			this.showData(data, dateString);
+		}
+	});
+
+	this.ui.addEventListener('mousedown', (evt) => {
 		// Prevent OrbitControls from breaking events
 		evt.stopPropagation();
-	}, true);
+	});
+
+	this.ui.addEventListener('keydown', (evt) => {
+		// Prevent OrbitControls from breaking events
+		evt.stopPropagation();
+	});
 
 	// Listen to visualization type change
-	this.typeSelect.addEventListener('change', function(evt) {
+	this.typeSelect.addEventListener('change', (evt) => {
 		var type = evt.target.value;
 		// this.setType(type);
-	}.bind(this));
+	});
 
 	// Listen to mouseup events to detect scroll stop
-	this.container.addEventListener('mouseup', function(evt) {
+	this.container.addEventListener('mouseup', (evt) => {
 		this.setHashFromParameters();
-	}.bind(this));
+	});
 
 	// Get width of element
 	this.width = this.container.scrollWidth;
@@ -142,11 +154,8 @@ const App = function(options) {
 	this.pauseButton.addEventListener('click', this.togglePause.bind(this))
 	this.locationButton.addEventListener('click', this.moveToGPS.bind(this))
 
-	// Add debug information
-	if (this.debug || this.fps)
-		this.addStats();
-
-	this.loadData(data);
+	// Show data for the current date
+	this.showData(data);
 
 	// Start animation
 	this.animate(0);
@@ -155,7 +164,6 @@ const App = function(options) {
 App.defaults = {
 	fps: false,
 	menus: true,
-	count: true,
 	earthRadius: 200,
 	markerRadius: 200,
 	cloudRadius: 205,
@@ -193,9 +201,6 @@ App.prototype.animate = function(time) {
 
 	this.render();
 	requestAnimationFrame(this.animate);
-
-	if (this.stats)
-		this.stats.update();
 };
 
 App.prototype.render = function() {
@@ -260,10 +265,6 @@ App.prototype.setHashFromParameters = function() {
 
 // Marker management
 App.prototype.add = function(data) {
-	this.count += data.total;
-
-	this.countEl.innerText = this.count.toLocaleString()+' '+(this.count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
-
 	this.heatmap.add(data);
 	// this.addMarker(data); // Markers are very, very slow
 };
@@ -402,27 +403,45 @@ App.prototype.addTestData = function() {
 	}
 };
 
-App.prototype.loadData = function(data) {
+App.prototype.showData = function(data, date) {
 	var locations = data.locations;
 	var latestDate = Object.keys(data.days).pop();
-	var latestLocations = data.days[latestDate];
-	console.log('Showing data for %s', latestDate);
-	for (var locationData of latestLocations) {
+	if (!date) {
+		date = latestDate;
+	}
+	var currentLocations = data.days[date];
+	this.date.innerText = date;
+
+	let dayNumber = Object.keys(data.days).indexOf(date);
+	this.slider.max = Object.keys(data.days).length - 1;
+	this.slider.value = dayNumber;
+
+	this.heatmap.clear();
+
+	console.log('🗓 %s', date);
+
+	let count = 0;
+	for (var locationData of currentLocations) {
 		var location = locations[locationData.id];
 		var cases = locationData.cases;
 		if (cases) {
 			var size = ((Math.log(locationData.cases) / Math.log(1.5)) + 1) * 4.5;
 			var intensity = 0.7;
 			var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region']
-			console.log(locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
+			console.log('  ', locationString + ':', locationData.cases + ' cases');
+			// console.log('  ', locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
 			this.add({
 				total: cases,
 				location: [location.Lat, location.Long],
 				size: size,
 				intensity: intensity
 			});
+
+			count += cases;
 		}
 	}
+
+	this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
 };
 
 App.prototype.fetchData = function() {
@@ -430,16 +449,10 @@ App.prototype.fetchData = function() {
 	var req = new XMLHttpRequest();
 	req.addEventListener('load', function() {
 		var data = JSON.parse(req.responseText);
-		app.loadData(data);
+		app.showData(data);
 	});
 	req.open('GET', 'data/data.json');
 	req.send();
-};
-
-App.prototype.addStats = function() {
-	this.stats = new Stats();
-	this.stats.domElement.className = 'gt_stats gt_bottom gt_left';
-	this.container.appendChild(this.stats.domElement);
 };
 
 export default App;

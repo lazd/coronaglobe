@@ -73,6 +73,12 @@ Heatmap.prototype.add = function(data) {
 	this.heatmap.display();
 };
 
+Heatmap.prototype.clear = function(data) {
+	this.heatmap.clear();
+	this.heatmap.update();
+	this.heatmap.display();
+};
+
 Heatmap.prototype.update = function(timeDiff, time) {
 	if (time - this.lastUpdate < 1000/this.fps) return;
 
