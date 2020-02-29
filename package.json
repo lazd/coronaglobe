@@ -7,7 +7,7 @@
     "update": "npm run fetch && npm run import && npm run push && npm run deploy",
     "fetch": "git submodule update --remote",
     "import": "node tools/import.js",
-    "push": "git commit site -m \"feat: update data\" && git push -u origin master",
+    "push": "git commit site COVID-19 -m \"feat: update data\" && git push -u origin master",
     "build": "parcel site/index.html",
     "deploy": "ghpages -p site/"
   },
