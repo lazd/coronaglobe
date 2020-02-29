@@ -265,8 +265,7 @@ App.prototype.add = function(data) {
 App.prototype.addMarker = function(data) {
 	// Create a new marker instance
 	var marker = new Marker({
-		user: data.user,
-		tweet: data.tweet,
+		data: data,
 		location: data.location,
 		radius: this.markerRadius,
 		scene: this.scene

@@ -4,12 +4,11 @@ import util from './gt.util.js';
 const Marker = function(options) {
 	this.data = options.data;
 
-	var geometry = new THREE.SphereGeometry(1);
+	var geometry = new THREE.SphereGeometry(options.size || 0.5);
 	var material = new THREE.MeshPhongMaterial({
-		specular: '#ffa500', // Light
-		color: '#ffa500', // Medium
-		emissive: '#110000', // Dark
-		shininess: 100 
+		color: 'orange',
+		transparent: true,
+		opacity: 0.5
 	});
 
 	this.mesh = new THREE.Mesh(geometry, material);
