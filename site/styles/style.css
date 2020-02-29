@@ -1,5 +1,4 @@
 :root {
-
   --gt-component-background-color: rgb(60, 60, 60);
   --gt-component-background-color-hover: rgb(75, 75, 75);
   --gt-component-background-color-focus: var(--gt-component-background-color-hover);
@@ -30,7 +29,10 @@
 }
 
 html {
-	overflow: hidden
+	overflow: hidden;
+
+	/* prevent doubletap from zooming */
+  touch-action: manipulation;
 }
 
 body {
