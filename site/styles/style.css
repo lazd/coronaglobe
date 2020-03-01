@@ -1,27 +1,28 @@
 :root {
-  --gt-component-background-color: rgb(60, 60, 60);
-  --gt-component-background-color-hover: rgb(75, 75, 75);
-  --gt-component-background-color-focus: var(--gt-component-background-color-hover);
+	--gt-component-background-color: rgb(60, 60, 60);
+	--gt-component-background-color-hover: rgb(75, 75, 75);
+	--gt-component-background-color-focus: var(--gt-component-background-color-hover);
+	--gt-component-text-color: rgba(200, 200, 200, 0.65);
 
-  --gt-component-height: 38px;
-  --gt-component-margin: 8px;
-  --gt-component-font-size: 16px;
-  --gt-component-border-radius: 4px;
+	--gt-component-height: 38px;
+	--gt-component-margin: 8px;
+	--gt-component-font-size: 16px;
+	--gt-component-border-radius: 4px;
 
-  --gt-component-focus-color: rgb(38, 128, 235);
-  --gt-component-focus-width: 3px;
-  --gt-component-focus-blur: 1px;
+	--gt-component-focus-color: rgb(38, 128, 235);
+	--gt-component-focus-width: 3px;
+	--gt-component-focus-blur: 1px;
 
-  --gt-component-shadow-color: rgba(20, 20, 20, 0.25);
-  --gt-component-shadow-width: 2px;
-  --gt-component-shadow-blur: 4px;
+	--gt-component-shadow-color: rgba(20, 20, 20, 0.25);
+	--gt-component-shadow-width: 2px;
+	--gt-component-shadow-blur: 4px;
 
-  --gt-slider-thumb-height: 24px;
-  --gt-slider-thumb-width: var(--gt-slider-thumb-height);
-  --gt-slider-thumb-border-radius: 100%;
-  --gt-slider-track-height: 12px;
-  --gt-slider-thumb-outline-color: rgb(0, 0, 0);
-  --gt-slider-thumb-outline-width: 3px;
+	--gt-slider-thumb-height: 24px;
+	--gt-slider-thumb-width: var(--gt-slider-thumb-height);
+	--gt-slider-thumb-border-radius: 100%;
+	--gt-slider-track-height: 12px;
+	--gt-slider-thumb-outline-color: rgb(0, 0, 0);
+	--gt-slider-thumb-outline-width: 3px;
 }
 
 * {
@@ -32,7 +33,7 @@ html {
 	overflow: hidden;
 
 	/* prevent doubletap from zooming */
-  touch-action: manipulation;
+	touch-action: manipulation;
 }
 
 body {
@@ -49,14 +50,14 @@ body {
 
 	user-select: none;
 
-	cursor: crosshair;
-
 	font-family: Helvetica, sans-serif;
 }
 
 /* Prevent overflow due to canvas acting as inline */
 .gt_canvas {
 	display: block;
+
+	cursor: crosshair;
 }
 
 .gt_output,
@@ -72,6 +73,13 @@ body {
 
   box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
 
+	font-size: var(--gt-component-font-size);
+}
+
+
+.gt_select select,
+.gt_button,
+.gt_input {
 	&:hover {
 		background-color: var(--gt-component-background-color-hover);
 	}
@@ -79,7 +87,7 @@ body {
 	&:focus {
 		outline: none;
 		background-color: var(--gt-component-background-color-focus);
-    box-shadow: 0 0 var(--gt-component-focus-blur) var(--gt-component-focus-width) var(--gt-component-focus-color);
+		box-shadow: 0 0 var(--gt-component-focus-blur) var(--gt-component-focus-width) var(--gt-component-focus-color);
 	}
 }
 
@@ -104,9 +112,9 @@ body {
 		border-radius: var(--gt-slider-thumb-border-radius);
 
 		background-color: var(--gt-component-background-color);
-    border: var(--gt-slider-thumb-outline-width) solid var(--gt-slider-thumb-outline-color);
+		border: var(--gt-slider-thumb-outline-width) solid var(--gt-slider-thumb-outline-color);
 
-	  box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
+		box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
 
 		cursor: pointer;
 		-webkit-appearance: none;
@@ -119,7 +127,7 @@ body {
 		background-color: var(--gt-component-background-color);
 
 		border-radius: var(--gt-slider-track-height);
-	  box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
+		box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
 
 		cursor: pointer;
 	}
@@ -135,12 +143,18 @@ body {
 
 	&:focus {
 		&::-webkit-slider-thumb {
-	    border-color: var(--gt-component-focus-color);
+			border-color: var(--gt-component-focus-color);
 		}
 
 		&::-webkit-slider-runnable-track {
 			background-color: var(--gt-component-background-color-focus);
 		}
+	}
+}
+
+.gt_link {
+	&, &:visited {
+		color: var(--gt-component-text-color);
 	}
 }
 
@@ -154,6 +168,44 @@ body {
 	justify-content: center;
 }
 
+.gt_layer--top {
+	position: absolute;
+	bottom: auto;
+	top: 0;
+}
+
+.gt_layer--right {
+	left: auto;
+	right: 0;
+}
+
+.gt_layer--bottom {
+	top: auto;
+	bottom: 0;
+}
+
+.gt_layer--left {
+	right: auto;
+	left: 0;
+}
+
+.gt_layer--middle {
+	left: 0;
+	right: 0;
+}
+
+.gt_layer--full {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.gt_output {
+	height: auto;
+	min-height: var(--gt-component-height);
+}
+
 .gt_input,
 .gt_output,
 .gt_select select,
@@ -162,14 +214,8 @@ body {
 
 	text-align: center;
 	font-family: Helvetica, sans-serif;
-	color: rgba(200, 200, 200, 0.65);
+	color: var(--gt-component-text-color);
 	text-shadow: 0 -1px 0 rgba(0, 0, 0 ,0.25);
-}
-
-.gt_button {
-	height: var(--gt-component-height);
-
-	font-size: var(--gt-component-font-size);
 }
 
 .gt_count {
@@ -213,6 +259,27 @@ body {
 
 	background: rgba(0, 0, 0, 0.5);
 
+  transition: transform 250ms ease-in-out,
+            opacity 250ms ease-in-out,
+            visibility 0ms linear 250ms;
+
+	opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+	&.is-open {
+	  visibility: visible;
+
+	  opacity: 1;
+
+	  transition-delay: 0ms;
+
+	  pointer-events: auto;
+	}
+}
+
+.gt_overlay--loading {
 	pointer-events: none; /* Let mouse clicks pass through */
 }
 
@@ -259,38 +326,23 @@ Style placeholder text
 Via http://css-tricks.com/snippets/css/style-placeholder-text/
 */
 .gt_input::-webkit-input-placeholder {
-   opacity: 0.35;
+	 opacity: 0.35;
 }
 
 .gt_input:-moz-placeholder {
-   opacity: 0.35;
+	 opacity: 0.35;
 }
 
 .gt_input::-moz-placeholder {
-   opacity: 0.35;
-}
-
-.gt_search {
-	position: relative;
+	 opacity: 0.35;
 }
 
 .gt_search > .gt_input {
 	color: rgba(200, 200, 200, 0.575);
 }
 
-/*
-Include value `forwards` in animation property to stop at last frame instead of returning to default
-Via http://stackoverflow.com/questions/9991523/hide-div-after-css3-animation
-*/
-
-.gt_overlay {
-	-webkit-animation: gt_fadeIn 0.25s;
-	-webkit-animation-fill-mode: forwards;
-}
-
-.gt_overlay.hide {
-	-webkit-animation: gt_fadeOut 0.25s;
-	-webkit-animation-fill-mode: forwards;
+.gt_logo {
+	border-radius: 8px;
 }
 
 .gt_loading {
@@ -354,55 +406,7 @@ Via http://stackoverflow.com/questions/9991523/hide-div-after-css3-animation
 	left: 0;
 }
 
-.gt_top {
-	position: absolute;
-	bottom: auto;
-	top: 0;
-}
-
-.gt_right {
-	position: absolute;
-	left: auto;
-	right: 0;
-}
-
-.gt_bottom {
-	position: absolute;
-	top: auto;
-	bottom: 0;
-}
-
-.gt_left {
-	position: absolute;
-	right: auto;
-	left: 0;
-}
-
-.gt_middle {
-	position: absolute;
-	left: 0;
-	right: 0;
-}
-
 /* Keyframes per https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */
-@-webkit-keyframes gt_fadeIn {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-@-webkit-keyframes gt_fadeOut {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-
 @-webkit-keyframes gt_rotate {
 	0% {
 		-webkit-transform: rotate(0);

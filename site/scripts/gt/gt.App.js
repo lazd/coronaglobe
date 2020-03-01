@@ -43,9 +43,10 @@ const App = function(options) {
 	this.typeSelect = this.container.querySelector('.gt_heatmapType');
 	this.pauseButton = this.container.querySelector('.gt_pauseButton');
 	this.locationButton = this.container.querySelector('.gt_locationButton');
-	this.indicator = this.container.querySelector('.gt_indicator');
 	this.slider = this.container.querySelector('.gt_dateSlider');
 	this.date = this.container.querySelector('.gt_date');
+	this.about = this.container.querySelector('.gt_about');
+	this.infoButton = this.container.querySelector('.gt_infoButton');
 
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
@@ -59,6 +60,18 @@ const App = function(options) {
 		let dateString = Object.keys(data.days)[dateIndex];
 		if (dateString) {
 			this.showData(data, dateString);
+		}
+	});
+
+	// Show info overlay
+	this.infoButton.addEventListener('click', (evt) => {
+		this.about.classList.add('is-open');
+	});
+
+	// Hide info overlay
+	this.about.addEventListener('click', (evt) => {
+		if (evt.target.classList.contains('gt_overlay')) {
+			this.about.classList.remove('is-open');
 		}
 	});
 
@@ -319,13 +332,13 @@ App.prototype.rotateTo = function(pos) {
 };
 
 App.prototype.showOverlay = function(type) {
-	this.overlay.classList.remove('hide');
+	this.overlay.classList.add('is-open');
 	if (type)
 		this.indicator.className = 'gt_'+type;
 };
 
 App.prototype.hideOverlay = function(type) {
-	this.overlay.classList.add('hide');
+	this.overlay.classList.remove('is-open');
 	if (type)
 		this.indicator.className = 'gt_'+type;
 };

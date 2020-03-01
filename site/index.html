@@ -19,7 +19,7 @@
 		<link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
 		<link rel="manifest" href="manifest.webmanifest">
 
-		<link rel="stylesheet" href="styles/icons.css">
+		<link rel="stylesheet" href="icons/style.css">
 		<link rel="stylesheet" href="styles/style.css">
 
 		<script src="scripts/gt/gt.js"></script>
@@ -27,17 +27,20 @@
 	<body>
 		<div class="gt_container">
 			<div class="gt_ui">
-				<div class="gt_layer gt_top gt_middle">
+				<div class="gt_layer gt_layer--top gt_layer--middle">
 					<input type="range" min="0" step="1" class="gt_slider gt_dateSlider" placeholder="location" />
 					<div class="gt_output gt_date">-</div>
 				</div>
-				<div class="gt_layer gt_search gt_bottom gt_left">
+				<div class="gt_layer gt_layer--bottom gt_layer--left gt_search">
 					<!-- <input type="search" class="gt_input" placeholder="location"/> -->
 					<button class="gt_button gt_locationButton">
 						<span class="gt_icon gt_icon--location"></span>
 					</button>
+					<button class="gt_button gt_infoButton">
+						<span class="gt_icon gt_icon--info"></span>
+					</button>
 				</div>
-				<div class="gt_layer gt_top gt_right" style="display: none">
+				<div class="gt_layer gt_layer--top gt_layer--right" style="display: none">
 					<label class="gt_select">
 						<select class="gt_heatmapType">
 							<option value="all">All Cases</option>
@@ -48,10 +51,19 @@
 						<span class="gt_icon gt_icon--pause"></span>
 					</button>
 				</div>
-				<div class="gt_layer gt_output gt_count gt_bottom gt_right">-</div>
-				<div class="gt_overlay">
+				<div class="gt_layer gt_layer--bottom gt_layer--right gt_output gt_count">-</div>
+				<div class="gt_overlay gt_overlay--loading is-open">
 					<div class="gt_indicator">
 						<span class="gt_icon gt_icon--spinner"></span>
+					</div>
+				</div>
+
+				<div class="gt_overlay gt_layer gt_about gt_layer--full">
+					<div class="gt_output">
+						<h3>CoronaGlobe</h3>
+						<p>© 2020 Larry Davis</p>
+						<p><a class="gt_link" target="_blank" href="https://blog.lazd.net">blog</a> • <a class="gt_link" target="_blank" href="https://github.com/lazd">github</a> • <a class="gt_link" target="_blank" href="https://twitter.com/lazdnet">twitter</a> • <a class="gt_link" target="_blank" href="https://www.patreon.com/lazd">patreon</a></p>
+						<p>Data by <a class="gt_link" target="_blank" href="https://systems.jhu.edu/research/public-health/ncov/">John Hopkins University</a></p>
 					</div>
 				</div>
 			</div>
