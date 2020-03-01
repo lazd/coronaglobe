@@ -83,11 +83,6 @@ const App = function(options) {
 		// this.setType(type);
 	});
 
-	// Listen to mouseup events to detect scroll stop
-	this.container.addEventListener('mouseup', (evt) => {
-		this.setHashFromParameters();
-	});
-
 	// Get width of element
 	this.width = this.container.scrollWidth;
 	this.height = this.container.scrollHeight;
@@ -121,6 +116,11 @@ const App = function(options) {
 	this.controls = new OrbitControls(this.camera, this.container);
 	this.controls.minDistance = 250;
 	this.controls.enablePan = false;
+
+	// Update the hash when the camera is moved
+	this.controls.addEventListener('end', (evt) => {
+		this.setHashFromParameters();
+	});
 
 	// Show spinner
 	this.showSpinner();
