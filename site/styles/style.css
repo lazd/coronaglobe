@@ -127,6 +127,7 @@ body {
 
 .gt_select select,
 .gt_button,
+.gt_datePicker,
 .gt_input {
 	&:hover {
 		background-color: var(--gt-component-background-color-hover);
@@ -143,14 +144,16 @@ body {
 	position: relative;
 
 	select {
-		-webkit-appearance: none;
-		padding-right: 32px;
+		margin: 0;
+		height: 100%;
+		appearance: none;
+		padding-right: 40px;
 	}
 
 	.gt_icon {
 		display: block;
 		position: absolute;
-		top: 12px;
+		top: 6px;
 		right: 10px;
 
 		color: rgb(120, 120, 120);
@@ -280,6 +283,15 @@ body {
 
 .gt_count {
 	font-weight: bold;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: 0;
+}
+
+.gt_select .gt_typeSelect {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-left: 0;
 }
 
 .gt_overlay {

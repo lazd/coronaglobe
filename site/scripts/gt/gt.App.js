@@ -40,7 +40,7 @@ const App = function(options) {
 	this.indicator = this.container.querySelector('.gt_indicator');
 	this.output = this.container.querySelector('.gt_output');
 	this.typeSelectContainer = this.container.querySelector('.gt_forSelect');
-	this.typeSelect = this.container.querySelector('.gt_heatmapType');
+	this.typeSelect = this.container.querySelector('.gt_typeSelect');
 	this.pauseButton = this.container.querySelector('.gt_pauseButton');
 	this.locationButton = this.container.querySelector('.gt_locationButton');
 	this.slider = this.container.querySelector('.gt_dateSlider');
@@ -59,7 +59,7 @@ const App = function(options) {
 		let dateIndex = this.slider.value;
 		let dateString = Object.keys(data.days)[dateIndex];
 		if (dateString) {
-			this.showData(data, dateString);
+			this.showData(data, this.type, dateString);
 		}
 	});
 
@@ -75,7 +75,7 @@ const App = function(options) {
 	this.datePicker.addEventListener('input', () => {
 		if (this.datePicker.value) {
 			let dateString = util.formatDateForDataset(this.datePicker.value);
-			this.showData(data, dateString);
+			this.showData(data, this.type, dateString);
 		}
 	});
 
@@ -107,9 +107,9 @@ const App = function(options) {
 	this.ui.addEventListener('keydown', stopProp);
 
 	// Listen to visualization type change
-	this.typeSelect.addEventListener('change', (evt) => {
+	this.typeSelect.addEventListener('input', (evt) => {
 		var type = evt.target.value;
-		// this.setType(type);
+		this.setType(type);
 	});
 
 	// Get width of element
@@ -204,7 +204,7 @@ const App = function(options) {
 	this.locationButton.addEventListener('click', this.moveToGPS.bind(this))
 
 	// Show data for the current date
-	this.showData(data);
+	this.showData(data, this.type);
 
 	// Start animation
 	this.animate(0);
@@ -224,6 +224,8 @@ App.defaults = {
 
 	watchGPS: false,
 	startAtGPS: true,
+
+	type: 'cases',
 
 	itemName: 'item',
 	itemNamePlural: 'items'
@@ -275,7 +277,14 @@ App.prototype.stopWatchingGPS = function() {
 	this.watchGPS = false;
 };
 
-App.prototype.setParametersFromHash = function(styleName) {
+App.prototype.setType = function(value) {
+	this.type = value;
+	this.typeSelect.value = value;
+	this.showData(data, this.type, this.date);
+	this.setHashFromParameters();
+};
+
+App.prototype.setParametersFromHash = function() {
 	let args = util.getHashArgs();
 
 	var lat = parseFloat(args.lat);
@@ -287,6 +296,10 @@ App.prototype.setParametersFromHash = function(styleName) {
 				longitude: long
 			}
 		});
+	}
+
+	if (args.type) {
+		this.setType(args.type);
 	}
 };
 
@@ -307,6 +320,7 @@ App.prototype.setHashFromParameters = function() {
 	lat = util.round(lat, 1000);
 
 	util.setHashFromArgs({
+		type: this.type,
 		lat: lat,
 		long: long
 	});
@@ -452,7 +466,7 @@ App.prototype.addTestData = function() {
 	}
 };
 
-App.prototype.showData = function(data, date) {
+App.prototype.showData = function(data, type, date) {
 	var locations = data.locations;
 	var firstDate = Object.keys(data.days).shift();
 	var latestDate = Object.keys(data.days).pop();
@@ -461,9 +475,11 @@ App.prototype.showData = function(data, date) {
 	}
 
 	if (!data.days[date]) {
-		console.error('No date for %s', date);
+		console.error('No data for %s', date);
 		return;
 	}
+
+	this.date = date;
 
 	var currentLocations = data.days[date];
 
@@ -481,14 +497,15 @@ App.prototype.showData = function(data, date) {
 	console.log('🗓 %s', date);
 
 	let count = 0;
-	for (var locationData of currentLocations) {
-		var location = locations[locationData.id];
-		var cases = locationData.cases;
+	for (var locationId in currentLocations) {
+		let locationData = currentLocations[locationId];
+		var location = locations[locationId];
+		var cases = locationData[type];
 		if (cases) {
-			var size = ((Math.log(locationData.cases) / Math.log(1.5)) + 1) * 4.5;
+			var size = ((Math.log(cases) / Math.log(1.5)) + 1) * 4.5;
 			var intensity = 0.7;
-			var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region']
-			console.log('  ', locationString + ':', locationData.cases + ' cases');
+			var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region'];
+			console.log('  ', locationString + ':', cases + ' ' + type);
 			// console.log('  ', locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
 			this.add({
 				total: cases,
@@ -501,18 +518,8 @@ App.prototype.showData = function(data, date) {
 		}
 	}
 
-	this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
-};
-
-App.prototype.fetchData = function() {
-	var app = this;
-	var req = new XMLHttpRequest();
-	req.addEventListener('load', function() {
-		var data = JSON.parse(req.responseText);
-		app.showData(data);
-	});
-	req.open('GET', 'data/data.json');
-	req.send();
+	// this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
+	this.countEl.innerText = count.toLocaleString();
 };
 
 export default App;
