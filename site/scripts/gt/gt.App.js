@@ -62,6 +62,15 @@ const App = function(options) {
 		}
 	});
 
+	if (sliderChangeEvent !== 'input') {
+		// Update the date while dragging on mobile
+		this.slider.addEventListener('input', () => {
+			let dateIndex = this.slider.value;
+			let dateString = Object.keys(data.days)[dateIndex];
+			this.date.innerText = dateString;
+		});
+	}
+
 	let stopProp = (evt) => {
 		// Prevent OrbitControls from breaking events
 		evt.stopPropagation();
