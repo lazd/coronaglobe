@@ -4,13 +4,13 @@
   "description": "A 3D heatmap of the COVID-19 virus",
   "main": "dist/index.html",
   "scripts": {
-    "update": "npm run fetch && npm run import && npm run push && npm run deploy",
+    "update": "yarn run fetch && yarn run import && yarn run push && yarn run deploy",
     "fetch": "git submodule update --remote",
-    "import": "node tools/import.js",
-    "push": "git commit site COVID-19 -m \"feat: update data\" && git push -u origin master",
+    "load": "node tools/import.js",
+    "push": "git commit site COVID-19 -m \"feat: update data\" && git push",
     "dev": "parcel site/index.html",
     "build": "rm -rf dist/* && parcel build site/index.html --public-url ./ && cp -r site/icon* dist/",
-    "deploy": "npm run build && ghpages -p dist/"
+    "deploy": "yarn run build && ghpages -p dist/"
   },
   "repository": {
     "type": "git",
