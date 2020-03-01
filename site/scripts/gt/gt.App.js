@@ -51,7 +51,10 @@ const App = function(options) {
 		this.typeSelectContainer.style.display = 'none';
 	}
 
-	this.slider.addEventListener('input', () => {
+	// Shifty and unreliable way of detecting if we should update the heatmap as the slider moves
+	// It's very slow on mobiles, so assume touchscreens are mobiles and just update on change
+	let sliderChangeEvent = ('ontouchstart' in document.documentElement) ? 'change' : 'input';
+	this.slider.addEventListener(sliderChangeEvent, () => {
 		let dateIndex = this.slider.value;
 		let dateString = Object.keys(data.days)[dateIndex];
 		if (dateString) {
@@ -116,6 +119,8 @@ const App = function(options) {
 
 	// Add controls
 	this.controls = new OrbitControls(this.camera, this.container);
+	this.controls.minDistance = 250;
+	this.controls.enablePan = false;
 
 	// Show spinner
 	this.showSpinner();
@@ -148,6 +153,14 @@ const App = function(options) {
 		var args = util.getHashArgs();
 		if (this.startAtGPS && !args.lat && !args.long)
 			this.moveToGPS();
+	}
+	else {
+		this.rotateTo({
+			coords: {
+				latitude: 30.5928,
+				longitude: 114.3055
+			}
+		});
 	}
 
 	// Set default parameters based on hash
