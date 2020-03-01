@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'icomoon';
+  src:
+    url('fonts/icomoon.ttf?lqt192') format('truetype'),
+    url('fonts/icomoon.woff?lqt192') format('woff'),
+    url('fonts/icomoon.svg?lqt192#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.gt_icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gt_icon--info:before {
+  content: "\e901";
+}
+.gt_icon--location:before {
+  content: "\e902";
+}
+.gt_icon--menu:before {
+  content: "\e903";
+}
+.gt_icon--pause:before {
+  content: "\e904";
+}
+.gt_icon--play:before {
+  content: "\e905";
+}
+.gt_icon--spinner:before {
+  content: "\e900";
+}
