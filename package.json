@@ -21,6 +21,9 @@
     "coronavirus"
   ],
   "author": "Larry Davis <lazdnet@gmail.com>",
+  "contributors": [
+    "Aysegul Yonet <aysegulyonet@gmail.com>"
+  ],
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/lazd/covid19heat/issues"
