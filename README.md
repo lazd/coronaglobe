@@ -76,6 +76,8 @@ This project is built with simple, old-school web technology, but the magic come
 
 ## Acknowledgements
 
+This project wouldn't be possible without [John Hopkins University](https://systems.jhu.edu/research/public-health/ncov/)'s reseach and coronavirus data. Their freely available [CSSEGISandData/COVID-19](https://github.com/CSSEGISandData/COVID-19) is the source of data for this project.
+
 Huge thanks to [James Hastings-Trew's Planetary Pixel Emporium](http://planetpixelemporium.com/earth.html) for his amazing 4K Earth textures.
 
 Thanks to [@yonet](https://github.com/yonet/) for [TweetMigration](https://github.com/yonet/TweetMigration), which was used as the basis for this project.
