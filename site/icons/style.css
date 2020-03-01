@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'icomoon';
   src:
-    url('fonts/icomoon.ttf?lqt192') format('truetype'),
-    url('fonts/icomoon.woff?lqt192') format('woff'),
-    url('fonts/icomoon.svg?lqt192#icomoon') format('svg');
+    url('fonts/icomoon.ttf?bvvc4g') format('truetype'),
+    url('fonts/icomoon.woff?bvvc4g') format('woff'),
+    url('fonts/icomoon.svg?bvvc4g#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -26,6 +26,9 @@
 
 .gt_icon--info:before {
   content: "\e901";
+}
+.gt_icon--cheveron-down:before {
+  content: "\e906";
 }
 .gt_icon--location:before {
   content: "\e902";

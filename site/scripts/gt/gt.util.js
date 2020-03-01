@@ -103,6 +103,15 @@ const util = {
 
 	round: function(number, factor) {
 		return Math.round(number * factor) / factor;
+	},
+
+	formatDateForDataset: function(dateString) {
+		let date = new Date(dateString + 'T12:00:00');
+		return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear() - 2000}`;
+	},
+
+	formatDateForInput: function(dateString) {
+		return new Date(dateString).toISOString().split("T")[0];
 	}
 };
 

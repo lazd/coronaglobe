@@ -44,9 +44,9 @@ const App = function(options) {
 	this.pauseButton = this.container.querySelector('.gt_pauseButton');
 	this.locationButton = this.container.querySelector('.gt_locationButton');
 	this.slider = this.container.querySelector('.gt_dateSlider');
-	this.date = this.container.querySelector('.gt_date');
 	this.about = this.container.querySelector('.gt_about');
 	this.infoButton = this.container.querySelector('.gt_infoButton');
+	this.datePicker = this.container.querySelector('.gt_datePicker');
 
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
@@ -63,6 +63,21 @@ const App = function(options) {
 		}
 	});
 
+	if (sliderChangeEvent !== 'input') {
+		// Update the date while dragging on mobile
+		this.slider.addEventListener('input', () => {
+			let dateIndex = this.slider.value;
+			let dateString = Object.keys(data.days)[dateIndex];
+		});
+	}
+
+	this.datePicker.addEventListener('input', () => {
+		if (this.datePicker.value) {
+			let dateString = util.formatDateForDataset(this.datePicker.value);
+			this.showData(data, dateString);
+		}
+	});
+
 	// Show info overlay
 	this.infoButton.addEventListener('click', (evt) => {
 		this.about.classList.add('is-open');
@@ -74,15 +89,6 @@ const App = function(options) {
 			this.about.classList.remove('is-open');
 		}
 	});
-
-	if (sliderChangeEvent !== 'input') {
-		// Update the date while dragging on mobile
-		this.slider.addEventListener('input', () => {
-			let dateIndex = this.slider.value;
-			let dateString = Object.keys(data.days)[dateIndex];
-			this.date.innerText = dateString;
-		});
-	}
 
 	let stopProp = (evt) => {
 		// Prevent OrbitControls from breaking events
@@ -263,7 +269,7 @@ App.prototype.startWatchingGPS = function() {
 };
 
 App.prototype.stopWatchingGPS = function() {
-	this.locationButton.classList.remove('gt_selected');
+	this.locationButton.classList.remove('is-selected');
 	navigator.geolocation.clearWatch(this._geoWatchID);
 	this.watchGPS = false;
 };
@@ -408,7 +414,7 @@ App.prototype.toggleGPS = function() {
 App.prototype.handleGeolocationChange = function(pos) {
 	if (this.watchGPS) {
 		this.rotateTo(pos);
-		this.locationButton.classList.add('gt_selected');
+		this.locationButton.classList.add('is-selected');
 	}
 };
 
@@ -447,12 +453,23 @@ App.prototype.addTestData = function() {
 
 App.prototype.showData = function(data, date) {
 	var locations = data.locations;
+	var firstDate = Object.keys(data.days).shift();
 	var latestDate = Object.keys(data.days).pop();
 	if (!date) {
 		date = latestDate;
 	}
+
+	if (!data.days[date]) {
+		console.error('No date for %s', date);
+		return;
+	}
+
 	var currentLocations = data.days[date];
-	this.date.innerText = date;
+
+	// Configure datepicker
+	this.datePicker.min = util.formatDateForInput(firstDate);
+	this.datePicker.max = util.formatDateForInput(latestDate);
+	this.datePicker.value = util.formatDateForInput(date);
 
 	let dayNumber = Object.keys(data.days).indexOf(date);
 	this.slider.max = Object.keys(data.days).length - 1;

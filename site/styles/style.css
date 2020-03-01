@@ -64,8 +64,13 @@ body {
 .gt_select select,
 .gt_button,
 .gt_input {
+	display: inline-block; /* Stack horizontally like text */
+	position: relative; /* Position the :before pseudo-element relative to us */
+	vertical-align: top; /* Line up correctly with buttons */
+
 	height: var(--gt-component-height);
 	margin: var(--gt-component-margin);
+	padding: 10px 14px;
 
 	border: none;
 	border-radius: var(--gt-component-border-radius);
@@ -73,9 +78,44 @@ body {
 
   box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
 
+	font-family: Helvetica, sans-serif;
 	font-size: var(--gt-component-font-size);
+	text-align: center;
+	color: var(--gt-component-text-color);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0 ,0.25);
+
+	&[hidden] {
+		display: none;
+	}
 }
 
+.gt_button {
+	&.is_selected {
+		color: rgb(43, 116, 224);
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+	}
+}
+
+.gt_input {
+	text-align: left;
+	cursor: text;
+}
+
+.gt_datePicker {
+	flex-shrink: 0;
+	appearance: none;
+	padding-right: 0;
+
+	&::-webkit-inner-spin-button,
+	&::-webkit-clear-button {
+		display: none;
+	}
+	&::-webkit-calendar-picker-indicator {
+		display: block;
+		visibility: visible;
+		background: transparent;
+	}
+}
 
 .gt_select select,
 .gt_button,
@@ -88,6 +128,28 @@ body {
 		outline: none;
 		background-color: var(--gt-component-background-color-focus);
 		box-shadow: 0 0 var(--gt-component-focus-blur) var(--gt-component-focus-width) var(--gt-component-focus-color);
+	}
+}
+
+.gt_select {
+	position: relative;
+
+	select {
+		-webkit-appearance: none;
+		padding-right: 32px;
+	}
+
+	.gt_icon {
+		display: block;
+		position: absolute;
+		top: 12px;
+		right: 10px;
+
+		color: rgb(120, 120, 120);
+		font-size: 30px;
+		text-shadow: 0 -1px 0 rgba(0, 0, 0 ,0.25);
+
+		pointer-events: none; /* Let mouse clicks pass through */
 	}
 }
 
@@ -206,46 +268,8 @@ body {
 	min-height: var(--gt-component-height);
 }
 
-.gt_input,
-.gt_output,
-.gt_select select,
-.gt_button {
-	padding: 10px 14px;
-
-	text-align: center;
-	font-family: Helvetica, sans-serif;
-	color: var(--gt-component-text-color);
-	text-shadow: 0 -1px 0 rgba(0, 0, 0 ,0.25);
-}
-
 .gt_count {
 	font-weight: bold;
-}
-
-.gt_date {
-	text-align: center;
-	flex-shrink: 0;
-	width: 80px;
-}
-
-.gt_input,
-.gt_select {
-	display: inline-block; /* Stack horizontally like text */
-	position: relative; /* Position the :before pseudo-element relative to us */
-	vertical-align: top; /* Line up correctly with buttons */
-}
-
-.gt_select:before {
-	display: block;
-	position: absolute;
-	top: 7px;
-	right: 7px;
-
-	color: rgb(120, 120, 120);
-	font-size: 22px;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0 ,0.25);
-
-	pointer-events: none; /* Let mouse clicks pass through */
 }
 
 .gt_overlay {
@@ -281,44 +305,6 @@ body {
 
 .gt_overlay--loading {
 	pointer-events: none; /* Let mouse clicks pass through */
-}
-
-.gt_input,
-.gt_select select {
-	position: static;
-	display: inline-block;
-
-	overflow: visible;
-
-	margin: 0;
-
-	padding: 0px 10px;
-
-	font-size: 20px;
-
-	cursor: pointer;
-	-webkit-appearance: none;
-}
-
-.gt_select select {
-	padding-right: 38px;
-}
-
-.gt_input + .gt_button,
-.gt_select + .gt_button {
-	/* Buttons following select menus should have less margin */
-	margin-left: 0;
-}
-
-.gt_input {
-	text-align: left;
-
-	cursor: text;
-}
-
-.gt_selected {
-	color: rgb(43, 116, 224);
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 /*

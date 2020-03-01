@@ -39,7 +39,7 @@
 			<div class="gt_ui">
 				<div class="gt_layer gt_layer--top gt_layer--middle">
 					<input type="range" min="0" step="1" class="gt_slider gt_dateSlider" placeholder="location" />
-					<div class="gt_output gt_date">-</div>
+					<input type="date" class="gt_input gt_datePicker">
 				</div>
 				<div class="gt_layer gt_layer--bottom gt_layer--left gt_search">
 					<!-- <input type="search" class="gt_input" placeholder="location"/> -->
@@ -49,25 +49,25 @@
 					<button class="gt_button gt_infoButton">
 						<span class="gt_icon gt_icon--info"></span>
 					</button>
+					<button class="gt_button gt_pauseButton" hidden>
+						<span class="gt_icon gt_icon--pause"></span>
+					</button>
 				</div>
-				<div class="gt_layer gt_layer--top gt_layer--right" style="display: none">
-					<label class="gt_select">
+				<div class="gt_layer gt_layer--bottom gt_layer--right">
+					<div class="gt_output gt_count">-</div>
+					<label class="gt_select" hidden>
 						<select class="gt_heatmapType">
 							<option value="all">All Cases</option>
 							<option value="current">Current Cases</option>
 						</select>
+						<span class="gt_icon gt_icon--cheveron-down"></span>
 					</label>
-					<button class="gt_button gt_pauseButton">
-						<span class="gt_icon gt_icon--pause"></span>
-					</button>
 				</div>
-				<div class="gt_layer gt_layer--bottom gt_layer--right gt_output gt_count">-</div>
 				<div class="gt_overlay gt_overlay--loading is-open">
 					<div class="gt_indicator">
 						<span class="gt_icon gt_icon--spinner"></span>
 					</div>
 				</div>
-
 				<div class="gt_overlay gt_layer gt_about gt_layer--full">
 					<div class="gt_output">
 						<h3>CoronaGlobe</h3>
