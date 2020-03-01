@@ -68,6 +68,7 @@ const App = function(options) {
 		this.slider.addEventListener('input', () => {
 			let dateIndex = this.slider.value;
 			let dateString = Object.keys(data.days)[dateIndex];
+			this.datePicker.value = util.formatDateForInput(dateString);
 		});
 	}
 

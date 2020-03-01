@@ -6,6 +6,8 @@
 
 	--gt-component-height: 38px;
 	--gt-component-margin: 8px;
+	--gt-component-padding-x: 14px;
+	--gt-component-padding-y: 10px;
 	--gt-component-font-size: 16px;
 	--gt-component-border-radius: 4px;
 
@@ -16,6 +18,8 @@
 	--gt-component-shadow-color: rgba(20, 20, 20, 0.25);
 	--gt-component-shadow-width: 2px;
 	--gt-component-shadow-blur: 4px;
+
+	--gt-layer-padding: 6px;
 
 	--gt-slider-thumb-height: 24px;
 	--gt-slider-thumb-width: var(--gt-slider-thumb-height);
@@ -63,6 +67,7 @@ body {
 .gt_output,
 .gt_select select,
 .gt_button,
+.gt_datePicker,
 .gt_input {
 	display: inline-block; /* Stack horizontally like text */
 	position: relative; /* Position the :before pseudo-element relative to us */
@@ -70,7 +75,7 @@ body {
 
 	height: var(--gt-component-height);
 	margin: var(--gt-component-margin);
-	padding: 10px 14px;
+	padding: var(--gt-component-padding-y) var(--gt-component-padding-x);
 
 	border: none;
 	border-radius: var(--gt-component-border-radius);
@@ -105,6 +110,9 @@ body {
 	flex-shrink: 0;
 	appearance: none;
 	padding-right: 0;
+
+	text-align: center;
+	width: 140px;
 
 	&::-webkit-inner-spin-button,
 	&::-webkit-clear-button {
@@ -228,6 +236,8 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	padding: var(--gt-layer-padding);
 }
 
 .gt_layer--top {
