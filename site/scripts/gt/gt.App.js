@@ -184,7 +184,11 @@ const App = function(options) {
 	// Add heatmap
 	this.heatmap = new Heatmap({
 		scene: scene,
-		radius: this.earthRadius + 1
+		radius: this.earthRadius + 1,
+		ready: () => {
+			// Show data for the current date
+			this.showData(data, this.type);
+		}
 	});
 
 	var args = util.getHashArgs();
