@@ -13,4 +13,5 @@
 <glyph unicode="&#xe903;" glyph-name="menu" d="M0 819.2h1024v-102.4h-1024v102.4zM0 512h1024v-102.4h-1024v102.4zM0 204.8h1024v-102.4h-1024v102.4z" />
 <glyph unicode="&#xe904;" glyph-name="pause" d="M256 768h153.6v-614.4h-153.6v614.4zM614.4 768h153.6v-614.4h-153.6v614.4z" />
 <glyph unicode="&#xe905;" glyph-name="play" d="M204.8 768l614.4-307.2-614.4-307.2z" />
+<glyph unicode="&#xe906;" glyph-name="cheveron-down" d="M475.802 309.76l36.198-36.198 289.638 289.638-72.397 72.397-217.242-217.19-217.242 217.19-72.397-72.397z" />
 </font></defs></svg>
