@@ -174,22 +174,25 @@ const App = function(options) {
 		radius: this.earthRadius + 1
 	});
 
-	if (window.location.protocol === 'https:') {
-		// Watch GPS position
-		if (this.watchGPS)
-			this.startWatchingGPS();
+	var args = util.getHashArgs();
+	if (!args.lat && !args.long) {
+		if ((this.startAtGPS || this.watchGPS) && window.location.protocol === 'https:') {
+			// Watch GPS position
+			if (this.watchGPS)
+				this.startWatchingGPS();
 
-		var args = util.getHashArgs();
-		if (this.startAtGPS && !args.lat && !args.long)
-			this.moveToGPS();
-	}
-	else {
-		this.rotateTo({
-			coords: {
-				latitude: 30.5928,
-				longitude: 114.3055
-			}
-		});
+			if (this.startAtGPS)
+				this.moveToGPS();
+		}
+		else {
+			// Start at Wuhan
+			this.rotateTo({
+				coords: {
+					latitude: 30.5928,
+					longitude: 114.3055
+				}
+			});
+		}
 	}
 
 	// Set default parameters based on hash

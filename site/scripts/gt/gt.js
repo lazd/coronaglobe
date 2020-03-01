@@ -10,6 +10,8 @@ const gt = {
 
 		debug: false,
 		pauseOnBlur: false,
+		watchGPS: false,
+		startAtGPS: false,
 
 		itemName: 'case',
 		itemNamePlural: 'cases'
