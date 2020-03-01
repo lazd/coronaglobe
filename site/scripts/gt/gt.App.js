@@ -117,7 +117,9 @@ const App = function(options) {
 	this.height = this.container.scrollHeight;
 
 	// Create renderer
-	this.renderer = new THREE.WebGLRenderer();
+	this.renderer = new THREE.WebGLRenderer({
+		antialias: true
+	});
 	this.renderer.setSize(this.width, this.height);
 	this.canvas = this.renderer.domElement;
 	this.canvas.className = 'gt_canvas';
