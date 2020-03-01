@@ -23,7 +23,7 @@ const Heatmap = function(options) {
 	texture.premultiplyAlpha = true;
 
 	// Setup mesh
-	this.geometry = new THREE.SphereGeometry(this.radius, 32, 32);
+	this.geometry = new THREE.SphereGeometry(this.radius, 64, 64);
 	this.material = new THREE.MeshPhongMaterial({
 		map: this.texture,
 		transparent: true,
