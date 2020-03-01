@@ -173,7 +173,11 @@ const App = function(options) {
 	// Add heatmap
 	this.heatmap = new Heatmap({
 		scene: scene,
-		radius: this.earthRadius + 1
+		radius: this.earthRadius + 1,
+		ready: () => {
+			// Show data for the current date
+			this.showData(data, this.type);
+		}
 	});
 
 	var args = util.getHashArgs();
@@ -207,9 +211,6 @@ const App = function(options) {
 	window.addEventListener('focus', this.handleFocus.bind(this));
 	this.pauseButton.addEventListener('click', this.togglePause.bind(this))
 	this.locationButton.addEventListener('click', this.moveToGPS.bind(this))
-
-	// Show data for the current date
-	this.showData(data, this.type);
 
 	// Start animation
 	this.animate(0);

@@ -9,10 +9,18 @@ const Heatmap = function(options) {
 
 	this.canvas = document.createElement('canvas');
 
+	let gradientImage = new Image();
+	gradientImage.src = require('url:../../textures/heatmap-gradient.png');
+
 	this.heatmap = new WebGLHeatmap({
 		canvas: this.canvas,
 		width: this.width,
-		height: this.height
+		height: this.height,
+		gradientTexture: gradientImage
+	});
+
+	gradientImage.addEventListener('load', () => {
+		this.ready();
 	});
 
 	// Create a texture
