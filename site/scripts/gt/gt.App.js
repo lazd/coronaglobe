@@ -275,7 +275,7 @@ App.prototype.animate = function(time) {
 
 	if (this.playing && time >= this.lastSunAlignment + this.dateHoldTime / 24) {
 		if (this.animateSun) {
-			let dayOfYear = util.getDOY(util.getDateFromDatasetDate(this.date));
+			let dayOfYear = util.getDOY(util.getDateFromDatasetString(this.date));
 			let elapsed = (time - this.lastSunAlignment);
 			let fractionOfDayPast = elapsed / this.dateHoldTime;
 			let hour = Math.round(fractionOfDayPast * 24);
@@ -522,7 +522,7 @@ App.prototype.addTestData = function() {
 };
 
 App.prototype.positionSunForDate = function(date) {
-	let dayOfYear = util.getDOY(util.getDateFromDatasetDate(date));
+	let dayOfYear = util.getDOY(util.getDateFromDatasetString(date));
 	this.globe.setSunPosition(dayOfYear);
 };
 
