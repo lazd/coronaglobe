@@ -9,12 +9,12 @@ const gt = {
 		cameraDistance: 500,
 
 		debug: false,
-		pauseOnBlur: false,
 		watchGPS: false,
 		startAtGPS: false,
+		playing: false,
+		pauseOnBlur: false,
 
-		itemName: 'case',
-		itemNamePlural: 'cases'
+		type: 'cases'
 	},
 	init: function() {
 		gt.app = new App(gt.config);

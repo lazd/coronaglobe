@@ -24,12 +24,13 @@ const App = function(options) {
 	// Track time change for render loop
 	this.lastTime = 0;
 	this.lastSunAlignment = 0;
+	this.lastDateChangeTime = 0;
 
 	// Track loaded status
 	this.loaded = false;
 
-	// Track running status
-	this.running = true;
+	// Track play status
+	this.playing = false;
 
 	// Create a container
 	// Create an element for output
@@ -59,7 +60,7 @@ const App = function(options) {
 		let dateIndex = this.slider.value;
 		let dateString = Object.keys(data.days)[dateIndex];
 		if (dateString) {
-			this.showData(data, this.type, dateString);
+			this.setDate(dateString);
 		}
 	});
 
@@ -75,7 +76,7 @@ const App = function(options) {
 	this.datePicker.addEventListener('input', () => {
 		if (this.datePicker.value) {
 			let dateString = util.formatDateForDataset(this.datePicker.value);
-			this.showData(data, this.type, dateString);
+			this.setDate(dateString);
 		}
 	});
 
@@ -90,6 +91,9 @@ const App = function(options) {
 			this.about.classList.remove('is-open');
 		}
 	});
+
+	this.pauseButton.addEventListener('click', this.togglePause.bind(this));
+	this.locationButton.addEventListener('click', this.moveToGPS.bind(this));
 
 	let stopProp = (evt) => {
 		// Prevent OrbitControls from breaking events
@@ -205,11 +209,12 @@ const App = function(options) {
 	window.addEventListener('resize', this.handleWindowResize.bind(this));
 	window.addEventListener('blur', this.handleBlur.bind(this));
 	window.addEventListener('focus', this.handleFocus.bind(this));
-	this.pauseButton.addEventListener('click', this.togglePause.bind(this))
-	this.locationButton.addEventListener('click', this.moveToGPS.bind(this))
 
-	// Show data for the current date
-	this.showData(data, this.type);
+	this.showData(data, args.type, args.date);
+
+	if (args.playing) {
+		this.play();
+	}
 
 	// Start animation
 	this.animate(0);
@@ -229,6 +234,7 @@ App.defaults = {
 
 	watchGPS: false,
 	startAtGPS: true,
+	dateHoldTime: 150,
 
 	type: 'cases',
 
@@ -245,8 +251,23 @@ App.prototype.animate = function(time) {
 	this.controls.update();
 	this.globe.update(timeDiff, time);
 
-	// Only update the heatmap if we're running
-	if (this.running && this.realtimeHeatmap)
+	if (this.playing && time >= this.lastDateChangeTime + this.dateHoldTime) {
+		let dates = Object.keys(data.days);
+		let dateIndex = dates.indexOf(this.date);
+		let lastDate = dates.length - 1;
+		if (dateIndex < lastDate) {
+			dateIndex++;
+		}
+		else {
+			dateIndex = 0;
+		}
+
+		this.setDate(dates[dateIndex]);
+		this.lastDateChangeTime = time;
+	}
+
+	// Only update the heatmap if its real-time
+	if (this.realtimeHeatmap)
 		this.heatmap.update(timeDiff, time);
 
 	// Re-align the sun every minute
@@ -282,10 +303,15 @@ App.prototype.stopWatchingGPS = function() {
 	this.watchGPS = false;
 };
 
-App.prototype.setType = function(value) {
-	this.type = value;
-	this.typeSelect.value = value;
-	this.showData(data, this.type, this.date);
+App.prototype.setDate = function(date) {
+	// Store the date in the hash if it was set explicitly
+	this.dateSet = true;
+	this.showData(data, this.type, date);
+	this.setHashFromParameters();
+};
+
+App.prototype.setType = function(type) {
+	this.showData(data, type, this.date);
 	this.setHashFromParameters();
 };
 
@@ -303,8 +329,16 @@ App.prototype.setParametersFromHash = function() {
 		});
 	}
 
-	if (args.type) {
-		this.setType(args.type);
+	if (args.type || args.date) {
+		if (args.date) {
+			// Store the date in the hash if it came from the hash
+			this.dateSet = true;
+		}
+		this.showData(data, args.type, args.date);
+	}
+
+	if (args.playing === 'true') {
+		this.playing = true;
 	}
 };
 
@@ -325,6 +359,8 @@ App.prototype.setHashFromParameters = function() {
 	lat = util.round(lat, 1000);
 
 	util.setHashFromArgs({
+		playing: this.playing,
+		date: this.dateSet ? this.date : null,
 		type: this.type,
 		lat: lat,
 		long: long
@@ -384,7 +420,7 @@ App.prototype.handleLoaded = function() {
 };
 
 App.prototype.togglePause = function() {
-	if (this.running)
+	if (this.playing)
 		this.pause();
 	else
 		this.play();
@@ -392,22 +428,24 @@ App.prototype.togglePause = function() {
 
 App.prototype.pause = function() {
 	if (this.loaded) {
-		this.showOverlay('paused');
-		this.pauseButton.classList.remove('gt_icon-pause');
-		this.pauseButton.classList.add('gt_icon-play');
-		this.running = false;
-		this.indicator.addEventListener('click', this.play);
+		// this.showOverlay('paused');
+		// this.indicator.addEventListener('click', this.play);
+		this.pauseButton.classList.remove('gt_icon--pause');
+		this.pauseButton.classList.add('gt_icon--play');
+		this.playing = false;
 	}
+	this.setHashFromParameters();
 };
 
 App.prototype.play = function() {
 	if (this.loaded) {
-		this.hideOverlay('paused');
-		this.pauseButton.classList.remove('gt_icon-play');
-		this.pauseButton.classList.add('gt_icon-pause');
-		this.indicator.removeEventListener('click', this.play);
-		this.running = true;
+		// this.hideOverlay('paused');
+		// this.indicator.removeEventListener('click', this.play);
+		this.pauseButton.classList.remove('gt_icon--play');
+		this.pauseButton.classList.add('gt_icon--pause');
+		this.playing = true;
 	}
+	this.setHashFromParameters();
 };
 
 App.prototype.handleBlur = function() {
@@ -478,12 +516,16 @@ App.prototype.showData = function(data, type, date) {
 	if (!date) {
 		date = latestDate;
 	}
+	if (!type) {
+		type = this.type;
+	}
 
 	if (!data.days[date]) {
 		console.error('No data for %s', date);
 		return;
 	}
 
+	this.type = type;
 	this.date = date;
 
 	var currentLocations = data.days[date];
@@ -496,6 +538,8 @@ App.prototype.showData = function(data, type, date) {
 	let dayNumber = Object.keys(data.days).indexOf(date);
 	this.slider.max = Object.keys(data.days).length - 1;
 	this.slider.value = dayNumber;
+
+	this.typeSelect.value = this.type;
 
 	this.heatmap.clear();
 
