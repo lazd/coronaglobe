@@ -61,6 +61,7 @@ const App = function(options) {
 		let dateString = Object.keys(data.days)[dateIndex];
 		if (dateString) {
 			this.setDate(dateString);
+			this.pause();
 		}
 	});
 
@@ -76,6 +77,7 @@ const App = function(options) {
 	this.datePicker.addEventListener('input', () => {
 		if (this.datePicker.value) {
 			let dateString = util.formatDateForDataset(this.datePicker.value);
+			this.pause();
 			this.setDate(dateString);
 		}
 	});
