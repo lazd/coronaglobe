@@ -233,6 +233,7 @@ App.defaults = {
 	debug: false,
 	pauseOnBlur: true,
 	realtimeHeatmap: false,
+	animateSun: false,
 
 	watchGPS: false,
 	startAtGPS: true,
@@ -272,10 +273,26 @@ App.prototype.animate = function(time) {
 	if (this.realtimeHeatmap)
 		this.heatmap.update(timeDiff, time);
 
-	// Re-align the sun every minute
-	if (time - this.lastSunAlignment > 1000*60) {
-		this.globe.setSunPosition();
-		this.lastSunAlignment = time;
+	if (this.playing && time >= this.lastSunAlignment + this.dateHoldTime / 24) {
+		if (this.animateSun) {
+			let dayOfYear = util.getDOY(util.getDateFromDatasetDate(this.date));
+			let elapsed = (time - this.lastSunAlignment);
+			let fractionOfDayPast = elapsed / this.dateHoldTime;
+			let hour = Math.round(fractionOfDayPast * 24);
+
+			this.globe.setSunPosition(dayOfYear, hour);
+
+			if (this.playing && time >= this.lastSunAlignment + this.dateHoldTime) {
+				this.lastSunAlignment = time;
+			}
+		}
+	}
+	else {
+		// Re-align the sun every minute
+		if (time - this.lastSunAlignment > 1000*60) {
+			this.positionSunForDate(this.date);
+			this.lastSunAlignment = time;
+		}
 	}
 
 	this.render();
@@ -341,6 +358,7 @@ App.prototype.setParametersFromHash = function() {
 
 	if (args.playing === 'true') {
 		this.playing = true;
+		this.play();
 	}
 };
 
@@ -429,24 +447,16 @@ App.prototype.togglePause = function() {
 }
 
 App.prototype.pause = function() {
-	if (this.loaded) {
-		// this.showOverlay('paused');
-		// this.indicator.addEventListener('click', this.play);
-		this.pauseButton.classList.remove('gt_icon--pause');
-		this.pauseButton.classList.add('gt_icon--play');
-		this.playing = false;
-	}
+	this.pauseButton.classList.remove('gt_icon--pause');
+	this.pauseButton.classList.add('gt_icon--play');
+	this.playing = false;
 	this.setHashFromParameters();
 };
 
 App.prototype.play = function() {
-	if (this.loaded) {
-		// this.hideOverlay('paused');
-		// this.indicator.removeEventListener('click', this.play);
-		this.pauseButton.classList.remove('gt_icon--play');
-		this.pauseButton.classList.add('gt_icon--pause');
-		this.playing = true;
-	}
+	this.pauseButton.classList.remove('gt_icon--play');
+	this.pauseButton.classList.add('gt_icon--pause');
+	this.playing = true;
 	this.setHashFromParameters();
 };
 
@@ -511,6 +521,11 @@ App.prototype.addTestData = function() {
 	}
 };
 
+App.prototype.positionSunForDate = function(date) {
+	let dayOfYear = util.getDOY(util.getDateFromDatasetDate(date));
+	this.globe.setSunPosition(dayOfYear);
+};
+
 App.prototype.showData = function(data, type, date) {
 	var locations = data.locations;
 	var firstDate = Object.keys(data.days).shift();
@@ -544,6 +559,8 @@ App.prototype.showData = function(data, type, date) {
 	this.typeSelect.value = this.type;
 
 	this.heatmap.clear();
+
+	this.positionSunForDate(date);
 
 	console.log('🗓 %s', date);
 

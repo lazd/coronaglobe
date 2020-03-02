@@ -72,9 +72,11 @@ Globe.prototype.update = function(time) {
 };
 
 Globe.prototype.setSunPosition = function(dayOfYear, utcHour) {
-	if (typeof dayOfYear === 'undefined' || typeof dayOfYear === 'undefined') {
-		var d = new Date();
+	var d = new Date();
+	if (typeof dayOfYear === 'undefined') {
 		dayOfYear = util.getDOY(d);
+	}
+	if (typeof utcHour === 'undefined') {
 		utcHour = d.getUTCHours();
 	}
 

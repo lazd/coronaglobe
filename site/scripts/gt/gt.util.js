@@ -105,13 +105,21 @@ const util = {
 		return Math.round(number * factor) / factor;
 	},
 
+	getDateFromInputDate: function(dateString) {
+		return new Date(dateString + 'T12:00:00');
+	},
+
+	getDateFromDatasetDate: function(dateString) {
+		return new Date(dateString);
+	},
+
 	formatDateForDataset: function(dateString) {
-		let date = new Date(dateString + 'T12:00:00');
+		let date = util.getDateFromInput(dateString);
 		return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear() - 2000}`;
 	},
 
 	formatDateForInput: function(dateString) {
-		return new Date(dateString).toISOString().split("T")[0];
+		return util.getDateFromDatasetDate(dateString).toISOString().split("T")[0];
 	}
 };
 
