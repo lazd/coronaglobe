@@ -618,7 +618,12 @@ App.prototype.showData = function(type, date) {
 				let clusterCount = Math.round(cases / config.caseDivisor);
 				let size = 2.5;
 				let intensity = 1;
-				console.log('  %s: %d %s (%d points of %dpx and %f intensity)', locationString, cases, type, clusterCount, size, intensity);
+				let infectionPercent = 0;
+				if (location.population) {
+					infectionPercent = cases / location.population;
+				}
+
+				console.log('  %s: %d %s out of %d population (%f %) (%d points of %dpx and %f intensity)', locationString, cases, type, location.population, infectionPercent, clusterCount, size, intensity);
 
 				for (let i = 0; i < clusterCount; i++) {
 					let coordinates = points[locationId][i];

@@ -5,7 +5,8 @@
     "coordinates": [
       117.2264,
       31.8257
-    ]
+    ],
+    "population": 63240000
   },
   {
     "province": "Beijing",
@@ -13,7 +14,8 @@
     "coordinates": [
       116.4142,
       40.1824
-    ]
+    ],
+    "population": 21540000
   },
   {
     "province": "Chongqing",
@@ -21,7 +23,8 @@
     "coordinates": [
       107.874,
       30.0572
-    ]
+    ],
+    "population": 31020000
   },
   {
     "province": "Fujian",
@@ -29,7 +32,8 @@
     "coordinates": [
       117.9874,
       26.0789
-    ]
+    ],
+    "population": 39410000
   },
   {
     "province": "Gansu",
@@ -37,7 +41,8 @@
     "coordinates": [
       103.8343,
       36.0611
-    ]
+    ],
+    "population": 26370000
   },
   {
     "province": "Guangdong",
@@ -45,7 +50,8 @@
     "coordinates": [
       113.4244,
       23.3417
-    ]
+    ],
+    "population": 113460000
   },
   {
     "province": "Guangxi",
@@ -53,7 +59,8 @@
     "coordinates": [
       108.7881,
       23.8298
-    ]
+    ],
+    "population": 49260000
   },
   {
     "province": "Guizhou",
@@ -61,7 +68,8 @@
     "coordinates": [
       106.8748,
       26.8154
-    ]
+    ],
+    "population": 36000000
   },
   {
     "province": "Hainan",
@@ -69,7 +77,8 @@
     "coordinates": [
       109.7453,
       19.1959
-    ]
+    ],
+    "population": 9340000
   },
   {
     "province": "Hebei",
@@ -77,7 +86,8 @@
     "coordinates": [
       114.5149,
       38.0428
-    ]
+    ],
+    "population": 75560000
   },
   {
     "province": "Heilongjiang",
@@ -85,15 +95,17 @@
     "coordinates": [
       127.7615,
       47.862
-    ]
+    ],
+    "population": 37730000
   },
   {
     "province": "Henan",
     "country": "Mainland China",
     "coordinates": [
       113.614,
-      33.882020000000004
-    ]
+      33.88202
+    ],
+    "population": 96050000
   },
   {
     "province": "Hubei",
@@ -101,7 +113,8 @@
     "coordinates": [
       112.2707,
       30.9756
-    ]
+    ],
+    "population": 59170000
   },
   {
     "province": "Hunan",
@@ -109,7 +122,8 @@
     "coordinates": [
       111.7088,
       27.6104
-    ]
+    ],
+    "population": 68990000
   },
   {
     "province": "Inner Mongolia",
@@ -117,7 +131,8 @@
     "coordinates": [
       113.9448,
       44.0935
-    ]
+    ],
+    "population": 25000034
   },
   {
     "province": "Jiangsu",
@@ -125,7 +140,8 @@
     "coordinates": [
       119.455,
       32.9711
-    ]
+    ],
+    "population": 80510000
   },
   {
     "province": "Jiangxi",
@@ -133,7 +149,8 @@
     "coordinates": [
       115.7221,
       27.614
-    ]
+    ],
+    "population": 46480000
   },
   {
     "province": "Jilin",
@@ -141,7 +158,8 @@
     "coordinates": [
       126.1923,
       43.6661
-    ]
+    ],
+    "population": 27040000
   },
   {
     "province": "Liaoning",
@@ -149,7 +167,8 @@
     "coordinates": [
       122.6085,
       41.2956
-    ]
+    ],
+    "population": 43590000
   },
   {
     "province": "Ningxia",
@@ -157,7 +176,8 @@
     "coordinates": [
       106.1655,
       37.2692
-    ]
+    ],
+    "population": 6880000
   },
   {
     "province": "Qinghai",
@@ -165,7 +185,8 @@
     "coordinates": [
       95.9956,
       35.7452
-    ]
+    ],
+    "population": 6030000
   },
   {
     "province": "Shaanxi",
@@ -173,7 +194,8 @@
     "coordinates": [
       108.8701,
       35.1917
-    ]
+    ],
+    "population": 38640000
   },
   {
     "province": "Shandong",
@@ -181,7 +203,8 @@
     "coordinates": [
       118.1498,
       36.3427
-    ]
+    ],
+    "population": 100470000
   },
   {
     "province": "Shanghai",
@@ -189,7 +212,8 @@
     "coordinates": [
       121.4491,
       31.202
-    ]
+    ],
+    "population": 24240000
   },
   {
     "province": "Shanxi",
@@ -197,7 +221,8 @@
     "coordinates": [
       112.2922,
       37.5777
-    ]
+    ],
+    "population": 37180000
   },
   {
     "province": "Sichuan",
@@ -205,7 +230,8 @@
     "coordinates": [
       102.7103,
       30.6171
-    ]
+    ],
+    "population": 83410000
   },
   {
     "province": "Tianjin",
@@ -213,7 +239,8 @@
     "coordinates": [
       117.323,
       39.3054
-    ]
+    ],
+    "population": 15600000
   },
   {
     "province": "Tibet",
@@ -221,7 +248,8 @@
     "coordinates": [
       88.0924,
       31.6927
-    ]
+    ],
+    "population": 3440000
   },
   {
     "province": "Xinjiang",
@@ -229,7 +257,8 @@
     "coordinates": [
       85.2401,
       41.1129
-    ]
+    ],
+    "population": 24870000
   },
   {
     "province": "Yunnan",
@@ -237,7 +266,8 @@
     "coordinates": [
       101.487,
       24.974
-    ]
+    ],
+    "population": 48300000
   },
   {
     "province": "Zhejiang",
@@ -245,7 +275,8 @@
     "coordinates": [
       120.0934,
       29.1832
-    ]
+    ],
+    "population": 57370000
   },
   {
     "province": "",
@@ -253,7 +284,8 @@
     "coordinates": [
       101,
       15
-    ]
+    ],
+    "population": 68414135
   },
   {
     "province": "",
@@ -261,7 +293,8 @@
     "coordinates": [
       138,
       36
-    ]
+    ],
+    "population": 126451398
   },
   {
     "province": "",
@@ -269,7 +302,8 @@
     "coordinates": [
       128,
       36
-    ]
+    ],
+    "population": 51181299
   },
   {
     "province": "Taiwan",
@@ -277,7 +311,8 @@
     "coordinates": [
       121,
       23.7
-    ]
+    ],
+    "population": 2378000
   },
   {
     "province": "King County, WA",
@@ -285,7 +320,8 @@
     "coordinates": [
       -122.3321,
       47.6062
-    ]
+    ],
+    "population": 2233163
   },
   {
     "province": "Cook County, IL",
@@ -293,7 +329,8 @@
     "coordinates": [
       -87.6976,
       41.7377
-    ]
+    ],
+    "population": 5211000
   },
   {
     "province": "Tempe, AZ",
@@ -309,7 +346,8 @@
     "coordinates": [
       113.55,
       22.1667
-    ]
+    ],
+    "population": 622567
   },
   {
     "province": "Hong Kong",
@@ -317,7 +355,8 @@
     "coordinates": [
       114.2,
       22.3
-    ]
+    ],
+    "population": 7191503
   },
   {
     "province": "",
@@ -325,7 +364,8 @@
     "coordinates": [
       103.8333,
       1.2833
-    ]
+    ],
+    "population": 5888926
   },
   {
     "province": "",
@@ -333,7 +373,8 @@
     "coordinates": [
       108,
       16
-    ]
+    ],
+    "population": 96160163
   },
   {
     "province": "",
@@ -341,7 +382,8 @@
     "coordinates": [
       2,
       47
-    ]
+    ],
+    "population": 67106161
   },
   {
     "province": "",
@@ -349,7 +391,8 @@
     "coordinates": [
       84.25,
       28.1667
-    ]
+    ],
+    "population": 29384297
   },
   {
     "province": "",
@@ -357,7 +400,8 @@
     "coordinates": [
       112.5,
       2.5
-    ]
+    ],
+    "population": 31381992
   },
   {
     "province": "Toronto, ON",
@@ -373,7 +417,8 @@
     "coordinates": [
       -123.1207,
       49.2827
-    ]
+    ],
+    "population": 5071000
   },
   {
     "province": "Los Angeles, CA",
@@ -389,7 +434,8 @@
     "coordinates": [
       151.2093,
       -33.8688
-    ]
+    ],
+    "population": 8089526
   },
   {
     "province": "Victoria",
@@ -397,7 +443,8 @@
     "coordinates": [
       144.9631,
       -37.8136
-    ]
+    ],
+    "population": 6594804
   },
   {
     "province": "Queensland",
@@ -405,7 +452,8 @@
     "coordinates": [
       153.4,
       -28.0167
-    ]
+    ],
+    "population": 5095100
   },
   {
     "province": "",
@@ -413,7 +461,8 @@
     "coordinates": [
       104.9167,
       11.55
-    ]
+    ],
+    "population": 16204486
   },
   {
     "province": "",
@@ -421,7 +470,8 @@
     "coordinates": [
       81,
       7
-    ]
+    ],
+    "population": 22409381
   },
   {
     "province": "",
@@ -429,7 +479,8 @@
     "coordinates": [
       9,
       51
-    ]
+    ],
+    "population": 80594017
   },
   {
     "province": "",
@@ -437,7 +488,8 @@
     "coordinates": [
       26,
       64
-    ]
+    ],
+    "population": 5491218
   },
   {
     "province": "",
@@ -445,7 +497,8 @@
     "coordinates": [
       54,
       24
-    ]
+    ],
+    "population": 6072475
   },
   {
     "province": "",
@@ -453,7 +506,8 @@
     "coordinates": [
       122,
       13
-    ]
+    ],
+    "population": 104256076
   },
   {
     "province": "",
@@ -461,7 +515,8 @@
     "coordinates": [
       78,
       21
-    ]
+    ],
+    "population": 1281935911
   },
   {
     "province": "London, ON",
@@ -477,7 +532,8 @@
     "coordinates": [
       12,
       43
-    ]
+    ],
+    "population": 62137802
   },
   {
     "province": "",
@@ -485,7 +541,8 @@
     "coordinates": [
       -3,
       55
-    ]
+    ],
+    "population": 64769452
   },
   {
     "province": "",
@@ -493,7 +550,8 @@
     "coordinates": [
       90,
       60
-    ]
+    ],
+    "population": 142257519
   },
   {
     "province": "",
@@ -501,7 +559,8 @@
     "coordinates": [
       16,
       63
-    ]
+    ],
+    "population": 9960487
   },
   {
     "province": "Santa Clara, CA",
@@ -517,7 +576,8 @@
     "coordinates": [
       -4,
       40
-    ]
+    ],
+    "population": 48958159
   },
   {
     "province": "South Australia",
@@ -525,7 +585,8 @@
     "coordinates": [
       138.6007,
       -34.9285
-    ]
+    ],
+    "population": 1751693
   },
   {
     "province": "Boston, MA",
@@ -549,7 +610,8 @@
     "coordinates": [
       4,
       50.8333
-    ]
+    ],
+    "population": 11491346
   },
   {
     "province": "Madison, WI",
@@ -573,7 +635,8 @@
     "coordinates": [
       -117.1611,
       32.7157
-    ]
+    ],
+    "population": 3343364
   },
   {
     "province": "San Antonio, TX",
@@ -589,7 +652,8 @@
     "coordinates": [
       30,
       26
-    ]
+    ],
+    "population": 97041072
   },
   {
     "province": "",
@@ -597,7 +661,8 @@
     "coordinates": [
       53,
       32
-    ]
+    ],
+    "population": 82021564
   },
   {
     "province": "Omaha, NE (From Diamond Princess)",
@@ -637,7 +702,8 @@
     "coordinates": [
       35.8623,
       33.8547
-    ]
+    ],
+    "population": 6229794
   },
   {
     "province": "Humboldt County, CA",
@@ -653,7 +719,8 @@
     "coordinates": [
       -121.3542,
       38.4747
-    ]
+    ],
+    "population": 1540975
   },
   {
     "province": "",
@@ -661,7 +728,8 @@
     "coordinates": [
       44,
       33
-    ]
+    ],
+    "population": 39192111
   },
   {
     "province": "Unassigned Location (From Diamond Princess)",
@@ -677,7 +745,8 @@
     "coordinates": [
       57,
       21
-    ]
+    ],
+    "population": 3424386
   },
   {
     "province": "",
@@ -685,7 +754,8 @@
     "coordinates": [
       65,
       33
-    ]
+    ],
+    "population": 34124811
   },
   {
     "province": "",
@@ -693,7 +763,8 @@
     "coordinates": [
       50.55,
       26.0275
-    ]
+    ],
+    "population": 1410942
   },
   {
     "province": "",
@@ -701,7 +772,8 @@
     "coordinates": [
       47.75,
       29.5
-    ]
+    ],
+    "population": 2875422
   },
   {
     "province": "",
@@ -709,7 +781,8 @@
     "coordinates": [
       1.6596,
       28.0339
-    ]
+    ],
+    "population": 40969443
   },
   {
     "province": "",
@@ -717,7 +790,8 @@
     "coordinates": [
       15.2,
       45.1
-    ]
+    ],
+    "population": 4292095
   },
   {
     "province": "",
@@ -725,7 +799,8 @@
     "coordinates": [
       8.2275,
       46.8182
-    ]
+    ],
+    "population": 8236303
   },
   {
     "province": "",
@@ -733,7 +808,8 @@
     "coordinates": [
       14.5501,
       47.5162
-    ]
+    ],
+    "population": 8754413
   },
   {
     "province": "",
@@ -741,7 +817,8 @@
     "coordinates": [
       35,
       31
-    ]
+    ],
+    "population": 8299706
   },
   {
     "province": "",
@@ -749,7 +826,8 @@
     "coordinates": [
       69.3451,
       30.3753
-    ]
+    ],
+    "population": 204924861
   },
   {
     "province": "",
@@ -757,7 +835,8 @@
     "coordinates": [
       -51.9253,
       -14.235
-    ]
+    ],
+    "population": 207353391
   },
   {
     "province": "",
@@ -765,7 +844,8 @@
     "coordinates": [
       43.3569,
       42.3154
-    ]
+    ],
+    "population": 4926330
   },
   {
     "province": "",
@@ -773,7 +853,8 @@
     "coordinates": [
       21.8243,
       39.0742
-    ]
+    ],
+    "population": 10768477
   },
   {
     "province": "",
@@ -781,7 +862,8 @@
     "coordinates": [
       21.7453,
       41.6086
-    ]
+    ],
+    "population": 2077000
   },
   {
     "province": "",
@@ -789,7 +871,8 @@
     "coordinates": [
       8.4689,
       60.472
-    ]
+    ],
+    "population": 5320045
   },
   {
     "province": "",
@@ -797,7 +880,8 @@
     "coordinates": [
       24.9668,
       45.9432
-    ]
+    ],
+    "population": 21529967
   },
   {
     "province": "",
@@ -805,7 +889,8 @@
     "coordinates": [
       9.5018,
       56.2639
-    ]
+    ],
+    "population": 5605948
   },
   {
     "province": "",
@@ -813,7 +898,8 @@
     "coordinates": [
       25.0136,
       58.5953
-    ]
+    ],
+    "population": 1251581
   },
   {
     "province": "",
@@ -821,7 +907,8 @@
     "coordinates": [
       5.2913,
       52.1326
-    ]
+    ],
+    "population": 17084719
   },
   {
     "province": "",
@@ -829,7 +916,8 @@
     "coordinates": [
       12.4578,
       43.9424
-    ]
+    ],
+    "population": 33537
   },
   {
     "province": "",
@@ -837,7 +925,8 @@
     "coordinates": [
       27.9534,
       53.7098
-    ]
+    ],
+    "population": 9549747
   },
   {
     "province": "Montreal, QC",
@@ -853,7 +942,8 @@
     "coordinates": [
       -19.0208,
       64.9631
-    ]
+    ],
+    "population": 339747
   },
   {
     "province": "",
@@ -861,7 +951,8 @@
     "coordinates": [
       23.8813,
       55.1694
-    ]
+    ],
+    "population": 2823859
   },
   {
     "province": "",
@@ -869,7 +960,8 @@
     "coordinates": [
       -102.5528,
       23.6345
-    ]
+    ],
+    "population": 124574795
   },
   {
     "province": "",
@@ -877,7 +969,8 @@
     "coordinates": [
       174.886,
       -40.9006
-    ]
+    ],
+    "population": 4510327
   },
   {
     "province": "",
@@ -885,7 +978,8 @@
     "coordinates": [
       8.6753,
       9.082
-    ]
+    ],
+    "population": 190632261
   },
   {
     "province": "Western Australia",
@@ -893,7 +987,8 @@
     "coordinates": [
       115.8605,
       -31.9505
-    ]
+    ],
+    "population": 2621680
   },
   {
     "province": "",
@@ -901,7 +996,8 @@
     "coordinates": [
       -7.6921,
       53.1424
-    ]
+    ],
+    "population": 5011102
   },
   {
     "province": "",
@@ -909,7 +1005,8 @@
     "coordinates": [
       6.1296,
       49.8153
-    ]
+    ],
+    "population": 594130
   },
   {
     "province": "",
@@ -917,7 +1014,8 @@
     "coordinates": [
       7.4167,
       43.7333
-    ]
+    ],
+    "population": 30645
   },
   {
     "province": "",
@@ -925,7 +1023,8 @@
     "coordinates": [
       51.1839,
       25.3548
-    ]
+    ],
+    "population": 2314307
   },
   {
     "province": "Snohomish County, WA",
@@ -933,7 +1032,8 @@
     "coordinates": [
       -121.8339,
       48.033
-    ]
+    ],
+    "population": 814901
   },
   {
     "province": "",
@@ -941,7 +1041,8 @@
     "coordinates": [
       -78.1834,
       -1.8312
-    ]
+    ],
+    "population": 16290913
   },
   {
     "province": "",
@@ -949,7 +1050,8 @@
     "coordinates": [
       47.5769,
       40.1431
-    ]
+    ],
+    "population": 9961396
   },
   {
     "province": "",
@@ -957,7 +1059,8 @@
     "coordinates": [
       15.473,
       49.8175
-    ]
+    ],
+    "population": 10674723
   },
   {
     "province": "",
@@ -965,7 +1068,8 @@
     "coordinates": [
       45.0382,
       40.0691
-    ]
+    ],
+    "population": 3045191
   },
   {
     "province": "",
@@ -973,7 +1077,8 @@
     "coordinates": [
       -70.1627,
       18.7357
-    ]
+    ],
+    "population": 10734247
   },
   {
     "province": "Providence, RI",
@@ -989,7 +1094,8 @@
     "coordinates": [
       113.9213,
       -0.7893
-    ]
+    ],
+    "population": 260580739
   },
   {
     "province": "",
@@ -997,7 +1103,8 @@
     "coordinates": [
       -8.2245,
       39.3999
-    ]
+    ],
+    "population": 10839514
   },
   {
     "province": "",
@@ -1005,7 +1112,8 @@
     "coordinates": [
       1.5218,
       42.5063
-    ]
+    ],
+    "population": 85702
   },
   {
     "province": "Tasmania",
@@ -1013,7 +1121,8 @@
     "coordinates": [
       145.9707,
       -41.4545
-    ]
+    ],
+    "population": 534281
   },
   {
     "province": "",
@@ -1021,7 +1130,8 @@
     "coordinates": [
       24.6032,
       56.8796
-    ]
+    ],
+    "population": 1944643
   },
   {
     "province": "",
@@ -1029,7 +1139,8 @@
     "coordinates": [
       -7.0926,
       31.7917
-    ]
+    ],
+    "population": 33986655
   },
   {
     "province": "",
@@ -1037,7 +1148,8 @@
     "coordinates": [
       45,
       24
-    ]
+    ],
+    "population": 28571770
   },
   {
     "province": "",
@@ -1045,15 +1157,17 @@
     "coordinates": [
       -14.4524,
       14.4974
-    ]
+    ],
+    "population": 14668522
   },
   {
     "province": "Grafton County, NH",
     "country": "US",
     "coordinates": [
-      -71.82600000000002,
+      -71.826,
       43.9088
-    ]
+    ],
+    "population": 89786
   },
   {
     "province": "Hillsborough, FL",
@@ -1077,7 +1191,8 @@
     "coordinates": [
       -120.8039,
       39.0916
-    ]
+    ],
+    "population": 393149
   },
   {
     "province": "San Mateo, CA",
@@ -1101,7 +1216,8 @@
     "coordinates": [
       -122.9888,
       38.578
-    ]
+    ],
+    "population": 499942
   },
   {
     "province": "Umatilla, OR",
@@ -1277,342 +1393,6 @@
     "coordinates": [
       -121.9018,
       37.8534
-    ]
-  },
-  {
-    "province": "",
-    "country": "Palestine",
-    "coordinates": [
-      35.2332,
-      31.9522
-    ]
-  },
-  {
-    "province": "",
-    "country": "Bosnia and Herzegovina",
-    "coordinates": [
-      17.6791,
-      43.9159
-    ]
-  },
-  {
-    "province": "",
-    "country": "Slovenia",
-    "coordinates": [
-      14.9955,
-      46.1512
-    ]
-  },
-  {
-    "province": "Bergen County, NJ",
-    "country": "US",
-    "coordinates": [
-      -74.077,
-      40.9263
-    ]
-  },
-  {
-    "province": "Harris County, TX",
-    "country": "US",
-    "coordinates": [
-      -95.3103,
-      29.7752
-    ]
-  },
-  {
-    "province": "San Francisco County, CA",
-    "country": "US",
-    "coordinates": [
-      -122.4194,
-      37.7749
-    ]
-  },
-  {
-    "province": "",
-    "country": "South Africa",
-    "coordinates": [
-      22.9375,
-      -30.5595
-    ]
-  },
-  {
-    "province": "Clark County, NV",
-    "country": "US",
-    "coordinates": [
-      -115.094,
-      36.0796
-    ]
-  },
-  {
-    "province": "Fort Bend County, TX",
-    "country": "US",
-    "coordinates": [
-      -95.8143,
-      29.5693
-    ]
-  },
-  {
-    "province": "Grant County, WA",
-    "country": "US",
-    "coordinates": [
-      -119.3732,
-      47.1981
-    ]
-  },
-  {
-    "province": "Queens County, NY",
-    "country": "US",
-    "coordinates": [
-      -73.7949,
-      40.7282
-    ]
-  },
-  {
-    "province": "Santa Rosa County, FL",
-    "country": "US",
-    "coordinates": [
-      -86.9824,
-      30.769000000000002
-    ]
-  },
-  {
-    "province": "Williamson County, TN",
-    "country": "US",
-    "coordinates": [
-      -86.8622,
-      35.9179
-    ]
-  },
-  {
-    "province": "New York County, NY",
-    "country": "US",
-    "coordinates": [
-      -74.006,
-      40.7128
-    ]
-  },
-  {
-    "province": "Unassigned Location, WA",
-    "country": "US",
-    "coordinates": [
-      -120.7401,
-      47.7511
-    ]
-  },
-  {
-    "province": "Montgomery County, MD",
-    "country": "US",
-    "coordinates": [
-      -77.2405,
-      39.1547
-    ]
-  },
-  {
-    "province": "Suffolk County, MA",
-    "country": "US",
-    "coordinates": [
-      -71.0589,
-      42.3601
-    ]
-  },
-  {
-    "province": "Denver County, CO",
-    "country": "US",
-    "coordinates": [
-      -104.9903,
-      39.7392
-    ]
-  },
-  {
-    "province": "Summit County, CO",
-    "country": "US",
-    "coordinates": [
-      -106.064,
-      39.5912
-    ]
-  },
-  {
-    "province": "",
-    "country": "Bhutan",
-    "coordinates": [
-      90.4336,
-      27.5142
-    ]
-  },
-  {
-    "province": "",
-    "country": "Cameroon",
-    "coordinates": [
-      11.5021,
-      3.848
-    ]
-  },
-  {
-    "province": "Calgary, Alberta",
-    "country": "Canada",
-    "coordinates": [
-      -114.0719,
-      51.0447
-    ]
-  },
-  {
-    "province": "",
-    "country": "Colombia",
-    "coordinates": [
-      -74.2973,
-      4.5709
-    ]
-  },
-  {
-    "province": "",
-    "country": "Costa Rica",
-    "coordinates": [
-      -83.7534,
-      9.7489
-    ]
-  },
-  {
-    "province": "",
-    "country": "Peru",
-    "coordinates": [
-      -75.0152,
-      -9.19
-    ]
-  },
-  {
-    "province": "",
-    "country": "Serbia",
-    "coordinates": [
-      21.0059,
-      44.0165
-    ]
-  },
-  {
-    "province": "",
-    "country": "Slovakia",
-    "coordinates": [
-      19.699,
-      48.669
-    ]
-  },
-  {
-    "province": "",
-    "country": "Togo",
-    "coordinates": [
-      0.8248,
-      8.6195
-    ]
-  },
-  {
-    "province": "Chatham County, NC",
-    "country": "US",
-    "coordinates": [
-      -79.1781,
-      35.7211
-    ]
-  },
-  {
-    "province": "Delaware County, PA",
-    "country": "US",
-    "coordinates": [
-      -75.3879,
-      39.9078
-    ]
-  },
-  {
-    "province": "Douglas County, NE",
-    "country": "US",
-    "coordinates": [
-      -96.1951,
-      41.3148
-    ]
-  },
-  {
-    "province": "Fayette County, KY",
-    "country": "US",
-    "coordinates": [
-      -84.4803,
-      38.0606
-    ]
-  },
-  {
-    "province": "Floyd County, GA",
-    "country": "US",
-    "coordinates": [
-      -85.2308,
-      34.2829
-    ]
-  },
-  {
-    "province": "Marion County, IN",
-    "country": "US",
-    "coordinates": [
-      -86.1752,
-      39.8362
-    ]
-  },
-  {
-    "province": "Middlesex County, MA",
-    "country": "US",
-    "coordinates": [
-      -71.2874,
-      42.4672
-    ]
-  },
-  {
-    "province": "Nassau County, NY",
-    "country": "US",
-    "coordinates": [
-      -73.5594,
-      40.6546
-    ]
-  },
-  {
-    "province": "Norwell County, MA",
-    "country": "US",
-    "coordinates": [
-      -70.7928,
-      42.1615
-    ]
-  },
-  {
-    "province": "Ramsey County, MN",
-    "country": "US",
-    "coordinates": [
-      -93.0616,
-      44.9964
-    ]
-  },
-  {
-    "province": "Washoe County, NV",
-    "country": "US",
-    "coordinates": [
-      -119.6035,
-      40.5608
-    ]
-  },
-  {
-    "province": "Wayne County, PA",
-    "country": "US",
-    "coordinates": [
-      -75.2479,
-      41.6739
-    ]
-  },
-  {
-    "province": "Yolo County, CA",
-    "country": "US",
-    "coordinates": [
-      -121.9018,
-      38.7646
-    ]
-  },
-  {
-    "province": "",
-    "country": "Vatican City",
-    "coordinates": [
-      12.4534,
-      41.9029
     ]
   }
 ]
