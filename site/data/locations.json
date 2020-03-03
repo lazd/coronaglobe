@@ -288,11 +288,11 @@
     ]
   },
   {
-    "province": "Chicago, IL",
+    "province": "Cook County, IL",
     "country": "US",
     "coordinates": [
-      -87.6298,
-      41.8781
+      -87.6976,
+      41.7377
     ]
   },
   {
@@ -997,6 +997,134 @@
     "coordinates": [
       -71.4128,
       41.824
+    ]
+  },
+  {
+    "province": "",
+    "country": "Indonesia",
+    "coordinates": [
+      113.9213,
+      -0.7893
+    ]
+  },
+  {
+    "province": "",
+    "country": "Portugal",
+    "coordinates": [
+      -8.2245,
+      39.3999
+    ]
+  },
+  {
+    "province": "",
+    "country": "Andorra",
+    "coordinates": [
+      1.5218,
+      42.5063
+    ]
+  },
+  {
+    "province": "Tasmania",
+    "country": "Australia",
+    "coordinates": [
+      145.9707,
+      -41.4545
+    ]
+  },
+  {
+    "province": "",
+    "country": "Latvia",
+    "coordinates": [
+      24.6032,
+      56.8796
+    ]
+  },
+  {
+    "province": "",
+    "country": "Morocco",
+    "coordinates": [
+      -7.0926,
+      31.7917
+    ]
+  },
+  {
+    "province": "",
+    "country": "Saudi Arabia",
+    "coordinates": [
+      45,
+      24
+    ]
+  },
+  {
+    "province": "",
+    "country": "Senegal",
+    "coordinates": [
+      -14.4524,
+      14.4974
+    ]
+  },
+  {
+    "province": "Grafton County, NH",
+    "country": "US",
+    "coordinates": [
+      -71.826,
+      43.9088
+    ]
+  },
+  {
+    "province": "Hillsborough, FL",
+    "country": "US",
+    "coordinates": [
+      -82.3018,
+      27.9904
+    ]
+  },
+  {
+    "province": "New York City, NY",
+    "country": "US",
+    "coordinates": [
+      -74.006,
+      40.7128
+    ]
+  },
+  {
+    "province": "Placer County, CA",
+    "country": "US",
+    "coordinates": [
+      -120.8039,
+      39.0916
+    ]
+  },
+  {
+    "province": "San Mateo, CA",
+    "country": "US",
+    "coordinates": [
+      -122.3255,
+      37.563
+    ]
+  },
+  {
+    "province": "Sarasota, FL",
+    "country": "US",
+    "coordinates": [
+      -82.5307,
+      27.3364
+    ]
+  },
+  {
+    "province": "Sonoma County, CA",
+    "country": "US",
+    "coordinates": [
+      -122.9888,
+      38.578
+    ]
+  },
+  {
+    "province": "Umatilla, OR",
+    "country": "US",
+    "coordinates": [
+      -118.7606,
+      45.775
     ]
   }
 ]
