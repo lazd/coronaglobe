@@ -53,10 +53,11 @@ let props = [
   'wikipedia'
 ];
 
-function storeFeature(feature) {
+function storeFeature(feature, location) {
   let newFeature = Object.assign({}, feature);
   newFeature.properties = cleanProps(takeOnlyProps(normalizeProps(feature.properties), props));
-  usedPolys.features.push(newFeature);
+  let index = usedPolys.features.push(newFeature) - 1;
+  location.featureId = index;
 }
 
 for (let locationId in data.locations) {
@@ -70,7 +71,7 @@ for (let locationId in data.locations) {
     for (let feature of provinceData.features) {
       if (location['Province/State'] === feature.properties.name) {
         found = true;
-        storeFeature(feature);
+        storeFeature(feature, location);
         break;
       }
 
@@ -81,7 +82,7 @@ for (let locationId in data.locations) {
       let poly = turf.feature(feature.geometry);
       if (turf.booleanPointInPolygon(point, poly)) {
         found = true;
-        storeFeature(feature);
+        storeFeature(feature, location);
         break;
       }
     }
@@ -91,7 +92,7 @@ for (let locationId in data.locations) {
     for (let feature of countryData.features) {
       if (location['Province/State'] === feature.properties.NAME || location['Country/Region'] === feature.properties.NAME) {
         found = true;
-        storeFeature(feature);
+        storeFeature(feature, location);
         break;
       }
 
@@ -103,7 +104,7 @@ for (let locationId in data.locations) {
 
       if (turf.booleanPointInPolygon(point, poly)) {
         found = true;
-        storeFeature(feature);
+        storeFeature(feature, location);
         break;
       }
     }
@@ -122,6 +123,15 @@ fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(usedPoly
   }
   else {
     console.log('Features written successfully');
+
+    fs.writeFile(path.join('site', 'data', 'data.json'), JSON.stringify(data, null, 2), (err) => {
+      if (err) {
+        console.error('Failed to write modified data: %s', err);
+      }
+      else {
+        console.log('Modified data written successfully');
+      }
+    });
   }
 });
 

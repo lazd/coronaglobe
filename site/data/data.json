@@ -30086,751 +30086,876 @@
       "Province/State": "Anhui",
       "Country/Region": "Mainland China",
       "Lat": 31.8257,
-      "Long": 117.2264
+      "Long": 117.2264,
+      "featureId": 0
     },
     {
       "Province/State": "Beijing",
       "Country/Region": "Mainland China",
       "Lat": 40.1824,
-      "Long": 116.4142
+      "Long": 116.4142,
+      "featureId": 1
     },
     {
       "Province/State": "Chongqing",
       "Country/Region": "Mainland China",
       "Lat": 30.0572,
-      "Long": 107.874
+      "Long": 107.874,
+      "featureId": 2
     },
     {
       "Province/State": "Fujian",
       "Country/Region": "Mainland China",
       "Lat": 26.0789,
-      "Long": 117.9874
+      "Long": 117.9874,
+      "featureId": 3
     },
     {
       "Province/State": "Gansu",
       "Country/Region": "Mainland China",
       "Lat": 36.0611,
-      "Long": 103.8343
+      "Long": 103.8343,
+      "featureId": 4
     },
     {
       "Province/State": "Guangdong",
       "Country/Region": "Mainland China",
       "Lat": 23.3417,
-      "Long": 113.4244
+      "Long": 113.4244,
+      "featureId": 5
     },
     {
       "Province/State": "Guangxi",
       "Country/Region": "Mainland China",
       "Lat": 23.8298,
-      "Long": 108.7881
+      "Long": 108.7881,
+      "featureId": 6
     },
     {
       "Province/State": "Guizhou",
       "Country/Region": "Mainland China",
       "Lat": 26.8154,
-      "Long": 106.8748
+      "Long": 106.8748,
+      "featureId": 7
     },
     {
       "Province/State": "Hainan",
       "Country/Region": "Mainland China",
       "Lat": 19.1959,
-      "Long": 109.7453
+      "Long": 109.7453,
+      "featureId": 8
     },
     {
       "Province/State": "Hebei",
       "Country/Region": "Mainland China",
       "Lat": 38.0428,
-      "Long": 114.5149
+      "Long": 114.5149,
+      "featureId": 9
     },
     {
       "Province/State": "Heilongjiang",
       "Country/Region": "Mainland China",
       "Lat": 47.862,
-      "Long": 127.7615
+      "Long": 127.7615,
+      "featureId": 10
     },
     {
       "Province/State": "Henan",
       "Country/Region": "Mainland China",
       "Lat": 33.88202,
-      "Long": 113.614
+      "Long": 113.614,
+      "featureId": 11
     },
     {
       "Province/State": "Hubei",
       "Country/Region": "Mainland China",
       "Lat": 30.9756,
-      "Long": 112.2707
+      "Long": 112.2707,
+      "featureId": 12
     },
     {
       "Province/State": "Hunan",
       "Country/Region": "Mainland China",
       "Lat": 27.6104,
-      "Long": 111.7088
+      "Long": 111.7088,
+      "featureId": 13
     },
     {
       "Province/State": "Inner Mongolia",
       "Country/Region": "Mainland China",
       "Lat": 44.0935,
-      "Long": 113.9448
+      "Long": 113.9448,
+      "featureId": 14
     },
     {
       "Province/State": "Jiangsu",
       "Country/Region": "Mainland China",
       "Lat": 32.9711,
-      "Long": 119.455
+      "Long": 119.455,
+      "featureId": 15
     },
     {
       "Province/State": "Jiangxi",
       "Country/Region": "Mainland China",
       "Lat": 27.614,
-      "Long": 115.7221
+      "Long": 115.7221,
+      "featureId": 16
     },
     {
       "Province/State": "Jilin",
       "Country/Region": "Mainland China",
       "Lat": 43.6661,
-      "Long": 126.1923
+      "Long": 126.1923,
+      "featureId": 17
     },
     {
       "Province/State": "Liaoning",
       "Country/Region": "Mainland China",
       "Lat": 41.2956,
-      "Long": 122.6085
+      "Long": 122.6085,
+      "featureId": 18
     },
     {
       "Province/State": "Ningxia",
       "Country/Region": "Mainland China",
       "Lat": 37.2692,
-      "Long": 106.1655
+      "Long": 106.1655,
+      "featureId": 19
     },
     {
       "Province/State": "Qinghai",
       "Country/Region": "Mainland China",
       "Lat": 35.7452,
-      "Long": 95.9956
+      "Long": 95.9956,
+      "featureId": 20
     },
     {
       "Province/State": "Shaanxi",
       "Country/Region": "Mainland China",
       "Lat": 35.1917,
-      "Long": 108.8701
+      "Long": 108.8701,
+      "featureId": 21
     },
     {
       "Province/State": "Shandong",
       "Country/Region": "Mainland China",
       "Lat": 36.3427,
-      "Long": 118.1498
+      "Long": 118.1498,
+      "featureId": 22
     },
     {
       "Province/State": "Shanghai",
       "Country/Region": "Mainland China",
       "Lat": 31.202,
-      "Long": 121.4491
+      "Long": 121.4491,
+      "featureId": 23
     },
     {
       "Province/State": "Shanxi",
       "Country/Region": "Mainland China",
       "Lat": 37.5777,
-      "Long": 112.2922
+      "Long": 112.2922,
+      "featureId": 24
     },
     {
       "Province/State": "Sichuan",
       "Country/Region": "Mainland China",
       "Lat": 30.6171,
-      "Long": 102.7103
+      "Long": 102.7103,
+      "featureId": 25
     },
     {
       "Province/State": "Tianjin",
       "Country/Region": "Mainland China",
       "Lat": 39.3054,
-      "Long": 117.323
+      "Long": 117.323,
+      "featureId": 26
     },
     {
       "Province/State": "Tibet",
       "Country/Region": "Mainland China",
       "Lat": 31.6927,
-      "Long": 88.0924
+      "Long": 88.0924,
+      "featureId": 27
     },
     {
       "Province/State": "Xinjiang",
       "Country/Region": "Mainland China",
       "Lat": 41.1129,
-      "Long": 85.2401
+      "Long": 85.2401,
+      "featureId": 28
     },
     {
       "Province/State": "Yunnan",
       "Country/Region": "Mainland China",
       "Lat": 24.974,
-      "Long": 101.487
+      "Long": 101.487,
+      "featureId": 29
     },
     {
       "Province/State": "Zhejiang",
       "Country/Region": "Mainland China",
       "Lat": 29.1832,
-      "Long": 120.0934
+      "Long": 120.0934,
+      "featureId": 30
     },
     {
       "Province/State": "",
       "Country/Region": "Thailand",
       "Lat": 15,
-      "Long": 101
+      "Long": 101,
+      "featureId": 31
     },
     {
       "Province/State": "",
       "Country/Region": "Japan",
       "Lat": 36,
-      "Long": 138
+      "Long": 138,
+      "featureId": 32
     },
     {
       "Province/State": "",
       "Country/Region": "South Korea",
       "Lat": 36,
-      "Long": 128
+      "Long": 128,
+      "featureId": 33
     },
     {
       "Province/State": "Taiwan",
       "Country/Region": "Taiwan",
       "Lat": 23.7,
-      "Long": 121
+      "Long": 121,
+      "featureId": 34
     },
     {
       "Province/State": "King County, WA",
       "Country/Region": "US",
       "Lat": 47.6062,
-      "Long": -122.3321
+      "Long": -122.3321,
+      "featureId": 35
     },
     {
       "Province/State": "Chicago, IL",
       "Country/Region": "US",
       "Lat": 41.8781,
-      "Long": -87.6298
+      "Long": -87.6298,
+      "featureId": 36
     },
     {
       "Province/State": "Tempe, AZ",
       "Country/Region": "US",
       "Lat": 33.4255,
-      "Long": -111.94
+      "Long": -111.94,
+      "featureId": 37
     },
     {
       "Province/State": "Macau",
       "Country/Region": "Macau",
       "Lat": 22.1667,
-      "Long": 113.55
+      "Long": 113.55,
+      "featureId": 38
     },
     {
       "Province/State": "Hong Kong",
       "Country/Region": "Hong Kong",
       "Lat": 22.3,
-      "Long": 114.2
+      "Long": 114.2,
+      "featureId": 39
     },
     {
       "Province/State": "",
       "Country/Region": "Singapore",
       "Lat": 1.2833,
-      "Long": 103.8333
+      "Long": 103.8333,
+      "featureId": 40
     },
     {
       "Province/State": "",
       "Country/Region": "Vietnam",
       "Lat": 16,
-      "Long": 108
+      "Long": 108,
+      "featureId": 41
     },
     {
       "Province/State": "",
       "Country/Region": "France",
       "Lat": 47,
-      "Long": 2
+      "Long": 2,
+      "featureId": 42
     },
     {
       "Province/State": "",
       "Country/Region": "Nepal",
       "Lat": 28.1667,
-      "Long": 84.25
+      "Long": 84.25,
+      "featureId": 43
     },
     {
       "Province/State": "",
       "Country/Region": "Malaysia",
       "Lat": 2.5,
-      "Long": 112.5
+      "Long": 112.5,
+      "featureId": 44
     },
     {
       "Province/State": "Toronto, ON",
       "Country/Region": "Canada",
       "Lat": 43.6532,
-      "Long": -79.3832
+      "Long": -79.3832,
+      "featureId": 45
     },
     {
       "Province/State": "British Columbia",
       "Country/Region": "Canada",
       "Lat": 49.2827,
-      "Long": -123.1207
+      "Long": -123.1207,
+      "featureId": 46
     },
     {
       "Province/State": "Orange, CA",
       "Country/Region": "US",
       "Lat": 33.7879,
-      "Long": -117.8531
+      "Long": -117.8531,
+      "featureId": 47
     },
     {
       "Province/State": "Los Angeles, CA",
       "Country/Region": "US",
       "Lat": 34.0522,
-      "Long": -118.2437
+      "Long": -118.2437,
+      "featureId": 48
     },
     {
       "Province/State": "New South Wales",
       "Country/Region": "Australia",
       "Lat": -33.8688,
-      "Long": 151.2093
+      "Long": 151.2093,
+      "featureId": 49
     },
     {
       "Province/State": "Victoria",
       "Country/Region": "Australia",
       "Lat": -37.8136,
-      "Long": 144.9631
+      "Long": 144.9631,
+      "featureId": 50
     },
     {
       "Province/State": "Queensland",
       "Country/Region": "Australia",
       "Lat": -28.0167,
-      "Long": 153.4
+      "Long": 153.4,
+      "featureId": 51
     },
     {
       "Province/State": "",
       "Country/Region": "Cambodia",
       "Lat": 11.55,
-      "Long": 104.9167
+      "Long": 104.9167,
+      "featureId": 52
     },
     {
       "Province/State": "",
       "Country/Region": "Sri Lanka",
       "Lat": 7,
-      "Long": 81
+      "Long": 81,
+      "featureId": 53
     },
     {
       "Province/State": "",
       "Country/Region": "Germany",
       "Lat": 51,
-      "Long": 9
+      "Long": 9,
+      "featureId": 54
     },
     {
       "Province/State": "",
       "Country/Region": "Finland",
       "Lat": 64,
-      "Long": 26
+      "Long": 26,
+      "featureId": 55
     },
     {
       "Province/State": "",
       "Country/Region": "United Arab Emirates",
       "Lat": 24,
-      "Long": 54
+      "Long": 54,
+      "featureId": 56
     },
     {
       "Province/State": "",
       "Country/Region": "Philippines",
       "Lat": 13,
-      "Long": 122
+      "Long": 122,
+      "featureId": 57
     },
     {
       "Province/State": "",
       "Country/Region": "India",
       "Lat": 21,
-      "Long": 78
+      "Long": 78,
+      "featureId": 58
     },
     {
       "Province/State": "London, ON",
       "Country/Region": "Canada",
       "Lat": 42.9849,
-      "Long": -81.2453
+      "Long": -81.2453,
+      "featureId": 59
     },
     {
       "Province/State": "",
       "Country/Region": "Italy",
       "Lat": 43,
-      "Long": 12
+      "Long": 12,
+      "featureId": 60
     },
     {
       "Province/State": "",
       "Country/Region": "UK",
       "Lat": 55,
-      "Long": -3
+      "Long": -3,
+      "featureId": 61
     },
     {
       "Province/State": "",
       "Country/Region": "Russia",
       "Lat": 60,
-      "Long": 90
+      "Long": 90,
+      "featureId": 62
     },
     {
       "Province/State": "",
       "Country/Region": "Sweden",
       "Lat": 63,
-      "Long": 16
+      "Long": 16,
+      "featureId": 63
     },
     {
       "Province/State": "Santa Clara, CA",
       "Country/Region": "US",
       "Lat": 37.3541,
-      "Long": -121.9552
+      "Long": -121.9552,
+      "featureId": 64
     },
     {
       "Province/State": "",
       "Country/Region": "Spain",
       "Lat": 40,
-      "Long": -4
+      "Long": -4,
+      "featureId": 65
     },
     {
       "Province/State": "South Australia",
       "Country/Region": "Australia",
       "Lat": -34.9285,
-      "Long": 138.6007
+      "Long": 138.6007,
+      "featureId": 66
     },
     {
       "Province/State": "Boston, MA",
       "Country/Region": "US",
       "Lat": 42.3601,
-      "Long": -71.0589
+      "Long": -71.0589,
+      "featureId": 67
     },
     {
       "Province/State": "San Benito, CA",
       "Country/Region": "US",
       "Lat": 36.5761,
-      "Long": -120.9876
+      "Long": -120.9876,
+      "featureId": 68
     },
     {
       "Province/State": "",
       "Country/Region": "Belgium",
       "Lat": 50.8333,
-      "Long": 4
+      "Long": 4,
+      "featureId": 69
     },
     {
       "Province/State": "Madison, WI",
       "Country/Region": "US",
       "Lat": 43.0731,
-      "Long": -89.4012
+      "Long": -89.4012,
+      "featureId": 70
     },
     {
       "Province/State": "Diamond Princess cruise ship",
       "Country/Region": "Others",
       "Lat": 35.4437,
-      "Long": 139.638
+      "Long": 139.638,
+      "featureId": 71
     },
     {
       "Province/State": "San Diego County, CA",
       "Country/Region": "US",
       "Lat": 32.7157,
-      "Long": -117.1611
+      "Long": -117.1611,
+      "featureId": 72
     },
     {
       "Province/State": "San Antonio, TX",
       "Country/Region": "US",
       "Lat": 29.4241,
-      "Long": -98.4936
+      "Long": -98.4936,
+      "featureId": 73
     },
     {
       "Province/State": "",
       "Country/Region": "Egypt",
       "Lat": 26,
-      "Long": 30
+      "Long": 30,
+      "featureId": 74
     },
     {
       "Province/State": "",
       "Country/Region": "Iran",
       "Lat": 32,
-      "Long": 53
+      "Long": 53,
+      "featureId": 75
     },
     {
       "Province/State": "Omaha, NE (From Diamond Princess)",
       "Country/Region": "US",
       "Lat": 41.2545,
-      "Long": -95.9758
+      "Long": -95.9758,
+      "featureId": 76
     },
     {
       "Province/State": "Travis, CA (From Diamond Princess)",
       "Country/Region": "US",
       "Lat": 38.2721,
-      "Long": -121.9399
+      "Long": -121.9399,
+      "featureId": 77
     },
     {
       "Province/State": "From Diamond Princess",
       "Country/Region": "Australia",
       "Lat": 35.4437,
-      "Long": 139.638
+      "Long": 139.638,
+      "featureId": 78
     },
     {
       "Province/State": "Lackland, TX (From Diamond Princess)",
       "Country/Region": "US",
       "Lat": 29.3829,
-      "Long": -98.6134
+      "Long": -98.6134,
+      "featureId": 79
     },
     {
       "Province/State": "",
       "Country/Region": "Lebanon",
       "Lat": 33.8547,
-      "Long": 35.8623
+      "Long": 35.8623,
+      "featureId": 80
     },
     {
       "Province/State": "Humboldt County, CA",
       "Country/Region": "US",
       "Lat": 40.745,
-      "Long": -123.8695
+      "Long": -123.8695,
+      "featureId": 81
     },
     {
       "Province/State": "Sacramento County, CA",
       "Country/Region": "US",
       "Lat": 38.4747,
-      "Long": -121.3542
+      "Long": -121.3542,
+      "featureId": 82
     },
     {
       "Province/State": "",
       "Country/Region": "Iraq",
       "Lat": 33,
-      "Long": 44
+      "Long": 44,
+      "featureId": 83
     },
     {
       "Province/State": "Unassigned Location (From Diamond Princess)",
       "Country/Region": "US",
       "Lat": 35.4437,
-      "Long": 139.638
+      "Long": 139.638,
+      "featureId": 84
     },
     {
       "Province/State": "",
       "Country/Region": "Oman",
       "Lat": 21,
-      "Long": 57
+      "Long": 57,
+      "featureId": 85
     },
     {
       "Province/State": "",
       "Country/Region": "Afghanistan",
       "Lat": 33,
-      "Long": 65
+      "Long": 65,
+      "featureId": 86
     },
     {
       "Province/State": "",
       "Country/Region": "Bahrain",
       "Lat": 26.0275,
-      "Long": 50.55
+      "Long": 50.55,
+      "featureId": 87
     },
     {
       "Province/State": "",
       "Country/Region": "Kuwait",
       "Lat": 29.5,
-      "Long": 47.75
+      "Long": 47.75,
+      "featureId": 88
     },
     {
       "Province/State": "",
       "Country/Region": "Algeria",
       "Lat": 28.0339,
-      "Long": 1.6596
+      "Long": 1.6596,
+      "featureId": 89
     },
     {
       "Province/State": "",
       "Country/Region": "Croatia",
       "Lat": 45.1,
-      "Long": 15.2
+      "Long": 15.2,
+      "featureId": 90
     },
     {
       "Province/State": "",
       "Country/Region": "Switzerland",
       "Lat": 46.8182,
-      "Long": 8.2275
+      "Long": 8.2275,
+      "featureId": 91
     },
     {
       "Province/State": "",
       "Country/Region": "Austria",
       "Lat": 47.5162,
-      "Long": 14.5501
+      "Long": 14.5501,
+      "featureId": 92
     },
     {
       "Province/State": "",
       "Country/Region": "Israel",
       "Lat": 31,
-      "Long": 35
+      "Long": 35,
+      "featureId": 93
     },
     {
       "Province/State": "",
       "Country/Region": "Pakistan",
       "Lat": 30.3753,
-      "Long": 69.3451
+      "Long": 69.3451,
+      "featureId": 94
     },
     {
       "Province/State": "",
       "Country/Region": "Brazil",
       "Lat": -14.235,
-      "Long": -51.9253
+      "Long": -51.9253,
+      "featureId": 95
     },
     {
       "Province/State": "",
       "Country/Region": "Georgia",
       "Lat": 42.3154,
-      "Long": 43.3569
+      "Long": 43.3569,
+      "featureId": 96
     },
     {
       "Province/State": "",
       "Country/Region": "Greece",
       "Lat": 39.0742,
-      "Long": 21.8243
+      "Long": 21.8243,
+      "featureId": 97
     },
     {
       "Province/State": "",
       "Country/Region": "North Macedonia",
       "Lat": 41.6086,
-      "Long": 21.7453
+      "Long": 21.7453,
+      "featureId": 98
     },
     {
       "Province/State": "",
       "Country/Region": "Norway",
       "Lat": 60.472,
-      "Long": 8.4689
+      "Long": 8.4689,
+      "featureId": 99
     },
     {
       "Province/State": "",
       "Country/Region": "Romania",
       "Lat": 45.9432,
-      "Long": 24.9668
+      "Long": 24.9668,
+      "featureId": 100
     },
     {
       "Province/State": "",
       "Country/Region": "Denmark",
       "Lat": 56.2639,
-      "Long": 9.5018
+      "Long": 9.5018,
+      "featureId": 101
     },
     {
       "Province/State": "",
       "Country/Region": "Estonia",
       "Lat": 58.5953,
-      "Long": 25.0136
+      "Long": 25.0136,
+      "featureId": 102
     },
     {
       "Province/State": "",
       "Country/Region": "Netherlands",
       "Lat": 52.1326,
-      "Long": 5.2913
+      "Long": 5.2913,
+      "featureId": 103
     },
     {
       "Province/State": "",
       "Country/Region": "San Marino",
       "Lat": 43.9424,
-      "Long": 12.4578
+      "Long": 12.4578,
+      "featureId": 104
     },
     {
       "Province/State": "",
       "Country/Region": "Belarus",
       "Lat": 53.7098,
-      "Long": 27.9534
+      "Long": 27.9534,
+      "featureId": 105
     },
     {
       "Province/State": "Montreal, QC",
       "Country/Region": "Canada",
       "Lat": 45.5017,
-      "Long": -73.5673
+      "Long": -73.5673,
+      "featureId": 106
     },
     {
       "Province/State": "",
       "Country/Region": "Iceland",
       "Lat": 64.9631,
-      "Long": -19.0208
+      "Long": -19.0208,
+      "featureId": 107
     },
     {
       "Province/State": "",
       "Country/Region": "Lithuania",
       "Lat": 55.1694,
-      "Long": 23.8813
+      "Long": 23.8813,
+      "featureId": 108
     },
     {
       "Province/State": "",
       "Country/Region": "Mexico",
       "Lat": 23.6345,
-      "Long": -102.5528
+      "Long": -102.5528,
+      "featureId": 109
     },
     {
       "Province/State": "",
       "Country/Region": "New Zealand",
       "Lat": -40.9006,
-      "Long": 174.886
+      "Long": 174.886,
+      "featureId": 110
     },
     {
       "Province/State": "",
       "Country/Region": "Nigeria",
       "Lat": 9.082,
-      "Long": 8.6753
+      "Long": 8.6753,
+      "featureId": 111
     },
     {
       "Province/State": "Western Australia",
       "Country/Region": "Australia",
       "Lat": -31.9505,
-      "Long": 115.8605
+      "Long": 115.8605,
+      "featureId": 112
     },
     {
       "Province/State": "",
       "Country/Region": "Ireland",
       "Lat": 53.1424,
-      "Long": -7.6921
+      "Long": -7.6921,
+      "featureId": 113
     },
     {
       "Province/State": "",
       "Country/Region": "Luxembourg",
       "Lat": 49.8153,
-      "Long": 6.1296
+      "Long": 6.1296,
+      "featureId": 114
     },
     {
       "Province/State": "",
       "Country/Region": "Monaco",
       "Lat": 43.7333,
-      "Long": 7.4167
+      "Long": 7.4167,
+      "featureId": 115
     },
     {
       "Province/State": "",
       "Country/Region": "Qatar",
       "Lat": 25.3548,
-      "Long": 51.1839
+      "Long": 51.1839,
+      "featureId": 116
     },
     {
       "Province/State": "Portland, OR",
       "Country/Region": "US",
       "Lat": 45.5051,
-      "Long": -122.675
+      "Long": -122.675,
+      "featureId": 117
     },
     {
       "Province/State": "Snohomish County, WA",
       "Country/Region": "US",
       "Lat": 48.033,
-      "Long": -121.8339
+      "Long": -121.8339,
+      "featureId": 118
     },
     {
       "Province/State": "",
       "Country/Region": "Ecuador",
       "Lat": -1.8312,
-      "Long": -78.1834
+      "Long": -78.1834,
+      "featureId": 119
     },
     {
       "Province/State": "",
       "Country/Region": "Azerbaijan",
       "Lat": 40.1431,
-      "Long": 47.5769
+      "Long": 47.5769,
+      "featureId": 120
     },
     {
       "Province/State": "",
       "Country/Region": "Czech Republic",
       "Lat": 49.8175,
-      "Long": 15.473
+      "Long": 15.473,
+      "featureId": 121
     },
     {
       "Province/State": "",
       "Country/Region": "Armenia",
       "Lat": 40.0691,
-      "Long": 45.0382
+      "Long": 45.0382,
+      "featureId": 122
     },
     {
       "Province/State": "",
       "Country/Region": "Dominican Republic",
       "Lat": 18.7357,
-      "Long": -70.1627
+      "Long": -70.1627,
+      "featureId": 123
     },
     {
       "Province/State": "Providence, RI",
       "Country/Region": "US",
       "Lat": 41.824,
-      "Long": -71.4128
+      "Long": -71.4128,
+      "featureId": 124
     }
   ]
 }

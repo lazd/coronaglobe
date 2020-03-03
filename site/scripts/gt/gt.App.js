@@ -9,6 +9,7 @@ import Heatmap from './gt.Heatmap.js';
 import data from '../../data/data.json';
 import features from '../../data/features.json';
 import drawThreeGeo from './lib/threeGeoJSON.js';
+import * as randomPointGenerator from 'random-points-generator';
 
 window.THREE = THREE;
 
@@ -205,16 +206,21 @@ const App = function(options) {
 		}
 	}
 
-	// Set default parameters based on hash
-	this.setParametersFromHash();
-
 	// Add listeners
 	window.addEventListener('popstate', this.setParametersFromHash.bind(this));
 	window.addEventListener('resize', this.handleWindowResize.bind(this));
 	window.addEventListener('blur', this.handleBlur.bind(this));
 	window.addEventListener('focus', this.handleFocus.bind(this));
 
-	this.showData(data, args.type, args.date);
+
+	// Generate randomly distributed points for each feature
+	this.generateRandomPointSets(data);
+	if (!args.type && !args.date) {
+		this.showData(data);
+	}
+
+	// Set default parameters based on hash
+	this.setParametersFromHash();
 
 	if (args.playing) {
 		this.play();
@@ -223,10 +229,12 @@ const App = function(options) {
 	// Start animation
 	this.animate(0);
 
-	this.countries = new THREE.Object3D();
-	this.scene.add(this.countries);
-
-	this.drawCountries();
+	// Draw features
+	if (this.drawFeatureLines) {
+		this.featureContainer = new THREE.Object3D();
+		this.scene.add(this.featureContainer);
+		this.drawFeatures();
+	}
 };
 
 App.defaults = {
@@ -242,28 +250,26 @@ App.defaults = {
 	realtimeHeatmap: false,
 	animateSun: false,
 
+	drawFeatureLines: false,
+
 	watchGPS: false,
 	startAtGPS: true,
 	dateHoldTime: 150,
 
+	caseDivisor: 1000,
+	minimumCluster: 4,
 	type: 'cases',
 
 	itemName: 'item',
 	itemNamePlural: 'items'
 };
 
-App.prototype.drawCountries = function() {
+App.prototype.drawFeatures = function() {
 	drawThreeGeo(features, this.earthRadius, 'sphere', {
-		color: 'orange'
-	}, this.countries);
-
-	// drawThreeGeo(countryData, this.earthRadius, 'sphere', {
-	// 	color: 'orange'
-	// }, this.countries);
-
-	// drawThreeGeo(provinceData, this.earthRadius, 'sphere', {
-	// 	color: 'orange'
-	// }, this.countries);
+		color: 'rgb(200, 200, 200)',
+		opacity: 0.75,
+		transparent: true,
+	}, this.featureContainer);
 };
 
 // Animation
@@ -411,7 +417,7 @@ App.prototype.setHashFromParameters = function() {
 // Marker management
 App.prototype.add = function(data) {
 	this.heatmap.add(data);
-	this.addMarker(data); // Markers are very, very slow
+	// this.addMarker(data); // Markers are very, very slow
 };
 
 App.prototype.addMarker = function(data) {
@@ -547,61 +553,108 @@ App.prototype.positionSunForDate = function(date) {
 	this.globe.setSunPosition(dayOfYear);
 };
 
-App.prototype.showData = function(data, type, date) {
+App.prototype.generateRandomPointSets = function(data) {
 	var locations = data.locations;
-	var firstDate = Object.keys(data.days).shift();
 	var latestDate = Object.keys(data.days).pop();
-	if (!date) {
-		date = latestDate;
+	var currentLocations = data.days[latestDate];
+
+	console.log('⏳ Generating random point sets...');
+	for (var locationId in currentLocations) {
+		let locationData = currentLocations[locationId];
+		var location = locations[locationId];
+		var cases = locationData.cases;
+
+		if (cases) {
+			if (cases > this.caseDivisor * this.minimumCluster) {
+				var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region'];
+
+				let pointsToGenerate = Math.max(Math.round(cases / this.caseDivisor), 1);
+				console.log('  %s: generating %d points for %d cases', locationString, pointsToGenerate, cases);
+				try {
+					location.pointFeatures = randomPointGenerator.random(pointsToGenerate, {
+						features: features.features[location.featureId]
+					});
+				}
+				catch(err) {
+					console.error('    ⚠️ could not generate random points!');
+				}
+			}
+		}
 	}
-	if (!type) {
-		type = this.type;
-	}
+};
+
+App.prototype.showData = function(data, type, date) {
+	let locations = data.locations;
+	let firstDate = Object.keys(data.days).shift();
+	let latestDate = Object.keys(data.days).pop();
+	date = date || latestDate;
+	type = type || this.type;
 
 	if (!data.days[date]) {
 		console.error('No data for %s', date);
 		return;
 	}
 
+	// Store current date/type
 	this.type = type;
 	this.date = date;
-
-	var currentLocations = data.days[date];
 
 	// Configure datepicker
 	this.datePicker.min = util.formatDateForInput(firstDate);
 	this.datePicker.max = util.formatDateForInput(latestDate);
 	this.datePicker.value = util.formatDateForInput(date);
 
+	// Position slider
 	let dayNumber = Object.keys(data.days).indexOf(date);
 	this.slider.max = Object.keys(data.days).length - 1;
 	this.slider.value = dayNumber;
 
+	// Set type
 	this.typeSelect.value = this.type;
+
+	// Position sun
+	this.positionSunForDate(date);
 
 	this.heatmap.clear();
 
-	this.positionSunForDate(date);
-
 	console.log('🗓 %s', date);
 
+	let currentLocations = data.days[date];
 	let count = 0;
-	for (var locationId in currentLocations) {
+	for (let locationId in currentLocations) {
 		let locationData = currentLocations[locationId];
-		var location = locations[locationId];
-		var cases = locationData[type];
+		let location = locations[locationId];
+		let cases = locationData[type];
 		if (cases) {
-			var size = ((Math.log(cases) / Math.log(1.5)) + 1) * 4.5;
-			var intensity = 0.7;
-			var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region'];
-			console.log('  ', locationString + ':', cases + ' ' + type);
-			// console.log('  ', locationString + ':', locationData.cases + ' cases', 'at', location.Lat + ',' + location.Long, 'with size ' + size);
-			this.add({
-				total: cases,
-				location: [location.Lat, location.Long],
-				size: size,
-				intensity: intensity
-			});
+			let locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region'];
+
+			if (location.pointFeatures) {
+				let clusterCount = Math.round(cases / this.caseDivisor);
+				let size = 25;
+				let intensity = 0.45;
+				console.log('  %s: %d %s (%d points of %dpx and %f intensity)', locationString, cases, type, clusterCount, size, intensity);
+
+				for (let i = 0; i < clusterCount; i++) {
+					let pointFeature = location.pointFeatures.features[i];
+					let coordinates = pointFeature.geometry.coordinates;
+					this.add({
+						location: [coordinates[1], coordinates[0]],
+						size: size,
+						intensity: intensity
+					});
+				}
+			}
+			else {
+				let size = ((Math.log(cases) / Math.log(2)) + 1) * 5;
+				let intensity = 0.7;
+				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', locationString, cases, type, size, intensity);
+
+				this.add({
+					location: [location.Lat, location.Long],
+					size: size,
+					intensity: intensity
+				});
+			}
 
 			count += cases;
 		}
