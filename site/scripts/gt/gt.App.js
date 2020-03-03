@@ -645,8 +645,8 @@ App.prototype.showData = function(data, type, date) {
 				}
 			}
 			else {
-				let size = ((Math.log(cases) / Math.log(2)) + 1) * 5;
-				let intensity = 0.7;
+				let size = Math.max(((Math.log(cases) / Math.log(2))) * 5, 9);
+				let intensity = 0.75;
 				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', locationString, cases, type, size, intensity);
 
 				this.add({
