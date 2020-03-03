@@ -6,7 +6,7 @@
   "scripts": {
     "update": "yarn run fetch && yarn run load && yarn run push && yarn run deploy",
     "fetch": "git submodule update --remote",
-    "load": "node tools/import.js",
+    "load": "node tools/import.js && node tools/generateFeatures.json",
     "push": "git commit site COVID-19 -m \"feat: update data\" && git push",
     "dev": "parcel site/index.html",
     "build": "rm -rf dist/* && parcel build site/index.html --public-url ./ && cp -r site/icon* dist/",
@@ -33,6 +33,7 @@
     "@parcel/resolver-default": "^2.0.0-alpha.3",
     "@parcel/transformer-postcss": "^2.0.0-alpha.3",
     "@parcel/transformer-raw": "^2.0.0-alpha.3",
+    "@turf/turf": "^5.1.6",
     "autoprefixer": "^9.7.4",
     "csv": "^5.3.1",
     "ghpages": "^0.0.10",

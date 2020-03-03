@@ -7,6 +7,8 @@ import Marker from './gt.Marker.js';
 import Heatmap from './gt.Heatmap.js';
 
 import data from '../../data/data.json';
+import features from '../../data/features.json';
+import drawThreeGeo from './lib/threeGeoJSON.js';
 
 window.THREE = THREE;
 
@@ -220,6 +222,11 @@ const App = function(options) {
 
 	// Start animation
 	this.animate(0);
+
+	this.countries = new THREE.Object3D();
+	this.scene.add(this.countries);
+
+	this.drawCountries();
 };
 
 App.defaults = {
@@ -243,6 +250,20 @@ App.defaults = {
 
 	itemName: 'item',
 	itemNamePlural: 'items'
+};
+
+App.prototype.drawCountries = function() {
+	drawThreeGeo(features, this.earthRadius, 'sphere', {
+		color: 'orange'
+	}, this.countries);
+
+	// drawThreeGeo(countryData, this.earthRadius, 'sphere', {
+	// 	color: 'orange'
+	// }, this.countries);
+
+	// drawThreeGeo(provinceData, this.earthRadius, 'sphere', {
+	// 	color: 'orange'
+	// }, this.countries);
 };
 
 // Animation
@@ -390,7 +411,7 @@ App.prototype.setHashFromParameters = function() {
 // Marker management
 App.prototype.add = function(data) {
 	this.heatmap.add(data);
-	// this.addMarker(data); // Markers are very, very slow
+	this.addMarker(data); // Markers are very, very slow
 };
 
 App.prototype.addMarker = function(data) {
