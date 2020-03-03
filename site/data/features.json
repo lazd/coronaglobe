@@ -668,6 +668,7 @@
       },
       "properties": {
         "name": "Anhui",
+        "name_en": "Anhui",
         "iso_a2": "CN",
         "iso_3166_2": "CN-34",
         "latitude": 31.9537,
@@ -870,6 +871,7 @@
       },
       "properties": {
         "name": "Beijing",
+        "name_en": "Beijing",
         "iso_a2": "CN",
         "iso_3166_2": "CN-11",
         "latitude": 39.9488,
@@ -1424,6 +1426,7 @@
       },
       "properties": {
         "name": "Chongqing",
+        "name_en": "Chongqing",
         "iso_a2": "CN",
         "iso_3166_2": "CN-50",
         "latitude": 30.0173,
@@ -2080,6 +2083,7 @@
       },
       "properties": {
         "name": "Fujian",
+        "name_en": "Fujian",
         "iso_a2": "CN",
         "iso_3166_2": "CN-35",
         "latitude": 26.408,
@@ -3546,6 +3550,7 @@
       },
       "properties": {
         "name": "Gansu",
+        "name_en": "Gansu",
         "iso_a2": "CN",
         "iso_3166_2": "CN-62",
         "latitude": 38.7393,
@@ -4510,6 +4515,7 @@
       },
       "properties": {
         "name": "Guangdong",
+        "name_en": "Guangdong",
         "iso_a2": "CN",
         "iso_3166_2": "CN-44",
         "latitude": 23.7924,
@@ -5380,6 +5386,7 @@
       },
       "properties": {
         "name": "Guangxi",
+        "name_en": "Guangxi Zhuang Autonomous Region",
         "iso_a2": "CN",
         "iso_3166_2": "CN-45",
         "latitude": 23.7451,
@@ -6122,6 +6129,7 @@
       },
       "properties": {
         "name": "Guizhou",
+        "name_en": "Guizhou",
         "iso_a2": "CN",
         "iso_3166_2": "CN-52",
         "latitude": 26.8033,
@@ -6364,6 +6372,7 @@
       },
       "properties": {
         "name": "Hainan",
+        "name_en": "Hainan",
         "iso_a2": "CN",
         "iso_3166_2": "CN-46",
         "latitude": 19.1865,
@@ -7324,6 +7333,7 @@
       },
       "properties": {
         "name": "Hebei",
+        "name_en": "Hebei",
         "iso_a2": "CN",
         "iso_3166_2": "CN-13",
         "latitude": 38.5205,
@@ -8542,6 +8552,7 @@
       },
       "properties": {
         "name": "Heilongjiang",
+        "name_en": "Heilongjiang",
         "iso_a2": "CN",
         "iso_3166_2": "CN-23",
         "latitude": 46.8451,
@@ -9236,6 +9247,7 @@
       },
       "properties": {
         "name": "Henan",
+        "name_en": "Henan",
         "iso_a2": "CN",
         "iso_3166_2": "CN-41",
         "latitude": 33.9055,
@@ -9974,6 +9986,7 @@
       },
       "properties": {
         "name": "Hubei",
+        "name_en": "Hubei",
         "iso_a2": "CN",
         "iso_3166_2": "CN-42",
         "latitude": 30.9857,
@@ -10744,6 +10757,7 @@
       },
       "properties": {
         "name": "Hunan",
+        "name_en": "Hunan",
         "iso_a2": "CN",
         "iso_3166_2": "CN-43",
         "latitude": 27.6667,
@@ -12958,6 +12972,7 @@
       },
       "properties": {
         "name": "Inner Mongol",
+        "name_en": "Inner Mongolia",
         "iso_a2": "CN",
         "iso_3166_2": "CN-15",
         "latitude": 41.5938,
@@ -13624,6 +13639,7 @@
       },
       "properties": {
         "name": "Jiangsu",
+        "name_en": "Jiangsu",
         "iso_a2": "CN",
         "iso_3166_2": "CN-32",
         "latitude": 32.9844,
@@ -14278,6 +14294,7 @@
       },
       "properties": {
         "name": "Jiangxi",
+        "name_en": "Jiangxi",
         "iso_a2": "CN",
         "iso_3166_2": "CN-36",
         "latitude": 27.6397,
@@ -15040,6 +15057,7 @@
       },
       "properties": {
         "name": "Jilin",
+        "name_en": "Jilin",
         "iso_a2": "CN",
         "iso_3166_2": "CN-22",
         "latitude": 43.2978,
@@ -15684,6 +15702,7 @@
       },
       "properties": {
         "name": "Liaoning",
+        "name_en": "Liaoning",
         "iso_a2": "CN",
         "iso_3166_2": "CN-21",
         "latitude": 41.386,
@@ -16070,6 +16089,7 @@
       },
       "properties": {
         "name": "Ningxia",
+        "name_en": "Ningxia Hui Autonomous Region",
         "iso_a2": "CN",
         "iso_3166_2": "CN-64",
         "latitude": 37.1762,
@@ -17288,6 +17308,7 @@
       },
       "properties": {
         "name": "Qinghai",
+        "name_en": "Qinghai",
         "iso_a2": "CN",
         "iso_3166_2": "CN-63",
         "latitude": 35.2652,
@@ -18162,6 +18183,7 @@
       },
       "properties": {
         "name": "Shaanxi",
+        "name_en": "Shaanxi",
         "iso_a2": "CN",
         "iso_3166_2": "CN-61",
         "latitude": 33.7713,
@@ -18808,6 +18830,7 @@
       },
       "properties": {
         "name": "Shandong",
+        "name_en": "Shandong",
         "iso_a2": "CN",
         "iso_3166_2": "CN-37",
         "latitude": 36.3271,
@@ -18956,6 +18979,7 @@
       },
       "properties": {
         "name": "Shanghai",
+        "name_en": "Shanghai",
         "iso_a2": "CN",
         "iso_3166_2": "CN-31",
         "latitude": 31.0909,
@@ -19482,6 +19506,7 @@
       },
       "properties": {
         "name": "Shanxi",
+        "name_en": "Shanxi",
         "iso_a2": "CN",
         "iso_3166_2": "CN-14",
         "latitude": 37.7586,
@@ -20824,6 +20849,7 @@
       },
       "properties": {
         "name": "Sichuan",
+        "name_en": "Sichuan",
         "iso_a2": "CN",
         "iso_3166_2": "CN-51",
         "latitude": 30.5431,
@@ -20986,6 +21012,7 @@
       },
       "properties": {
         "name": "Tianjin",
+        "name_en": "Tianjin",
         "iso_a2": "CN",
         "iso_3166_2": "CN-12",
         "latitude": 39.3708,
@@ -22688,6 +22715,7 @@
       },
       "properties": {
         "name": "Xizang",
+        "name_en": "Tibet",
         "iso_a2": "CN",
         "iso_3166_2": "CN-54",
         "latitude": 31.4515,
@@ -24266,6 +24294,7 @@
       },
       "properties": {
         "name": "Xinjiang",
+        "name_en": "Xinjiang",
         "iso_a2": "CN",
         "iso_3166_2": "CN-65",
         "latitude": 41.122,
@@ -25624,6 +25653,7 @@
       },
       "properties": {
         "name": "Yunnan",
+        "name_en": "Yunnan",
         "iso_a2": "CN",
         "iso_3166_2": "CN-53",
         "latitude": 24.4603,
@@ -26200,6 +26230,7 @@
       },
       "properties": {
         "name": "Zhejiang",
+        "name_en": "Zhejiang",
         "iso_a2": "CN",
         "iso_3166_2": "CN-33",
         "latitude": 29.1084,
@@ -26972,6 +27003,8 @@
       },
       "properties": {
         "name": "Thailand",
+        "name_en": "Thailand",
+        "abbrev": "Thai.",
         "pop_est": 68414135,
         "pop_year": 2017,
         "gdp_md_est": 1161000,
@@ -28092,6 +28125,8 @@
       },
       "properties": {
         "name": "Japan",
+        "name_en": "Japan",
+        "abbrev": "Japan",
         "pop_est": 126451398,
         "pop_year": 2017,
         "gdp_md_est": 4932000,
@@ -28288,6 +28323,8 @@
       },
       "properties": {
         "name": "South Korea",
+        "name_en": "South Korea",
+        "abbrev": "S.K.",
         "pop_est": 51181299,
         "pop_year": 2017,
         "gdp_md_est": 1929000,
@@ -28394,6 +28431,7 @@
       },
       "properties": {
         "name": "Nantou",
+        "name_en": "Nantou County",
         "iso_a2": "TW",
         "iso_3166_2": "TW-NAN",
         "latitude": 23.7977,
@@ -28890,6 +28928,8 @@
       },
       "properties": {
         "name": "Washington",
+        "name_en": "Washington",
+        "abbrev": "Wash.",
         "iso_a2": "US",
         "iso_3166_2": "US-WA",
         "latitude": 47.4865,
@@ -29253,6 +29293,8 @@
       },
       "properties": {
         "name": "Illinois",
+        "name_en": "Illinois",
+        "abbrev": "Ill.",
         "iso_a2": "US",
         "iso_3166_2": "US-IL",
         "latitude": 39.946,
@@ -29508,6 +29550,8 @@
       },
       "properties": {
         "name": "Arizona",
+        "name_en": "Arizona",
+        "abbrev": "Ariz.",
         "iso_a2": "US",
         "iso_3166_2": "US-AZ",
         "latitude": 34.3046,
@@ -29547,6 +29591,7 @@
       },
       "properties": {
         "name": "Macau",
+        "name_en": "Macau",
         "iso_a2": "MO",
         "iso_3166_2": "MO-M",
         "latitude": 22.1349,
@@ -29588,6 +29633,8 @@
       },
       "properties": {
         "name": "Hong Kong",
+        "name_en": "Hong Kong",
+        "abbrev": "H.K.",
         "pop_est": 7191503,
         "pop_year": 2017,
         "gdp_md_est": 427400,
@@ -29627,6 +29674,8 @@
       },
       "properties": {
         "name": "Singapore",
+        "name_en": "Singapore",
+        "abbrev": "Sing.",
         "pop_est": 5888926,
         "pop_year": 2017,
         "gdp_md_est": 487900,
@@ -30337,6 +30386,8 @@
       },
       "properties": {
         "name": "Vietnam",
+        "name_en": "Vietnam",
+        "abbrev": "Viet.",
         "pop_est": 96160163,
         "pop_year": 2017,
         "gdp_md_est": 594900,
@@ -31197,6 +31248,8 @@
       },
       "properties": {
         "name": "France",
+        "name_en": "France",
+        "abbrev": "Fr.",
         "pop_est": 67106161,
         "pop_year": 2017,
         "gdp_md_est": 2699000,
@@ -31487,6 +31540,8 @@
       },
       "properties": {
         "name": "Nepal",
+        "name_en": "Nepal",
+        "abbrev": "Nepal",
         "pop_est": 29384297,
         "pop_year": 2017,
         "gdp_md_est": 71520,
@@ -32195,6 +32250,8 @@
       },
       "properties": {
         "name": "Malaysia",
+        "name_en": "Malaysia",
+        "abbrev": "Malay.",
         "pop_est": 31381992,
         "pop_year": 2017,
         "gdp_md_est": 863000,
@@ -33075,6 +33132,8 @@
       },
       "properties": {
         "name": "Ontario",
+        "name_en": "Ontario",
+        "abbrev": "Ont.",
         "iso_a2": "CA",
         "iso_3166_2": "CA-ON",
         "latitude": 50.5244,
@@ -35420,6 +35479,8 @@
       },
       "properties": {
         "name": "British Columbia",
+        "name_en": "British Columbia",
+        "abbrev": "B.C.",
         "iso_a2": "CA",
         "iso_3166_2": "CA-BC",
         "latitude": 54.6943,
@@ -36093,6 +36154,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -36766,6 +36829,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -37631,6 +37696,8 @@
       },
       "properties": {
         "name": "New South Wales",
+        "name_en": "New South Wales",
+        "abbrev": "N.S.W.",
         "iso_a2": "AU",
         "iso_3166_2": "AU-NSW",
         "latitude": -32.4751,
@@ -38243,6 +38310,8 @@
       },
       "properties": {
         "name": "Victoria",
+        "name_en": "Victoria",
+        "abbrev": "Vic.",
         "iso_a2": "AU",
         "iso_3166_2": "AU-VIC",
         "latitude": -37.0082,
@@ -39891,6 +39960,8 @@
       },
       "properties": {
         "name": "Queensland",
+        "name_en": "Queensland",
+        "abbrev": "Qld.",
         "iso_a2": "AU",
         "iso_3166_2": "AU-QLD",
         "latitude": -23.1364,
@@ -40205,6 +40276,8 @@
       },
       "properties": {
         "name": "Cambodia",
+        "name_en": "Cambodia",
+        "abbrev": "Camb.",
         "pop_est": 16204486,
         "pop_year": 2017,
         "gdp_md_est": 58940,
@@ -40347,6 +40420,8 @@
       },
       "properties": {
         "name": "Sri Lanka",
+        "name_en": "Sri Lanka",
+        "abbrev": "Sri L.",
         "pop_est": 22409381,
         "pop_year": 2017,
         "gdp_md_est": 236700,
@@ -40803,6 +40878,8 @@
       },
       "properties": {
         "name": "Germany",
+        "name_en": "Germany",
+        "abbrev": "Ger.",
         "pop_est": 80594017,
         "pop_year": 2017,
         "gdp_md_est": 3979000,
@@ -41225,6 +41302,8 @@
       },
       "properties": {
         "name": "Finland",
+        "name_en": "Finland",
+        "abbrev": "Fin.",
         "pop_est": 5491218,
         "pop_year": 2017,
         "gdp_md_est": 224137,
@@ -41399,6 +41478,8 @@
       },
       "properties": {
         "name": "United Arab Emirates",
+        "name_en": "United Arab Emirates",
+        "abbrev": "U.A.E.",
         "pop_est": 6072475,
         "pop_year": 2017,
         "gdp_md_est": 667200,
@@ -42839,6 +42920,8 @@
       },
       "properties": {
         "name": "Philippines",
+        "name_en": "Philippines",
+        "abbrev": "Phil.",
         "pop_est": 104256076,
         "pop_year": 2017,
         "gdp_md_est": 801900,
@@ -44599,6 +44682,8 @@
       },
       "properties": {
         "name": "India",
+        "name_en": "India",
+        "abbrev": "India",
         "pop_est": 1281935911,
         "pop_year": 2017,
         "gdp_md_est": 8721000,
@@ -45479,6 +45564,8 @@
       },
       "properties": {
         "name": "Ontario",
+        "name_en": "Ontario",
+        "abbrev": "Ont.",
         "iso_a2": "CA",
         "iso_3166_2": "CA-ON",
         "latitude": 50.5244,
@@ -46268,6 +46355,8 @@
       },
       "properties": {
         "name": "Italy",
+        "name_en": "Italy",
+        "abbrev": "Italy",
         "pop_est": 62137802,
         "pop_year": 2017,
         "gdp_md_est": 2221000,
@@ -47000,6 +47089,8 @@
       },
       "properties": {
         "name": "United Kingdom",
+        "name_en": "United Kingdom",
+        "abbrev": "U.K.",
         "pop_est": 64769452,
         "pop_year": 2017,
         "gdp_md_est": 2788000,
@@ -54488,6 +54579,8 @@
       },
       "properties": {
         "name": "Russia",
+        "name_en": "Russia",
+        "abbrev": "Rus.",
         "pop_est": 142257519,
         "pop_year": 2017,
         "gdp_md_est": 3745000,
@@ -55048,6 +55141,8 @@
       },
       "properties": {
         "name": "Sweden",
+        "name_en": "Sweden",
+        "abbrev": "Swe.",
         "pop_est": 9960487,
         "pop_year": 2017,
         "gdp_md_est": 498100,
@@ -55720,6 +55815,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -56413,6 +56510,8 @@
       },
       "properties": {
         "name": "Spain",
+        "name_en": "Spain",
+        "abbrev": "Sp.",
         "pop_est": 48958159,
         "pop_year": 2017,
         "gdp_md_est": 1690000,
@@ -57321,6 +57420,8 @@
       },
       "properties": {
         "name": "South Australia",
+        "name_en": "South Australia",
+        "abbrev": "S.A.",
         "iso_a2": "AU",
         "iso_3166_2": "AU-SA",
         "latitude": -29.6504,
@@ -57525,6 +57626,8 @@
       },
       "properties": {
         "name": "Massachusetts",
+        "name_en": "Massachusetts",
+        "abbrev": "Mass.",
         "iso_a2": "US",
         "iso_3166_2": "US-MA",
         "latitude": 42.3739,
@@ -58198,6 +58301,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -58349,6 +58454,8 @@
       },
       "properties": {
         "name": "Belgium",
+        "name_en": "Belgium",
+        "abbrev": "Belg.",
         "pop_est": 11491346,
         "pop_year": 2017,
         "gdp_md_est": 508600,
@@ -58663,6 +58770,8 @@
       },
       "properties": {
         "name": "Wisconsin",
+        "name_en": "Wisconsin",
+        "abbrev": "Wis.",
         "iso_a2": "US",
         "iso_3166_2": "US-WI",
         "latitude": 44.3709,
@@ -58762,6 +58871,7 @@
       },
       "properties": {
         "name": "Kanagawa",
+        "name_en": "Kanagawa Prefecture",
         "iso_a2": "JP",
         "iso_3166_2": "JP-14",
         "latitude": 35.4378,
@@ -59434,6 +59544,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -60367,6 +60479,8 @@
       },
       "properties": {
         "name": "Texas",
+        "name_en": "Texas",
+        "abbrev": "Tex.",
         "iso_a2": "US",
         "iso_3166_2": "US-TX",
         "latitude": 31.131,
@@ -60762,6 +60876,8 @@
       },
       "properties": {
         "name": "Egypt",
+        "name_en": "Egypt",
+        "abbrev": "Egypt",
         "pop_est": 97041072,
         "pop_year": 2017,
         "gdp_md_est": 1105000,
@@ -61568,6 +61684,8 @@
       },
       "properties": {
         "name": "Iran",
+        "name_en": "Iran",
+        "abbrev": "Iran",
         "pop_est": 82021564,
         "pop_year": 2017,
         "gdp_md_est": 1459000,
@@ -61802,6 +61920,8 @@
       },
       "properties": {
         "name": "Nebraska",
+        "name_en": "Nebraska",
+        "abbrev": "Nebr.",
         "iso_a2": "US",
         "iso_3166_2": "US-NE",
         "latitude": 41.5002,
@@ -62475,6 +62595,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -62574,6 +62696,7 @@
       },
       "properties": {
         "name": "Kanagawa",
+        "name_en": "Kanagawa Prefecture",
         "iso_a2": "JP",
         "iso_3166_2": "JP-14",
         "latitude": 35.4378,
@@ -63506,6 +63629,8 @@
       },
       "properties": {
         "name": "Texas",
+        "name_en": "Texas",
+        "abbrev": "Tex.",
         "iso_a2": "US",
         "iso_3166_2": "US-TX",
         "latitude": 31.131,
@@ -63589,6 +63714,8 @@
       },
       "properties": {
         "name": "Lebanon",
+        "name_en": "Lebanon",
+        "abbrev": "Leb.",
         "pop_est": 6229794,
         "pop_year": 2017,
         "gdp_md_est": 85160,
@@ -64261,6 +64388,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -64934,6 +65063,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -65249,6 +65380,8 @@
       },
       "properties": {
         "name": "Iraq",
+        "name_en": "Iraq",
+        "abbrev": "Iraq",
         "pop_est": 39192111,
         "pop_year": 2017,
         "gdp_md_est": 596700,
@@ -65347,6 +65480,7 @@
       },
       "properties": {
         "name": "Kanagawa",
+        "name_en": "Kanagawa Prefecture",
         "iso_a2": "JP",
         "iso_3166_2": "JP-14",
         "latitude": 35.4378,
@@ -65683,6 +65817,8 @@
       },
       "properties": {
         "name": "Oman",
+        "name_en": "Oman",
+        "abbrev": "Oman",
         "pop_est": 3424386,
         "pop_year": 2017,
         "gdp_md_est": 173100,
@@ -66225,6 +66361,8 @@
       },
       "properties": {
         "name": "Afghanistan",
+        "name_en": "Afghanistan",
+        "abbrev": "Afg.",
         "pop_est": 34124811,
         "pop_year": 2017,
         "gdp_md_est": 64080,
@@ -66267,6 +66405,8 @@
       },
       "properties": {
         "name": "Bahrain",
+        "name_en": "Bahrain",
+        "abbrev": "Bahr.",
         "pop_est": 1410942,
         "pop_year": 2017,
         "gdp_md_est": 66370,
@@ -66371,6 +66511,8 @@
       },
       "properties": {
         "name": "Kuwait",
+        "name_en": "Kuwait",
+        "abbrev": "Kwt.",
         "pop_est": 2875422,
         "pop_year": 2017,
         "gdp_md_est": 301100,
@@ -66949,6 +67091,8 @@
       },
       "properties": {
         "name": "Algeria",
+        "name_en": "Algeria",
+        "abbrev": "Alg.",
         "pop_est": 40969443,
         "pop_year": 2017,
         "gdp_md_est": 609400,
@@ -67237,6 +67381,8 @@
       },
       "properties": {
         "name": "Croatia",
+        "name_en": "Croatia",
+        "abbrev": "Cro.",
         "pop_est": 4292095,
         "pop_year": 2017,
         "gdp_md_est": 94240,
@@ -67419,6 +67565,8 @@
       },
       "properties": {
         "name": "Switzerland",
+        "name_en": "Switzerland",
+        "abbrev": "Switz.",
         "pop_est": 8236303,
         "pop_year": 2017,
         "gdp_md_est": 496300,
@@ -67649,6 +67797,8 @@
       },
       "properties": {
         "name": "Austria",
+        "name_en": "Austria",
+        "abbrev": "Aust.",
         "pop_est": 8754413,
         "pop_year": 2017,
         "gdp_md_est": 416600,
@@ -67799,6 +67949,8 @@
       },
       "properties": {
         "name": "Israel",
+        "name_en": "Israel",
+        "abbrev": "Isr.",
         "pop_est": 8299706,
         "pop_year": 2017,
         "gdp_md_est": 297000,
@@ -68565,6 +68717,8 @@
       },
       "properties": {
         "name": "Pakistan",
+        "name_en": "Pakistan",
+        "abbrev": "Pak.",
         "pop_est": 204924861,
         "pop_year": 2017,
         "gdp_md_est": 988200,
@@ -71013,6 +71167,8 @@
       },
       "properties": {
         "name": "Brazil",
+        "name_en": "Brazil",
+        "abbrev": "Brazil",
         "pop_est": 207353391,
         "pop_year": 2017,
         "gdp_md_est": 3081000,
@@ -71227,6 +71383,8 @@
       },
       "properties": {
         "name": "Georgia",
+        "name_en": "Georgia",
+        "abbrev": "Geo.",
         "pop_est": 4926330,
         "pop_year": 2017,
         "gdp_md_est": 37270,
@@ -71903,6 +72061,8 @@
       },
       "properties": {
         "name": "Greece",
+        "name_en": "Greece",
+        "abbrev": "Greece",
         "pop_est": 10768477,
         "pop_year": 2017,
         "gdp_md_est": 290500,
@@ -72005,6 +72165,8 @@
       },
       "properties": {
         "name": "Macedonia",
+        "name_en": "Republic of Macedonia",
+        "abbrev": "Mkd.",
         "pop_est": 2103721,
         "pop_year": 2017,
         "gdp_md_est": 29520,
@@ -73329,6 +73491,8 @@
       },
       "properties": {
         "name": "Norway",
+        "name_en": "Norway",
+        "abbrev": "Nor.",
         "pop_est": 5320045,
         "pop_year": 2017,
         "gdp_md_est": 364700,
@@ -73623,6 +73787,8 @@
       },
       "properties": {
         "name": "Romania",
+        "name_en": "Romania",
+        "abbrev": "Rom.",
         "pop_est": 21529967,
         "pop_year": 2017,
         "gdp_md_est": 441000,
@@ -73923,6 +74089,8 @@
       },
       "properties": {
         "name": "Denmark",
+        "name_en": "Denmark",
+        "abbrev": "Den.",
         "pop_est": 5605948,
         "pop_year": 2017,
         "gdp_md_est": 264800,
@@ -74115,6 +74283,8 @@
       },
       "properties": {
         "name": "Estonia",
+        "name_en": "Estonia",
+        "abbrev": "Est.",
         "pop_est": 1251581,
         "pop_year": 2017,
         "gdp_md_est": 38700,
@@ -74295,6 +74465,8 @@
       },
       "properties": {
         "name": "Netherlands",
+        "name_en": "Netherlands",
+        "abbrev": "Neth.",
         "pop_est": 17084719,
         "pop_year": 2017,
         "gdp_md_est": 870800,
@@ -74333,6 +74505,8 @@
       },
       "properties": {
         "name": "San Marino",
+        "name_en": "San Marino",
+        "abbrev": "S.M.",
         "pop_est": 33537,
         "pop_year": 2017,
         "gdp_md_est": 2023,
@@ -74659,6 +74833,8 @@
       },
       "properties": {
         "name": "Belarus",
+        "name_en": "Belarus",
+        "abbrev": "Bela.",
         "pop_est": 9549747,
         "pop_year": 2017,
         "gdp_md_est": 165400,
@@ -77451,6 +77627,8 @@
       },
       "properties": {
         "name": "Québec",
+        "name_en": "Quebec",
+        "abbrev": "Que.",
         "iso_a2": "CA",
         "iso_3166_2": "CA-QC",
         "latitude": 52.2593,
@@ -77742,6 +77920,8 @@
       },
       "properties": {
         "name": "Iceland",
+        "name_en": "Iceland",
+        "abbrev": "Iceland",
         "pop_est": 339747,
         "pop_year": 2017,
         "gdp_md_est": 16150,
@@ -77900,6 +78080,8 @@
       },
       "properties": {
         "name": "Lithuania",
+        "name_en": "Lithuania",
+        "abbrev": "Lith.",
         "pop_est": 2823859,
         "pop_year": 2017,
         "gdp_md_est": 85620,
@@ -79232,6 +79414,8 @@
       },
       "properties": {
         "name": "Mexico",
+        "name_en": "Mexico",
+        "abbrev": "Mex.",
         "pop_est": 124574795,
         "pop_year": 2017,
         "gdp_md_est": 2307000,
@@ -79848,6 +80032,8 @@
       },
       "properties": {
         "name": "New Zealand",
+        "name_en": "New Zealand",
+        "abbrev": "N.Z.",
         "pop_est": 4510327,
         "pop_year": 2017,
         "gdp_md_est": 174800,
@@ -80338,6 +80524,8 @@
       },
       "properties": {
         "name": "Nigeria",
+        "name_en": "Nigeria",
+        "abbrev": "Nigeria",
         "pop_est": 190632261,
         "pop_year": 2017,
         "gdp_md_est": 1089000,
@@ -82082,6 +82270,8 @@
       },
       "properties": {
         "name": "Western Australia",
+        "name_en": "Western Australia",
+        "abbrev": "W.A.",
         "iso_a2": "AU",
         "iso_3166_2": "AU-WA",
         "latitude": -25.8483,
@@ -82280,6 +82470,8 @@
       },
       "properties": {
         "name": "Ireland",
+        "name_en": "Ireland",
+        "abbrev": "Ire.",
         "pop_est": 5011102,
         "pop_year": 2017,
         "gdp_md_est": 322000,
@@ -82338,6 +82530,8 @@
       },
       "properties": {
         "name": "Luxembourg",
+        "name_en": "Luxembourg",
+        "abbrev": "Lux.",
         "pop_est": 594130,
         "pop_year": 2017,
         "gdp_md_est": 58740,
@@ -82372,6 +82566,8 @@
       },
       "properties": {
         "name": "Monaco",
+        "name_en": "Monaco",
+        "abbrev": "Mco.",
         "pop_est": 30645,
         "pop_year": 2017,
         "gdp_md_est": 7672,
@@ -82450,6 +82646,8 @@
       },
       "properties": {
         "name": "Qatar",
+        "name_en": "Qatar",
+        "abbrev": "Qatar",
         "pop_est": 2314307,
         "pop_year": 2017,
         "gdp_md_est": 334500,
@@ -82764,6 +82962,8 @@
       },
       "properties": {
         "name": "Oregon",
+        "name_en": "Oregon",
+        "abbrev": "Ore.",
         "iso_a2": "US",
         "iso_3166_2": "US-OR",
         "latitude": 43.8333,
@@ -83261,6 +83461,8 @@
       },
       "properties": {
         "name": "Washington",
+        "name_en": "Washington",
+        "abbrev": "Wash.",
         "iso_a2": "US",
         "iso_3166_2": "US-WA",
         "latitude": 47.4865,
@@ -83678,6 +83880,8 @@
       },
       "properties": {
         "name": "Ecuador",
+        "name_en": "Ecuador",
+        "abbrev": "Ecu.",
         "pop_est": 16290913,
         "pop_year": 2017,
         "gdp_md_est": 182400,
@@ -83966,6 +84170,8 @@
       },
       "properties": {
         "name": "Azerbaijan",
+        "name_en": "Azerbaijan",
+        "abbrev": "Aze.",
         "pop_est": 9961396,
         "pop_year": 2017,
         "gdp_md_est": 167900,
@@ -84160,6 +84366,8 @@
       },
       "properties": {
         "name": "Czechia",
+        "name_en": "Czech Republic",
+        "abbrev": "Cz.",
         "pop_est": 10674723,
         "pop_year": 2017,
         "gdp_md_est": 350900,
@@ -84314,6 +84522,8 @@
       },
       "properties": {
         "name": "Armenia",
+        "name_en": "Armenia",
+        "abbrev": "Arm.",
         "pop_est": 3045191,
         "pop_year": 2017,
         "gdp_md_est": 26300,
@@ -84468,6 +84678,8 @@
       },
       "properties": {
         "name": "Dominican Rep.",
+        "name_en": "Dominican Republic",
+        "abbrev": "Dom. Rep.",
         "pop_est": 10734247,
         "pop_year": 2017,
         "gdp_md_est": 161900,
@@ -84560,6 +84772,8 @@
       },
       "properties": {
         "name": "Rhode Island",
+        "name_en": "Rhode Island",
+        "abbrev": "R.I.",
         "iso_a2": "US",
         "iso_3166_2": "US-RI",
         "latitude": 41.6242,
@@ -89269,6 +89483,8 @@
       },
       "properties": {
         "name": "Indonesia",
+        "name_en": "Indonesia",
+        "abbrev": "Indo.",
         "pop_est": 260580739,
         "pop_year": 2017,
         "gdp_md_est": 3028000,
@@ -89541,6 +89757,8 @@
       },
       "properties": {
         "name": "Portugal",
+        "name_en": "Portugal",
+        "abbrev": "Port.",
         "pop_est": 10839514,
         "pop_year": 2017,
         "gdp_md_est": 297100,
@@ -89575,6 +89793,8 @@
       },
       "properties": {
         "name": "Andorra",
+        "name_en": "Andorra",
+        "abbrev": "And.",
         "pop_est": 85702,
         "pop_year": 2017,
         "gdp_md_est": 3327,
@@ -90091,6 +90311,8 @@
       },
       "properties": {
         "name": "Tasmania",
+        "name_en": "Tasmania",
+        "abbrev": "Tas.",
         "iso_a2": "AU",
         "iso_3166_2": "AU-TAS",
         "latitude": -42.1383,
@@ -90265,6 +90487,8 @@
       },
       "properties": {
         "name": "Latvia",
+        "name_en": "Latvia",
+        "abbrev": "Lat.",
         "pop_est": 1944643,
         "pop_year": 2017,
         "gdp_md_est": 50650,
@@ -90819,6 +91043,8 @@
       },
       "properties": {
         "name": "Morocco",
+        "name_en": "Morocco",
+        "abbrev": "Mor.",
         "pop_est": 33986655,
         "pop_year": 2017,
         "gdp_md_est": 282800,
@@ -91349,6 +91575,8 @@
       },
       "properties": {
         "name": "Saudi Arabia",
+        "name_en": "Saudi Arabia",
+        "abbrev": "Saud.",
         "pop_est": 28571770,
         "pop_year": 2017,
         "gdp_md_est": 1731000,
@@ -91647,6 +91875,8 @@
       },
       "properties": {
         "name": "Senegal",
+        "name_en": "Senegal",
+        "abbrev": "Sen.",
         "pop_est": 14668522,
         "pop_year": 2017,
         "gdp_md_est": 39720,
@@ -91793,6 +92023,8 @@
       },
       "properties": {
         "name": "New Hampshire",
+        "name_en": "New Hampshire",
+        "abbrev": "N.H.",
         "iso_a2": "US",
         "iso_3166_2": "US-NH",
         "latitude": 43.5993,
@@ -92374,6 +92606,8 @@
       },
       "properties": {
         "name": "Florida",
+        "name_en": "Florida",
+        "abbrev": "Fla.",
         "iso_a2": "US",
         "iso_3166_2": "US-FL",
         "latitude": 28.1568,
@@ -92751,6 +92985,8 @@
       },
       "properties": {
         "name": "New York",
+        "name_en": "New York",
+        "abbrev": "N.Y.",
         "iso_a2": "US",
         "iso_3166_2": "US-NY",
         "latitude": 43.1988,
@@ -93424,6 +93660,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -94097,6 +94335,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -94678,6 +94918,8 @@
       },
       "properties": {
         "name": "Florida",
+        "name_en": "Florida",
+        "abbrev": "Fla.",
         "iso_a2": "US",
         "iso_3166_2": "US-FL",
         "latitude": 28.1568,
@@ -95351,6 +95593,8 @@
       },
       "properties": {
         "name": "California",
+        "name_en": "California",
+        "abbrev": "Calif.",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "latitude": 36.7496,
@@ -95666,6 +95910,8 @@
       },
       "properties": {
         "name": "Oregon",
+        "name_en": "Oregon",
+        "abbrev": "Ore.",
         "iso_a2": "US",
         "iso_3166_2": "US-OR",
         "latitude": 43.8333,

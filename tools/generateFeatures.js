@@ -41,6 +41,8 @@ function normalizeProps(obj) {
 
 let props = [
   'name',
+  'name_en',
+  'abbrev',
   'pop_est',
   'pop_year',
   'gdp_md_est',
@@ -70,7 +72,7 @@ for (let locationId in locations) {
   if (location.province && location.province != 'Hong Kong') {
     // Check if the location exists within our provinces
     for (let feature of provinceData.features) {
-      if (location.province === feature.properties.name) {
+      if (location.province === feature.properties.name || location.province === feature.properties.name_en) {
         found = true;
         storeFeature(feature, location);
         break;
@@ -99,6 +101,12 @@ for (let locationId in locations) {
     // Check if the location exists within our countries
     for (let feature of countryData.features) {
       if (location.province === feature.properties.NAME || location.country === feature.properties.NAME) {
+        found = true;
+        storeFeature(feature, location);
+        break;
+      }
+
+      if (!location.province && feature.properties.ABBREV.replace(/\./g, '') === location.country) {
         found = true;
         storeFeature(feature, location);
         break;
