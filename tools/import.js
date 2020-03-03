@@ -47,18 +47,28 @@ function getLocationName(location) {
 }
 
 function writeData() {
-  fs.writeFile(path.join('site', 'data', 'data.json'), JSON.stringify(data, null, 2), (err) => {
+  fs.writeFile(path.join('site', 'data', 'cases.json'), JSON.stringify(days, null, 2), (err) => {
     if (err) {
-      console.error('❌ Failed to write data: %s', err);
+      console.error('❌ Failed to write case data: %s', err);
       process.exit(1);
     }
     else {
-      console.log('✅ Data written successfully');
+      console.log('✅ Case data written successfully');
+      fs.writeFile(path.join('site', 'data', 'locations.json'), JSON.stringify(locationArray, null, 2), (err) => {
+        if (err) {
+          console.error('❌ Failed to write location data: %s', err);
+          process.exit(1);
+        }
+        else {
+          console.log('✅ Location data written successfully');
+        }
+      });
     }
   });
 }
 
 let locations = {};
+let locationArray = [];
 let days = {};
 let data = null;
 
@@ -66,29 +76,27 @@ let filesToRead = 0;
 function handleComplete() {
   filesToRead--;
   if (filesToRead === 0) {
-    for (let day in data.days) {
-      for (let location in data.days[day]) {
-        data.days[day][location].active = data.days[day][location].cases - data.days[day][location].recovered - data.days[day][location].deaths;
+    for (let day in days) {
+      for (let location in days[day]) {
+        days[day][location].active = days[day][location].cases - days[day][location].recovered - days[day][location].deaths;
       }
     }
 
     // Turn locations into an array
-    let locationArray = [];
     let locationIds = {};
-    let locationObject = data.locations;
+    let locationObject = locations;
     for (let location in locationObject) {
       locationIds[location] = locationArray.push(locationObject[location]) - 1;
     }
-    data.locations = locationArray;
 
     // Reference indexes in the array instead of location names
-    for (let day in data.days) {
+    for (let day in days) {
       let dayObject = {};
-      for (let location in data.days[day]) {
+      for (let location in days[day]) {
         let locationId = locationIds[location];
-        dayObject[locationId] = data.days[day][location]; 
+        dayObject[locationId] = days[day][location]; 
       }
-      data.days[day] = dayObject;
+      days[day] = dayObject;
     }
 
     writeData();
@@ -121,11 +129,6 @@ function readCSV(csvPath, type) {
       }
     })
     .on('end', () => {
-      data = {
-        days: days,
-        locations: locations
-      };
-
       handleComplete();
     });
 }

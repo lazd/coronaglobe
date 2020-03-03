@@ -1,8 +1,18 @@
 const fs = require('fs');
 const path = require('path');
 
-const data = require('../site/data/data.json');
+const config = require('../data/config.json');
+const cases = require('../site/data/cases.json');
+const locations = require('../site/data/locations.json');
 const features = require('../site/data/features.json');
+
+// Pull in existing points if present
+let points = {};
+let pointsPath = path.join(__dirname, '../site/data/points.json');
+if (fs.existsSync(pointsPath)) {
+  points = require(pointsPath);
+}
+
 const randomPointGenerator = require('random-points-generator');
 
 function simplifyPointSet(pointFeatures) {
@@ -13,35 +23,45 @@ function simplifyPointSet(pointFeatures) {
   return pointArray;
 }
 
-var locations = data.locations;
-var latestDate = Object.keys(data.days).pop();
-var currentLocations = data.days[latestDate];
-
-let caseDivisor = 250;
-let minimumCluster = 4;
-let pointFeatures = {};
+let latestDate = Object.keys(cases).pop();
+let currentLocations = cases[latestDate];
 
 console.log('⏳ Generating random point sets...');
 let error = false;
-for (var locationId in currentLocations) {
+for (let locationId in currentLocations) {
   let locationData = currentLocations[locationId];
-  var location = locations[locationId];
-  var cases = locationData.cases;
+  let location = locations[locationId];
+  let cases = locationData.cases;
 
   if (cases) {
-    if (cases > caseDivisor * minimumCluster) {
-      var locationString = (location.province? location.province+ ', ' : '') + location.country;
+    if (cases > config.caseDivisor * config.minimumClusters) {
+      let locationString = (location.province ? location.province + ', ' : '') + location.country;
 
-      let pointsToGenerate = Math.max(Math.round(cases / caseDivisor), 1);
-      console.log('  %s: generating %d points for %d cases', locationString, pointsToGenerate, cases);
-      try {
-        pointFeatures[locationId] = simplifyPointSet(randomPointGenerator.random(pointsToGenerate, {
-          features: features.features[location.featureId]
-        }));
+      let pointsToGenerate = Math.max(Math.round(cases / config.caseDivisor), 1);
+
+      if (points[locationId]) {
+        // Use existing points as a base
+        // this avoids variation between days
+        pointsToGenerate = pointsToGenerate - points[locationId].length;
       }
-      catch(err) {
-        error = true;
-        console.error('    ⚠️ could not generate random points: %s', err);
+
+      if (pointsToGenerate > 0) {
+        console.log('  %s: generating %d points for %d cases', locationString, pointsToGenerate, cases);
+        try {
+          let newPointFeatures = simplifyPointSet(randomPointGenerator.random(pointsToGenerate, {
+            features: features.features[locationId]
+          }));
+
+          // Add to existing features
+          points[locationId] = (points[locationId] || []).concat(newPointFeatures);
+        }
+        catch(err) {
+          error = true;
+          console.error('    ⚠️ could not generate random points: %s', err);
+        }
+      }
+      else if (location.pointFeatures) {
+        console.log('  %s: skipping point generation, data already contains %d points for %d cases', locationString, location.pointFeatures.length, cases);
       }
     }
   }
@@ -51,13 +71,13 @@ if (error) {
   process.exit(1);
 }
 
-fs.writeFile(path.join('site', 'data', 'clusters.json'), JSON.stringify(pointFeatures, null, 2), (err) => {
+fs.writeFile(path.join('site', 'data', 'points.json'), JSON.stringify(points, null, 2), (err) => {
   if (err) {
-    console.error('❌ Failed to write clusters: %s', err);
+    console.error('❌ Failed to update location data: %s', err);
     process.exit(1);
   }
   else {
-    console.log('✅ Clusters written successfully');
+    console.log('✅ Location data updated successfully');
   }
 });
 

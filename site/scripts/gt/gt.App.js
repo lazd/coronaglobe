@@ -6,8 +6,11 @@ import Skybox from './gt.Skybox.js';
 import Marker from './gt.Marker.js';
 import Heatmap from './gt.Heatmap.js';
 
-import data from '../../data/data.json';
+import config from '../../../data/config.json';
+import cases from '../../data/cases.json';
 import features from '../../data/features.json';
+import locations from '../../data/locations.json';
+import points from '../../data/points.json';
 import drawThreeGeo from './lib/threeGeoJSON.js';
 import * as randomPointGenerator from 'random-points-generator';
 
@@ -61,7 +64,7 @@ const App = function(options) {
 	let sliderChangeEvent = ('ontouchstart' in document.documentElement) ? 'change' : 'input';
 	this.slider.addEventListener(sliderChangeEvent, () => {
 		let dateIndex = this.slider.value;
-		let dateString = Object.keys(data.days)[dateIndex];
+		let dateString = Object.keys(cases)[dateIndex];
 		if (dateString) {
 			this.setDate(dateString);
 			this.pause();
@@ -72,7 +75,7 @@ const App = function(options) {
 		// Update the date while dragging on mobile
 		this.slider.addEventListener('input', () => {
 			let dateIndex = this.slider.value;
-			let dateString = Object.keys(data.days)[dateIndex];
+			let dateString = Object.keys(cases)[dateIndex];
 			this.datePicker.value = util.formatDateForInput(dateString);
 		});
 	}
@@ -212,14 +215,12 @@ const App = function(options) {
 	window.addEventListener('blur', this.handleBlur.bind(this));
 	window.addEventListener('focus', this.handleFocus.bind(this));
 
-
-	// Generate randomly distributed points for each feature
-	this.generateRandomPointSets(data);
+	// Show data if no arguments passed
 	if (!args.type && !args.date) {
-		this.showData(data);
+		this.showData();
 	}
 
-	// Set default parameters based on hash
+	// Set default parameters based on hash, show data if arguments passed
 	this.setParametersFromHash();
 
 	if (args.playing) {
@@ -256,8 +257,6 @@ App.defaults = {
 	startAtGPS: true,
 	dateHoldTime: 150,
 
-	caseDivisor: 250,
-	minimumCluster: 4,
 	type: 'cases',
 
 	itemName: 'item',
@@ -282,7 +281,7 @@ App.prototype.animate = function(time) {
 	this.globe.update(timeDiff, time);
 
 	if (this.playing && time >= this.lastDateChangeTime + this.dateHoldTime) {
-		let dates = Object.keys(data.days);
+		let dates = Object.keys(cases);
 		let dateIndex = dates.indexOf(this.date);
 		let lastDate = dates.length - 1;
 		if (dateIndex < lastDate) {
@@ -352,12 +351,12 @@ App.prototype.stopWatchingGPS = function() {
 App.prototype.setDate = function(date) {
 	// Store the date in the hash if it was set explicitly
 	this.dateSet = true;
-	this.showData(data, this.type, date);
+	this.showData(this.type, date);
 	this.setHashFromParameters();
 };
 
 App.prototype.setType = function(type) {
-	this.showData(data, type, this.date);
+	this.showData(type, this.date);
 	this.setHashFromParameters();
 };
 
@@ -380,7 +379,7 @@ App.prototype.setParametersFromHash = function() {
 			// Store the date in the hash if it came from the hash
 			this.dateSet = true;
 		}
-		this.showData(data, args.type, args.date);
+		this.showData(args.type, args.date);
 	}
 
 	if (args.playing === 'true') {
@@ -553,44 +552,13 @@ App.prototype.positionSunForDate = function(date) {
 	this.globe.setSunPosition(dayOfYear);
 };
 
-App.prototype.generateRandomPointSets = function(data) {
-	var locations = data.locations;
-	var latestDate = Object.keys(data.days).pop();
-	var currentLocations = data.days[latestDate];
-
-	console.log('⏳ Generating random point sets...');
-	for (var locationId in currentLocations) {
-		let locationData = currentLocations[locationId];
-		var location = locations[locationId];
-		var cases = locationData.cases;
-
-		if (cases) {
-			if (cases > this.caseDivisor * this.minimumCluster) {
-				var locationString = (location.province ? location.province + ', ' : '') + location.country;
-
-				let pointsToGenerate = Math.max(Math.round(cases / this.caseDivisor), 1);
-				console.log('  %s: generating %d points for %d cases', locationString, pointsToGenerate, cases);
-				try {
-					location.pointFeatures = randomPointGenerator.random(pointsToGenerate, {
-						features: features.features[location.featureId]
-					});
-				}
-				catch(err) {
-					console.error('    ⚠️ could not generate random points!');
-				}
-			}
-		}
-	}
-};
-
-App.prototype.showData = function(data, type, date) {
-	let locations = data.locations;
-	let firstDate = Object.keys(data.days).shift();
-	let latestDate = Object.keys(data.days).pop();
+App.prototype.showData = function(type, date) {
+	let firstDate = Object.keys(cases).shift();
+	let latestDate = Object.keys(cases).pop();
 	date = date || latestDate;
 	type = type || this.type;
 
-	if (!data.days[date]) {
+	if (!cases[date]) {
 		console.error('No data for %s', date);
 		return;
 	}
@@ -605,8 +573,8 @@ App.prototype.showData = function(data, type, date) {
 	this.datePicker.value = util.formatDateForInput(date);
 
 	// Position slider
-	let dayNumber = Object.keys(data.days).indexOf(date);
-	this.slider.max = Object.keys(data.days).length - 1;
+	let dayNumber = Object.keys(cases).indexOf(date);
+	this.slider.max = Object.keys(cases).length - 1;
 	this.slider.value = dayNumber;
 
 	// Set type
@@ -619,7 +587,7 @@ App.prototype.showData = function(data, type, date) {
 
 	console.log('🗓 %s', date);
 
-	let currentLocations = data.days[date];
+	let currentLocations = cases[date];
 	let count = 0;
 	for (let locationId in currentLocations) {
 		let locationData = currentLocations[locationId];
@@ -628,29 +596,30 @@ App.prototype.showData = function(data, type, date) {
 		if (cases) {
 			let locationString = (location.province ? location.province + ', ' : '') + location.country;
 
-			if (location.pointFeatures) {
-				let clusterCount = Math.round(cases / this.caseDivisor);
+			if (points[locationId]) {
+				// Location has enough cases to have randomly distributed clusters
+				let clusterCount = Math.round(cases / config.caseDivisor);
 				let size = 25;
 				let intensity = 0.5;
 				console.log('  %s: %d %s (%d points of %dpx and %f intensity)', locationString, cases, type, clusterCount, size, intensity);
 
 				for (let i = 0; i < clusterCount; i++) {
-					let pointFeature = location.pointFeatures.features[i];
-					let coordinates = pointFeature.geometry.coordinates;
+					let coordinates = points[locationId][i];
 					this.add({
-						location: coordinates,
+						coordinates: coordinates,
 						size: size,
 						intensity: intensity
 					});
 				}
 			}
 			else {
-				let size = Math.max(((Math.log(cases) / Math.log(2))) * 5, 9);
+				// Location doesn't have enough cases for distribution, create a blob at center
+				let size = Math.max(((Math.log(cases) / Math.log(2))) * 5, 10);
 				let intensity = 0.75;
 				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', locationString, cases, type, size, intensity);
 
 				this.add({
-					location: location.coordinates,
+					coordinates: location.coordinates,
 					size: size,
 					intensity: intensity
 				});

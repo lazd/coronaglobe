@@ -5,7 +5,7 @@ const turf = require('@turf/turf');
 
 const countryData = require('../data/ne_10m_admin_0_countries-4pct.json');
 const provinceData = require('../data/ne_10m_admin_1_states_provinces-10pct.json');
-const data = require('../site/data/data.json');
+const locations = require('../site/data/locations.json');
 
 let usedPolys = {"type":"FeatureCollection", "features": []};
 
@@ -61,8 +61,8 @@ function storeFeature(feature, location) {
 }
 
 console.log('⏳ Generating features...');
-for (let locationId in data.locations) {
-  let location = data.locations[locationId];
+for (let locationId in locations) {
+  let location = locations[locationId];
 
   let found = false;
   let point = turf.point(location.coordinates);
@@ -117,7 +117,7 @@ for (let locationId in data.locations) {
   }
 }
 
-console.log('Found features for %d out of %d regions', usedPolys.features.length, Object.keys(data.locations).length);
+console.log('Found features for %d out of %d regions', usedPolys.features.length, Object.keys(locations).length);
 
 fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(usedPolys, null, 2), (err) => {
   if (err) {
@@ -126,15 +126,5 @@ fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(usedPoly
   }
   else {
     console.log('✅ Features written successfully');
-
-    fs.writeFile(path.join('site', 'data', 'data.json'), JSON.stringify(data, null, 2), (err) => {
-      if (err) {
-        console.error('❌ Failed to write modified data: %s', err);
-        process.exit(1);
-      }
-      else {
-        console.log('✅ Modified data written successfully');
-      }
-    });
   }
 });

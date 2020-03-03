@@ -59,9 +59,9 @@ Heatmap.prototype.set = function(options) {
 };
 
 Heatmap.prototype.add = function(data) {
-	var pos = util.latLongTo2dCoordinate(data.location[1], data.location[0], this.width, this.height)
+	var pos = util.latLongTo2dCoordinate(data.coordinates[1], data.coordinates[0], this.width, this.height)
 	if (pos.x === 0) {
-		console.error('Got 0,0 location', data)
+		console.error('Got 0,0 coordinates', data)
 	}
 	this.heatmap.addPoint(pos.x, pos.y, data.size || this.size, data.intensity || this.intensity);
 

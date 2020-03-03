@@ -1,0 +1,1002 @@
+[
+  {
+    "province": "Anhui",
+    "country": "Mainland China",
+    "coordinates": [
+      117.2264,
+      31.8257
+    ]
+  },
+  {
+    "province": "Beijing",
+    "country": "Mainland China",
+    "coordinates": [
+      116.4142,
+      40.1824
+    ]
+  },
+  {
+    "province": "Chongqing",
+    "country": "Mainland China",
+    "coordinates": [
+      107.874,
+      30.0572
+    ]
+  },
+  {
+    "province": "Fujian",
+    "country": "Mainland China",
+    "coordinates": [
+      117.9874,
+      26.0789
+    ]
+  },
+  {
+    "province": "Gansu",
+    "country": "Mainland China",
+    "coordinates": [
+      103.8343,
+      36.0611
+    ]
+  },
+  {
+    "province": "Guangdong",
+    "country": "Mainland China",
+    "coordinates": [
+      113.4244,
+      23.3417
+    ]
+  },
+  {
+    "province": "Guangxi",
+    "country": "Mainland China",
+    "coordinates": [
+      108.7881,
+      23.8298
+    ]
+  },
+  {
+    "province": "Guizhou",
+    "country": "Mainland China",
+    "coordinates": [
+      106.8748,
+      26.8154
+    ]
+  },
+  {
+    "province": "Hainan",
+    "country": "Mainland China",
+    "coordinates": [
+      109.7453,
+      19.1959
+    ]
+  },
+  {
+    "province": "Hebei",
+    "country": "Mainland China",
+    "coordinates": [
+      114.5149,
+      38.0428
+    ]
+  },
+  {
+    "province": "Heilongjiang",
+    "country": "Mainland China",
+    "coordinates": [
+      127.7615,
+      47.862
+    ]
+  },
+  {
+    "province": "Henan",
+    "country": "Mainland China",
+    "coordinates": [
+      113.614,
+      33.88202
+    ]
+  },
+  {
+    "province": "Hubei",
+    "country": "Mainland China",
+    "coordinates": [
+      112.2707,
+      30.9756
+    ]
+  },
+  {
+    "province": "Hunan",
+    "country": "Mainland China",
+    "coordinates": [
+      111.7088,
+      27.6104
+    ]
+  },
+  {
+    "province": "Inner Mongolia",
+    "country": "Mainland China",
+    "coordinates": [
+      113.9448,
+      44.0935
+    ]
+  },
+  {
+    "province": "Jiangsu",
+    "country": "Mainland China",
+    "coordinates": [
+      119.455,
+      32.9711
+    ]
+  },
+  {
+    "province": "Jiangxi",
+    "country": "Mainland China",
+    "coordinates": [
+      115.7221,
+      27.614
+    ]
+  },
+  {
+    "province": "Jilin",
+    "country": "Mainland China",
+    "coordinates": [
+      126.1923,
+      43.6661
+    ]
+  },
+  {
+    "province": "Liaoning",
+    "country": "Mainland China",
+    "coordinates": [
+      122.6085,
+      41.2956
+    ]
+  },
+  {
+    "province": "Ningxia",
+    "country": "Mainland China",
+    "coordinates": [
+      106.1655,
+      37.2692
+    ]
+  },
+  {
+    "province": "Qinghai",
+    "country": "Mainland China",
+    "coordinates": [
+      95.9956,
+      35.7452
+    ]
+  },
+  {
+    "province": "Shaanxi",
+    "country": "Mainland China",
+    "coordinates": [
+      108.8701,
+      35.1917
+    ]
+  },
+  {
+    "province": "Shandong",
+    "country": "Mainland China",
+    "coordinates": [
+      118.1498,
+      36.3427
+    ]
+  },
+  {
+    "province": "Shanghai",
+    "country": "Mainland China",
+    "coordinates": [
+      121.4491,
+      31.202
+    ]
+  },
+  {
+    "province": "Shanxi",
+    "country": "Mainland China",
+    "coordinates": [
+      112.2922,
+      37.5777
+    ]
+  },
+  {
+    "province": "Sichuan",
+    "country": "Mainland China",
+    "coordinates": [
+      102.7103,
+      30.6171
+    ]
+  },
+  {
+    "province": "Tianjin",
+    "country": "Mainland China",
+    "coordinates": [
+      117.323,
+      39.3054
+    ]
+  },
+  {
+    "province": "Tibet",
+    "country": "Mainland China",
+    "coordinates": [
+      88.0924,
+      31.6927
+    ]
+  },
+  {
+    "province": "Xinjiang",
+    "country": "Mainland China",
+    "coordinates": [
+      85.2401,
+      41.1129
+    ]
+  },
+  {
+    "province": "Yunnan",
+    "country": "Mainland China",
+    "coordinates": [
+      101.487,
+      24.974
+    ]
+  },
+  {
+    "province": "Zhejiang",
+    "country": "Mainland China",
+    "coordinates": [
+      120.0934,
+      29.1832
+    ]
+  },
+  {
+    "province": "",
+    "country": "Thailand",
+    "coordinates": [
+      101,
+      15
+    ]
+  },
+  {
+    "province": "",
+    "country": "Japan",
+    "coordinates": [
+      138,
+      36
+    ]
+  },
+  {
+    "province": "",
+    "country": "South Korea",
+    "coordinates": [
+      128,
+      36
+    ]
+  },
+  {
+    "province": "Taiwan",
+    "country": "Taiwan",
+    "coordinates": [
+      121,
+      23.7
+    ]
+  },
+  {
+    "province": "King County, WA",
+    "country": "US",
+    "coordinates": [
+      -122.3321,
+      47.6062
+    ]
+  },
+  {
+    "province": "Chicago, IL",
+    "country": "US",
+    "coordinates": [
+      -87.6298,
+      41.8781
+    ]
+  },
+  {
+    "province": "Tempe, AZ",
+    "country": "US",
+    "coordinates": [
+      -111.94,
+      33.4255
+    ]
+  },
+  {
+    "province": "Macau",
+    "country": "Macau",
+    "coordinates": [
+      113.55,
+      22.1667
+    ]
+  },
+  {
+    "province": "Hong Kong",
+    "country": "Hong Kong",
+    "coordinates": [
+      114.2,
+      22.3
+    ]
+  },
+  {
+    "province": "",
+    "country": "Singapore",
+    "coordinates": [
+      103.8333,
+      1.2833
+    ]
+  },
+  {
+    "province": "",
+    "country": "Vietnam",
+    "coordinates": [
+      108,
+      16
+    ]
+  },
+  {
+    "province": "",
+    "country": "France",
+    "coordinates": [
+      2,
+      47
+    ]
+  },
+  {
+    "province": "",
+    "country": "Nepal",
+    "coordinates": [
+      84.25,
+      28.1667
+    ]
+  },
+  {
+    "province": "",
+    "country": "Malaysia",
+    "coordinates": [
+      112.5,
+      2.5
+    ]
+  },
+  {
+    "province": "Toronto, ON",
+    "country": "Canada",
+    "coordinates": [
+      -79.3832,
+      43.6532
+    ]
+  },
+  {
+    "province": "British Columbia",
+    "country": "Canada",
+    "coordinates": [
+      -123.1207,
+      49.2827
+    ]
+  },
+  {
+    "province": "Orange, CA",
+    "country": "US",
+    "coordinates": [
+      -117.8531,
+      33.7879
+    ]
+  },
+  {
+    "province": "Los Angeles, CA",
+    "country": "US",
+    "coordinates": [
+      -118.2437,
+      34.0522
+    ]
+  },
+  {
+    "province": "New South Wales",
+    "country": "Australia",
+    "coordinates": [
+      151.2093,
+      -33.8688
+    ]
+  },
+  {
+    "province": "Victoria",
+    "country": "Australia",
+    "coordinates": [
+      144.9631,
+      -37.8136
+    ]
+  },
+  {
+    "province": "Queensland",
+    "country": "Australia",
+    "coordinates": [
+      153.4,
+      -28.0167
+    ]
+  },
+  {
+    "province": "",
+    "country": "Cambodia",
+    "coordinates": [
+      104.9167,
+      11.55
+    ]
+  },
+  {
+    "province": "",
+    "country": "Sri Lanka",
+    "coordinates": [
+      81,
+      7
+    ]
+  },
+  {
+    "province": "",
+    "country": "Germany",
+    "coordinates": [
+      9,
+      51
+    ]
+  },
+  {
+    "province": "",
+    "country": "Finland",
+    "coordinates": [
+      26,
+      64
+    ]
+  },
+  {
+    "province": "",
+    "country": "United Arab Emirates",
+    "coordinates": [
+      54,
+      24
+    ]
+  },
+  {
+    "province": "",
+    "country": "Philippines",
+    "coordinates": [
+      122,
+      13
+    ]
+  },
+  {
+    "province": "",
+    "country": "India",
+    "coordinates": [
+      78,
+      21
+    ]
+  },
+  {
+    "province": "London, ON",
+    "country": "Canada",
+    "coordinates": [
+      -81.2453,
+      42.9849
+    ]
+  },
+  {
+    "province": "",
+    "country": "Italy",
+    "coordinates": [
+      12,
+      43
+    ]
+  },
+  {
+    "province": "",
+    "country": "UK",
+    "coordinates": [
+      -3,
+      55
+    ]
+  },
+  {
+    "province": "",
+    "country": "Russia",
+    "coordinates": [
+      90,
+      60
+    ]
+  },
+  {
+    "province": "",
+    "country": "Sweden",
+    "coordinates": [
+      16,
+      63
+    ]
+  },
+  {
+    "province": "Santa Clara, CA",
+    "country": "US",
+    "coordinates": [
+      -121.9552,
+      37.3541
+    ]
+  },
+  {
+    "province": "",
+    "country": "Spain",
+    "coordinates": [
+      -4,
+      40
+    ]
+  },
+  {
+    "province": "South Australia",
+    "country": "Australia",
+    "coordinates": [
+      138.6007,
+      -34.9285
+    ]
+  },
+  {
+    "province": "Boston, MA",
+    "country": "US",
+    "coordinates": [
+      -71.0589,
+      42.3601
+    ]
+  },
+  {
+    "province": "San Benito, CA",
+    "country": "US",
+    "coordinates": [
+      -120.9876,
+      36.5761
+    ]
+  },
+  {
+    "province": "",
+    "country": "Belgium",
+    "coordinates": [
+      4,
+      50.8333
+    ]
+  },
+  {
+    "province": "Madison, WI",
+    "country": "US",
+    "coordinates": [
+      -89.4012,
+      43.0731
+    ]
+  },
+  {
+    "province": "Diamond Princess cruise ship",
+    "country": "Others",
+    "coordinates": [
+      139.638,
+      35.4437
+    ]
+  },
+  {
+    "province": "San Diego County, CA",
+    "country": "US",
+    "coordinates": [
+      -117.1611,
+      32.7157
+    ]
+  },
+  {
+    "province": "San Antonio, TX",
+    "country": "US",
+    "coordinates": [
+      -98.4936,
+      29.4241
+    ]
+  },
+  {
+    "province": "",
+    "country": "Egypt",
+    "coordinates": [
+      30,
+      26
+    ]
+  },
+  {
+    "province": "",
+    "country": "Iran",
+    "coordinates": [
+      53,
+      32
+    ]
+  },
+  {
+    "province": "Omaha, NE (From Diamond Princess)",
+    "country": "US",
+    "coordinates": [
+      -95.9758,
+      41.2545
+    ]
+  },
+  {
+    "province": "Travis, CA (From Diamond Princess)",
+    "country": "US",
+    "coordinates": [
+      -121.9399,
+      38.2721
+    ]
+  },
+  {
+    "province": "From Diamond Princess",
+    "country": "Australia",
+    "coordinates": [
+      139.638,
+      35.4437
+    ]
+  },
+  {
+    "province": "Lackland, TX (From Diamond Princess)",
+    "country": "US",
+    "coordinates": [
+      -98.6134,
+      29.3829
+    ]
+  },
+  {
+    "province": "",
+    "country": "Lebanon",
+    "coordinates": [
+      35.8623,
+      33.8547
+    ]
+  },
+  {
+    "province": "Humboldt County, CA",
+    "country": "US",
+    "coordinates": [
+      -123.8695,
+      40.745
+    ]
+  },
+  {
+    "province": "Sacramento County, CA",
+    "country": "US",
+    "coordinates": [
+      -121.3542,
+      38.4747
+    ]
+  },
+  {
+    "province": "",
+    "country": "Iraq",
+    "coordinates": [
+      44,
+      33
+    ]
+  },
+  {
+    "province": "Unassigned Location (From Diamond Princess)",
+    "country": "US",
+    "coordinates": [
+      139.638,
+      35.4437
+    ]
+  },
+  {
+    "province": "",
+    "country": "Oman",
+    "coordinates": [
+      57,
+      21
+    ]
+  },
+  {
+    "province": "",
+    "country": "Afghanistan",
+    "coordinates": [
+      65,
+      33
+    ]
+  },
+  {
+    "province": "",
+    "country": "Bahrain",
+    "coordinates": [
+      50.55,
+      26.0275
+    ]
+  },
+  {
+    "province": "",
+    "country": "Kuwait",
+    "coordinates": [
+      47.75,
+      29.5
+    ]
+  },
+  {
+    "province": "",
+    "country": "Algeria",
+    "coordinates": [
+      1.6596,
+      28.0339
+    ]
+  },
+  {
+    "province": "",
+    "country": "Croatia",
+    "coordinates": [
+      15.2,
+      45.1
+    ]
+  },
+  {
+    "province": "",
+    "country": "Switzerland",
+    "coordinates": [
+      8.2275,
+      46.8182
+    ]
+  },
+  {
+    "province": "",
+    "country": "Austria",
+    "coordinates": [
+      14.5501,
+      47.5162
+    ]
+  },
+  {
+    "province": "",
+    "country": "Israel",
+    "coordinates": [
+      35,
+      31
+    ]
+  },
+  {
+    "province": "",
+    "country": "Pakistan",
+    "coordinates": [
+      69.3451,
+      30.3753
+    ]
+  },
+  {
+    "province": "",
+    "country": "Brazil",
+    "coordinates": [
+      -51.9253,
+      -14.235
+    ]
+  },
+  {
+    "province": "",
+    "country": "Georgia",
+    "coordinates": [
+      43.3569,
+      42.3154
+    ]
+  },
+  {
+    "province": "",
+    "country": "Greece",
+    "coordinates": [
+      21.8243,
+      39.0742
+    ]
+  },
+  {
+    "province": "",
+    "country": "North Macedonia",
+    "coordinates": [
+      21.7453,
+      41.6086
+    ]
+  },
+  {
+    "province": "",
+    "country": "Norway",
+    "coordinates": [
+      8.4689,
+      60.472
+    ]
+  },
+  {
+    "province": "",
+    "country": "Romania",
+    "coordinates": [
+      24.9668,
+      45.9432
+    ]
+  },
+  {
+    "province": "",
+    "country": "Denmark",
+    "coordinates": [
+      9.5018,
+      56.2639
+    ]
+  },
+  {
+    "province": "",
+    "country": "Estonia",
+    "coordinates": [
+      25.0136,
+      58.5953
+    ]
+  },
+  {
+    "province": "",
+    "country": "Netherlands",
+    "coordinates": [
+      5.2913,
+      52.1326
+    ]
+  },
+  {
+    "province": "",
+    "country": "San Marino",
+    "coordinates": [
+      12.4578,
+      43.9424
+    ]
+  },
+  {
+    "province": "",
+    "country": "Belarus",
+    "coordinates": [
+      27.9534,
+      53.7098
+    ]
+  },
+  {
+    "province": "Montreal, QC",
+    "country": "Canada",
+    "coordinates": [
+      -73.5673,
+      45.5017
+    ]
+  },
+  {
+    "province": "",
+    "country": "Iceland",
+    "coordinates": [
+      -19.0208,
+      64.9631
+    ]
+  },
+  {
+    "province": "",
+    "country": "Lithuania",
+    "coordinates": [
+      23.8813,
+      55.1694
+    ]
+  },
+  {
+    "province": "",
+    "country": "Mexico",
+    "coordinates": [
+      -102.5528,
+      23.6345
+    ]
+  },
+  {
+    "province": "",
+    "country": "New Zealand",
+    "coordinates": [
+      174.886,
+      -40.9006
+    ]
+  },
+  {
+    "province": "",
+    "country": "Nigeria",
+    "coordinates": [
+      8.6753,
+      9.082
+    ]
+  },
+  {
+    "province": "Western Australia",
+    "country": "Australia",
+    "coordinates": [
+      115.8605,
+      -31.9505
+    ]
+  },
+  {
+    "province": "",
+    "country": "Ireland",
+    "coordinates": [
+      -7.6921,
+      53.1424
+    ]
+  },
+  {
+    "province": "",
+    "country": "Luxembourg",
+    "coordinates": [
+      6.1296,
+      49.8153
+    ]
+  },
+  {
+    "province": "",
+    "country": "Monaco",
+    "coordinates": [
+      7.4167,
+      43.7333
+    ]
+  },
+  {
+    "province": "",
+    "country": "Qatar",
+    "coordinates": [
+      51.1839,
+      25.3548
+    ]
+  },
+  {
+    "province": "Portland, OR",
+    "country": "US",
+    "coordinates": [
+      -122.675,
+      45.5051
+    ]
+  },
+  {
+    "province": "Snohomish County, WA",
+    "country": "US",
+    "coordinates": [
+      -121.8339,
+      48.033
+    ]
+  },
+  {
+    "province": "",
+    "country": "Ecuador",
+    "coordinates": [
+      -78.1834,
+      -1.8312
+    ]
+  },
+  {
+    "province": "",
+    "country": "Azerbaijan",
+    "coordinates": [
+      47.5769,
+      40.1431
+    ]
+  },
+  {
+    "province": "",
+    "country": "Czech Republic",
+    "coordinates": [
+      15.473,
+      49.8175
+    ]
+  },
+  {
+    "province": "",
+    "country": "Armenia",
+    "coordinates": [
+      45.0382,
+      40.0691
+    ]
+  },
+  {
+    "province": "",
+    "country": "Dominican Republic",
+    "coordinates": [
+      -70.1627,
+      18.7357
+    ]
+  },
+  {
+    "province": "Providence, RI",
+    "country": "US",
+    "coordinates": [
+      -71.4128,
+      41.824
+    ]
+  }
+]
