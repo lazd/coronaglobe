@@ -9,15 +9,18 @@ const Globe = function(options) {
 	this.root = new THREE.Object3D();
 
 	var loader = new THREE.TextureLoader();
-	this.handleLoad = this.handleLoad.bind(this, 3);
+	this.handleLoad = this.handleLoad.bind(this, 2);
 
 	// Setup globe mesh
 	var globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
 	var globeMaterial = new THREE.MeshPhongMaterial({
+		color: 'gray',
 		shininess: 20
 	});
 	// Main texture
-	globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
+	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthlights4k.jpg'), this.handleLoad);
+	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
+	globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthgrid.png'), this.handleLoad); // Lat/Long grid
 
 	// Bump map (disabled to work around broken optimized bundle)
@@ -42,7 +45,7 @@ const Globe = function(options) {
 	});
 	this.cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
 	this.cloudMesh.name = 'Clouds';
-	this.root.add(this.cloudMesh);
+	// this.root.add(this.cloudMesh);
 
 	// Add objects to root object
 	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
