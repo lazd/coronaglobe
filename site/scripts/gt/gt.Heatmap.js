@@ -72,7 +72,12 @@ Heatmap.prototype.add = function(data) {
 		console.error('Got 0,0 coordinates', data)
 	}
 	this.heatmap.addPoint(pos.x, pos.y, data.size || this.size, data.intensity || this.intensity);
+};
 
+/*
+	Call after points are added
+*/
+Heatmap.prototype.update = function() {
 	// Tell THREE to update the texture from the canvas
 	// Commented out due to smooth hack
 	this.texture.needsUpdate = true;
@@ -87,7 +92,7 @@ Heatmap.prototype.clear = function(data) {
 	this.heatmap.display();
 };
 
-Heatmap.prototype.update = function(timeDiff, time) {
+Heatmap.prototype.animate = function(timeDiff, time) {
 	if (time - this.lastUpdate < 1000/this.fps) return;
 
 	this.lastUpdate = time;

@@ -181,17 +181,18 @@ const App = function(options) {
 		scene: scene
 	});
 
+	// Get args
+	var args = util.getHashArgs();
+
 	// Add heatmap
 	this.heatmap = new Heatmap({
 		scene: scene,
 		radius: this.earthRadius + 1,
 		ready: () => {
-			// Show data for the current date
-			this.showData(data, this.type);
+			this.showData();
 		}
 	});
 
-	var args = util.getHashArgs();
 	if (!args.lat && !args.long) {
 		if ((this.startAtGPS || this.watchGPS) && window.location.protocol === 'https:') {
 			// Watch GPS position
@@ -212,12 +213,6 @@ const App = function(options) {
 		}
 	}
 
-	// Add listeners
-	window.addEventListener('popstate', this.setParametersFromHash.bind(this));
-	window.addEventListener('resize', this.handleWindowResize.bind(this));
-	window.addEventListener('blur', this.handleBlur.bind(this));
-	window.addEventListener('focus', this.handleFocus.bind(this));
-
 	// Show data if no arguments passed
 	if (!args.type && !args.date) {
 		this.showData();
@@ -226,9 +221,11 @@ const App = function(options) {
 	// Set default parameters based on hash, show data if arguments passed
 	this.setParametersFromHash();
 
-	if (args.playing) {
-		this.play();
-	}
+	// Add listeners
+	window.addEventListener('popstate', this.setParametersFromHash.bind(this));
+	window.addEventListener('resize', this.handleWindowResize.bind(this));
+	window.addEventListener('blur', this.handleBlur.bind(this));
+	window.addEventListener('focus', this.handleFocus.bind(this));
 
 	// Start animation
 	this.animate(0);
@@ -300,7 +297,7 @@ App.prototype.animate = function(time) {
 
 	// Only update the heatmap if its real-time
 	if (this.realtimeHeatmap)
-		this.heatmap.update(timeDiff, time);
+		this.heatmap.animate(timeDiff, time);
 
 	if (this.playing && time >= this.lastSunAlignment + this.dateHoldTime / 24) {
 		if (this.animateSun) {
@@ -634,6 +631,8 @@ App.prototype.showData = function(type, date) {
 
 	// this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
 	this.countEl.innerText = count.toLocaleString();
+
+	this.heatmap.update();
 };
 
 export default App;
