@@ -12,7 +12,6 @@ import features from '../../data/features.json';
 import locations from '../../data/locations.json';
 import points from '../../data/points.json';
 import drawThreeGeo from './lib/threeGeoJSON.js';
-import * as randomPointGenerator from 'random-points-generator';
 
 window.THREE = THREE;
 
