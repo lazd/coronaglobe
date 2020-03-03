@@ -1,4 +1,4 @@
 {
-  "caseDivisor": 250,
-  "minimumClusters": 5
+  "caseDivisor": 2,
+  "minimumClusters": 3
 }

@@ -6,6 +6,9 @@ import Skybox from './gt.Skybox.js';
 import Marker from './gt.Marker.js';
 import Heatmap from './gt.Heatmap.js';
 
+import countries from '../../../data/ne_10m_admin_0_countries-4pct.json';
+import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
+
 import config from '../../../data/config.json';
 import cases from '../../data/cases.json';
 import features from '../../data/features.json';
@@ -251,7 +254,7 @@ App.defaults = {
 	realtimeHeatmap: false,
 	animateSun: false,
 
-	drawFeatureLines: false,
+	drawFeatureLines: true,
 
 	watchGPS: false,
 	startAtGPS: true,
@@ -264,9 +267,23 @@ App.defaults = {
 };
 
 App.prototype.drawFeatures = function() {
+	// Draw provinces
+	// drawThreeGeo(provinces, this.earthRadius, 'sphere', {
+	// 	color: 'rgb(0, 0, 0)',
+	// 	opacity: 0.95,
+	// 	transparent: true,
+	// }, this.featureContainer);
+
+	drawThreeGeo(countries, this.earthRadius, 'sphere', {
+		color: 'rgb(0, 0, 0)',
+		opacity: 0.7,
+		transparent: true,
+	}, this.featureContainer);
+
+	// Draw infected regions
 	drawThreeGeo(features, this.earthRadius, 'sphere', {
-		color: 'rgb(200, 200, 200)',
-		opacity: 0.75,
+		color: 'rgb(0, 0, 0)',
+		opacity: 0.95,
 		transparent: true,
 	}, this.featureContainer);
 };
@@ -599,8 +616,8 @@ App.prototype.showData = function(type, date) {
 			if (points[locationId]) {
 				// Location has enough cases to have randomly distributed clusters
 				let clusterCount = Math.round(cases / config.caseDivisor);
-				let size = 25;
-				let intensity = 0.5;
+				let size = 2.5;
+				let intensity = 1;
 				console.log('  %s: %d %s (%d points of %dpx and %f intensity)', locationString, cases, type, clusterCount, size, intensity);
 
 				for (let i = 0; i < clusterCount; i++) {
@@ -614,7 +631,7 @@ App.prototype.showData = function(type, date) {
 			}
 			else {
 				// Location doesn't have enough cases for distribution, create a blob at center
-				let size = Math.max(((Math.log(cases) / Math.log(2))) * 5, 10);
+				let size = 5;
 				let intensity = 0.75;
 				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', locationString, cases, type, size, intensity);
 
