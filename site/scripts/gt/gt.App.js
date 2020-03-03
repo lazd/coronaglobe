@@ -256,7 +256,7 @@ App.defaults = {
 	startAtGPS: true,
 	dateHoldTime: 150,
 
-	caseDivisor: 1000,
+	caseDivisor: 250,
 	minimumCluster: 4,
 	type: 'cases',
 
@@ -566,7 +566,7 @@ App.prototype.generateRandomPointSets = function(data) {
 
 		if (cases) {
 			if (cases > this.caseDivisor * this.minimumCluster) {
-				var locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region'];
+				var locationString = (location.province ? location.province + ', ' : '') + location.country;
 
 				let pointsToGenerate = Math.max(Math.round(cases / this.caseDivisor), 1);
 				console.log('  %s: generating %d points for %d cases', locationString, pointsToGenerate, cases);
@@ -626,19 +626,19 @@ App.prototype.showData = function(data, type, date) {
 		let location = locations[locationId];
 		let cases = locationData[type];
 		if (cases) {
-			let locationString = (location['Province/State'] ? location['Province/State'] + ', ' : '') + location['Country/Region'];
+			let locationString = (location.province ? location.province + ', ' : '') + location.country;
 
 			if (location.pointFeatures) {
 				let clusterCount = Math.round(cases / this.caseDivisor);
 				let size = 25;
-				let intensity = 0.45;
+				let intensity = 0.5;
 				console.log('  %s: %d %s (%d points of %dpx and %f intensity)', locationString, cases, type, clusterCount, size, intensity);
 
 				for (let i = 0; i < clusterCount; i++) {
 					let pointFeature = location.pointFeatures.features[i];
 					let coordinates = pointFeature.geometry.coordinates;
 					this.add({
-						location: [coordinates[1], coordinates[0]],
+						location: coordinates,
 						size: size,
 						intensity: intensity
 					});
@@ -650,7 +650,7 @@ App.prototype.showData = function(data, type, date) {
 				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', locationString, cases, type, size, intensity);
 
 				this.add({
-					location: [location.Lat, location.Long],
+					location: location.coordinates,
 					size: size,
 					intensity: intensity
 				});

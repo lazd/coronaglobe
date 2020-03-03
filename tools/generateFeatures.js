@@ -60,16 +60,17 @@ function storeFeature(feature, location) {
   location.featureId = index;
 }
 
+console.log('⏳ Generating features...');
 for (let locationId in data.locations) {
   let location = data.locations[locationId];
 
   let found = false;
-  let point = turf.point([location.Long, location.Lat]);
+  let point = turf.point(location.coordinates);
   // Treat HK as a country or it won't match
-  if (location['Province/State'] && location['Province/State'] != 'Hong Kong') {
+  if (location.province && location.province != 'Hong Kong') {
     // Check if the location exists within our provinces
     for (let feature of provinceData.features) {
-      if (location['Province/State'] === feature.properties.name) {
+      if (location.province === feature.properties.name) {
         found = true;
         storeFeature(feature, location);
         break;
@@ -90,7 +91,7 @@ for (let locationId in data.locations) {
   else {
     // Check if the location exists within our countries
     for (let feature of countryData.features) {
-      if (location['Province/State'] === feature.properties.NAME || location['Country/Region'] === feature.properties.NAME) {
+      if (location.province === feature.properties.NAME || location.country === feature.properties.NAME) {
         found = true;
         storeFeature(feature, location);
         break;
@@ -111,27 +112,29 @@ for (let locationId in data.locations) {
   }
 
   if (!found) {
-    console.error('Could not find location', location);
+    console.error('❌ Could not find location', location);
+    process.exit(1);
   }
 }
 
-console.log('Found', usedPolys.features.length, 'out of', Object.keys(data.locations).length);
+console.log('Found features for %d out of %d regions', usedPolys.features.length, Object.keys(data.locations).length);
 
 fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(usedPolys, null, 2), (err) => {
   if (err) {
-    console.error('Failed to write features: %s', err);
+    console.error('❌ Failed to write features: %s', err);
+    process.exit(1);
   }
   else {
-    console.log('Features written successfully');
+    console.log('✅ Features written successfully');
 
     fs.writeFile(path.join('site', 'data', 'data.json'), JSON.stringify(data, null, 2), (err) => {
       if (err) {
-        console.error('Failed to write modified data: %s', err);
+        console.error('❌ Failed to write modified data: %s', err);
+        process.exit(1);
       }
       else {
-        console.log('Modified data written successfully');
+        console.log('✅ Modified data written successfully');
       }
     });
   }
 });
-

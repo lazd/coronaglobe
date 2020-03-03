@@ -30,7 +30,7 @@ Location
   'Country/Region': String,
   'Lat': Number,
   'Long': Number,
-  'Cases': Number
+  'cases': Number
 }
 */
 
@@ -49,10 +49,11 @@ function getLocationName(location) {
 function writeData() {
   fs.writeFile(path.join('site', 'data', 'data.json'), JSON.stringify(data, null, 2), (err) => {
     if (err) {
-      console.error('Failed to write data: %s', err);
+      console.error('❌ Failed to write data: %s', err);
+      process.exit(1);
     }
     else {
-      console.log('Data written successfully');
+      console.log('✅ Data written successfully');
     }
   });
 }
@@ -103,12 +104,13 @@ function readCSV(csvPath, type) {
     }))
     .on('data', (row) => {
       // Store location by name
-      let location = {};
-      dataItems.forEach(item => location[item] = normalizeString(row[item]));
-      location.Lat = parseFloat(location.Lat);
-      location.Long = parseFloat(location.Long);
+      let location = {
+        province: normalizeString(row['Province/State']),
+        country: normalizeString(row['Country/Region']),
+        coordinates: [parseFloat(row.Long), parseFloat(row.Lat)]
+      };
 
-      let locationName = getLocationName(location);
+      let locationName = getLocationName(row);
       locations[locationName] = location;
 
       // Store each day
@@ -130,6 +132,7 @@ function readCSV(csvPath, type) {
 
 const csvPath = path.join('COVID-19', 'csse_covid_19_data', 'csse_covid_19_time_series');
 
+console.log('⏳ Importing data...');
 readCSV(path.join(csvPath, 'time_series_19-covid-Confirmed.csv'), 'cases');
 readCSV(path.join(csvPath, 'time_series_19-covid-Deaths.csv'), 'deaths');
 readCSV(path.join(csvPath, 'time_series_19-covid-Recovered.csv'), 'recovered');
