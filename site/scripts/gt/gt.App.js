@@ -1,20 +1,20 @@
 import util from './gt.util.js';
 import * as THREE from 'three';
-import OrbitControls from 'three-orbitcontrols';
-import Globe from './gt.Globe.js';
-import Skybox from './gt.Skybox.js';
-import Marker from './gt.Marker.js';
 import Heatmap from './gt.Heatmap.js';
 
+import * as itowns from 'itowns';
+import { MAIN_LOOP_EVENTS } from 'itowns/lib/Core/MainLoop';
+
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import countries from '../../../data/ne_10m_admin_0_countries-4pct.json';
 import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
 
 import config from '../../../data/config.json';
 import cases from '../../data/cases.json';
 import features from '../../data/features.json';
+// import features from '../../data/beijing.json';
 import locations from '../../data/locations.json';
 import points from '../../data/points.json';
-import drawThreeGeo from './lib/threeGeoJSON.js';
 
 window.THREE = THREE;
 
@@ -22,8 +22,6 @@ const App = function(options) {
 	util.extend(this, App.defaults, options);
 	this.el = (this.el && this.el.nodeType) || (this.el && document.querySelector(this.el)) || document.body;
 
-	// Permanantly bind animate so we don't have to call it in funny ways
-	this.animate = this.animate.bind(this);
 	this.play = this.play.bind(this);
 
 	// Hold markers
@@ -56,10 +54,6 @@ const App = function(options) {
 	this.about = this.container.querySelector('.gt_about');
 	this.infoButton = this.container.querySelector('.gt_infoButton');
 	this.datePicker = this.container.querySelector('.gt_datePicker');
-
-	if (this.menus === false) {
-		this.typeSelectContainer.style.display = 'none';
-	}
 
 	// Shifty and unreliable way of detecting if we should update the heatmap as the slider moves
 	// It's very slow on mobiles, so assume touchscreens are mobiles and just update on change
@@ -105,96 +99,31 @@ const App = function(options) {
 	this.pauseButton.addEventListener('click', this.togglePause.bind(this));
 	this.locationButton.addEventListener('click', this.moveToGPS.bind(this));
 
-	let stopProp = (evt) => {
-		// Prevent OrbitControls from breaking events
-		evt.stopPropagation();
-	};
-
-	this.ui.addEventListener('mousedown', stopProp);
-	this.ui.addEventListener('mousemove', stopProp);
-	this.ui.addEventListener('mouseup', stopProp);
-	this.ui.addEventListener('contextmenu', stopProp);
-	this.ui.addEventListener('wheel', stopProp);
-	this.ui.addEventListener('touchstart', stopProp);
-	this.ui.addEventListener('touchmove', stopProp);
-	this.ui.addEventListener('touchend', stopProp);
-	this.ui.addEventListener('keydown', stopProp);
-
 	// Listen to visualization type change
 	this.typeSelect.addEventListener('input', (evt) => {
 		var type = evt.target.value;
 		this.setType(type);
 	});
 
-	// Get width of element
-	this.width = this.container.scrollWidth;
-	this.height = this.container.scrollHeight;
-
-	// Create renderer
-	this.renderer = new THREE.WebGLRenderer({
-		antialias: true
-	});
-	this.renderer.setSize(this.width, this.height);
-	this.canvas = this.renderer.domElement;
-	this.canvas.className = 'gt_canvas';
-
-	// Add canvas to container
-	this.container.appendChild(this.canvas);
-
-	// Create scene
-	var scene = this.scene = window.scene = new THREE.Scene();
-
-	// Setup camera
-	var camera = this.camera = new THREE.PerspectiveCamera(60, this.width / this.height, 0.1, 100000);
-	camera.position.set(0, 0 -550);
-	scene.add(camera);
-
-	// Setup lights
-	this.ambientLight = new THREE.AmbientLight(0x222222, 5);
-	scene.add(this.ambientLight);
-
-	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 750);
-	cameraLight.position.set(0, 0, this.cameraDistance);
-	camera.add(cameraLight);
-
-	// Add controls
-	this.controls = new OrbitControls(this.camera, this.container);
-	this.controls.minDistance = 250;
-	this.controls.enablePan = false;
-
 	// Update the hash when the camera is moved
-	this.controls.addEventListener('end', (evt) => {
-		this.setHashFromParameters();
-	});
+	// this.controls.addEventListener('end', (evt) => {
+	// 	this.setHashFromParameters();
+	// });
 
 	// Show spinner
-	this.showSpinner();
-
-	// Add globe
-	this.globe = new Globe({
-		scene: scene,
-		radius: this.earthRadius,
-		cloudRadius: this.cloudRadius,
-		cloudSpeed: this.cloudSpeed,
-		loaded: this.handleLoaded.bind(this)
-	});
-
-	// Add skybox
-	this.skybox = new Skybox({
-		scene: scene
-	});
+	// this.showSpinner();
 
 	// Get args
 	var args = util.getHashArgs();
 
 	// Add heatmap
-	this.heatmap = new Heatmap({
-		scene: scene,
-		radius: this.earthRadius + 1,
-		ready: () => {
-			this.showData();
-		}
-	});
+	// this.heatmap = new Heatmap({
+	// 	scene: scene,
+	// 	radius: this.earthRadius + 1,
+	// 	ready: () => {
+	// 		this.showData();
+	// 	}
+	// });
 
 	if (!args.lat && !args.long) {
 		if ((this.startAtGPS || this.watchGPS) && window.location.protocol === 'https:') {
@@ -226,32 +155,112 @@ const App = function(options) {
 
 	// Add listeners
 	window.addEventListener('popstate', this.setParametersFromHash.bind(this));
-	window.addEventListener('resize', this.handleWindowResize.bind(this));
 	window.addEventListener('blur', this.handleBlur.bind(this));
 	window.addEventListener('focus', this.handleFocus.bind(this));
 
 	// Start animation
-	this.animate(0);
+	// this.animate(0);
 
-	// Draw features
-	if (this.drawFeatureLines) {
-		this.featureContainer = new THREE.Object3D();
-		this.scene.add(this.featureContainer);
-		this.drawFeatures();
-	}
+	this.view = new itowns.GlobeView(
+		this.container,
+		{
+			// coord: new itowns.Coordinates('EPSG:4326', 3.05, 48.95), // weird river thing
+			coord: new itowns.Coordinates('EPSG:4326', 116.389, 39.9488), // bejing
+			// coord: new itowns.Coordinates('EPSG:4326', 118.178, 26.408), // Fujian
+			range: 25000000
+			// range: 70000
+		},
+		{
+			// noControls: true
+		}
+	 );
+
+	let layerPath = 'http://www.itowns-project.org/itowns/examples/layers/';
+	itowns.Fetcher.json(`${layerPath}/JSONLayers/Ortho.json`)
+		.then((config) => {
+			config.source = new itowns.WMTSSource(config.source);
+			var layer = new itowns.ColorLayer('Ortho', config);
+			this.view.addLayer(layer);
+		});
+
+	// Add two elevation layers.
+	// These will deform iTowns globe geometry to represent terrain elevation.
+	let addElevationLayerFromConfig = (config) => {
+		config.source = new itowns.WMTSSource(config.source);
+		var layer = new itowns.ElevationLayer(config.id, config);
+		this.view.addLayer(layer);
+	};
+	itowns.Fetcher.json(`${layerPath}/JSONLayers/WORLD_DTM.json`).then(addElevationLayerFromConfig);
+	itowns.Fetcher.json(`${layerPath}/JSONLayers/IGN_MNT_HIGHRES.json`).then(addElevationLayerFromConfig);
+
+	// Add a geometry layer, which will contain the multipolygon to display
+	// Use a FileSource to load a single file once
+
+	itowns.GeoJsonParser.parse(features, {
+			buildExtent: true,
+			crsIn: 'EPSG:4326',
+			crsOut: this.view.tileLayer.extent.crs,
+			mergeFeatures: true,
+			withNormal: true,
+			withAltitude: true,
+			// overrideAltitudeInToZero: true
+		})
+		.then((parsedData) => {
+			let source = new itowns.FileSource({
+				parsedData,
+				zoom: { min: 10, max: 500 }
+			});
+
+			var regions = new itowns.GeometryLayer('Regions', new THREE.Group());
+			regions.update = itowns.FeatureProcessing.update;
+			regions.convert = itowns.Feature2Mesh.convert({
+				color: new THREE.Color(0xFF0000),
+				extrude: 90
+			});
+			regions.transparent = true;
+			regions.opacity = 0.9;
+			regions.source = source;
+
+			this.view.addLayer(regions);
+		});	
+	// regions.source = new itowns.FileSource({
+	// 	parsedData: itowns.GeoJsonParser.parse(JSON.stringify(features), {}),
+	// 	zoom: { min: 10, max: 10 }
+	// });
+	// regions.source = new itowns.FileSource({
+	// 	url: 'https://raw.githubusercontent.com/iTowns/iTowns2-sample-data/master/multipolygon.geojson',
+	// 	projection: 'EPSG:4326',
+	// 	format: 'application/json',
+	// 	zoom: { min: 10, max: 10 },
+	//  });
+
+
+	// this.view.controls = new OrbitControls(this.view.camera.camera3D, this.container);
+
+	this.view.addFrameRequester(MAIN_LOOP_EVENTS.BEFORE_RENDER, (time) => {
+		console.log('Update called');
+	});
+
+	// this.view.controls.minAzimuthAngle = - Math.PI / 2;
+	// this.view.controls.maxAzimuthAngle = Math.PI / 2;
+	// this.view.controls.minPolarAngle = - Math.PI / 2;
+	// this.view.controls.maxPolarAngle = Math.PI / 2;
+	// this.view.controls.rotateSpeed = true;
+
+	// Todo: apply class to itown's view
+	// this.canvas.className = 'gt_canvas';
+
+	// Debug
+	window.scene = this.view.scene;
 };
 
 App.defaults = {
-	fps: false,
-	menus: true,
 	earthRadius: 200,
 	markerRadius: 200,
 	cloudRadius: 205,
 	cloudSpeed: 0.000003,
 	cameraDistance: 600,
-	debug: false,
 	pauseOnBlur: true,
-	realtimeHeatmap: false,
 	animateSun: false,
 
 	drawFeatureLines: true,
@@ -266,37 +275,12 @@ App.defaults = {
 	itemNamePlural: 'items'
 };
 
-App.prototype.drawFeatures = function() {
-	// Draw provinces
-	// drawThreeGeo(provinces, this.earthRadius, 'sphere', {
-	// 	color: 'rgb(0, 0, 0)',
-	// 	opacity: 0.95,
-	// 	transparent: true,
-	// }, this.featureContainer);
-
-	drawThreeGeo(countries, this.earthRadius, 'sphere', {
-		color: 'rgb(0, 0, 0)',
-		opacity: 0.7,
-		transparent: true,
-	}, this.featureContainer);
-
-	// Draw infected regions
-	drawThreeGeo(features, this.earthRadius, 'sphere', {
-		color: 'rgb(0, 0, 0)',
-		opacity: 0.95,
-		transparent: true,
-	}, this.featureContainer);
-};
-
 // Animation
 App.prototype.animate = function(time) {
 	var timeDiff = time - this.lastTime;
 	this.lastTime = time;
 
 	// Update hooked functions
-	this.controls.update();
-	this.globe.update(timeDiff, time);
-
 	if (this.playing && time >= this.lastDateChangeTime + this.dateHoldTime) {
 		let dates = Object.keys(cases);
 		let dateIndex = dates.indexOf(this.date);
@@ -311,10 +295,6 @@ App.prototype.animate = function(time) {
 		this.setDate(dates[dateIndex]);
 		this.lastDateChangeTime = time;
 	}
-
-	// Only update the heatmap if its real-time
-	if (this.realtimeHeatmap)
-		this.heatmap.animate(timeDiff, time);
 
 	if (this.playing && time >= this.lastSunAlignment + this.dateHoldTime / 24) {
 		if (this.animateSun) {
@@ -451,9 +431,9 @@ App.prototype.addMarker = function(data) {
 
 App.prototype.rotateTo = function(pos) {
 	// TODO: Animate rotation smoothly
-	let vec3 = util.latLongToVector3(pos.coords.latitude, pos.coords.longitude, this.cameraDistance);
-	this.camera.position.set(vec3.x, vec3.y, vec3.z);
-	this.camera.lookAt(this.scene.position);
+	// let vec3 = util.latLongToVector3(pos.coords.latitude, pos.coords.longitude, this.cameraDistance);
+	// this.camera.position.set(vec3.x, vec3.y, vec3.z);
+	// this.camera.lookAt(this.scene.position);
 };
 
 App.prototype.showOverlay = function(type) {
@@ -531,45 +511,14 @@ App.prototype.handleGeolocationChange = function(pos) {
 	}
 };
 
-App.prototype.handleWindowResize = function() {
-	// Remove ourselves from the equation to get a valid measurement
-	this.canvas.style.display = 'none';
-
-	this.width = this.container.scrollWidth;
-	this.height = this.container.scrollHeight;
-	this.camera.aspect = this.width / this.height;
-	this.camera.updateProjectionMatrix();
-
-	var ratio = window.devicePixelRatio || 1;
-
-	this.renderer.setSize(this.width * ratio, this.height * ratio);
-	this.camera.updateProjectionMatrix();
-
-	this.canvas.style.display = 'block';
-};
-
-// Debug methods
-App.prototype.addTestData = function() {
-	this.add({
-		label: 'SF',
-		location: [37.7835916, -122.4091141]
-	});
-
-	for (var lat = -90; lat <= 90; lat += 15) {
-		for (var lon = -180; lon < 180; lon += 15) {
-			this.add({
-				location: [lat, lon]
-			});
-		}
-	}
-};
-
 App.prototype.positionSunForDate = function(date) {
 	let dayOfYear = util.getDOY(util.getDateFromDatasetString(date));
 	this.globe.setSunPosition(dayOfYear);
 };
 
 App.prototype.showData = function(type, date) {
+	return;
+
 	let firstDate = Object.keys(cases).shift();
 	let latestDate = Object.keys(cases).pop();
 	date = date || latestDate;

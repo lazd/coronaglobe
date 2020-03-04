@@ -44,6 +44,10 @@ body {
 	margin: 0;
 }
 
+html, body {
+	height: 100%;
+}
+
 .gt_container {
 	position: fixed;
 	top: 0;
