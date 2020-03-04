@@ -936,14 +936,6 @@
     ]
   },
   {
-    "province": "Portland, OR",
-    "country": "US",
-    "coordinates": [
-      -122.675,
-      45.5051
-    ]
-  },
-  {
     "province": "Snohomish County, WA",
     "country": "US",
     "coordinates": [
@@ -1125,6 +1117,94 @@
     "coordinates": [
       -118.7606,
       45.775
+    ]
+  },
+  {
+    "province": "Fulton County, GA",
+    "country": "US",
+    "coordinates": [
+      -84.3963,
+      33.8034
+    ]
+  },
+  {
+    "province": "Washington County, OR",
+    "country": "US",
+    "coordinates": [
+      -123.1386,
+      45.547
+    ]
+  },
+  {
+    "province": "",
+    "country": "Argentina",
+    "coordinates": [
+      -63.6167,
+      -38.4161
+    ]
+  },
+  {
+    "province": "",
+    "country": "Chile",
+    "coordinates": [
+      -71.543,
+      -35.6751
+    ]
+  },
+  {
+    "province": "",
+    "country": "Jordan",
+    "coordinates": [
+      36.51,
+      31.24
+    ]
+  },
+  {
+    "province": "Norfolk County, MA",
+    "country": "US",
+    "coordinates": [
+      -71.1449,
+      42.1767
+    ]
+  },
+  {
+    "province": "Berkeley, CA",
+    "country": "US",
+    "coordinates": [
+      -122.273,
+      37.8715
+    ]
+  },
+  {
+    "province": "Maricopa County, AZ",
+    "country": "US",
+    "coordinates": [
+      -112.4291,
+      33.2918
+    ]
+  },
+  {
+    "province": "Wake County, NC",
+    "country": "US",
+    "coordinates": [
+      -78.5661,
+      35.8032
+    ]
+  },
+  {
+    "province": "Westchester County, NY",
+    "country": "US",
+    "coordinates": [
+      -73.7949,
+      41.122
+    ]
+  },
+  {
+    "province": "",
+    "country": "Ukraine",
+    "coordinates": [
+      31.1656,
+      48.3794
     ]
   }
 ]

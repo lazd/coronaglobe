@@ -845,6 +845,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "1/23/20": {
@@ -1693,6 +1753,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "1/24/20": {
@@ -1913,10 +2033,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 1
     },
     "37": {
       "cases": 0,
@@ -2537,6 +2657,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -2761,10 +2941,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 1
     },
     "37": {
       "cases": 0,
@@ -3385,6 +3565,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -3609,10 +3849,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 1
     },
     "37": {
       "cases": 1,
@@ -4233,6 +4473,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -4457,10 +4757,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 1
     },
     "37": {
       "cases": 1,
@@ -5081,6 +5381,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -5305,10 +5665,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 1
     },
     "37": {
       "cases": 1,
@@ -5929,6 +6289,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -6153,10 +6573,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 1
     },
     "37": {
       "cases": 1,
@@ -6777,6 +7197,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -7001,10 +7481,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 1
     },
     "37": {
       "cases": 1,
@@ -7625,6 +8105,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -7849,10 +8389,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -8473,6 +9013,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -8697,10 +9297,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -9325,6 +9925,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/2/20": {
@@ -9545,10 +10205,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -10169,6 +10829,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -10393,10 +11113,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -11021,6 +11741,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/4/20": {
@@ -11241,10 +12021,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -11869,6 +12649,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/5/20": {
@@ -12089,10 +12929,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -12717,6 +13557,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/6/20": {
@@ -12937,10 +13837,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -13565,6 +14465,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/7/20": {
@@ -13785,10 +14745,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -14413,6 +15373,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/8/20": {
@@ -14633,10 +15653,10 @@
       "active": 1
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 0
+      "active": 2
     },
     "37": {
       "cases": 1,
@@ -15261,6 +16281,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/9/20": {
@@ -15481,9 +16561,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -16109,6 +17189,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/10/20": {
@@ -16329,9 +17469,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -16957,6 +18097,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/11/20": {
@@ -17177,9 +18377,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -17805,6 +19005,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/12/20": {
@@ -18025,9 +19285,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -18653,6 +19913,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/13/20": {
@@ -18873,9 +20193,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -19501,6 +20821,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/14/20": {
@@ -19721,9 +21101,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -20349,6 +21729,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/15/20": {
@@ -20569,9 +22009,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -21197,6 +22637,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/16/20": {
@@ -21417,9 +22917,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -22045,6 +23545,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/17/20": {
@@ -22265,9 +23825,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -22893,6 +24453,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/18/20": {
@@ -23113,9 +24733,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -23741,6 +25361,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/19/20": {
@@ -23961,9 +25641,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -24589,6 +26269,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/20/20": {
@@ -24809,9 +26549,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -25437,6 +27177,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/21/20": {
@@ -25657,9 +27457,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -26285,6 +28085,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/22/20": {
@@ -26505,9 +28365,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -27133,6 +28993,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/23/20": {
@@ -27353,9 +29273,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -27981,6 +29901,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/24/20": {
@@ -28201,9 +30181,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -28829,6 +30809,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/25/20": {
@@ -29049,9 +31089,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -29677,6 +31717,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/26/20": {
@@ -29897,9 +31997,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -30525,6 +32625,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/27/20": {
@@ -30745,9 +32905,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -31373,6 +33533,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/28/20": {
@@ -31593,9 +33813,9 @@
       "active": 0
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -32221,6 +34441,66 @@
       "deaths": 0,
       "recovered": 0,
       "active": 0
+    },
+    "141": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
     }
   },
   "2/29/20": {
@@ -32441,9 +34721,9 @@
       "active": 4
     },
     "36": {
-      "cases": 0,
+      "cases": 2,
       "deaths": 0,
-      "recovered": 0,
+      "recovered": 2,
       "active": 0
     },
     "37": {
@@ -32933,10 +35213,10 @@
       "active": 1
     },
     "118": {
-      "cases": 1,
+      "cases": 0,
       "deaths": 0,
       "recovered": 0,
-      "active": 1
+      "active": 0
     },
     "119": {
       "cases": 0,
@@ -33065,6 +35345,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -33289,10 +35629,10 @@
       "active": 7
     },
     "36": {
-      "cases": 0,
+      "cases": 3,
       "deaths": 0,
-      "recovered": 0,
-      "active": 0
+      "recovered": 2,
+      "active": 1
     },
     "37": {
       "cases": 1,
@@ -33775,22 +36115,22 @@
       "active": 3
     },
     "117": {
-      "cases": 1,
-      "deaths": 0,
-      "recovered": 0,
-      "active": 1
-    },
-    "118": {
       "cases": 2,
       "deaths": 0,
       "recovered": 0,
       "active": 2
     },
-    "119": {
+    "118": {
       "cases": 6,
       "deaths": 0,
       "recovered": 0,
       "active": 6
+    },
+    "119": {
+      "cases": 3,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 3
     },
     "120": {
       "cases": 3,
@@ -33799,10 +36139,10 @@
       "active": 3
     },
     "121": {
-      "cases": 3,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 3
+      "active": 1
     },
     "122": {
       "cases": 1,
@@ -33817,10 +36157,10 @@
       "active": 1
     },
     "124": {
-      "cases": 1,
+      "cases": 0,
       "deaths": 0,
       "recovered": 0,
-      "active": 1
+      "active": 0
     },
     "125": {
       "cases": 0,
@@ -33913,6 +36253,66 @@
       "active": 0
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
       "cases": 0,
       "deaths": 0,
       "recovered": 0,
@@ -34623,22 +37023,22 @@
       "active": 3
     },
     "117": {
-      "cases": 2,
-      "deaths": 0,
-      "recovered": 0,
-      "active": 2
-    },
-    "118": {
       "cases": 4,
       "deaths": 1,
       "recovered": 0,
       "active": 3
     },
-    "119": {
+    "118": {
       "cases": 6,
       "deaths": 0,
       "recovered": 0,
       "active": 6
+    },
+    "119": {
+      "cases": 3,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 3
     },
     "120": {
       "cases": 3,
@@ -34647,10 +37047,10 @@
       "active": 3
     },
     "121": {
-      "cases": 3,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 3
+      "active": 1
     },
     "122": {
       "cases": 1,
@@ -34659,10 +37059,10 @@
       "active": 1
     },
     "123": {
-      "cases": 1,
+      "cases": 2,
       "deaths": 0,
       "recovered": 0,
-      "active": 1
+      "active": 2
     },
     "124": {
       "cases": 2,
@@ -34677,10 +37077,10 @@
       "active": 2
     },
     "126": {
-      "cases": 2,
+      "cases": 1,
       "deaths": 0,
       "recovered": 0,
-      "active": 2
+      "active": 1
     },
     "127": {
       "cases": 1,
@@ -34761,6 +37161,974 @@
       "active": 1
     },
     "140": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "141": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "142": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "143": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "144": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "145": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "146": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "147": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "148": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "149": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "150": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    }
+  },
+  "3/3/20": {
+    "0": {
+      "cases": 990,
+      "deaths": 6,
+      "recovered": 936,
+      "active": 48
+    },
+    "1": {
+      "cases": 414,
+      "deaths": 8,
+      "recovered": 288,
+      "active": 118
+    },
+    "2": {
+      "cases": 576,
+      "deaths": 6,
+      "recovered": 490,
+      "active": 80
+    },
+    "3": {
+      "cases": 296,
+      "deaths": 1,
+      "recovered": 260,
+      "active": 35
+    },
+    "4": {
+      "cases": 91,
+      "deaths": 2,
+      "recovered": 86,
+      "active": 3
+    },
+    "5": {
+      "cases": 1350,
+      "deaths": 7,
+      "recovered": 1101,
+      "active": 242
+    },
+    "6": {
+      "cases": 252,
+      "deaths": 2,
+      "recovered": 202,
+      "active": 48
+    },
+    "7": {
+      "cases": 146,
+      "deaths": 2,
+      "recovered": 114,
+      "active": 30
+    },
+    "8": {
+      "cases": 168,
+      "deaths": 5,
+      "recovered": 155,
+      "active": 8
+    },
+    "9": {
+      "cases": 318,
+      "deaths": 6,
+      "recovered": 300,
+      "active": 12
+    },
+    "10": {
+      "cases": 480,
+      "deaths": 13,
+      "recovered": 366,
+      "active": 101
+    },
+    "11": {
+      "cases": 1272,
+      "deaths": 22,
+      "recovered": 1231,
+      "active": 19
+    },
+    "12": {
+      "cases": 67217,
+      "deaths": 2835,
+      "recovered": 36208,
+      "active": 28174
+    },
+    "13": {
+      "cases": 1018,
+      "deaths": 4,
+      "recovered": 906,
+      "active": 108
+    },
+    "14": {
+      "cases": 75,
+      "deaths": 1,
+      "recovered": 59,
+      "active": 15
+    },
+    "15": {
+      "cases": 631,
+      "deaths": 0,
+      "recovered": 562,
+      "active": 69
+    },
+    "16": {
+      "cases": 935,
+      "deaths": 1,
+      "recovered": 870,
+      "active": 64
+    },
+    "17": {
+      "cases": 93,
+      "deaths": 1,
+      "recovered": 83,
+      "active": 9
+    },
+    "18": {
+      "cases": 125,
+      "deaths": 1,
+      "recovered": 106,
+      "active": 18
+    },
+    "19": {
+      "cases": 74,
+      "deaths": 0,
+      "recovered": 69,
+      "active": 5
+    },
+    "20": {
+      "cases": 18,
+      "deaths": 0,
+      "recovered": 18,
+      "active": 0
+    },
+    "21": {
+      "cases": 245,
+      "deaths": 1,
+      "recovered": 216,
+      "active": 28
+    },
+    "22": {
+      "cases": 758,
+      "deaths": 6,
+      "recovered": 511,
+      "active": 241
+    },
+    "23": {
+      "cases": 338,
+      "deaths": 3,
+      "recovered": 294,
+      "active": 41
+    },
+    "24": {
+      "cases": 133,
+      "deaths": 0,
+      "recovered": 124,
+      "active": 9
+    },
+    "25": {
+      "cases": 538,
+      "deaths": 3,
+      "recovered": 394,
+      "active": 141
+    },
+    "26": {
+      "cases": 136,
+      "deaths": 3,
+      "recovered": 124,
+      "active": 9
+    },
+    "27": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "28": {
+      "cases": 76,
+      "deaths": 3,
+      "recovered": 68,
+      "active": 5
+    },
+    "29": {
+      "cases": 174,
+      "deaths": 2,
+      "recovered": 169,
+      "active": 3
+    },
+    "30": {
+      "cases": 1213,
+      "deaths": 1,
+      "recovered": 1093,
+      "active": 119
+    },
+    "31": {
+      "cases": 43,
+      "deaths": 1,
+      "recovered": 31,
+      "active": 11
+    },
+    "32": {
+      "cases": 293,
+      "deaths": 6,
+      "recovered": 43,
+      "active": 244
+    },
+    "33": {
+      "cases": 5186,
+      "deaths": 28,
+      "recovered": 30,
+      "active": 5128
+    },
+    "34": {
+      "cases": 42,
+      "deaths": 1,
+      "recovered": 12,
+      "active": 29
+    },
+    "35": {
+      "cases": 21,
+      "deaths": 6,
+      "recovered": 1,
+      "active": 14
+    },
+    "36": {
+      "cases": 4,
+      "deaths": 0,
+      "recovered": 2,
+      "active": 2
+    },
+    "37": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "38": {
+      "cases": 10,
+      "deaths": 0,
+      "recovered": 9,
+      "active": 1
+    },
+    "39": {
+      "cases": 100,
+      "deaths": 2,
+      "recovered": 37,
+      "active": 61
+    },
+    "40": {
+      "cases": 110,
+      "deaths": 0,
+      "recovered": 78,
+      "active": 32
+    },
+    "41": {
+      "cases": 16,
+      "deaths": 0,
+      "recovered": 16,
+      "active": 0
+    },
+    "42": {
+      "cases": 204,
+      "deaths": 4,
+      "recovered": 12,
+      "active": 188
+    },
+    "43": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "44": {
+      "cases": 36,
+      "deaths": 0,
+      "recovered": 22,
+      "active": 14
+    },
+    "45": {
+      "cases": 19,
+      "deaths": 0,
+      "recovered": 2,
+      "active": 17
+    },
+    "46": {
+      "cases": 9,
+      "deaths": 0,
+      "recovered": 3,
+      "active": 6
+    },
+    "47": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "48": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "49": {
+      "cases": 13,
+      "deaths": 0,
+      "recovered": 4,
+      "active": 9
+    },
+    "50": {
+      "cases": 9,
+      "deaths": 0,
+      "recovered": 4,
+      "active": 5
+    },
+    "51": {
+      "cases": 11,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 10
+    },
+    "52": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "53": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "54": {
+      "cases": 196,
+      "deaths": 0,
+      "recovered": 16,
+      "active": 180
+    },
+    "55": {
+      "cases": 6,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 5
+    },
+    "56": {
+      "cases": 27,
+      "deaths": 0,
+      "recovered": 5,
+      "active": 22
+    },
+    "57": {
+      "cases": 3,
+      "deaths": 1,
+      "recovered": 1,
+      "active": 1
+    },
+    "58": {
+      "cases": 5,
+      "deaths": 0,
+      "recovered": 3,
+      "active": 2
+    },
+    "59": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "60": {
+      "cases": 2502,
+      "deaths": 79,
+      "recovered": 160,
+      "active": 2263
+    },
+    "61": {
+      "cases": 51,
+      "deaths": 0,
+      "recovered": 8,
+      "active": 43
+    },
+    "62": {
+      "cases": 3,
+      "deaths": 0,
+      "recovered": 2,
+      "active": 1
+    },
+    "63": {
+      "cases": 21,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 21
+    },
+    "64": {
+      "cases": 11,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 10
+    },
+    "65": {
+      "cases": 165,
+      "deaths": 1,
+      "recovered": 2,
+      "active": 162
+    },
+    "66": {
+      "cases": 3,
+      "deaths": 0,
+      "recovered": 2,
+      "active": 1
+    },
+    "67": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "68": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "69": {
+      "cases": 13,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 12
+    },
+    "70": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 0
+    },
+    "71": {
+      "cases": 706,
+      "deaths": 6,
+      "recovered": 10,
+      "active": 690
+    },
+    "72": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 1
+    },
+    "73": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "74": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 1
+    },
+    "75": {
+      "cases": 2336,
+      "deaths": 77,
+      "recovered": 291,
+      "active": 1968
+    },
+    "76": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "77": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "78": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "79": {
+      "cases": 0,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 0
+    },
+    "80": {
+      "cases": 13,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 13
+    },
+    "81": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "82": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "83": {
+      "cases": 32,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 32
+    },
+    "84": {
+      "cases": 45,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 45
+    },
+    "85": {
+      "cases": 12,
+      "deaths": 0,
+      "recovered": 2,
+      "active": 10
+    },
+    "86": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "87": {
+      "cases": 49,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 49
+    },
+    "88": {
+      "cases": 56,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 56
+    },
+    "89": {
+      "cases": 5,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 5
+    },
+    "90": {
+      "cases": 9,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 9
+    },
+    "91": {
+      "cases": 56,
+      "deaths": 0,
+      "recovered": 2,
+      "active": 54
+    },
+    "92": {
+      "cases": 21,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 21
+    },
+    "93": {
+      "cases": 12,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 11
+    },
+    "94": {
+      "cases": 5,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 5
+    },
+    "95": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "96": {
+      "cases": 3,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 3
+    },
+    "97": {
+      "cases": 7,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 7
+    },
+    "98": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "99": {
+      "cases": 32,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 32
+    },
+    "100": {
+      "cases": 3,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 3
+    },
+    "101": {
+      "cases": 6,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 6
+    },
+    "102": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "103": {
+      "cases": 24,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 24
+    },
+    "104": {
+      "cases": 10,
+      "deaths": 1,
+      "recovered": 0,
+      "active": 9
+    },
+    "105": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "106": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "107": {
+      "cases": 11,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 11
+    },
+    "108": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "109": {
+      "cases": 5,
+      "deaths": 0,
+      "recovered": 1,
+      "active": 4
+    },
+    "110": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "111": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "112": {
+      "cases": 2,
+      "deaths": 1,
+      "recovered": 0,
+      "active": 1
+    },
+    "113": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "114": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "115": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "116": {
+      "cases": 7,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 7
+    },
+    "117": {
+      "cases": 6,
+      "deaths": 1,
+      "recovered": 0,
+      "active": 5
+    },
+    "118": {
+      "cases": 7,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 7
+    },
+    "119": {
+      "cases": 3,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 3
+    },
+    "120": {
+      "cases": 5,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 5
+    },
+    "121": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "122": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "123": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "124": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "125": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "126": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "127": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "128": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "129": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "130": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "131": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "132": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "133": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "134": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "135": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "136": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "137": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "138": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "139": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "140": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "141": {
+      "cases": 2,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 2
+    },
+    "142": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "143": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "144": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "145": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "146": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "147": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "148": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "149": {
+      "cases": 1,
+      "deaths": 0,
+      "recovered": 0,
+      "active": 1
+    },
+    "150": {
       "cases": 1,
       "deaths": 0,
       "recovered": 0,
