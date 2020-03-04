@@ -6,7 +6,7 @@
       117.2264,
       31.8257
     ],
-    "population": 63240000
+    "featureId": 0
   },
   {
     "province": "Beijing",
@@ -15,7 +15,7 @@
       116.4142,
       40.1824
     ],
-    "population": 21540000
+    "featureId": 1
   },
   {
     "province": "Chongqing",
@@ -24,7 +24,7 @@
       107.874,
       30.0572
     ],
-    "population": 31020000
+    "featureId": 2
   },
   {
     "province": "Fujian",
@@ -33,7 +33,7 @@
       117.9874,
       26.0789
     ],
-    "population": 39410000
+    "featureId": 3
   },
   {
     "province": "Gansu",
@@ -42,7 +42,7 @@
       103.8343,
       36.0611
     ],
-    "population": 26370000
+    "featureId": 4
   },
   {
     "province": "Guangdong",
@@ -51,7 +51,7 @@
       113.4244,
       23.3417
     ],
-    "population": 113460000
+    "featureId": 5
   },
   {
     "province": "Guangxi",
@@ -60,7 +60,7 @@
       108.7881,
       23.8298
     ],
-    "population": 49260000
+    "featureId": 6
   },
   {
     "province": "Guizhou",
@@ -69,7 +69,7 @@
       106.8748,
       26.8154
     ],
-    "population": 36000000
+    "featureId": 7
   },
   {
     "province": "Hainan",
@@ -78,7 +78,7 @@
       109.7453,
       19.1959
     ],
-    "population": 9340000
+    "featureId": 8
   },
   {
     "province": "Hebei",
@@ -87,7 +87,7 @@
       114.5149,
       38.0428
     ],
-    "population": 75560000
+    "featureId": 9
   },
   {
     "province": "Heilongjiang",
@@ -96,7 +96,7 @@
       127.7615,
       47.862
     ],
-    "population": 37730000
+    "featureId": 10
   },
   {
     "province": "Henan",
@@ -105,7 +105,7 @@
       113.614,
       33.88202
     ],
-    "population": 96050000
+    "featureId": 11
   },
   {
     "province": "Hubei",
@@ -114,7 +114,7 @@
       112.2707,
       30.9756
     ],
-    "population": 59170000
+    "featureId": 12
   },
   {
     "province": "Hunan",
@@ -123,7 +123,7 @@
       111.7088,
       27.6104
     ],
-    "population": 68990000
+    "featureId": 13
   },
   {
     "province": "Inner Mongolia",
@@ -132,7 +132,7 @@
       113.9448,
       44.0935
     ],
-    "population": 25000034
+    "featureId": 14
   },
   {
     "province": "Jiangsu",
@@ -141,7 +141,7 @@
       119.455,
       32.9711
     ],
-    "population": 80510000
+    "featureId": 15
   },
   {
     "province": "Jiangxi",
@@ -150,7 +150,7 @@
       115.7221,
       27.614
     ],
-    "population": 46480000
+    "featureId": 16
   },
   {
     "province": "Jilin",
@@ -159,7 +159,7 @@
       126.1923,
       43.6661
     ],
-    "population": 27040000
+    "featureId": 17
   },
   {
     "province": "Liaoning",
@@ -168,7 +168,7 @@
       122.6085,
       41.2956
     ],
-    "population": 43590000
+    "featureId": 18
   },
   {
     "province": "Ningxia",
@@ -177,7 +177,7 @@
       106.1655,
       37.2692
     ],
-    "population": 6880000
+    "featureId": 19
   },
   {
     "province": "Qinghai",
@@ -186,7 +186,7 @@
       95.9956,
       35.7452
     ],
-    "population": 6030000
+    "featureId": 20
   },
   {
     "province": "Shaanxi",
@@ -195,7 +195,7 @@
       108.8701,
       35.1917
     ],
-    "population": 38640000
+    "featureId": 21
   },
   {
     "province": "Shandong",
@@ -204,7 +204,7 @@
       118.1498,
       36.3427
     ],
-    "population": 100470000
+    "featureId": 22
   },
   {
     "province": "Shanghai",
@@ -213,7 +213,7 @@
       121.4491,
       31.202
     ],
-    "population": 24240000
+    "featureId": 23
   },
   {
     "province": "Shanxi",
@@ -222,7 +222,7 @@
       112.2922,
       37.5777
     ],
-    "population": 37180000
+    "featureId": 24
   },
   {
     "province": "Sichuan",
@@ -231,7 +231,7 @@
       102.7103,
       30.6171
     ],
-    "population": 83410000
+    "featureId": 25
   },
   {
     "province": "Tianjin",
@@ -240,7 +240,7 @@
       117.323,
       39.3054
     ],
-    "population": 15600000
+    "featureId": 26
   },
   {
     "province": "Tibet",
@@ -249,7 +249,7 @@
       88.0924,
       31.6927
     ],
-    "population": 3440000
+    "featureId": 27
   },
   {
     "province": "Xinjiang",
@@ -258,7 +258,7 @@
       85.2401,
       41.1129
     ],
-    "population": 24870000
+    "featureId": 28
   },
   {
     "province": "Yunnan",
@@ -267,7 +267,7 @@
       101.487,
       24.974
     ],
-    "population": 48300000
+    "featureId": 29
   },
   {
     "province": "Zhejiang",
@@ -276,7 +276,7 @@
       120.0934,
       29.1832
     ],
-    "population": 57370000
+    "featureId": 30
   },
   {
     "province": "",
@@ -285,7 +285,7 @@
       101,
       15
     ],
-    "population": 68414135
+    "featureId": 31
   },
   {
     "province": "",
@@ -294,7 +294,7 @@
       138,
       36
     ],
-    "population": 126451398
+    "featureId": 32
   },
   {
     "province": "",
@@ -303,7 +303,7 @@
       128,
       36
     ],
-    "population": 51181299
+    "featureId": 33
   },
   {
     "province": "Taiwan",
@@ -312,7 +312,7 @@
       121,
       23.7
     ],
-    "population": 2378000
+    "featureId": 34
   },
   {
     "province": "King County, WA",
@@ -321,7 +321,7 @@
       -122.3321,
       47.6062
     ],
-    "population": 2233163
+    "featureId": 35
   },
   {
     "province": "Cook County, IL",
@@ -330,7 +330,7 @@
       -87.6976,
       41.7377
     ],
-    "population": 5211000
+    "featureId": 36
   },
   {
     "province": "Tempe, AZ",
@@ -338,7 +338,8 @@
     "coordinates": [
       -111.94,
       33.4255
-    ]
+    ],
+    "featureId": 37
   },
   {
     "province": "Macau",
@@ -347,7 +348,7 @@
       113.55,
       22.1667
     ],
-    "population": 622567
+    "featureId": 38
   },
   {
     "province": "Hong Kong",
@@ -356,7 +357,7 @@
       114.2,
       22.3
     ],
-    "population": 7191503
+    "featureId": 39
   },
   {
     "province": "",
@@ -365,7 +366,7 @@
       103.8333,
       1.2833
     ],
-    "population": 5888926
+    "featureId": 40
   },
   {
     "province": "",
@@ -374,7 +375,7 @@
       108,
       16
     ],
-    "population": 96160163
+    "featureId": 41
   },
   {
     "province": "",
@@ -383,7 +384,7 @@
       2,
       47
     ],
-    "population": 67106161
+    "featureId": 42
   },
   {
     "province": "",
@@ -392,7 +393,7 @@
       84.25,
       28.1667
     ],
-    "population": 29384297
+    "featureId": 43
   },
   {
     "province": "",
@@ -401,7 +402,7 @@
       112.5,
       2.5
     ],
-    "population": 31381992
+    "featureId": 44
   },
   {
     "province": "Toronto, ON",
@@ -409,7 +410,8 @@
     "coordinates": [
       -79.3832,
       43.6532
-    ]
+    ],
+    "featureId": 45
   },
   {
     "province": "British Columbia",
@@ -418,7 +420,7 @@
       -123.1207,
       49.2827
     ],
-    "population": 5071000
+    "featureId": 46
   },
   {
     "province": "Orange, CA",
@@ -426,7 +428,8 @@
     "coordinates": [
       -117.8531,
       33.7879
-    ]
+    ],
+    "featureId": 47
   },
   {
     "province": "Los Angeles, CA",
@@ -434,7 +437,8 @@
     "coordinates": [
       -118.2437,
       34.0522
-    ]
+    ],
+    "featureId": 47
   },
   {
     "province": "New South Wales",
@@ -443,7 +447,7 @@
       151.2093,
       -33.8688
     ],
-    "population": 8089526
+    "featureId": 48
   },
   {
     "province": "Victoria",
@@ -452,7 +456,7 @@
       144.9631,
       -37.8136
     ],
-    "population": 6594804
+    "featureId": 49
   },
   {
     "province": "Queensland",
@@ -461,7 +465,7 @@
       153.4,
       -28.0167
     ],
-    "population": 5095100
+    "featureId": 50
   },
   {
     "province": "",
@@ -470,7 +474,7 @@
       104.9167,
       11.55
     ],
-    "population": 16204486
+    "featureId": 51
   },
   {
     "province": "",
@@ -479,7 +483,7 @@
       81,
       7
     ],
-    "population": 22409381
+    "featureId": 52
   },
   {
     "province": "",
@@ -488,7 +492,7 @@
       9,
       51
     ],
-    "population": 80594017
+    "featureId": 53
   },
   {
     "province": "",
@@ -497,7 +501,7 @@
       26,
       64
     ],
-    "population": 5491218
+    "featureId": 54
   },
   {
     "province": "",
@@ -506,7 +510,7 @@
       54,
       24
     ],
-    "population": 6072475
+    "featureId": 55
   },
   {
     "province": "",
@@ -515,7 +519,7 @@
       122,
       13
     ],
-    "population": 104256076
+    "featureId": 56
   },
   {
     "province": "",
@@ -524,7 +528,7 @@
       78,
       21
     ],
-    "population": 1281935911
+    "featureId": 57
   },
   {
     "province": "London, ON",
@@ -532,7 +536,8 @@
     "coordinates": [
       -81.2453,
       42.9849
-    ]
+    ],
+    "featureId": 45
   },
   {
     "province": "",
@@ -541,7 +546,7 @@
       12,
       43
     ],
-    "population": 62137802
+    "featureId": 58
   },
   {
     "province": "",
@@ -550,7 +555,7 @@
       -3,
       55
     ],
-    "population": 64769452
+    "featureId": 59
   },
   {
     "province": "",
@@ -559,7 +564,7 @@
       90,
       60
     ],
-    "population": 142257519
+    "featureId": 60
   },
   {
     "province": "",
@@ -568,7 +573,7 @@
       16,
       63
     ],
-    "population": 9960487
+    "featureId": 61
   },
   {
     "province": "Santa Clara, CA",
@@ -576,7 +581,8 @@
     "coordinates": [
       -121.9552,
       37.3541
-    ]
+    ],
+    "featureId": 47
   },
   {
     "province": "",
@@ -585,7 +591,7 @@
       -4,
       40
     ],
-    "population": 48958159
+    "featureId": 62
   },
   {
     "province": "South Australia",
@@ -594,7 +600,7 @@
       138.6007,
       -34.9285
     ],
-    "population": 1751693
+    "featureId": 63
   },
   {
     "province": "Boston, MA",
@@ -602,7 +608,8 @@
     "coordinates": [
       -71.0589,
       42.3601
-    ]
+    ],
+    "featureId": 64
   },
   {
     "province": "San Benito, CA",
@@ -610,7 +617,8 @@
     "coordinates": [
       -120.9876,
       36.5761
-    ]
+    ],
+    "featureId": 47
   },
   {
     "province": "",
@@ -619,7 +627,7 @@
       4,
       50.8333
     ],
-    "population": 11491346
+    "featureId": 65
   },
   {
     "province": "Madison, WI",
@@ -627,7 +635,8 @@
     "coordinates": [
       -89.4012,
       43.0731
-    ]
+    ],
+    "featureId": 66
   },
   {
     "province": "Diamond Princess cruise ship",
@@ -635,7 +644,8 @@
     "coordinates": [
       139.638,
       35.4437
-    ]
+    ],
+    "featureId": 67
   },
   {
     "province": "San Diego County, CA",
@@ -644,7 +654,7 @@
       -117.1611,
       32.7157
     ],
-    "population": 3343364
+    "featureId": 47
   },
   {
     "province": "San Antonio, TX",
@@ -652,7 +662,8 @@
     "coordinates": [
       -98.4936,
       29.4241
-    ]
+    ],
+    "featureId": 68
   },
   {
     "province": "",
@@ -661,7 +672,7 @@
       30,
       26
     ],
-    "population": 97041072
+    "featureId": 69
   },
   {
     "province": "",
@@ -670,7 +681,7 @@
       53,
       32
     ],
-    "population": 82021564
+    "featureId": 70
   },
   {
     "province": "Omaha, NE (From Diamond Princess)",
@@ -678,7 +689,8 @@
     "coordinates": [
       -95.9758,
       41.2545
-    ]
+    ],
+    "featureId": 71
   },
   {
     "province": "Travis, CA (From Diamond Princess)",
@@ -686,7 +698,8 @@
     "coordinates": [
       -121.9399,
       38.2721
-    ]
+    ],
+    "featureId": 47
   },
   {
     "province": "From Diamond Princess",
@@ -694,7 +707,8 @@
     "coordinates": [
       139.638,
       35.4437
-    ]
+    ],
+    "featureId": 67
   },
   {
     "province": "Lackland, TX (From Diamond Princess)",
@@ -702,7 +716,8 @@
     "coordinates": [
       -98.6134,
       29.3829
-    ]
+    ],
+    "featureId": 68
   },
   {
     "province": "",
@@ -711,7 +726,7 @@
       35.8623,
       33.8547
     ],
-    "population": 6229794
+    "featureId": 72
   },
   {
     "province": "Humboldt County, CA",
@@ -719,7 +734,8 @@
     "coordinates": [
       -123.8695,
       40.745
-    ]
+    ],
+    "featureId": 47
   },
   {
     "province": "Sacramento County, CA",
@@ -728,7 +744,7 @@
       -121.3542,
       38.4747
     ],
-    "population": 1540975
+    "featureId": 47
   },
   {
     "province": "",
@@ -737,7 +753,7 @@
       44,
       33
     ],
-    "population": 39192111
+    "featureId": 73
   },
   {
     "province": "Unassigned Location (From Diamond Princess)",
@@ -745,7 +761,8 @@
     "coordinates": [
       139.638,
       35.4437
-    ]
+    ],
+    "featureId": 67
   },
   {
     "province": "",
@@ -754,7 +771,7 @@
       57,
       21
     ],
-    "population": 3424386
+    "featureId": 74
   },
   {
     "province": "",
@@ -763,7 +780,7 @@
       65,
       33
     ],
-    "population": 34124811
+    "featureId": 75
   },
   {
     "province": "",
@@ -772,7 +789,7 @@
       50.55,
       26.0275
     ],
-    "population": 1410942
+    "featureId": 76
   },
   {
     "province": "",
@@ -781,7 +798,7 @@
       47.75,
       29.5
     ],
-    "population": 2875422
+    "featureId": 77
   },
   {
     "province": "",
@@ -790,7 +807,7 @@
       1.6596,
       28.0339
     ],
-    "population": 40969443
+    "featureId": 78
   },
   {
     "province": "",
@@ -799,7 +816,7 @@
       15.2,
       45.1
     ],
-    "population": 4292095
+    "featureId": 79
   },
   {
     "province": "",
@@ -808,7 +825,7 @@
       8.2275,
       46.8182
     ],
-    "population": 8236303
+    "featureId": 80
   },
   {
     "province": "",
@@ -817,7 +834,7 @@
       14.5501,
       47.5162
     ],
-    "population": 8754413
+    "featureId": 81
   },
   {
     "province": "",
@@ -826,7 +843,7 @@
       35,
       31
     ],
-    "population": 8299706
+    "featureId": 82
   },
   {
     "province": "",
@@ -835,7 +852,7 @@
       69.3451,
       30.3753
     ],
-    "population": 204924861
+    "featureId": 83
   },
   {
     "province": "",
@@ -844,7 +861,7 @@
       -51.9253,
       -14.235
     ],
-    "population": 207353391
+    "featureId": 84
   },
   {
     "province": "",
@@ -853,7 +870,7 @@
       43.3569,
       42.3154
     ],
-    "population": 4926330
+    "featureId": 85
   },
   {
     "province": "",
@@ -862,7 +879,7 @@
       21.8243,
       39.0742
     ],
-    "population": 10768477
+    "featureId": 86
   },
   {
     "province": "",
@@ -871,7 +888,7 @@
       21.7453,
       41.6086
     ],
-    "population": 2077000
+    "featureId": 87
   },
   {
     "province": "",
@@ -880,7 +897,7 @@
       8.4689,
       60.472
     ],
-    "population": 5320045
+    "featureId": 88
   },
   {
     "province": "",
@@ -889,7 +906,7 @@
       24.9668,
       45.9432
     ],
-    "population": 21529967
+    "featureId": 89
   },
   {
     "province": "",
@@ -898,7 +915,7 @@
       9.5018,
       56.2639
     ],
-    "population": 5605948
+    "featureId": 90
   },
   {
     "province": "",
@@ -907,7 +924,7 @@
       25.0136,
       58.5953
     ],
-    "population": 1251581
+    "featureId": 91
   },
   {
     "province": "",
@@ -916,7 +933,7 @@
       5.2913,
       52.1326
     ],
-    "population": 17084719
+    "featureId": 92
   },
   {
     "province": "",
@@ -925,7 +942,7 @@
       12.4578,
       43.9424
     ],
-    "population": 33537
+    "featureId": 93
   },
   {
     "province": "",
@@ -934,7 +951,7 @@
       27.9534,
       53.7098
     ],
-    "population": 9549747
+    "featureId": 94
   },
   {
     "province": "Montreal, QC",
@@ -942,7 +959,8 @@
     "coordinates": [
       -73.5673,
       45.5017
-    ]
+    ],
+    "featureId": 95
   },
   {
     "province": "",
@@ -951,7 +969,7 @@
       -19.0208,
       64.9631
     ],
-    "population": 339747
+    "featureId": 96
   },
   {
     "province": "",
@@ -960,7 +978,7 @@
       23.8813,
       55.1694
     ],
-    "population": 2823859
+    "featureId": 97
   },
   {
     "province": "",
@@ -969,7 +987,7 @@
       -102.5528,
       23.6345
     ],
-    "population": 124574795
+    "featureId": 98
   },
   {
     "province": "",
@@ -978,7 +996,7 @@
       174.886,
       -40.9006
     ],
-    "population": 4510327
+    "featureId": 99
   },
   {
     "province": "",
@@ -987,7 +1005,7 @@
       8.6753,
       9.082
     ],
-    "population": 190632261
+    "featureId": 100
   },
   {
     "province": "Western Australia",
@@ -996,7 +1014,7 @@
       115.8605,
       -31.9505
     ],
-    "population": 2621680
+    "featureId": 101
   },
   {
     "province": "",
@@ -1005,7 +1023,7 @@
       -7.6921,
       53.1424
     ],
-    "population": 5011102
+    "featureId": 102
   },
   {
     "province": "",
@@ -1014,7 +1032,7 @@
       6.1296,
       49.8153
     ],
-    "population": 594130
+    "featureId": 103
   },
   {
     "province": "",
@@ -1023,7 +1041,7 @@
       7.4167,
       43.7333
     ],
-    "population": 30645
+    "featureId": 104
   },
   {
     "province": "",
@@ -1032,7 +1050,7 @@
       51.1839,
       25.3548
     ],
-    "population": 2314307
+    "featureId": 105
   },
   {
     "province": "Portland, OR",
@@ -1040,7 +1058,8 @@
     "coordinates": [
       -122.675,
       45.5051
-    ]
+    ],
+    "featureId": 106
   },
   {
     "province": "Snohomish County, WA",
@@ -1049,7 +1068,7 @@
       -121.8339,
       48.033
     ],
-    "population": 814901
+    "featureId": 35
   },
   {
     "province": "",
@@ -1058,7 +1077,7 @@
       -78.1834,
       -1.8312
     ],
-    "population": 16290913
+    "featureId": 107
   },
   {
     "province": "",
@@ -1067,7 +1086,7 @@
       47.5769,
       40.1431
     ],
-    "population": 9961396
+    "featureId": 108
   },
   {
     "province": "",
@@ -1076,7 +1095,7 @@
       15.473,
       49.8175
     ],
-    "population": 10674723
+    "featureId": 109
   },
   {
     "province": "",
@@ -1085,7 +1104,7 @@
       45.0382,
       40.0691
     ],
-    "population": 3045191
+    "featureId": 110
   },
   {
     "province": "",
@@ -1094,7 +1113,7 @@
       -70.1627,
       18.7357
     ],
-    "population": 10734247
+    "featureId": 111
   },
   {
     "province": "Providence, RI",
@@ -1102,7 +1121,8 @@
     "coordinates": [
       -71.4128,
       41.824
-    ]
+    ],
+    "featureId": 112
   },
   {
     "province": "",
@@ -1111,7 +1131,7 @@
       113.9213,
       -0.7893
     ],
-    "population": 260580739
+    "featureId": 113
   },
   {
     "province": "",
@@ -1120,7 +1140,7 @@
       -8.2245,
       39.3999
     ],
-    "population": 10839514
+    "featureId": 114
   },
   {
     "province": "",
@@ -1129,7 +1149,7 @@
       1.5218,
       42.5063
     ],
-    "population": 85702
+    "featureId": 115
   },
   {
     "province": "Tasmania",
@@ -1138,7 +1158,7 @@
       145.9707,
       -41.4545
     ],
-    "population": 534281
+    "featureId": 116
   },
   {
     "province": "",
@@ -1147,7 +1167,7 @@
       24.6032,
       56.8796
     ],
-    "population": 1944643
+    "featureId": 117
   },
   {
     "province": "",
@@ -1156,7 +1176,7 @@
       -7.0926,
       31.7917
     ],
-    "population": 33986655
+    "featureId": 118
   },
   {
     "province": "",
@@ -1165,7 +1185,7 @@
       45,
       24
     ],
-    "population": 28571770
+    "featureId": 119
   },
   {
     "province": "",
@@ -1174,7 +1194,7 @@
       -14.4524,
       14.4974
     ],
-    "population": 14668522
+    "featureId": 120
   },
   {
     "province": "Grafton County, NH",
@@ -1183,7 +1203,7 @@
       -71.826,
       43.9088
     ],
-    "population": 89786
+    "featureId": 121
   },
   {
     "province": "Hillsborough, FL",
@@ -1191,7 +1211,8 @@
     "coordinates": [
       -82.3018,
       27.9904
-    ]
+    ],
+    "featureId": 122
   },
   {
     "province": "New York City, NY",
@@ -1199,7 +1220,8 @@
     "coordinates": [
       -74.006,
       40.7128
-    ]
+    ],
+    "featureId": 123
   },
   {
     "province": "Placer County, CA",
@@ -1208,7 +1230,7 @@
       -120.8039,
       39.0916
     ],
-    "population": 393149
+    "featureId": 47
   },
   {
     "province": "San Mateo, CA",
@@ -1216,7 +1238,8 @@
     "coordinates": [
       -122.3255,
       37.563
-    ]
+    ],
+    "featureId": 47
   },
   {
     "province": "Sarasota, FL",
@@ -1224,7 +1247,8 @@
     "coordinates": [
       -82.5307,
       27.3364
-    ]
+    ],
+    "featureId": 122
   },
   {
     "province": "Sonoma County, CA",
@@ -1233,7 +1257,7 @@
       -122.9888,
       38.578
     ],
-    "population": 499942
+    "featureId": 47
   },
   {
     "province": "Umatilla, OR",
@@ -1241,6 +1265,7 @@
     "coordinates": [
       -118.7606,
       45.775
-    ]
+    ],
+    "featureId": 106
   }
 ]

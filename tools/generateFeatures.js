@@ -26,7 +26,9 @@ function cleanProps(obj) {
 function takeOnlyProps(obj, props) {
   let newObj = {};
   for (let prop of props) {
-    newObj[prop] = obj[prop];
+    if (typeof obj[prop] !== 'undefined') {
+      newObj[prop] = obj[prop];
+    }
   }
   return newObj;
 }
@@ -56,13 +58,27 @@ let props = [
 ];
 
 function storeFeature(feature, location) {
-  let newFeature = Object.assign({}, feature);
-  newFeature.properties = cleanProps(takeOnlyProps(normalizeProps(feature.properties), props));
-  let index = usedPolys.features.push(newFeature) - 1;
+  let index = usedPolys.features.indexOf(feature);
+  if (index === -1) {
+    index = usedPolys.features.push(feature) - 1;
+  }
   location.featureId = index;
+  foundCount++;
+}
+
+function cleanFeatures(set) {
+  for (let feature of set.features) {
+    feature.properties = cleanProps(takeOnlyProps(normalizeProps(feature.properties), props));
+  }
 }
 
 console.log('⏳ Generating features...');
+
+// Clean and normalize data first
+cleanFeatures(countryData);
+cleanFeatures(provinceData);
+
+let foundCount = 0;
 for (let locationId in locations) {
   let location = locations[locationId];
 
@@ -100,13 +116,13 @@ for (let locationId in locations) {
   else {
     // Check if the location exists within our countries
     for (let feature of countryData.features) {
-      if (location.province === feature.properties.NAME || location.country === feature.properties.NAME) {
+      if (location.province === feature.properties.name || location.country === feature.properties.name) {
         found = true;
         storeFeature(feature, location);
         break;
       }
 
-      if (!location.province && feature.properties.ABBREV.replace(/\./g, '') === location.country) {
+      if (!location.province && feature.properties.abbrev && feature.properties.abbrev.replace(/\./g, '') === location.country) {
         found = true;
         storeFeature(feature, location);
         break;
@@ -132,7 +148,7 @@ for (let locationId in locations) {
   }
 }
 
-console.log('Found features for %d out of %d regions', usedPolys.features.length, Object.keys(locations).length);
+console.log('Found features for %d out of %d regions for a total of %d features', foundCount, Object.keys(locations).length, usedPolys.features.length);
 
 fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(usedPolys, null, 2), (err) => {
   if (err) {
@@ -141,5 +157,14 @@ fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(usedPoly
   }
   else {
     console.log('✅ Features written successfully');
+    fs.writeFile(path.join('site', 'data', 'locations.json'), JSON.stringify(locations, null, 2), (err) => {
+      if (err) {
+        console.error('❌ Failed to write modified locations: %s', err);
+        process.exit(1);
+      }
+      else {
+        console.log('✅ Modified locations written successfully');
+      }
+    });
   }
 });

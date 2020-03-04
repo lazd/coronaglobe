@@ -11,7 +11,8 @@ import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json'
 
 import config from '../../../data/config.json';
 import cases from '../../data/cases.json';
-import features from '../../data/features.json';
+// import features from '../../data/features.json';
+import * as features from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
 // import features from '../../data/beijing.json';
 import locations from '../../data/locations.json';
 import points from '../../data/points.json';
@@ -171,6 +172,11 @@ const App = function(options) {
 			// range: 70000
 		},
 		{
+			renderer: {
+				// antialias: false,
+				// alpha: false,
+				// logarithmicDepthBuffer: false
+			}
 			// noControls: true
 		}
 	 );
@@ -180,22 +186,61 @@ const App = function(options) {
 		.then((config) => {
 			config.source = new itowns.WMTSSource(config.source);
 			var layer = new itowns.ColorLayer('Ortho', config);
-			this.view.addLayer(layer);
+			this.view.addLayer(layer).then(() => {
+        itowns.ColorLayersOrdering.moveLayerToIndex(this.view, 'Ortho', 0);
+      });
 		});
 
 	// Add two elevation layers.
 	// These will deform iTowns globe geometry to represent terrain elevation.
+	/*
 	let addElevationLayerFromConfig = (config) => {
 		config.source = new itowns.WMTSSource(config.source);
-		var layer = new itowns.ElevationLayer(config.id, config);
+		let layer = new itowns.ElevationLayer(config.id, config);
 		this.view.addLayer(layer);
 	};
 	itowns.Fetcher.json(`${layerPath}/JSONLayers/WORLD_DTM.json`).then(addElevationLayerFromConfig);
 	itowns.Fetcher.json(`${layerPath}/JSONLayers/IGN_MNT_HIGHRES.json`).then(addElevationLayerFromConfig);
+	*/
 
-	// Add a geometry layer, which will contain the multipolygon to display
-	// Use a FileSource to load a single file once
+  var optionsGeoJsonParser = {
+    buildExtent: true,
+    crsIn: 'EPSG:4326',
+    crsOut: this.view.tileLayer.extent.crs,
+    mergeFeatures: true,
+    withNormal: false,
+    withAltitude: false,
+  };
 
+  // Convert by iTowns
+  itowns.GeoJsonParser.parse(features, optionsGeoJsonParser)
+    .then((parsedData) => {
+    	console.log(parsedData);
+      var ariegeSource = new itowns.FileSource({
+        parsedData,
+				zoom: { min: 0, max: 10000 }
+      });
+
+      var ariegeLayer = new itowns.ColorLayer('ariege', {
+          name: 'ariege',
+          transparent: true,
+          style: {
+              fill: {
+                color: 'orange',
+                opacity: 0.5,
+              },
+              stroke: {
+                  color:'white',
+              },
+          },
+          source: ariegeSource,
+      });
+
+      return this.view.addLayer(ariegeLayer);
+  })
+  // .then(FeatureToolTip.addLayer);
+
+	/*
 	itowns.GeoJsonParser.parse(features, {
 			buildExtent: true,
 			crsIn: 'EPSG:4326',
@@ -203,11 +248,12 @@ const App = function(options) {
 			mergeFeatures: true,
 			withNormal: true,
 			withAltitude: true,
-			// overrideAltitudeInToZero: true
+			overrideAltitudeInToZero: true
 		})
 		.then((parsedData) => {
 			let source = new itowns.FileSource({
 				parsedData,
+				projection: 'EPSG:4326',
 				zoom: { min: 10, max: 500 }
 			});
 
@@ -223,6 +269,7 @@ const App = function(options) {
 
 			this.view.addLayer(regions);
 		});	
+	*/
 	// regions.source = new itowns.FileSource({
 	// 	parsedData: itowns.GeoJsonParser.parse(JSON.stringify(features), {}),
 	// 	zoom: { min: 10, max: 10 }
