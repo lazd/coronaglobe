@@ -35,7 +35,8 @@ const Heatmap = function(options) {
 	this.material = new THREE.MeshPhongMaterial({
 		map: this.texture,
 		transparent: true,
-		depthWrite: false
+		depthWrite: false,
+		intensityToAlpha: false
 	});
 	this.mesh = new THREE.Mesh(this.geometry, this.material);
 	this.mesh.name = 'Heatmap';
