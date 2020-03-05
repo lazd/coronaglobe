@@ -15,18 +15,18 @@ const Globe = function(options) {
 	// Setup globe mesh
 	var globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
 	var globeMaterial = new THREE.MeshPhongMaterial({
-		color: 'gray',
+		color: 'rgb(90, 90, 90)',
 		shininess: 20
 	});
 	// Main texture
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthlights4k.jpg'), this.handleLoad);
-	globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
-	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
+	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
+	globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthgrid.png'), this.handleLoad); // Lat/Long grid
 
 	// Bump map (disabled to work around broken optimized bundle)
 	globeMaterial.bumpMap = loader.load(require('url:../../textures/globe/earthbump4k.jpg'), this.handleLoad);
-	globeMaterial.bumpScale = 2;
+	globeMaterial.bumpScale = 1;
 
 	this.globeMesh = new THREE.Mesh(globeGeometry, globeMaterial);
 	this.globeMesh.name = 'Globe';
@@ -40,7 +40,7 @@ const Globe = function(options) {
 	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 48, 48);
 	var cloudMaterial = new THREE.MeshPhongMaterial({
 		map: loader.load(require('url:../../textures/globe/earthclouds4k.png'), this.handleLoad),
-		opacity: 0.25,
+		opacity: 0.1,
 		transparent: true,
 		depthWrite: false
 	});

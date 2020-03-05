@@ -150,7 +150,7 @@ const App = function(options) {
 	scene.add(camera);
 
 	// Setup lights
-	this.ambientLight = new THREE.AmbientLight(0x222222, 5);
+	this.ambientLight = new THREE.AmbientLight(0x222222, 7);
 	scene.add(this.ambientLight);
 
 	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 750);
