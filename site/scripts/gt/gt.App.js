@@ -174,7 +174,7 @@ const App = function(options) {
 	this.globe = new Globe({
 		scene: scene,
 		radius: this.earthRadius,
-		cloudRadius: this.cloudRadius,
+		// cloudRadius: this.cloudRadius,
 		cloudSpeed: this.cloudSpeed,
 		loaded: this.handleLoaded.bind(this)
 	});
@@ -246,18 +246,17 @@ App.defaults = {
 	menus: true,
 	earthRadius: 200,
 	markerRadius: 200,
-	cloudRadius: 205,
+	cloudRadius: 200.5,
 	cloudSpeed: 0.000003,
-	cameraDistance: 600,
-	debug: false,
-	pauseOnBlur: true,
+	cameraDistance: 500,
+	pauseOnBlur: false,
 	realtimeHeatmap: false,
 	animateSun: false,
 
 	drawFeatureLines: true,
 
 	watchGPS: false,
-	startAtGPS: true,
+	startAtGPS: false,
 	dateHoldTime: 150,
 
 	type: 'cases',

@@ -94,7 +94,7 @@ const util = {
 		for (var i = 1; i < objs.length; i++) {
 			var obj = objs[i];
 			for (var prop in obj) {
-				if (obj.hasOwnProperty(prop))
+				if (obj.hasOwnProperty(prop) && obj[prop] !== undefined)
 					result[prop] = obj[prop];
 			}
 		}

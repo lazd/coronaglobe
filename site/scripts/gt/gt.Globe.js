@@ -1,5 +1,6 @@
 import util from './gt.util.js';
 import * as THREE from 'three';
+import createAtmosphereMaterial from './lib/threex.atmospherematerial.js';
 
 const Globe = function(options) {
 	// Store options
@@ -19,8 +20,8 @@ const Globe = function(options) {
 	});
 	// Main texture
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthlights4k.jpg'), this.handleLoad);
-	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
-	globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
+	globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
+	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthgrid.png'), this.handleLoad); // Lat/Long grid
 
 	// Bump map (disabled to work around broken optimized bundle)
@@ -39,13 +40,24 @@ const Globe = function(options) {
 	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 48, 48);
 	var cloudMaterial = new THREE.MeshPhongMaterial({
 		map: loader.load(require('url:../../textures/globe/earthclouds4k.png'), this.handleLoad),
-		opacity: 0.8,
+		opacity: 0.25,
 		transparent: true,
 		depthWrite: false
 	});
 	this.cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
 	this.cloudMesh.name = 'Clouds';
-	// this.root.add(this.cloudMesh);
+	this.root.add(this.cloudMesh);
+
+	var atompsphereGeometry = globeGeometry.clone();
+	var atmosphereMaterial = createAtmosphereMaterial();
+	atmosphereMaterial.side = THREE.BackSide;
+	atmosphereMaterial.uniforms.coeficient.value = 0.45;
+	atmosphereMaterial.uniforms.power.value = 12;
+	atmosphereMaterial.uniforms.glowColor.value = new THREE.Color(0, 0.9, 1);
+	var atomsphereMesh = new THREE.Mesh(atompsphereGeometry, atmosphereMaterial);
+	atomsphereMesh.scale.multiplyScalar(1.1);
+	this.root.add(atomsphereMesh);
+	this.atmosphereMaterial = atmosphereMaterial;
 
 	// Add objects to root object
 	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
@@ -59,7 +71,7 @@ const Globe = function(options) {
 
 Globe.defaults = {
 	radius: 200,
-	cloudRadius: 205,
+	cloudRadius: 200.5,
 	cloudSpeed: 0.000005
 };
 
