@@ -376,14 +376,6 @@
     ]
   },
   {
-    "province": "Orange, CA",
-    "country": "US",
-    "coordinates": [
-      -117.8531,
-      33.7879
-    ]
-  },
-  {
     "province": "Los Angeles, CA",
     "country": "US",
     "coordinates": [
@@ -1205,6 +1197,86 @@
     "coordinates": [
       31.1656,
       48.3794
+    ]
+  },
+  {
+    "province": "",
+    "country": "Saint Barthelemy",
+    "coordinates": [
+      -62.8333,
+      17.9
+    ]
+  },
+  {
+    "province": "Orange County, CA",
+    "country": "US",
+    "coordinates": [
+      -117.8531,
+      33.7879
+    ]
+  },
+  {
+    "province": "",
+    "country": "Hungary",
+    "coordinates": [
+      19.5033,
+      47.1625
+    ]
+  },
+  {
+    "province": "Northern Territory",
+    "country": "Australia",
+    "coordinates": [
+      130.8456,
+      -12.4634
+    ]
+  },
+  {
+    "province": "",
+    "country": "Faroe Islands",
+    "coordinates": [
+      -6.9118,
+      61.8926
+    ]
+  },
+  {
+    "province": "",
+    "country": "Gibraltar",
+    "coordinates": [
+      -5.3536,
+      36.1408
+    ]
+  },
+  {
+    "province": "",
+    "country": "Liechtenstein",
+    "coordinates": [
+      9.55,
+      47.14
+    ]
+  },
+  {
+    "province": "",
+    "country": "Poland",
+    "coordinates": [
+      19.1451,
+      51.9194
+    ]
+  },
+  {
+    "province": "",
+    "country": "Tunisia",
+    "coordinates": [
+      9,
+      34
+    ]
+  },
+  {
+    "province": "Contra Costa County, CA",
+    "country": "US",
+    "coordinates": [
+      -121.9018,
+      37.8534
     ]
   }
 ]
