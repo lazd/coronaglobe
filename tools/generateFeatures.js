@@ -58,9 +58,12 @@ function storeFeature(feature, location) {
   newFeature.properties = cleanProps(takeOnlyProps(normalizeProps(feature.properties), props));
   let index = usedPolys.features.push(newFeature) - 1;
   location.featureId = index;
+
+  foundLocations++;
 }
 
 console.log('⏳ Generating features...');
+let foundLocations = 0;
 for (let locationId in locations) {
   let location = locations[locationId];
 
@@ -120,11 +123,10 @@ for (let locationId in locations) {
 
   if (!found) {
     console.error('❌ Could not find location', location);
-    process.exit(1);
   }
 }
 
-console.log('Found features for %d out of %d regions', usedPolys.features.length, Object.keys(locations).length);
+console.log('Found features for %d out of %d regions', foundLocations, Object.keys(locations).length);
 
 fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(usedPolys, null, 2), (err) => {
   if (err) {
