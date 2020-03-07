@@ -6,12 +6,15 @@ import Skybox from './gt.Skybox.js';
 import Marker from './gt.Marker.js';
 import Heatmap from './gt.Heatmap.js';
 
+import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
+import { point as TurfPoint, feature as TurfFeature } from '@turf/helpers';
+
 import countries from '../../../data/ne_10m_admin_0_countries-4pct.json';
 import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
 
 import config from '../../../data/config.json';
 import cases from '../../data/cases.json';
-import features from '../../data/features.json';
+import * as features from '../../data/features.json';
 import locations from '../../data/locations.json';
 import points from '../../data/points.json';
 import drawThreeGeo from './lib/threeGeoJSON.js';
@@ -179,6 +182,24 @@ const App = function(options) {
 		loaded: this.handleLoaded.bind(this)
 	});
 
+	let rayCaster = new THREE.Raycaster();
+	let mousePosition = new THREE.Vector2();
+	this.canvas.addEventListener('mousemove', (evt) => {
+		evt.preventDefault();
+
+		mousePosition.x = (evt.clientX / this.canvas.width) * 2 - 1;
+		mousePosition.y = -(evt.clientY / this.canvas.height) * 2 + 1;
+
+		rayCaster.setFromCamera(mousePosition, camera);
+		var intersects = rayCaster.intersectObject(this.globe.globeMesh);
+
+		if (intersects.length > 0) {
+			let vec3 = intersects[0].point
+			let coordinates = util.vector3ToLatLong(vec3);
+			this.drawFeatureAtCoordinates(coordinates);
+		}
+	});
+
 	// Add skybox
 	this.skybox = new Skybox({
 		scene: scene
@@ -234,9 +255,9 @@ const App = function(options) {
 	this.animate(0);
 
 	// Draw features
+	this.featureContainer = new THREE.Object3D();
+	this.scene.add(this.featureContainer);
 	if (this.drawFeatureLines) {
-		this.featureContainer = new THREE.Object3D();
-		this.scene.add(this.featureContainer);
 		this.drawFeatures();
 	}
 };
@@ -265,6 +286,44 @@ App.defaults = {
 	itemNamePlural: 'items'
 };
 
+App.prototype.showFeature = function(feature) {
+	if (feature.border) {
+		feature.border.visible = true;
+	}
+	else {
+		// Cache border
+		feature.border = new THREE.Group();
+		feature.border.name = feature.properties.name;
+		this.featureContainer.add(feature.border);
+		drawThreeGeo(feature, this.earthRadius, 'sphere', {
+			color: 'rgb(242, 183, 0)',
+			opacity: 0.7,
+			transparent: true
+		}, feature.border);
+	}
+};
+
+App.prototype.hideFeature = function(feature) {
+	if (feature.border) {
+		feature.border.visible = false;
+	}
+};
+
+App.prototype.drawFeatureAtCoordinates = function(coordinates) {
+	let point = TurfPoint(coordinates);
+	for (let feature of features.features) {
+		// Cache feature
+		feature.turfFeature = feature.turfFeature || TurfFeature(feature.geometry);
+		if (booleanPointInPolygon(point, feature.turfFeature)) {
+			this.showFeature(feature);
+			continue;
+		}
+
+		// Hide everything else
+		this.hideFeature(feature);
+	}
+};
+
 App.prototype.drawFeatures = function() {
 	// Draw provinces
 	// drawThreeGeo(provinces, this.earthRadius, 'sphere', {
@@ -276,15 +335,17 @@ App.prototype.drawFeatures = function() {
 	drawThreeGeo(countries, this.earthRadius, 'sphere', {
 		color: 'rgb(0, 0, 0)',
 		opacity: 0.7,
-		transparent: true,
+		transparent: true
 	}, this.featureContainer);
 
 	// Draw infected regions
+	/*
 	drawThreeGeo(features, this.earthRadius, 'sphere', {
 		color: 'rgb(0, 0, 0)',
 		opacity: 0.95,
 		transparent: true,
 	}, this.featureContainer);
+	*/
 };
 
 // Animation
