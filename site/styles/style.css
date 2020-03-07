@@ -284,6 +284,34 @@ body {
 	right: 0;
 }
 
+.gt_layer--detail {
+	bottom: 60px;
+	left: 0;
+	right: auto;
+	top: auto;
+
+	h3 {
+		margin: 0;
+		font-size: 14px;
+	}
+
+	.gt_output {
+		margin-top: 0;
+		margin-bottom: 0;
+		font-size: 11px;
+	}
+
+	.gt_dataTable {
+		margin-bottom: 0;
+
+		.gt_dataTable-row {
+			:first-child {
+				width: 75px;
+			}
+		}
+	}
+}
+
 .gt_output {
 	height: auto;
 	min-height: var(--gt-component-height);

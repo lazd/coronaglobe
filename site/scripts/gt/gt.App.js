@@ -66,7 +66,7 @@ const App = function(options) {
 	}
 
 	// Shifty and unreliable way of detecting if we're on a mobile
-	let isMobile = ('ontouchstart' in document.documentElement);
+	let isMobile = this.isMobile = ('ontouchstart' in document.documentElement);
 
 	// It's very slow on mobiles, so assume touchscreens are mobiles and just update on change instead of move
 	let sliderChangeEvent = isMobile ? 'change' : 'input';
@@ -187,11 +187,17 @@ const App = function(options) {
 
 	let rayCaster = new THREE.Raycaster();
 	let mousePosition = new THREE.Vector2();
-	this.canvas.addEventListener(isMobile ? 'click' : 'mousemove', (evt) => {
+	this.canvas.addEventListener(isMobile ? 'touchend' : 'mousemove', (evt) => {
 		evt.preventDefault();
 
-		mousePosition.x = (evt.clientX / this.canvas.width) * 2 - 1;
-		mousePosition.y = -(evt.clientY / this.canvas.height) * 2 + 1;
+		if (isMobile) {
+			mousePosition.x = (evt.changedTouches[0].clientX / this.canvas.width) * 2 - 1;
+			mousePosition.y = -(evt.changedTouches[0].clientY / this.canvas.height) * 2 + 1;
+		}
+		else {
+			mousePosition.x = (evt.clientX / this.canvas.width) * 2 - 1;
+			mousePosition.y = -(evt.clientY / this.canvas.height) * 2 + 1;
+		}
 
 		rayCaster.setFromCamera(mousePosition, camera);
 		var intersects = rayCaster.intersectObject(this.globe.globeMesh);
@@ -342,8 +348,8 @@ App.prototype.showFeature = function(feature) {
 		feature.border.name = feature.properties.name;
 		this.featureContainer.add(feature.border);
 		drawThreeGeo(feature, this.earthRadius, 'sphere', {
-			color: 'rgb(242, 242, 242)',
-			opacity: 0.7,
+			color: 'rgb(220, 220, 220)',
+			opacity: 1,
 			transparent: true
 		}, feature.border);
 	}
@@ -351,12 +357,29 @@ App.prototype.showFeature = function(feature) {
 
 App.prototype.hideInfo = function() {
 	this.detailLayer.hidden = true;
+	this.lastInfoFeature = null;
 };
 
 App.prototype.showInfoForFeature = function(feature, location) {
+	if (!feature) {
+		feature = this.lastInfoFeature;
+	}
+
+	if (!feature) {
+		return;
+	}
+
 	this.detailLayer.hidden = false;
-	this.detailLayer.style.left = location[0] + 'px';
-	this.detailLayer.style.top = location[1] + 'px';
+	if (this.isMobile) {
+		// Fullscreen
+		this.detailLayer.classList.add('gt_layer--detail');
+	}
+	else {
+		if (location) {
+			this.detailLayer.style.left = location[0] + 'px';
+			this.detailLayer.style.top = location[1] + 'px';
+		}
+	}
 	this.detailLayer.focus();
 
 	if (this.lastInfoDate === this.date && this.lastInfoFeature === feature) {
@@ -825,6 +848,9 @@ App.prototype.showData = function(type, date) {
 
 	// this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
 	this.countEl.innerText = count.toLocaleString();
+
+	// Update data
+	this.showInfoForFeature();
 
 	this.heatmap.update();
 };
