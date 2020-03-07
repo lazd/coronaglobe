@@ -92,7 +92,7 @@
     "country": "Mainland China",
     "coordinates": [
       113.614,
-      33.88202
+      33.882020000000004
     ]
   },
   {
@@ -1051,7 +1051,7 @@
     "province": "Grafton County, NH",
     "country": "US",
     "coordinates": [
-      -71.826,
+      -71.82600000000002,
       43.9088
     ]
   },
@@ -1277,6 +1277,342 @@
     "coordinates": [
       -121.9018,
       37.8534
+    ]
+  },
+  {
+    "province": "",
+    "country": "Palestine",
+    "coordinates": [
+      35.2332,
+      31.9522
+    ]
+  },
+  {
+    "province": "",
+    "country": "Bosnia and Herzegovina",
+    "coordinates": [
+      17.6791,
+      43.9159
+    ]
+  },
+  {
+    "province": "",
+    "country": "Slovenia",
+    "coordinates": [
+      14.9955,
+      46.1512
+    ]
+  },
+  {
+    "province": "Bergen County, NJ",
+    "country": "US",
+    "coordinates": [
+      -74.077,
+      40.9263
+    ]
+  },
+  {
+    "province": "Harris County, TX",
+    "country": "US",
+    "coordinates": [
+      -95.3103,
+      29.7752
+    ]
+  },
+  {
+    "province": "San Francisco County, CA",
+    "country": "US",
+    "coordinates": [
+      -122.4194,
+      37.7749
+    ]
+  },
+  {
+    "province": "",
+    "country": "South Africa",
+    "coordinates": [
+      22.9375,
+      -30.5595
+    ]
+  },
+  {
+    "province": "Clark County, NV",
+    "country": "US",
+    "coordinates": [
+      -115.094,
+      36.0796
+    ]
+  },
+  {
+    "province": "Fort Bend County, TX",
+    "country": "US",
+    "coordinates": [
+      -95.8143,
+      29.5693
+    ]
+  },
+  {
+    "province": "Grant County, WA",
+    "country": "US",
+    "coordinates": [
+      -119.3732,
+      47.1981
+    ]
+  },
+  {
+    "province": "Queens County, NY",
+    "country": "US",
+    "coordinates": [
+      -73.7949,
+      40.7282
+    ]
+  },
+  {
+    "province": "Santa Rosa County, FL",
+    "country": "US",
+    "coordinates": [
+      -86.9824,
+      30.769000000000002
+    ]
+  },
+  {
+    "province": "Williamson County, TN",
+    "country": "US",
+    "coordinates": [
+      -86.8622,
+      35.9179
+    ]
+  },
+  {
+    "province": "New York County, NY",
+    "country": "US",
+    "coordinates": [
+      -74.006,
+      40.7128
+    ]
+  },
+  {
+    "province": "Unassigned Location, WA",
+    "country": "US",
+    "coordinates": [
+      -120.7401,
+      47.7511
+    ]
+  },
+  {
+    "province": "Montgomery County, MD",
+    "country": "US",
+    "coordinates": [
+      -77.2405,
+      39.1547
+    ]
+  },
+  {
+    "province": "Suffolk County, MA",
+    "country": "US",
+    "coordinates": [
+      -71.0589,
+      42.3601
+    ]
+  },
+  {
+    "province": "Denver County, CO",
+    "country": "US",
+    "coordinates": [
+      -104.9903,
+      39.7392
+    ]
+  },
+  {
+    "province": "Summit County, CO",
+    "country": "US",
+    "coordinates": [
+      -106.064,
+      39.5912
+    ]
+  },
+  {
+    "province": "",
+    "country": "Bhutan",
+    "coordinates": [
+      90.4336,
+      27.5142
+    ]
+  },
+  {
+    "province": "",
+    "country": "Cameroon",
+    "coordinates": [
+      11.5021,
+      3.848
+    ]
+  },
+  {
+    "province": "Calgary, Alberta",
+    "country": "Canada",
+    "coordinates": [
+      -114.0719,
+      51.0447
+    ]
+  },
+  {
+    "province": "",
+    "country": "Colombia",
+    "coordinates": [
+      -74.2973,
+      4.5709
+    ]
+  },
+  {
+    "province": "",
+    "country": "Costa Rica",
+    "coordinates": [
+      -83.7534,
+      9.7489
+    ]
+  },
+  {
+    "province": "",
+    "country": "Peru",
+    "coordinates": [
+      -75.0152,
+      -9.19
+    ]
+  },
+  {
+    "province": "",
+    "country": "Serbia",
+    "coordinates": [
+      21.0059,
+      44.0165
+    ]
+  },
+  {
+    "province": "",
+    "country": "Slovakia",
+    "coordinates": [
+      19.699,
+      48.669
+    ]
+  },
+  {
+    "province": "",
+    "country": "Togo",
+    "coordinates": [
+      0.8248,
+      8.6195
+    ]
+  },
+  {
+    "province": "Chatham County, NC",
+    "country": "US",
+    "coordinates": [
+      -79.1781,
+      35.7211
+    ]
+  },
+  {
+    "province": "Delaware County, PA",
+    "country": "US",
+    "coordinates": [
+      -75.3879,
+      39.9078
+    ]
+  },
+  {
+    "province": "Douglas County, NE",
+    "country": "US",
+    "coordinates": [
+      -96.1951,
+      41.3148
+    ]
+  },
+  {
+    "province": "Fayette County, KY",
+    "country": "US",
+    "coordinates": [
+      -84.4803,
+      38.0606
+    ]
+  },
+  {
+    "province": "Floyd County, GA",
+    "country": "US",
+    "coordinates": [
+      -85.2308,
+      34.2829
+    ]
+  },
+  {
+    "province": "Marion County, IN",
+    "country": "US",
+    "coordinates": [
+      -86.1752,
+      39.8362
+    ]
+  },
+  {
+    "province": "Middlesex County, MA",
+    "country": "US",
+    "coordinates": [
+      -71.2874,
+      42.4672
+    ]
+  },
+  {
+    "province": "Nassau County, NY",
+    "country": "US",
+    "coordinates": [
+      -73.5594,
+      40.6546
+    ]
+  },
+  {
+    "province": "Norwell County, MA",
+    "country": "US",
+    "coordinates": [
+      -70.7928,
+      42.1615
+    ]
+  },
+  {
+    "province": "Ramsey County, MN",
+    "country": "US",
+    "coordinates": [
+      -93.0616,
+      44.9964
+    ]
+  },
+  {
+    "province": "Washoe County, NV",
+    "country": "US",
+    "coordinates": [
+      -119.6035,
+      40.5608
+    ]
+  },
+  {
+    "province": "Wayne County, PA",
+    "country": "US",
+    "coordinates": [
+      -75.2479,
+      41.6739
+    ]
+  },
+  {
+    "province": "Yolo County, CA",
+    "country": "US",
+    "coordinates": [
+      -121.9018,
+      38.7646
+    ]
+  },
+  {
+    "province": "",
+    "country": "Vatican City",
+    "coordinates": [
+      12.4534,
+      41.9029
     ]
   }
 ]
