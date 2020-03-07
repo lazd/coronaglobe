@@ -15,13 +15,13 @@ const Globe = function(options) {
 	// Setup globe mesh
 	var globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
 	var globeMaterial = new THREE.MeshPhongMaterial({
-		color: 'rgb(90, 90, 90)',
+		color: 'rgb(120, 120, 120)',
 		shininess: 20
 	});
 	// Main texture
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthlights4k.jpg'), this.handleLoad);
-	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
-	globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
+	globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
+	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthgrid.png'), this.handleLoad); // Lat/Long grid
 
 	// Bump map (disabled to work around broken optimized bundle)
