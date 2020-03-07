@@ -96,7 +96,7 @@ for (let locationId in locations) {
         break;
       }
 
-      if (feature.properties.name === 'New York' && location.province === 'New York City, NY') {
+      if (feature.properties.name === 'New York' && location.province === 'New York County, NY') {
         // Can't find New York for some reason, hardcode FTW
         found = true;
         storeFeature(feature, location);
