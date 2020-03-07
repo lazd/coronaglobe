@@ -5,7 +5,7 @@ and draws the geoJSON geometries.
 
 */
 
-function drawThreeGeo(json, radius, shape, materalOptions, container, filterFunc) {
+function drawThreeGeo(json, radius, shape, materialOptions, container, filterFunc) {
     container = container || window.scene;
 
     var x_values = [];
@@ -24,12 +24,12 @@ function drawThreeGeo(json, radius, shape, materalOptions, container, filterFunc
 
         if (json_geom[geom_num].type == 'Point') {
             convertCoordinates(json_geom[geom_num].coordinates, radius);
-            drawParticle(x_values[0], y_values[0], z_values[0], materalOptions);
+            drawParticle(x_values[0], y_values[0], z_values[0], materialOptions);
 
         } else if (json_geom[geom_num].type == 'MultiPoint') {
             for (var point_num = 0; point_num < json_geom[geom_num].coordinates.length; point_num++) {
                 convertCoordinates(json_geom[geom_num].coordinates[point_num], radius);
-                drawParticle(x_values[0], y_values[0], z_values[0], materalOptions);
+                drawParticle(x_values[0], y_values[0], z_values[0], materialOptions);
             }
 
         } else if (json_geom[geom_num].type == 'LineString') {
@@ -38,7 +38,7 @@ function drawThreeGeo(json, radius, shape, materalOptions, container, filterFunc
             for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
                 convertCoordinates(coordinate_array[point_num], radius);
             }
-            drawLine(x_values, y_values, z_values, materalOptions);
+            drawLine(x_values, y_values, z_values, materialOptions);
 
         } else if (json_geom[geom_num].type == 'Polygon') {
             for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates.length; segment_num++) {
@@ -47,7 +47,7 @@ function drawThreeGeo(json, radius, shape, materalOptions, container, filterFunc
                 for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
                     convertCoordinates(coordinate_array[point_num], radius);
                 }
-                drawLine(x_values, y_values, z_values, materalOptions);
+                drawLine(x_values, y_values, z_values, materialOptions);
             }
 
         } else if (json_geom[geom_num].type == 'MultiLineString') {
@@ -57,7 +57,7 @@ function drawThreeGeo(json, radius, shape, materalOptions, container, filterFunc
                 for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
                     convertCoordinates(coordinate_array[point_num], radius);
                 }
-                drawLine(x_values, y_values, z_values, materalOptions);
+                drawLine(x_values, y_values, z_values, materialOptions);
             }
 
         } else if (json_geom[geom_num].type == 'MultiPolygon') {
@@ -68,7 +68,7 @@ function drawThreeGeo(json, radius, shape, materalOptions, container, filterFunc
                     for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
                         convertCoordinates(coordinate_array[point_num], radius);
                     }
-                    drawLine(x_values, y_values, z_values, materalOptions);
+                    drawLine(x_values, y_values, z_values, materialOptions);
                 }
             }
         } else {
