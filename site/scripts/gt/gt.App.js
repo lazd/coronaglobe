@@ -805,6 +805,7 @@ App.prototype.showData = function(type, date) {
 			let locationString = (location.province ? location.province + ', ' : '') + location.country;
 
 			if (points[locationId]) {
+			// if (points[locationId] && location.country !== 'US' && location.country !== 'Canada') {
 				// Location has enough cases to have randomly distributed clusters
 				let clusterCount = Math.round(cases / config.caseDivisor);
 				let size = 2.5;
