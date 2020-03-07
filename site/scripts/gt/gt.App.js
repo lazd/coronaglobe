@@ -65,9 +65,11 @@ const App = function(options) {
 		this.typeSelectContainer.style.display = 'none';
 	}
 
-	// Shifty and unreliable way of detecting if we should update the heatmap as the slider moves
-	// It's very slow on mobiles, so assume touchscreens are mobiles and just update on change
-	let sliderChangeEvent = ('ontouchstart' in document.documentElement) ? 'change' : 'input';
+	// Shifty and unreliable way of detecting if we're on a mobile
+	let isMobile = ('ontouchstart' in document.documentElement);
+
+	// It's very slow on mobiles, so assume touchscreens are mobiles and just update on change instead of move
+	let sliderChangeEvent = isMobile ? 'change' : 'input';
 	this.slider.addEventListener(sliderChangeEvent, () => {
 		let dateIndex = this.slider.value;
 		let dateString = Object.keys(cases)[dateIndex];
@@ -185,7 +187,7 @@ const App = function(options) {
 
 	let rayCaster = new THREE.Raycaster();
 	let mousePosition = new THREE.Vector2();
-	this.canvas.addEventListener('mousemove', (evt) => {
+	this.canvas.addEventListener(isMobile ? 'click' : 'mousemove', (evt) => {
 		evt.preventDefault();
 
 		mousePosition.x = (evt.clientX / this.canvas.width) * 2 - 1;
