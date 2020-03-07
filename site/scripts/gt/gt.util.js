@@ -13,6 +13,37 @@ const util = {
 		return new THREE.Vector3(x,y,z);
 	},
 
+	// Based on https://gist.github.com/nicoptere/2f2571db4b454bb18cd9
+	vector3ToLatLong: function(vector3) {
+		vector3.normalize();
+
+		//longitude = angle of the vector around the Y axis
+		//-( ) : negate to flip the longitude (3d space specific )
+		//- PI to align with our texture
+		var long = -(Math.atan2(-vector3.z, -vector3.x)) - Math.PI;
+
+		//to bind between -PI / PI
+		if (long < - Math.PI) {
+			long += Math.PI * 2;
+		}
+
+		//latitude : angle between the vector & the vector projected on the XZ plane on a unit sphere
+		//project on the XZ plane
+		var p = new THREE.Vector3(vector3.x, 0, vector3.z);
+		//project on the unit sphere
+		p.normalize();
+
+		//commpute the angle ( both vectors are normalized, no division by the sum of lengths )
+		var lat = Math.acos(p.dot(vector3));
+
+		//invert if Y is negative to ensure the latitude is comprised between -PI/2 & PI / 2
+		if (vector3.y < 0) {
+			lat *= -1;
+		}
+
+		return [util.rad2deg(long), util.rad2deg(lat)];
+	},
+
 	// Convert a latitude/longitude pair to a X/Y coordiante pair
 	// Via http://stackoverflow.com/a/14457180/1170723
 	latLongTo2dCoordinate: function(latitude, longitude, mapWidth, mapHeight) {
