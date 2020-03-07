@@ -87,7 +87,7 @@ for (let locationId in locations) {
   let found = false;
   let point = turf.point(location.coordinates);
   // Treat HK as a country or it won't match
-  if (location.province && location.province != 'Hong Kong') {
+  if (location.province && location.province != 'Hong Kong' && location.province != 'Taiwan') {
     // Check if the location exists within our provinces
     for (let feature of provinceData.features) {
       if (location.province === feature.properties.name || location.province === feature.properties.name_en) {
