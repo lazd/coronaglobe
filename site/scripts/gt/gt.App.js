@@ -814,7 +814,12 @@ App.prototype.showData = function(type, date) {
 					infectionPercent = cases / location.population;
 				}
 
-				console.log('  %s: %d %s out of %d population (%f %) (%d points of %dpx and %f intensity)', locationString, cases, type, location.population, infectionPercent, clusterCount, size, intensity);
+				if (location.population) {
+					console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', locationString, cases, type, location.population, infectionPercent.toFixed(8), clusterCount, size, intensity);
+				}
+				else {
+					console.log('  %s: %d %s (%d points of %dpx and %f intensity)', locationString, cases, type, clusterCount, size, intensity);
+				}
 
 				for (let i = 0; i < clusterCount; i++) {
 					let coordinates = points[locationId][i];
