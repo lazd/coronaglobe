@@ -87,6 +87,7 @@ function handleComplete() {
     let locationObject = locations;
     for (let location in locationObject) {
       locationIds[location] = locationArray.push(locationObject[location]) - 1;
+      locationObject[location].id = locationIds[location];
     }
 
     // Reference indexes in the array instead of location names
