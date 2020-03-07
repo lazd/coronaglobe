@@ -794,6 +794,10 @@ App.prototype.showData = function(type, date) {
 
 				for (let i = 0; i < clusterCount; i++) {
 					let coordinates = points[locationId][i];
+					if (!coordinates) {
+						console.warn('%s: Could not find random point at index %d, we only have %d points', locationString, i, points[locationId].length);
+						coordinates = location.coordinates;
+					}
 					this.add({
 						coordinates: coordinates,
 						size: size,
