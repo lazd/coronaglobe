@@ -10,7 +10,7 @@ import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { point as TurfPoint, feature as TurfFeature } from '@turf/helpers';
 
 import countries from '../../../data/ne_10m_admin_0_countries-4pct.json';
-import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
+// import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
 
 import config from '../../../data/config.json';
 import cases from '../../data/cases.json';
