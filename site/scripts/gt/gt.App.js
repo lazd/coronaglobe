@@ -301,8 +301,8 @@ App.defaults = {
 App.detailTemplate = function(info) {
 	return `
 	<div class="gt_output">
-		<h3>${info.name}</h3>
-		<dl class="gt_dataTable">
+		<h3 id="detailTitle">${info.name}</h3>
+		<dl class="gt_dataTable" id="detailDescription">
 			<div class="gt_dataTable-row">
 				<dt>Population</dt>
 				<dd>${info.population ? info.population.toLocaleString() : '-'}</dd>
@@ -357,6 +357,7 @@ App.prototype.showInfoForFeature = function(feature, location) {
 	this.detailLayer.hidden = false;
 	this.detailLayer.style.left = location[0] + 'px';
 	this.detailLayer.style.top = location[1] + 'px';
+	this.detailLayer.focus();
 
 	if (this.lastInfoDate === this.date && this.lastInfoFeature === feature) {
 		// Don't recalculate or redraw
@@ -657,15 +658,15 @@ App.prototype.togglePause = function() {
 }
 
 App.prototype.pause = function() {
-	this.pauseButton.classList.remove('gt_icon--pause');
-	this.pauseButton.classList.add('gt_icon--play');
+	this.pauseButton.firstElementChild.classList.remove('gt_icon--pause');
+	this.pauseButton.firstElementChild.classList.add('gt_icon--play');
 	this.playing = false;
 	this.setHashFromParameters();
 };
 
 App.prototype.play = function() {
-	this.pauseButton.classList.remove('gt_icon--play');
-	this.pauseButton.classList.add('gt_icon--pause');
+	this.pauseButton.firstElementChild.classList.remove('gt_icon--play');
+	this.pauseButton.firstElementChild.classList.add('gt_icon--pause');
 	this.playing = true;
 	this.setHashFromParameters();
 };

@@ -44,24 +44,25 @@
 		<div class="gt_container">
 			<div class="gt_ui">
 				<div class="gt_layer gt_layer--top gt_layer--middle">
-					<input type="range" min="0" step="1" class="gt_slider gt_dateSlider" placeholder="location" />
-					<input type="date" class="gt_datePicker">
-					<button class="gt_button gt_pauseButton gt_icon gt_icon--play">
+					<input type="range" min="0" step="1" class="gt_slider gt_dateSlider" aria-label="Day number">
+					<input type="date" class="gt_datePicker" aria-label="Current date">
+					<button class="gt_button gt_pauseButton" aria-label="Play date series">
+						<span class="gt_icon gt_icon--play"></span>
 					</button>
 				</div>
 				<div class="gt_layer gt_layer--bottom gt_layer--left gt_search">
 					<!-- <input type="search" class="gt_input" placeholder="location"/> -->
-					<button class="gt_button gt_locationButton">
+					<button class="gt_button gt_locationButton" aria-label="Go to GPS location">
 						<span class="gt_icon gt_icon--location"></span>
 					</button>
-					<button class="gt_button gt_infoButton">
+					<button class="gt_button gt_infoButton" aria-label="Get info">
 						<span class="gt_icon gt_icon--info"></span>
 					</button>
 				</div>
 				<div class="gt_layer gt_layer--bottom gt_layer--right">
 					<div class="gt_output gt_count">-</div>
 					<label class="gt_select">
-						<select class="gt_typeSelect">
+						<select class="gt_typeSelect" aria-label="What to visualize">
 							<option value="cases">cases</option>
 							<option value="active">active</option>
 							<option value="deaths">deaths</option>
@@ -76,7 +77,7 @@
 					</div>
 				</div>
 
-				<div class="gt_layer gt_detailLayer"></div>
+				<div class="gt_layer gt_detailLayer" tabindex="0" role="dialog" aria-labelledby="detailTitle" aria-describedby="detailDescription"></div>
 
 				<div class="gt_overlay gt_layer gt_about gt_layer--full">
 					<div class="gt_output">

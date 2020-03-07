@@ -245,6 +245,10 @@ body {
 	&[hidden] {
 		display: none;
 	}
+
+	&:focus {
+		outline: none;
+	}
 }
 
 .gt_layer--top {
