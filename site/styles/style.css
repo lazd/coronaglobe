@@ -241,6 +241,10 @@ body {
 	justify-content: center;
 
 	padding: var(--gt-layer-padding);
+
+	&[hidden] {
+		display: none;
+	}
 }
 
 .gt_layer--top {
@@ -412,6 +416,35 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 
 .gt_paused:after {
 	left: 0;
+}
+
+.gt_detailLayer {
+	pointer-events: none;
+}
+
+.gt_dataTable {
+	display: flex;
+	flex-direction: column;
+}
+
+.gt_dataTable-row {
+	display: flex;
+	flex-direction: row;
+
+	dt {
+		margin: 0;
+	}
+
+	dd {
+		margin: 0;
+	}
+
+	:first-child {
+		width: 120px;
+		margin-right: 12px;
+		text-align: right;
+		font-weight: bold;
+	}
 }
 
 /* Keyframes per https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */

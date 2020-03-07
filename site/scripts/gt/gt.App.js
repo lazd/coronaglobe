@@ -59,6 +59,7 @@ const App = function(options) {
 	this.about = this.container.querySelector('.gt_about');
 	this.infoButton = this.container.querySelector('.gt_infoButton');
 	this.datePicker = this.container.querySelector('.gt_datePicker');
+	this.detailLayer = this.container.querySelector('.gt_detailLayer')
 
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
@@ -196,7 +197,16 @@ const App = function(options) {
 		if (intersects.length > 0) {
 			let vec3 = intersects[0].point
 			let coordinates = util.vector3ToLatLong(vec3);
-			this.drawFeatureAtCoordinates(coordinates);
+			let feature = this.drawFeatureAtCoordinates(coordinates);
+			if (feature) {
+				this.showInfoForFeature(feature, [evt.clientX, evt.clientY]);
+			}
+			else {
+				this.hideInfo();
+			}
+		}
+		else {
+			this.hideInfo();
 		}
 	});
 
@@ -286,6 +296,40 @@ App.defaults = {
 	itemNamePlural: 'items'
 };
 
+App.detailTemplate = function(info) {
+	return `
+	<div class="gt_output">
+		<h3>${info.name}</h3>
+		<dl class="gt_dataTable">
+			<div class="gt_dataTable-row">
+				<dt>Population</dt>
+				<dd>${info.population ? info.population.toLocaleString() : '-'}</dd>
+			</div>
+			<div class="gt_dataTable-row">
+				<dt>Infection Rate</dt>
+				<dd>${info.population ? info.rate.toFixed(8) : '-'}%</dd>
+			</div>
+			<div class="gt_dataTable-row">
+				<dt>Cases</dt>
+				<dd>${info.cases.toLocaleString()}</dd>
+			</div>
+			<div class="gt_dataTable-row">
+				<dt>Recovered</dt>
+				<dd>${info.recovered.toLocaleString()}</dd>
+			</div>
+			<div class="gt_dataTable-row">
+				<dt>Deaths</dt>
+				<dd>${info.deaths.toLocaleString()}</dd>
+			</div>
+			<div class="gt_dataTable-row">
+				<dt>Active</dt>
+				<dd>${info.active.toLocaleString()}</dd>
+			</div>
+		</dl>
+	</div>
+`;
+}
+
 App.prototype.showFeature = function(feature) {
 	if (feature.border) {
 		feature.border.visible = true;
@@ -303,6 +347,64 @@ App.prototype.showFeature = function(feature) {
 	}
 };
 
+App.prototype.hideInfo = function() {
+	this.detailLayer.hidden = true;
+};
+
+App.prototype.showInfoForFeature = function(feature, location) {
+	this.detailLayer.hidden = false;
+	this.detailLayer.style.left = location[0] + 'px';
+	this.detailLayer.style.top = location[1] + 'px';
+
+	if (this.lastInfoDate === this.date && this.lastInfoFeature === feature) {
+		// Don't recalculate or redraw
+		return;
+	}
+
+	let featureLocations = this.getLocationsForFeature(feature);
+
+	let info = {
+		name: feature.properties.name,
+		population: feature.properties.pop_est,
+		locations: [],
+		cases: 0,
+		active: 0,
+		deaths: 0,
+		recovered: 0
+	};
+
+	let currentCases = cases[this.date];
+	for (let location of featureLocations) {
+		let currentInfo = currentCases[location.id];
+		if (currentInfo) {
+			info.cases += currentInfo.cases;
+			info.active += currentInfo.active;
+			info.deaths += currentInfo.deaths;
+			info.recovered += currentInfo.recovered;
+			info.locations.push(location);
+		}
+	}
+	info.rate = info.cases / info.population;
+
+	this.detailLayer.innerHTML = App.detailTemplate(info);
+
+	this.lastInfoDate = this.date;
+	this.lastInfoFeature = feature;
+};
+
+App.prototype.getLocationsForFeature = function(feature) {
+	if (!feature.properties.locations) {
+		// Find and cache locations
+		feature.properties.locations = feature.properties.locations || [];
+		for (let location of locations) {
+			if (location.featureId === feature.properties.id) {
+				feature.properties.locations.push(location);
+			}
+		}
+	}
+	return feature.properties.locations;
+};
+
 App.prototype.hideFeature = function(feature) {
 	if (feature.border) {
 		feature.border.visible = false;
@@ -311,10 +413,12 @@ App.prototype.hideFeature = function(feature) {
 
 App.prototype.drawFeatureAtCoordinates = function(coordinates) {
 	let point = TurfPoint(coordinates);
+	let foundFeature = null;
 	for (let feature of features.features) {
 		// Cache feature
 		feature.turfFeature = feature.turfFeature || TurfFeature(feature.geometry);
 		if (booleanPointInPolygon(point, feature.turfFeature)) {
+			foundFeature = feature;
 			this.showFeature(feature);
 			continue;
 		}
@@ -322,6 +426,7 @@ App.prototype.drawFeatureAtCoordinates = function(coordinates) {
 		// Hide everything else
 		this.hideFeature(feature);
 	}
+	return foundFeature;
 };
 
 App.prototype.drawFeatures = function() {
