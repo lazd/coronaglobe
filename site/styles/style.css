@@ -25,8 +25,8 @@
 	--gt-slider-thumb-width: var(--gt-slider-thumb-height);
 	--gt-slider-thumb-border-radius: 100%;
 	--gt-slider-track-height: 12px;
-	--gt-slider-thumb-outline-color: rgb(0, 0, 0);
-	--gt-slider-thumb-outline-width: 3px;
+	--gt-slider-thumb-outline-color: rgb(40, 40, 40);
+	--gt-slider-thumb-outline-width: 1px;
 }
 
 * {
