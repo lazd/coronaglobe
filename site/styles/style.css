@@ -447,6 +447,12 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 	}
 }
 
+.gt_finePrint {
+	width: 275px;
+	font-size: 10px;
+	text-align: left;
+}
+
 /* Keyframes per https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */
 @-webkit-keyframes gt_rotate {
 	0% {
