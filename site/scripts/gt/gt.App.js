@@ -342,7 +342,7 @@ App.prototype.showFeature = function(feature) {
 		feature.border.name = feature.properties.name;
 		this.featureContainer.add(feature.border);
 		drawThreeGeo(feature, this.earthRadius, 'sphere', {
-			color: 'rgb(242, 183, 0)',
+			color: 'rgb(242, 242, 242)',
 			opacity: 0.7,
 			transparent: true
 		}, feature.border);
