@@ -125,7 +125,7 @@
     "country": "Mainland China",
     "coordinates": [
       113.614,
-      33.88202
+      33.882020000000004
     ],
     "id": 11,
     "featureId": 11,
@@ -1416,7 +1416,7 @@
     "province": "Grafton County, NH",
     "country": "US",
     "coordinates": [
-      -71.826,
+      -71.82600000000002,
       43.9088
     ],
     "id": 130,
@@ -2145,5 +2145,332 @@
     "id": 198,
     "featureId": 159,
     "population": 1000
+  },
+  {
+    "province": "Santa Clara County, CA",
+    "country": "US",
+    "coordinates": [
+      -121.9552,
+      37.3541
+    ],
+    "id": 199,
+    "featureId": 47,
+    "population": 1937570
+  },
+  {
+    "province": "Grand Princess Cruise Ship",
+    "country": "US",
+    "coordinates": [
+      -122.6655,
+      37.6489
+    ],
+    "id": 200
+  },
+  {
+    "province": "",
+    "country": "French Guiana",
+    "coordinates": [
+      -53.1258,
+      3.9339
+    ],
+    "id": 201,
+    "featureId": 42
+  },
+  {
+    "province": "",
+    "country": "Malta",
+    "coordinates": [
+      14.3754,
+      35.9375
+    ],
+    "id": 202,
+    "featureId": 160,
+    "population": 416338
+  },
+  {
+    "province": "Douglas County, CO",
+    "country": "US",
+    "coordinates": [
+      -104.9389,
+      39.2587
+    ],
+    "id": 203,
+    "featureId": 145
+  },
+  {
+    "province": "Providence County, RI",
+    "country": "US",
+    "coordinates": [
+      -71.4774,
+      41.8882
+    ],
+    "id": 204,
+    "featureId": 110,
+    "population": 636084
+  },
+  {
+    "province": "",
+    "country": "Martinique",
+    "coordinates": [
+      -61.0242,
+      14.6415
+    ],
+    "id": 205,
+    "featureId": 42
+  },
+  {
+    "province": "Alameda County, CA",
+    "country": "US",
+    "coordinates": [
+      -121.7195,
+      37.6017
+    ],
+    "id": 206,
+    "featureId": 47,
+    "population": 1666753
+  },
+  {
+    "province": "Broward County, FL",
+    "country": "US",
+    "coordinates": [
+      -80.3659,
+      26.1901
+    ],
+    "id": 207,
+    "featureId": 120,
+    "population": 1951260
+  },
+  {
+    "province": "Fairfield County, CT",
+    "country": "US",
+    "coordinates": [
+      -73.3709,
+      41.256
+    ],
+    "id": 208,
+    "featureId": 161
+  },
+  {
+    "province": "Lee County, FL",
+    "country": "US",
+    "coordinates": [
+      -81.9535,
+      26.663
+    ],
+    "id": 209,
+    "featureId": 120
+  },
+  {
+    "province": "Pinal County, AZ",
+    "country": "US",
+    "coordinates": [
+      -111.2845,
+      32.8162
+    ],
+    "id": 210,
+    "featureId": 37,
+    "population": 447138
+  },
+  {
+    "province": "Rockland County, NY",
+    "country": "US",
+    "coordinates": [
+      -73.983,
+      41.1489
+    ],
+    "id": 211,
+    "featureId": 128,
+    "population": 325695
+  },
+  {
+    "province": "Saratoga County, NY",
+    "country": "US",
+    "coordinates": [
+      -73.936,
+      43.0324
+    ],
+    "id": 212,
+    "featureId": 128,
+    "population": 230163
+  },
+  {
+    "province": "Edmonton, Alberta",
+    "country": "Canada",
+    "coordinates": [
+      -113.4938,
+      53.5461
+    ],
+    "id": 213,
+    "featureId": 148
+  },
+  {
+    "province": "Charleston County, SC",
+    "country": "US",
+    "coordinates": [
+      -79.7848,
+      32.7957
+    ],
+    "id": 214,
+    "featureId": 162,
+    "population": 405905
+  },
+  {
+    "province": "Clark County, WA",
+    "country": "US",
+    "coordinates": [
+      -122.5194,
+      45.7466
+    ],
+    "id": 215,
+    "featureId": 35
+  },
+  {
+    "province": "Cobb County, GA",
+    "country": "US",
+    "coordinates": [
+      -84.5641,
+      33.8999
+    ],
+    "id": 216,
+    "featureId": 122,
+    "population": 756865
+  },
+  {
+    "province": "Davis County, UT",
+    "country": "US",
+    "coordinates": [
+      -112.0953,
+      40.9629
+    ],
+    "id": 217,
+    "featureId": 163,
+    "population": 351713
+  },
+  {
+    "province": "El Paso County, CO",
+    "country": "US",
+    "coordinates": [
+      -104.4723,
+      38.9108
+    ],
+    "id": 218,
+    "featureId": 145
+  },
+  {
+    "province": "Honolulu County, HI",
+    "country": "US",
+    "coordinates": [
+      -157.8584,
+      21.307
+    ],
+    "id": 219,
+    "featureId": 164,
+    "population": 980080
+  },
+  {
+    "province": "Jackson County, OR",
+    "country": "US",
+    "coordinates": [
+      -122.7647,
+      42.3345
+    ],
+    "id": 220,
+    "featureId": 121
+  },
+  {
+    "province": "Jefferson County, WA",
+    "country": "US",
+    "coordinates": [
+      -123.304,
+      47.7425
+    ],
+    "id": 221,
+    "featureId": 35
+  },
+  {
+    "province": "Kershaw County, SC",
+    "country": "US",
+    "coordinates": [
+      -80.5883,
+      34.3672
+    ],
+    "id": 222,
+    "featureId": 162,
+    "population": 65592
+  },
+  {
+    "province": "Klamath County, OR",
+    "country": "US",
+    "coordinates": [
+      -121.6142,
+      42.6953
+    ],
+    "id": 223,
+    "featureId": 121,
+    "population": 67653
+  },
+  {
+    "province": "Madera County, CA",
+    "country": "US",
+    "coordinates": [
+      -119.6963,
+      37.2519
+    ],
+    "id": 224,
+    "featureId": 47,
+    "population": 157672
+  },
+  {
+    "province": "Pierce County, WA",
+    "country": "US",
+    "coordinates": [
+      -122.1295,
+      47.0676
+    ],
+    "id": 225,
+    "featureId": 35
+  },
+  {
+    "province": "Plymouth County, MA",
+    "country": "US",
+    "coordinates": [
+      -70.7928,
+      42.1615
+    ],
+    "id": 226,
+    "featureId": 126,
+    "population": 518132
+  },
+  {
+    "province": "Santa Cruz County, CA",
+    "country": "US",
+    "coordinates": [
+      -122.0308,
+      36.9741
+    ],
+    "id": 227,
+    "featureId": 47,
+    "population": 274255
+  },
+  {
+    "province": "Tulsa County, OK",
+    "country": "US",
+    "coordinates": [
+      -95.941,
+      36.1593
+    ],
+    "id": 228,
+    "featureId": 165,
+    "population": 648360
+  },
+  {
+    "province": "Montgomery County, TX",
+    "country": "US",
+    "coordinates": [
+      -95.4778,
+      30.3213
+    ],
+    "id": 229,
+    "featureId": 67
   }
 ]
