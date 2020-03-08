@@ -7,7 +7,7 @@
     "update": "yarn run fetch && yarn run load && yarn run push && yarn run deploy",
     "fetch": "git submodule update --remote",
     "load": "node tools/import.js && node tools/generateFeatures.js && node tools/generateRandomDataWithinFeatures.js && node tools/generatePopulations.js",
-    "push": "git commit site COVID-19 -m \"feat: update data\" && git push",
+    "push": "git commit site/data COVID-19 -m \"feat: update data\" && git push",
     "dev": "parcel site/index.html",
     "build": "rm -rf dist/* && parcel build site/index.html --public-url ./ && cp -r site/icon* dist/",
     "deploy": "yarn run build && ghpages -p dist/"
