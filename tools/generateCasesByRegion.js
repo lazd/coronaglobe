@@ -4,7 +4,7 @@ const path = require('path');
 function generateCasesByRegion({locationDays, locations, featureCollection}) {
   function getLocationsForFeature(feature) {
     let featureLocations = [];
-    for (let [locationName, location] of Object.entries(locations)) {
+    for (let location of locations) {
       if (location.featureId === feature.properties.id) {
         featureLocations.push(location);
       }
@@ -25,7 +25,7 @@ function generateCasesByRegion({locationDays, locations, featureCollection}) {
 
     let currentCases = locationDays[date];
     for (let location of featureLocations) {
-      let currentInfo = currentCases[location.name];
+      let currentInfo = currentCases[location.id];
       if (currentInfo) {
         info.cases += currentInfo.cases;
         info.active += currentInfo.active;

@@ -55,7 +55,7 @@ function getLocationName(location) {
 }
 
 function generateCasesByLocation() {
-  let locations = {};
+  let locationsByName = {};
   let locationDays = {};
 
   function readCSV(csvFileName, type) {
@@ -69,7 +69,7 @@ function generateCasesByLocation() {
         .on('data', (row) => {
           // Store location by name
           let location = getLocationFromRow(row);
-          locations[location.name] = location;
+          locationsByName[location.name] = location;
 
           // Store each day
           for (let day of Object.keys(row).filter(column => dataItems.indexOf(column) === -1)) {
@@ -86,7 +86,6 @@ function generateCasesByLocation() {
         })
         .on('error', reject);
     });
-
   }
 
   return new Promise((resolve, reject) => {
@@ -104,6 +103,25 @@ function generateCasesByLocation() {
           for (let location in locationDays[day]) {
             locationDays[day][location].active = locationDays[day][location].cases - locationDays[day][location].recovered - locationDays[day][location].deaths;
           }
+        }
+
+        // Turn locationsByName into an array
+        let locationIds = {};
+        let locations = [];
+        let locationObject = locationsByName;
+        for (let location in locationObject) {
+          locationIds[location] = locations.push(locationObject[location]) - 1;
+          locationObject[location].id = locationIds[location];
+        }
+
+        // Reference indexes in the array instead of location names
+        for (let day in locationDays) {
+          let dayObject = {};
+          for (let location in locationDays[day]) {
+            let locationId = locationIds[location];
+            dayObject[locationId] = locationDays[day][location]; 
+          }
+          locationDays[day] = dayObject;
         }
 
         console.log('✅ Cases and locations generated');

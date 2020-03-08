@@ -85,9 +85,7 @@ function generateFeatures({locationDays, locations}) {
     cleanFeatures(countryData);
     cleanFeatures(provinceData);
 
-    for (let locationId in locations) {
-      let location = locations[locationId];
-
+    for (let location of locations) {
       let found = false;
       let point = turf.point(location.coordinates);
 

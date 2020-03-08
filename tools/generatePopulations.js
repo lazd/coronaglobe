@@ -121,8 +121,7 @@ async function generatePopulations({locationDays, locations, featureCollection})
   }
 
   let populationFound = 0;
-  for (let locationId in locations) {
-    let location = locations[locationId];
+  for (let location of locations) {
     let population = getPopulation(location.country, location.province);
 
     if (!population) {
