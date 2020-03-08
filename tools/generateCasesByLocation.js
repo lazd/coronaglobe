@@ -40,6 +40,10 @@ function getLocationFromRow(row) {
     delete location.province;
   }
 
+  if (typeof location.province === 'string' && location.province.trim() === '') {
+    delete location.province;
+  }
+
   location.name = getLocationName(location);
 
   return location;

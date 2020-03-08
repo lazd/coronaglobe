@@ -12,7 +12,7 @@ function cleanProps(obj) {
   }
 
   for (let prop in obj) {
-    if (obj[prop] === '') {
+    if (typeof obj[prop] === 'string' && obj[prop].trim() === '') {
       delete obj[prop];
     }
   }
@@ -48,8 +48,6 @@ let props = [
   'gdp_year',
   'iso_a2',
   'iso_3166_2',
-  'latitude',
-  'longitude',
   'type_en',
   'wikipedia'
 ];
@@ -89,9 +87,7 @@ function generateFeatures({locationDays, locations}) {
       let found = false;
       let point = turf.point(location.coordinates);
 
-      // Treat HK as a country or it won't match
-      // Todo: Make sure this is no longer needed
-      if (location.province && location.province != 'Hong Kong' && location.province != 'Taiwan') {
+      if (location.province) {
         // Check if the location exists within our provinces
         for (let feature of provinceData.features) {
           if (location.province === feature.properties.name || location.province === feature.properties.name_en) {
@@ -123,13 +119,36 @@ function generateFeatures({locationDays, locations}) {
       else {
         // Check if the location exists within our countries
         for (let feature of countryData.features) {
-          if (location.province === feature.properties.name || location.country === feature.properties.name) {
+          // Find by full name
+          if (location.country === feature.properties.name) {
             found = true;
             storeFeature(feature, location);
             break;
           }
 
-          if (!location.province && feature.properties.abbrev && feature.properties.abbrev.replace(/\./g, '') === location.country) {
+          // Find by abbreviation
+          if (feature.properties.abbrev && feature.properties.abbrev.replace(/\./g, '') === location.country) {
+            found = true;
+            storeFeature(feature, location);
+            break;
+          }
+
+          if (!feature.geometry) {
+            continue;
+          }
+
+          let poly = turf.feature(feature.geometry);
+
+          if (turf.booleanPointInPolygon(point, poly)) {
+            found = true;
+            storeFeature(feature, location);
+            break;
+          }
+        }
+
+        // Check within provinces
+        for (let feature of provinceData.features) {
+          if (location.country === feature.properties.name) {
             found = true;
             storeFeature(feature, location);
             break;

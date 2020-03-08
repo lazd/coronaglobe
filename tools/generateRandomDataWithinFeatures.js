@@ -4,6 +4,7 @@ const path = require('path');
 const config = require('../data/config.json');
 
 const randomPointGenerator = require('random-points-generator');
+const center = require('@turf/center');
 
 function simplifyPointSet(pointFeatures) {
   let pointArray = [];
@@ -60,6 +61,9 @@ function generateRandomDataWithinFeatures({regionDays, featureCollection, locati
         }
       }
     }
+
+    // Calculate the center and store it
+    feature.properties.coordinates = center(feature).geometry.coordinates
   }
 
   console.log('✅ Random point sets generated...');
