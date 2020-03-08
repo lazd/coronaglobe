@@ -1,155 +1,153 @@
-const fs = require('fs');
+const fsp = require('fs').promises;
 const path = require('path');
-
-const parse = require('csv-parse/lib/sync')
-const locations = require('../site/data/locations.json');
-const features = require('../site/data/features.json');
+const parse = require('csv-parse/lib/sync');
 
 const dataPath = path.join('data');
 
-function readCSVSync(csvPath) {
-  let source = parse(fs.readFileSync(path.resolve(dataPath, csvPath)), {
+async function readCSV(csvPath) {
+  let data = await fsp.readFile(path.resolve(dataPath, csvPath), 'utf8')
+  let source = parse(data, {
     columns: true
   });
-  let obj = {};
+
+  let populationData = {};
   for (let item of source) {
     if (item.population) {
-      obj[item.name] = parseInt(item.population, 10);
+      populationData[item.name] = parseInt(item.population, 10);
     }
     else {
-      console.error('Invalid data in %s for %s', csvPath, item.name);
-      process.exit(1);
+      reject(`Invalid data in ${csvPath} for ${item.name}`);
+      return;
     }
   }
-  return obj;
+
+  return populationData;
 }
 
-let populationByProvince = {
-  'Mainland China': readCSVSync('population-chinese-admin-divisions.csv'),
-  'Australia': readCSVSync('population-australia-states.csv'),
-  'Canada': readCSVSync('population-canada-provinces.csv')
-};
-
-// Store by abbrevations so features can find population data
-populationByProvince.CN = populationByProvince['Mainland China'];
-populationByProvince.CA = populationByProvince['Canada'];
-populationByProvince.AUS = populationByProvince['Australia'];
-
-let usPopulation = {
-  'state': readCSVSync('population-us-states.csv'),
-  'county': readCSVSync('population-us-counties.csv')
-};
-
-let supplementalPopulation = readCSVSync('population-supplemental.csv');
-
+// Todo: share between modules
 function getLocationName(location) {
   return (location.province ? location.province + ', ' : '') + location.country;
 }
 
-// Use data from features
-let populationByCountry = {};
-for (let feature of features.features) {
-  if (feature.properties.pop_est) {
-    populationByCountry[feature.properties.name] = feature.properties.pop_est;
-    if (feature.properties.name_en) {
-      populationByCountry[feature.properties.name_en] = feature.properties.pop_est;
-    }
-    if (feature.properties.abbrev) {
-      populationByCountry[feature.properties.abbrev.replace(/\./g, '')] = feature.properties.pop_est;
-    }
-  }
-  else {
-    let population = getPopulation(feature.properties.iso_a2, feature.properties.name);
+async function readPopulationData(featureCollection) {
+  let populations = {
+    US: {
+      state: await readCSV('population-us-states.csv'),
+      county: await readCSV('population-us-counties.csv')
+    },
+    byProvince: {
+      'Mainland China': await readCSV('population-chinese-admin-divisions.csv'),
+      'Australia': await readCSV('population-australia-states.csv'),
+      'Canada': await readCSV('population-canada-provinces.csv')
+    },
+    byCountry: {},
+    supplemental: await readCSV('population-supplemental.csv')
+  };
 
-    if (population) {
-      console.log('  ✅ %s: %d', feature.properties.name, population);
-      feature.properties.pop_est = population;
+  // Done  
+  populations.byProvince.CN = populations.byProvince['Mainland China'];
+  populations.byProvince.CA = populations.byProvince['Canada'];
+  populations.byProvince.AUS = populations.byProvince['Australia'];
+
+  // Store data from features
+  for (let feature of featureCollection.features) {
+    if (feature.properties.pop_est) {
+      populations.byCountry[feature.properties.name] = feature.properties.pop_est;
+      if (feature.properties.name_en) {
+        populations.byCountry[feature.properties.name_en] = feature.properties.pop_est;
+      }
+      if (feature.properties.abbrev) {
+        populations.byCountry[feature.properties.abbrev.replace(/\./g, '')] = feature.properties.pop_est;
+      }
     }
   }
+
+  return populations;
 }
 
-function getPopulation(country, province) {
-  let population = null;
+async function generatePopulations({locationDays, locations, featureCollection}) {
+  console.log('⏳ Getting population data...');
 
-  // Try population data by region
-  if (country && province) {
-    if (country === 'US') {
-      if (usPopulation.county[province]) {
-        // Try counties
-        population = usPopulation.county[province];
+  let populations = await readPopulationData(featureCollection);
+
+  function getPopulation(country, province) {
+    let population = null;
+
+    // Try population data by region
+    if (country && province) {
+      if (country === 'US') {
+        if (populations.US.county[province]) {
+          // Try counties
+          population = populations.US.county[province];
+        }
+        else if (populations.US.state[province]) {
+          // Try states
+          population = populations.US.state[province];
+        }
       }
-      else if (usPopulation.state[province]) {
-        // Try states
-        population = usPopulation.state[province];
-      }
-    }
-    else {
-      let populationData = populationByProvince[country];
-      if (populationData) {
-        population = populationData[province];
-      }
-    }
-  }
-
-  // Try population by country
-  if (!province || province === country) {
-    population = populationByCountry[country];
-  }
-
-  if (!population) {
-    population = supplementalPopulation[province];
-  }
-
-  if (!population) {
-    population = supplementalPopulation[country];
-  }
-
-  return population;
-}
-
-let populationFound = 0;
-for (let locationId in locations) {
-  let location = locations[locationId];
-  let population = getPopulation(location.country, location.province);
-
-  if (!population) {
-    console.error('  ❌ %s: ?', getLocationName(location));
-  }
-  else {
-    location.population = population;
-    console.log('  ✅ %s: %s', getLocationName(location), population);
-
-    if (location.featureId) {
-      let feature = features.features[location.featureId];
-      if (feature && feature.properties.name === location.province) {
-        if (!feature.properties.pop_est) {
-          feature.properties.pop_est = population;
-          console.log('      + added population to feature %s', feature.properties.name);
+      else {
+        let populationData = populations.byProvince[country];
+        if (populationData) {
+          population = populationData[province];
         }
       }
     }
-    populationFound++;
+
+    // Try population by country
+    if (!province || province === country) {
+      population = populations.byCountry[country];
+    }
+
+    if (!population) {
+      population = populations.supplemental[province];
+    }
+
+    if (!population) {
+      population = populations.supplemental[country];
+    }
+
+    return population;
   }
+
+  for (let feature of featureCollection.features) {
+    if (!feature.properties.pop_est) {
+      let population = getPopulation(feature.properties.iso_a2, feature.properties.name);
+
+      if (population) {
+        console.log('  ✅ %s: %d', feature.properties.name, population);
+        feature.properties.pop_est = population;
+      }
+    }
+  }
+
+  let populationFound = 0;
+  for (let locationId in locations) {
+    let location = locations[locationId];
+    let population = getPopulation(location.country, location.province);
+
+    if (!population) {
+      console.error('  ❌ %s: ?', getLocationName(location));
+    }
+    else {
+      location.population = population;
+      console.log('  ✅ %s: %s', getLocationName(location), population);
+
+      if (location.featureId) {
+        let feature = featureCollection.features[location.featureId];
+        if (feature && feature.properties.name === location.province) {
+          if (!feature.properties.pop_est) {
+            feature.properties.pop_est = population;
+            console.log('      + added population to feature %s', feature.properties.name);
+          }
+        }
+      }
+      populationFound++;
+    }
+  }
+
+  console.log('✅ Found population data for %d out of %d locations', populationFound, Object.keys(locations).length);
+
+  return {locationDays, locations, featureCollection};
 }
 
-console.log('Found population data for %d out of %d regions', populationFound, Object.keys(locations).length);
-
-fs.writeFile(path.join('site', 'data', 'locations.json'), JSON.stringify(locations, null, 2), (err) => {
-  if (err) {
-    console.error('❌ Failed to write modified locations: %s', err);
-    process.exit(1);
-  }
-  else {
-    console.log('✅ Modified locations written successfully');
-
-    fs.writeFile(path.join('site', 'data', 'features.json'), JSON.stringify(features, null, 2), (err) => {
-      if (err) {
-        console.error('❌ Failed to write modified features: %s', err);
-        process.exit(1);
-      }
-      else {
-        console.log('✅ Modified features written successfully');
-      }
-    });
-  }
-});
+module.exports = generatePopulations;
