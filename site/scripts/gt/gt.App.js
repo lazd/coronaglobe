@@ -14,9 +14,8 @@ import countries from '../../../data/ne_10m_admin_0_countries-4pct.json';
 
 import config from '../../../data/config.json';
 import cases from '../../data/cases.json';
-import * as features from '../../data/features.json';
-import locations from '../../data/locations.json';
-import points from '../../data/points.json';
+import * as featureCollection from '../../data/features.json';
+import * as points from '../../data/points.json';
 import drawThreeGeo from './lib/threeGeoJSON.js';
 
 window.THREE = THREE;
@@ -387,48 +386,17 @@ App.prototype.showInfoForFeature = function(feature, location) {
 		return;
 	}
 
-	let featureLocations = this.getLocationsForFeature(feature);
 
-	let info = {
+
+	let info = Object.assign({
 		name: feature.properties.name,
-		population: feature.properties.pop_est,
-		locations: [],
-		cases: 0,
-		active: 0,
-		deaths: 0,
-		recovered: 0
-	};
-
-	let currentCases = cases[this.date];
-	for (let location of featureLocations) {
-		let currentInfo = currentCases[location.id];
-		if (currentInfo) {
-			info.cases += currentInfo.cases;
-			info.active += currentInfo.active;
-			info.deaths += currentInfo.deaths;
-			info.recovered += currentInfo.recovered;
-			info.locations.push(location);
-		}
-	}
-	info.rate = info.cases / info.population;
+		population: feature.properties.pop_est
+	}, cases[this.date][feature.properties.id]);
 
 	this.detailLayer.innerHTML = App.detailTemplate(info);
 
 	this.lastInfoDate = this.date;
 	this.lastInfoFeature = feature;
-};
-
-App.prototype.getLocationsForFeature = function(feature) {
-	if (!feature.properties.locations) {
-		// Find and cache locations
-		feature.properties.locations = feature.properties.locations || [];
-		for (let location of locations) {
-			if (location.featureId === feature.properties.id) {
-				feature.properties.locations.push(location);
-			}
-		}
-	}
-	return feature.properties.locations;
 };
 
 App.prototype.hideFeature = function(feature) {
@@ -440,7 +408,7 @@ App.prototype.hideFeature = function(feature) {
 App.prototype.drawFeatureAtCoordinates = function(coordinates) {
 	let point = TurfPoint(coordinates);
 	let foundFeature = null;
-	for (let feature of features.features) {
+	for (let feature of featureCollection.features) {
 		// Cache feature
 		feature.turfFeature = feature.turfFeature || TurfFeature(feature.geometry);
 		if (booleanPointInPolygon(point, feature.turfFeature)) {
@@ -471,7 +439,7 @@ App.prototype.drawFeatures = function() {
 
 	// Draw infected regions
 	/*
-	drawThreeGeo(features, this.earthRadius, 'sphere', {
+	drawThreeGeo(featureCollection, this.earthRadius, 'sphere', {
 		color: 'rgb(0, 0, 0)',
 		opacity: 0.95,
 		transparent: true,
@@ -795,37 +763,36 @@ App.prototype.showData = function(type, date) {
 
 	console.log('🗓 %s', date);
 
-	let currentLocations = cases[date];
+	let latestCasesByRegion = cases[date];
 	let count = 0;
-	for (let locationId in currentLocations) {
-		let locationData = currentLocations[locationId];
-		let location = locations[locationId];
-		let cases = locationData[type];
+	for (let featureId in latestCasesByRegion) {
+		let feature = featureCollection.features[featureId];
+		let caseInfo = latestCasesByRegion[featureId];
+		let location = featureCollection.features[featureId];
+		let cases = caseInfo[type];
 		if (cases) {
-			let locationString = (location.province ? location.province + ', ' : '') + location.country;
-
-			if (points[locationId]) {
-			// if (points[locationId] && location.country !== 'US' && location.country !== 'Canada') {
+			if (points[featureId]) {
 				// Location has enough cases to have randomly distributed clusters
 				let clusterCount = Math.round(cases / config.caseDivisor);
 				let size = 2.5;
 				let intensity = 1;
 				let infectionPercent = 0;
-				if (location.population) {
-					infectionPercent = cases / location.population;
+				let population = location.properties.pop_est;
+				if (population) {
+					infectionPercent = cases / population;
 				}
 
-				if (location.population) {
-					console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', locationString, cases, type, location.population, infectionPercent.toFixed(8), clusterCount, size, intensity);
+				if (population) {
+					console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, infectionPercent.toFixed(8), clusterCount, size, intensity);
 				}
 				else {
-					console.log('  %s: %d %s (%d points of %dpx and %f intensity)', locationString, cases, type, clusterCount, size, intensity);
+					console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, clusterCount, size, intensity);
 				}
 
-				for (let i = 0; i < clusterCount; i++) {
-					let coordinates = points[locationId][i];
+				for (let i = 0; i < clusterCount && i < points[featureId].length; i++) {
+					let coordinates = points[featureId][i];
 					if (!coordinates) {
-						console.warn('%s: Could not find random point at index %d, we only have %d points', locationString, i, points[locationId].length);
+						console.warn('%s: Could not find random point at index %d, we only have %d points', feature.properties.name, i, points[featureId].length);
 						coordinates = location.coordinates;
 					}
 					this.add({
@@ -839,10 +806,10 @@ App.prototype.showData = function(type, date) {
 				// Location doesn't have enough cases for distribution, create a blob at center
 				let size = 5;
 				let intensity = 0.75;
-				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', locationString, cases, type, size, intensity);
+				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', feature.properties.name, cases, type, size, intensity);
 
 				this.add({
-					coordinates: location.coordinates,
+					coordinates: feature.properties.coordinates,
 					size: size,
 					intensity: intensity
 				});
