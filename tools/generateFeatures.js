@@ -146,24 +146,27 @@ function generateFeatures({locationDays, locations}) {
           }
         }
 
-        // Check within provinces
-        for (let feature of provinceData.features) {
-          if (location.country === feature.properties.name) {
-            found = true;
-            storeFeature(feature, location);
-            break;
-          }
+        // Check by province as a last resort
+        if (!found) {
+          // Check within provinces
+          for (let feature of provinceData.features) {
+            if (location.country === feature.properties.name) {
+              found = true;
+              storeFeature(feature, location);
+              break;
+            }
 
-          if (!feature.geometry) {
-            continue;
-          }
+            if (!feature.geometry) {
+              continue;
+            }
 
-          let poly = turf.feature(feature.geometry);
+            let poly = turf.feature(feature.geometry);
 
-          if (turf.booleanPointInPolygon(point, poly)) {
-            found = true;
-            storeFeature(feature, location);
-            break;
+            if (turf.booleanPointInPolygon(point, poly)) {
+              found = true;
+              storeFeature(feature, location);
+              break;
+            }
           }
         }
       }
