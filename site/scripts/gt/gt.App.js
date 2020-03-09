@@ -59,6 +59,7 @@ const App = function(options) {
 	this.infoButton = this.container.querySelector('.gt_infoButton');
 	this.datePicker = this.container.querySelector('.gt_datePicker');
 	this.detailLayer = this.container.querySelector('.gt_detailLayer')
+	this.dataLayer = this.container.querySelector('.gt_dataLayer')
 
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
@@ -307,34 +308,72 @@ App.detailTemplate = function(info) {
 	return `
 	<div class="gt_output">
 		<h3 id="detailTitle">${info.name}</h3>
-		<dl class="gt_dataTable" id="detailDescription">
-			<div class="gt_dataTable-row">
+		<dl class="gt_descriptionList" id="detailDescription">
+			<div class="gt_descriptionList-row">
 				<dt>Population</dt>
 				<dd>${info.population ? info.population.toLocaleString() : '-'}</dd>
 			</div>
-			<div class="gt_dataTable-row">
+			<div class="gt_descriptionList-row">
 				<dt>Infection Rate</dt>
 				<dd>${info.population ? info.rate.toFixed(8) : '-'}%</dd>
 			</div>
-			<div class="gt_dataTable-row">
+			<div class="gt_descriptionList-row">
 				<dt>Cases</dt>
 				<dd>${info.cases.toLocaleString()}</dd>
 			</div>
-			<div class="gt_dataTable-row">
+			<div class="gt_descriptionList-row">
 				<dt>Recovered</dt>
 				<dd>${info.recovered.toLocaleString()}</dd>
 			</div>
-			<div class="gt_dataTable-row">
+			<div class="gt_descriptionList-row">
 				<dt>Deaths</dt>
 				<dd>${info.deaths.toLocaleString()}</dd>
 			</div>
-			<div class="gt_dataTable-row">
+			<div class="gt_descriptionList-row">
 				<dt>Active</dt>
 				<dd>${info.active.toLocaleString()}</dd>
 			</div>
 		</dl>
 	</div>
 `;
+}
+
+App.dataTableTemplate = function(title, columns, data) {
+	let html = `
+	<div class="gt_output">
+		<h3 id="detailTitle">${title}</h3>
+		<table class="gt_dataTable">
+			<thead>
+`;
+	for (let column of columns) {
+		html += `
+				<th>${column}</th>
+`;
+	}
+	html += `
+			</thead>
+			<tbody>
+`;
+	for (let row of data) {
+		html += `
+			<tr class="gt_dataTable-row">
+`;
+		for (let column of row) {
+		html += `
+				<td>${column}</td>
+`;
+		}
+		html += `
+			</tr>
+`;
+	}
+	html += `
+			</tbody>
+		</table>
+	</div>
+`;
+
+	return html;
 }
 
 App.prototype.showFeature = function(feature) {
@@ -728,6 +767,49 @@ App.prototype.positionSunForDate = function(date) {
 	this.globe.setSunPosition(dayOfYear);
 };
 
+App.prototype.updateRateTable = function(date) {
+	date = date || this.date;
+
+	let rateOrder = [];
+	for (let featureId in cases[date]) {
+		let info = cases[date][featureId];
+		if (info.rate && info.active > 1) {
+			let feature = featureCollection.features[featureId];
+			rateOrder.push(Object.assign({
+				name: feature.properties.name,
+				population: feature.properties.pop_est
+			}, info));
+		}
+	}
+
+	rateOrder = rateOrder.sort((a, b) => {
+		if (a.rate == b.rate) {
+			return 0;
+		}
+		if (a.rate > b.rate) {
+			return -1;
+		}
+		else {
+			return 1;
+		}
+	});
+
+
+	let rates = rateOrder.map((info, index) => [
+		index + 1,
+		info.name,
+		`1 : ${Math.round(info.population / info.active).toLocaleString()}`
+	]);
+
+	rates = rates.slice(0, 10);
+
+	this.dataLayer.innerHTML = App.dataTableTemplate(
+		'Rate of Infection',
+		['Rank', 'Location', 'Rate'],
+		rates
+	);
+}
+
 App.prototype.showData = function(type, date) {
 	let firstDate = Object.keys(cases).shift();
 	let latestDate = Object.keys(cases).pop();
@@ -824,6 +906,9 @@ App.prototype.showData = function(type, date) {
 
 	// Update data
 	this.showInfoForFeature();
+
+	// Update table
+	this.updateRateTable();
 
 	this.heatmap.update();
 };
