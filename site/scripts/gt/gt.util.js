@@ -119,6 +119,13 @@ const util = {
 		history.replaceState(null, null, hash);
 	},
 
+	getRatio(fractional, total) {
+		if (fractional === 0) {
+			return '-';
+		}
+		return `1 : ${Math.round(total / fractional).toLocaleString()}`;
+	},
+
 	extend: function() {
 		var objs = arguments;
 		var result = objs[0];

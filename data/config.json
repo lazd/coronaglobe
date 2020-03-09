@@ -1,4 +1,5 @@
 {
+  "minCasesForSignifigance": 5,
   "caseDivisor": 2,
   "minimumClusters": 3
 }

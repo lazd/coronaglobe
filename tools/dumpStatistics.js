@@ -1,9 +1,11 @@
+const config = require('../data/config.json');
+
 function dumpStatistics({regionDays, featureCollection, locationDays, locations}) {
   let rateOrder = [];
   let lastDate = Object.keys(regionDays).pop();
   for (let featureId in regionDays[lastDate]) {
     let info = regionDays[lastDate][featureId];
-    if (info.rate && info.active > 1) {
+    if (info.rate && info.active > config.minCasesForSignifigance) {
       let feature = featureCollection.features[featureId];
       rateOrder.push(Object.assign({
         name: feature.properties.name,

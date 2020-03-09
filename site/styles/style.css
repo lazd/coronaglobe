@@ -1,6 +1,7 @@
 :root {
 	--gt-component-background-color: rgb(60, 60, 60);
 	--gt-component-background-color-hover: rgb(75, 75, 75);
+	--gt-component-background-color-selected: rgb(49, 80, 125);
 	--gt-component-background-color-focus: var(--gt-component-background-color-hover);
 	--gt-component-text-color: rgba(200, 200, 200, 0.65);
 
@@ -94,13 +95,6 @@ body {
 	}
 }
 
-.gt_button {
-	&.is_selected {
-		color: rgb(43, 116, 224);
-		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
-	}
-}
-
 .gt_input {
 	text-align: left;
 	cursor: text;
@@ -137,6 +131,13 @@ body {
 		outline: none;
 		background-color: var(--gt-component-background-color-focus);
 		box-shadow: 0 0 var(--gt-component-focus-blur) var(--gt-component-focus-width) var(--gt-component-focus-color);
+	}
+}
+
+.gt_button {
+	&.is-selected {
+		background-color: var(--gt-component-background-color-selected);
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 	}
 }
 

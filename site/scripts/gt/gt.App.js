@@ -58,8 +58,9 @@ const App = function(options) {
 	this.about = this.container.querySelector('.gt_about');
 	this.infoButton = this.container.querySelector('.gt_infoButton');
 	this.datePicker = this.container.querySelector('.gt_datePicker');
-	this.detailLayer = this.container.querySelector('.gt_detailLayer')
-	this.dataLayer = this.container.querySelector('.gt_dataLayer')
+	this.detailLayer = this.container.querySelector('.gt_detailLayer');
+	this.dataLayer = this.container.querySelector('.gt_dataLayer');
+	this.menuButton = this.container.querySelector('.gt_menuButton');
 
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
@@ -106,6 +107,28 @@ const App = function(options) {
 		if (evt.target.classList.contains('gt_overlay')) {
 			this.about.classList.remove('is-open');
 		}
+	});
+
+	// Show clicked items in table
+	this.dataLayer.addEventListener('click', (evt) => {
+		let tr = evt.target.closest('tr');
+		if (tr) {
+			let featureId = tr.getAttribute('data-featureId');
+			if (featureId) {
+				let feature = featureCollection.features[featureId];
+				if (feature) {
+					this.rotateTo(feature.properties.coordinates);
+
+					this.showInfoForFeature(feature, [this.canvas.offsetLeft + this.canvas.width / 2, this.canvas.offsetTop + this.canvas.height / 2]);
+
+					this.showFeature(feature);
+				}
+			}
+		}
+	});
+
+	this.menuButton.addEventListener('click', (evt) => {
+		this.toggleMenu();
 	});
 
 	this.pauseButton.addEventListener('click', this.togglePause.bind(this));
@@ -246,12 +269,7 @@ const App = function(options) {
 		}
 		else {
 			// Start at Wuhan
-			this.rotateTo({
-				coords: {
-					latitude: 30.5928,
-					longitude: 114.3055
-				}
-			});
+			this.rotateTo([114.3055, 30.5928]);
 		}
 	}
 
@@ -318,6 +336,10 @@ App.detailTemplate = function(info) {
 				<dd>${info.population ? info.rate.toFixed(8) : '-'}%</dd>
 			</div>
 			<div class="gt_descriptionList-row">
+				<dt>Infected Ratio</dt>
+				<dd>${info.population ? util.getRatio(info.active, info.population) : '-'}</dd>
+			</div>
+			<div class="gt_descriptionList-row">
 				<dt>Cases</dt>
 				<dd>${info.cases.toLocaleString()}</dd>
 			</div>
@@ -338,7 +360,7 @@ App.detailTemplate = function(info) {
 `;
 }
 
-App.dataTableTemplate = function(title, columns, data) {
+App.dataTableTemplate = function(title, columns, data, callback) {
 	let html = `
 	<div class="gt_output">
 		<h3 id="detailTitle">${title}</h3>
@@ -354,18 +376,22 @@ App.dataTableTemplate = function(title, columns, data) {
 			</thead>
 			<tbody>
 `;
-	for (let row of data) {
-		html += `
+	for (let [index, row] of Object.entries(data)) {
+		let rowHTML = `
 			<tr class="gt_dataTable-row">
 `;
 		for (let column of row) {
-		html += `
+		rowHTML += `
 				<td>${column}</td>
 `;
 		}
-		html += `
+		rowHTML += `
 			</tr>
 `;
+		if (callback) {
+			rowHTML = callback(rowHTML, row, index);
+		}
+		html += rowHTML;
 	}
 	html += `
 			</tbody>
@@ -377,6 +403,13 @@ App.dataTableTemplate = function(title, columns, data) {
 }
 
 App.prototype.showFeature = function(feature) {
+	// Hide the last feature
+	if (this._lastShownFeature) {
+		if (this._lastShownFeature.border) {
+			this._lastShownFeature.border.visible = false;
+		}
+	}
+
 	if (feature.border) {
 		feature.border.visible = true;
 	}
@@ -391,6 +424,7 @@ App.prototype.showFeature = function(feature) {
 			transparent: true
 		}, feature.border);
 	}
+	this._lastShownFeature = feature;
 };
 
 App.prototype.hideInfo = function() {
@@ -411,6 +445,9 @@ App.prototype.showInfoForFeature = function(feature, location) {
 	if (this.isMobile) {
 		// Fullscreen
 		this.detailLayer.classList.add('gt_layer--detail');
+		this.detailLayer.classList.add('gt_layer--offset');
+		this.detailLayer.classList.add('gt_layer--bottom');
+		this.detailLayer.classList.add('gt_layer--left');
 	}
 	else {
 		if (location) {
@@ -424,8 +461,6 @@ App.prototype.showInfoForFeature = function(feature, location) {
 		// Don't recalculate or redraw
 		return;
 	}
-
-
 
 	let info = Object.assign({
 		name: feature.properties.name,
@@ -547,7 +582,8 @@ App.prototype.render = function() {
 App.prototype.moveToGPS = function() {
 	// Ask for and go to user's position
 	navigator.geolocation.getCurrentPosition((function(pos) {
-		this.rotateTo(pos);
+		let coordinates = [pos.coordinates.longitude, pos.coordinates.latitude];
+		this.rotateTo(coordinates);
 	}).bind(this));
 };
 
@@ -581,12 +617,7 @@ App.prototype.setParametersFromHash = function() {
 	var lat = parseFloat(args.lat);
 	var long = parseFloat(args.long);
 	if (lat && long) {
-		this.rotateTo({
-			coords: {
-				latitude: lat,
-				longitude: long
-			}
-		});
+		this.rotateTo([long, lat]);
 	}
 
 	if (args.type || args.date) {
@@ -647,10 +678,10 @@ App.prototype.addMarker = function(data) {
 	this.markers.push(marker);
 };
 
-App.prototype.rotateTo = function(pos) {
+App.prototype.rotateTo = function(coordinates) {
 	// TODO: Animate rotation smoothly
-	let vec3 = util.latLongToVector3(pos.coords.latitude, pos.coords.longitude, this.cameraDistance);
-	this.camera.position.set(vec3.x, vec3.y, vec3.z);
+	let vec3 = util.latLongToVector3(coordinates[1], coordinates[0], this.cameraDistance);
+	this.camera.position.copy(vec3);
 	this.camera.lookAt(this.scene.position);
 };
 
@@ -724,7 +755,8 @@ App.prototype.toggleGPS = function() {
 
 App.prototype.handleGeolocationChange = function(pos) {
 	if (this.watchGPS) {
-		this.rotateTo(pos);
+		let coordinates = [pos.coordinates.longitude, pos.coordinates.latitude];
+		this.rotateTo(coordinates);
 		this.locationButton.classList.add('is-selected');
 	}
 };
@@ -767,17 +799,26 @@ App.prototype.positionSunForDate = function(date) {
 	this.globe.setSunPosition(dayOfYear);
 };
 
+App.prototype.toggleMenu = function(force) {
+	this.dataLayer.hidden = !this.dataLayer.hidden;
+	this.menuButton.classList.toggle('is-selected', !this.dataLayer.hidden);
+	if (!this.dataLayer.hidden) {
+		this.hideInfo();
+	}
+};
+
 App.prototype.updateRateTable = function(date) {
 	date = date || this.date;
 
 	let rateOrder = [];
 	for (let featureId in cases[date]) {
 		let info = cases[date][featureId];
-		if (info.rate && info.active > 1) {
+		if (info.rate && info.active > config.minCasesForSignifigance) {
 			let feature = featureCollection.features[featureId];
 			rateOrder.push(Object.assign({
 				name: feature.properties.name,
-				population: feature.properties.pop_est
+				population: feature.properties.pop_est,
+				featureId: featureId
 			}, info));
 		}
 	}
@@ -794,19 +835,22 @@ App.prototype.updateRateTable = function(date) {
 		}
 	});
 
-
 	let rates = rateOrder.map((info, index) => [
 		index + 1,
 		info.name,
-		`1 : ${Math.round(info.population / info.active).toLocaleString()}`
+		info.active.toLocaleString(),
+		util.getRatio(info.active, info.population)
 	]);
 
-	rates = rates.slice(0, 10);
+	rates = rates.slice(0, 15);
 
 	this.dataLayer.innerHTML = App.dataTableTemplate(
 		'Rate of Infection',
-		['Rank', 'Location', 'Rate'],
-		rates
+		['Rank', 'Location', 'Cases', 'Ratio'],
+		rates,
+		(html, row, index) => {
+			return html.replace('<tr', `<tr data-featureId="${rateOrder[index].featureId}"`);
+		}
 	);
 }
 
