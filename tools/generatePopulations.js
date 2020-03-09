@@ -38,7 +38,8 @@ async function readPopulationData(featureCollection) {
     byProvince: {
       'Mainland China': await readCSV('population-chinese-admin-divisions.csv'),
       'Australia': await readCSV('population-australia-states.csv'),
-      'Canada': await readCSV('population-canada-provinces.csv')
+      'Canada': await readCSV('population-canada-provinces.csv'),
+      'Italy': await readCSV('population-italy-regions.csv')
     },
     byCountry: {},
     supplemental: await readCSV('population-supplemental.csv')
@@ -133,7 +134,7 @@ async function generatePopulations({locationDays, locations, featureCollection})
 
       if (location.featureId) {
         let feature = featureCollection.features[location.featureId];
-        if (feature && feature.properties.name === location.province) {
+        if (feature) {
           if (!feature.properties.pop_est) {
             feature.properties.pop_est = population;
             console.log('      + added population to feature %s', feature.properties.name);

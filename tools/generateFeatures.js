@@ -42,6 +42,9 @@ let props = [
   'name',
   'name_en',
   'abbrev',
+  'region',
+  'admin',
+  'geonunit',
   'pop_est',
   'pop_year',
   'gdp_md_est',
@@ -87,6 +90,11 @@ function generateFeatures({locationDays, locations}) {
       let found = false;
       let point = turf.point(location.coordinates);
 
+      if (location.country === 'Italy' && !location.province) {
+        // We have province level data for Italy, don't consider it as a feature
+        continue;
+      }
+
       if (location.province) {
         // Check if the location exists within our provinces
         for (let feature of provinceData.features) {
@@ -96,7 +104,6 @@ function generateFeatures({locationDays, locations}) {
             break;
           }
 
-          // Todo: Check if this is needed
           if (feature.properties.name === 'New York' && location.province === 'New York County, NY') {
             // Can't find New York for some reason, hardcode FTW
             found = true;
@@ -104,12 +111,23 @@ function generateFeatures({locationDays, locations}) {
             break;
           }
 
-          if (!feature.geometry) {
-            continue;
+          if (feature.geometry) {
+            let poly = turf.feature(feature.geometry);
+            if (turf.booleanPointInPolygon(point, poly)) {
+              found = true;
+              storeFeature(feature, location);
+              break;
+            }
           }
 
-          let poly = turf.feature(feature.geometry);
-          if (turf.booleanPointInPolygon(point, poly)) {
+          // Match alternate names
+          // No known location, but might be useful in the future
+          if (feature.properties.alt && feature.properties.alt.split('|').indexOf(location.province) !== -1) {
+            found = true;
+            storeFeature(feature, location);
+            break;
+          }
+          if (feature.properties.region === location.province && feature.properties.admin === location.country) {
             found = true;
             storeFeature(feature, location);
             break;
@@ -133,16 +151,14 @@ function generateFeatures({locationDays, locations}) {
             break;
           }
 
-          if (!feature.geometry) {
-            continue;
-          }
+          if (feature.geometry) {
+            let poly = turf.feature(feature.geometry);
 
-          let poly = turf.feature(feature.geometry);
-
-          if (turf.booleanPointInPolygon(point, poly)) {
-            found = true;
-            storeFeature(feature, location);
-            break;
+            if (turf.booleanPointInPolygon(point, poly)) {
+              found = true;
+              storeFeature(feature, location);
+              break;
+            }
           }
         }
 
@@ -156,16 +172,21 @@ function generateFeatures({locationDays, locations}) {
               break;
             }
 
-            if (!feature.geometry) {
-              continue;
-            }
-
-            let poly = turf.feature(feature.geometry);
-
-            if (turf.booleanPointInPolygon(point, poly)) {
+            // Find by geonunit
+            if (feature.properties.geonunit === location.country) {
               found = true;
               storeFeature(feature, location);
               break;
+            }
+
+            if (feature.geometry) {
+              let poly = turf.feature(feature.geometry);
+
+              if (turf.booleanPointInPolygon(point, poly)) {
+                found = true;
+                storeFeature(feature, location);
+                break;
+              }
             }
           }
         }

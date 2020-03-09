@@ -27,7 +27,7 @@ function dumpStatistics({regionDays, featureCollection, locationDays, locations}
   });
 
   console.log('🗒  Highest rates for %s', lastDate);
-  for (var i = 0; i < 25 && i < rateOrder.length; i++) {
+  for (var i = 0; i < 100 && i < rateOrder.length; i++) {
     let rateInfo = rateOrder[i];
     console.log('  %d. %s: %s% (%s out of %s)', i + 1, rateInfo.name, rateInfo.rate.toFixed(8), rateInfo.active.toLocaleString('en-US'), rateInfo.population.toLocaleString('en-US'));
   }

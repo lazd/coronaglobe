@@ -3,13 +3,16 @@ const fs = require('fs');
 const path = require('path');
 
 // The path that contains CSV files to process
-const csvDir = path.join('COVID-19', 'csse_covid_19_data', 'csse_covid_19_time_series');
+const jhuCSVDir = path.join('COVID-19', 'csse_covid_19_data', 'csse_covid_19_time_series');
+const italyCSVDir = path.join('ItalyCovid19', 'johns-hopkins-format');
 
-let csvFiles = {
-  'cases': 'time_series_19-covid-Confirmed.csv',
-  'deaths': 'time_series_19-covid-Deaths.csv',
-  'recovered': 'time_series_19-covid-Recovered.csv'
-};
+let csvFiles = {};
+csvFiles[`${jhuCSVDir}/time_series_19-covid-Confirmed.csv`] = 'cases';
+csvFiles[`${jhuCSVDir}/time_series_19-covid-Deaths.csv`] = 'deaths';
+csvFiles[`${jhuCSVDir}/time_series_19-covid-Recovered.csv`] = 'recovered';
+csvFiles[`${italyCSVDir}/time_series_19-covid-Confirmed_Italy.csv`] = 'cases';
+csvFiles[`${italyCSVDir}/time_series_19-covid-Deaths_Italy.csv`] = 'deaths';
+csvFiles[`${italyCSVDir}/time_series_19-covid-Recovered_Italy.csv`] = 'recovered';
 
 // The list of non-date data items in each row
 let dataItems = [
@@ -62,18 +65,32 @@ function generateCasesByLocation() {
   let locationsByName = {};
   let locationDays = {};
 
-  function readCSV(csvFileName, type) {
-    let csvFilePath = path.join(csvDir, csvFileName);
-
+  function readCSV(csvFilePath, type) {
     return new Promise((resolve, reject) => {
-      fs.createReadStream(csvFilePath)
+      fs.createReadStream(csvFilePath, { encoding: 'utf8' })
         .pipe(csv({
-          columns: true
+          columns: (columns) => {
+            return columns.map((column, index) => {
+              if (index > 3) {
+                // Format date properly from Italy data
+                let date = new Date(Date.parse(column));
+                return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+              }
+
+              // Strip bad data from Italy headers
+              return column.replace(/[^A-Za-z0-9\/]/g, '');
+            });
+          }
         }))
         .on('data', (row) => {
           // Store location by name
           let location = getLocationFromRow(row);
           locationsByName[location.name] = location;
+
+          if (location.name === 'Italy') {
+            // Skip Italy, we have regional data for it
+            return;
+          }
 
           // Store each day
           for (let day of Object.keys(row).filter(column => dataItems.indexOf(column) === -1)) {
@@ -85,7 +102,7 @@ function generateCasesByLocation() {
           }
         })
         .on('end', () => {
-          console.log('  ✅ Processed %s from %s', type, csvFileName);
+          console.log('  ✅ Processed %s from %s', type, path.basename(csvFilePath));
           resolve(locationDays);
         })
         .on('error', reject);
@@ -96,7 +113,7 @@ function generateCasesByLocation() {
     console.log('⏳ Generating cases by location...');
 
     let promises = [];
-    for (let [type, csvFileName] of Object.entries(csvFiles)) {
+    for (let [csvFileName, type] of Object.entries(csvFiles)) {
       promises.push(readCSV(csvFileName, type));
     }
 
@@ -128,7 +145,7 @@ function generateCasesByLocation() {
           locationDays[day] = dayObject;
         }
 
-        console.log('✅ Cases and locations generated');
+        console.log('✅ Cases for %d days and %d locations generated', Object.keys(locationDays).length, locations.length);
         resolve({ locationDays, locations });
       });
   });
