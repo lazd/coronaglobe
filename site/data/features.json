@@ -669,6 +669,9 @@
       "properties": {
         "name": "Anhui",
         "name_en": "Anhui",
+        "region": "East China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-34",
         "type_en": "Province",
@@ -876,6 +879,9 @@
       "properties": {
         "name": "Beijing",
         "name_en": "Beijing",
+        "region": "North China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-11",
         "type_en": "Municipality",
@@ -1435,6 +1441,9 @@
       "properties": {
         "name": "Chongqing",
         "name_en": "Chongqing",
+        "region": "Southwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-50",
         "type_en": "Municipality",
@@ -2096,6 +2105,8 @@
       "properties": {
         "name": "Fujian",
         "name_en": "Fujian",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-35",
         "type_en": "Province",
@@ -3567,6 +3578,9 @@
       "properties": {
         "name": "Gansu",
         "name_en": "Gansu",
+        "region": "Northwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-62",
         "type_en": "Province",
@@ -4536,6 +4550,9 @@
       "properties": {
         "name": "Guangdong",
         "name_en": "Guangdong",
+        "region": "South Central China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-44",
         "type_en": "Province",
@@ -5411,6 +5428,9 @@
       "properties": {
         "name": "Guangxi",
         "name_en": "Guangxi Zhuang Autonomous Region",
+        "region": "South Central China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-45",
         "type_en": "Autonomous Region",
@@ -6158,6 +6178,9 @@
       "properties": {
         "name": "Guizhou",
         "name_en": "Guizhou",
+        "region": "Southwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-52",
         "type_en": "Province",
@@ -6405,6 +6428,9 @@
       "properties": {
         "name": "Hainan",
         "name_en": "Hainan",
+        "region": "South Central China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-46",
         "type_en": "Province",
@@ -7370,6 +7396,9 @@
       "properties": {
         "name": "Hebei",
         "name_en": "Hebei",
+        "region": "North China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-13",
         "type_en": "Province",
@@ -8593,6 +8622,9 @@
       "properties": {
         "name": "Heilongjiang",
         "name_en": "Heilongjiang",
+        "region": "Northeast China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-23",
         "type_en": "Province",
@@ -9292,6 +9324,9 @@
       "properties": {
         "name": "Henan",
         "name_en": "Henan",
+        "region": "South Central China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-41",
         "type_en": "Province",
@@ -10035,6 +10070,9 @@
       "properties": {
         "name": "Hubei",
         "name_en": "Hubei",
+        "region": "South Central China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-42",
         "type_en": "Province",
@@ -10810,6 +10848,9 @@
       "properties": {
         "name": "Hunan",
         "name_en": "Hunan",
+        "region": "South Central China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-43",
         "type_en": "Province",
@@ -13029,10 +13070,14 @@
       "properties": {
         "name": "Inner Mongol",
         "name_en": "Inner Mongolia",
+        "region": "North China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-15",
         "type_en": "Autonomous Region",
         "id": 14,
+        "pop_est": 25000034,
         "coordinates": [
           111.62347220837569,
           45.35383134546877
@@ -13699,6 +13744,9 @@
       "properties": {
         "name": "Jiangsu",
         "name_en": "Jiangsu",
+        "region": "East China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-32",
         "type_en": "Province",
@@ -14358,6 +14406,9 @@
       "properties": {
         "name": "Jiangxi",
         "name_en": "Jiangxi",
+        "region": "East China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-36",
         "type_en": "Province",
@@ -15125,6 +15176,9 @@
       "properties": {
         "name": "Jilin",
         "name_en": "Jilin",
+        "region": "Northeast China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-22",
         "type_en": "Province",
@@ -15774,6 +15828,9 @@
       "properties": {
         "name": "Liaoning",
         "name_en": "Liaoning",
+        "region": "Northeast China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-21",
         "type_en": "Province",
@@ -16165,6 +16222,9 @@
       "properties": {
         "name": "Ningxia",
         "name_en": "Ningxia Hui Autonomous Region",
+        "region": "Northwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-64",
         "type_en": "Autonomous Region",
@@ -17388,6 +17448,9 @@
       "properties": {
         "name": "Qinghai",
         "name_en": "Qinghai",
+        "region": "Northwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-63",
         "type_en": "Province",
@@ -18267,6 +18330,9 @@
       "properties": {
         "name": "Shaanxi",
         "name_en": "Shaanxi",
+        "region": "Northwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-61",
         "type_en": "Province",
@@ -18918,6 +18984,9 @@
       "properties": {
         "name": "Shandong",
         "name_en": "Shandong",
+        "region": "East China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-37",
         "type_en": "Province",
@@ -19071,6 +19140,9 @@
       "properties": {
         "name": "Shanghai",
         "name_en": "Shanghai",
+        "region": "East China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-31",
         "type_en": "Municipality",
@@ -19602,6 +19674,9 @@
       "properties": {
         "name": "Shanxi",
         "name_en": "Shanxi",
+        "region": "North China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-14",
         "type_en": "Province",
@@ -20949,6 +21024,9 @@
       "properties": {
         "name": "Sichuan",
         "name_en": "Sichuan",
+        "region": "Southwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-51",
         "type_en": "Province",
@@ -21116,6 +21194,9 @@
       "properties": {
         "name": "Tianjin",
         "name_en": "Tianjin",
+        "region": "North China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-12",
         "type_en": "Municipality",
@@ -22823,10 +22904,14 @@
       "properties": {
         "name": "Xizang",
         "name_en": "Tibet",
+        "region": "Southwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-54",
         "type_en": "Autonomous Region",
         "id": 27,
+        "pop_est": 3440000,
         "coordinates": [
           88.74489831230724,
           31.88221486755922
@@ -24405,6 +24490,9 @@
       "properties": {
         "name": "Xinjiang",
         "name_en": "Xinjiang",
+        "region": "Northwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-65",
         "type_en": "Autonomous Region",
@@ -25768,6 +25856,9 @@
       "properties": {
         "name": "Yunnan",
         "name_en": "Yunnan",
+        "region": "Southwest China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-53",
         "type_en": "Province",
@@ -26349,6 +26440,9 @@
       "properties": {
         "name": "Zhejiang",
         "name_en": "Zhejiang",
+        "region": "East China",
+        "admin": "China",
+        "geonunit": "China",
         "iso_a2": "CN",
         "iso_3166_2": "CN-33",
         "type_en": "Province",
@@ -27127,6 +27221,7 @@
         "name": "Thailand",
         "name_en": "Thailand",
         "abbrev": "Thai.",
+        "admin": "Thailand",
         "pop_est": 68414135,
         "pop_year": 2017,
         "gdp_md_est": 1161000,
@@ -28254,6 +28349,7 @@
         "name": "Japan",
         "name_en": "Japan",
         "abbrev": "Japan",
+        "admin": "Japan",
         "pop_est": 126451398,
         "pop_year": 2017,
         "gdp_md_est": 4932000,
@@ -28457,6 +28553,7 @@
         "name": "South Korea",
         "name_en": "South Korea",
         "abbrev": "S.K.",
+        "admin": "South Korea",
         "pop_est": 51181299,
         "pop_year": 2017,
         "gdp_md_est": 1929000,
@@ -28574,6 +28671,7 @@
         "name": "Taiwan",
         "name_en": "Taiwan",
         "abbrev": "Taiwan",
+        "admin": "Taiwan",
         "pop_est": 23508428,
         "pop_year": 2017,
         "gdp_md_est": 1127000,
@@ -29077,6 +29175,9 @@
         "name": "Washington",
         "name_en": "Washington",
         "abbrev": "Wash.",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-WA",
         "type_en": "State",
@@ -29446,6 +29547,9 @@
         "name": "Illinois",
         "name_en": "Illinois",
         "abbrev": "Ill.",
+        "region": "Midwest",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-IL",
         "type_en": "State",
@@ -29490,6 +29594,8 @@
       "properties": {
         "name": "Macau",
         "name_en": "Macau",
+        "admin": "Macau S.A.R",
+        "geonunit": "Macao S.A.R",
         "iso_a2": "MO",
         "iso_3166_2": "MO-M",
         "id": 37,
@@ -29537,6 +29643,7 @@
         "name": "Hong Kong",
         "name_en": "Hong Kong",
         "abbrev": "H.K.",
+        "admin": "Hong Kong S.A.R.",
         "pop_est": 7191503,
         "pop_year": 2017,
         "gdp_md_est": 427400,
@@ -29583,6 +29690,7 @@
         "name": "Singapore",
         "name_en": "Singapore",
         "abbrev": "Sing.",
+        "admin": "Singapore",
         "pop_est": 5888926,
         "pop_year": 2017,
         "gdp_md_est": 487900,
@@ -30300,6 +30408,7 @@
         "name": "Vietnam",
         "name_en": "Vietnam",
         "abbrev": "Viet.",
+        "admin": "Vietnam",
         "pop_est": 96160163,
         "pop_year": 2017,
         "gdp_md_est": 594900,
@@ -31167,6 +31276,7 @@
         "name": "France",
         "name_en": "France",
         "abbrev": "Fr.",
+        "admin": "France",
         "pop_est": 67106161,
         "pop_year": 2017,
         "gdp_md_est": 2699000,
@@ -31464,6 +31574,7 @@
         "name": "Nepal",
         "name_en": "Nepal",
         "abbrev": "Nepal",
+        "admin": "Nepal",
         "pop_est": 29384297,
         "pop_year": 2017,
         "gdp_md_est": 71520,
@@ -32179,6 +32290,7 @@
         "name": "Malaysia",
         "name_en": "Malaysia",
         "abbrev": "Malay.",
+        "admin": "Malaysia",
         "pop_est": 31381992,
         "pop_year": 2017,
         "gdp_md_est": 863000,
@@ -33066,6 +33178,9 @@
         "name": "Ontario",
         "name_en": "Ontario",
         "abbrev": "Ont.",
+        "region": "Eastern Canada",
+        "admin": "Canada",
+        "geonunit": "Canada",
         "iso_a2": "CA",
         "iso_3166_2": "CA-ON",
         "type_en": "Province",
@@ -35417,6 +35532,9 @@
         "name": "British Columbia",
         "name_en": "British Columbia",
         "abbrev": "B.C.",
+        "region": "Western Canada",
+        "admin": "Canada",
+        "geonunit": "Canada",
         "iso_a2": "CA",
         "iso_3166_2": "CA-BC",
         "type_en": "Province",
@@ -36096,6 +36214,9 @@
         "name": "California",
         "name_en": "California",
         "abbrev": "Calif.",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-CA",
         "type_en": "State",
@@ -36967,6 +37088,8 @@
         "name": "New South Wales",
         "name_en": "New South Wales",
         "abbrev": "N.S.W.",
+        "admin": "Australia",
+        "geonunit": "Australia",
         "iso_a2": "AU",
         "iso_3166_2": "AU-NSW",
         "type_en": "State",
@@ -37585,6 +37708,8 @@
         "name": "Victoria",
         "name_en": "Victoria",
         "abbrev": "Vic.",
+        "admin": "Australia",
+        "geonunit": "Australia",
         "iso_a2": "AU",
         "iso_3166_2": "AU-VIC",
         "type_en": "State",
@@ -39239,6 +39364,8 @@
         "name": "Queensland",
         "name_en": "Queensland",
         "abbrev": "Qld.",
+        "admin": "Australia",
+        "geonunit": "Australia",
         "iso_a2": "AU",
         "iso_3166_2": "AU-QLD",
         "type_en": "State",
@@ -39559,6 +39686,7 @@
         "name": "Cambodia",
         "name_en": "Cambodia",
         "abbrev": "Camb.",
+        "admin": "Cambodia",
         "pop_est": 16204486,
         "pop_year": 2017,
         "gdp_md_est": 58940,
@@ -39708,6 +39836,7 @@
         "name": "Sri Lanka",
         "name_en": "Sri Lanka",
         "abbrev": "Sri L.",
+        "admin": "Sri Lanka",
         "pop_est": 22409381,
         "pop_year": 2017,
         "gdp_md_est": 236700,
@@ -40171,6 +40300,7 @@
         "name": "Germany",
         "name_en": "Germany",
         "abbrev": "Ger.",
+        "admin": "Germany",
         "pop_est": 80594017,
         "pop_year": 2017,
         "gdp_md_est": 3979000,
@@ -40600,6 +40730,7 @@
         "name": "Finland",
         "name_en": "Finland",
         "abbrev": "Fin.",
+        "admin": "Finland",
         "pop_est": 5491218,
         "pop_year": 2017,
         "gdp_md_est": 224137,
@@ -40781,6 +40912,7 @@
         "name": "United Arab Emirates",
         "name_en": "United Arab Emirates",
         "abbrev": "U.A.E.",
+        "admin": "United Arab Emirates",
         "pop_est": 6072475,
         "pop_year": 2017,
         "gdp_md_est": 667200,
@@ -42228,6 +42360,7 @@
         "name": "Philippines",
         "name_en": "Philippines",
         "abbrev": "Phil.",
+        "admin": "Philippines",
         "pop_est": 104256076,
         "pop_year": 2017,
         "gdp_md_est": 801900,
@@ -43995,6 +44128,7 @@
         "name": "India",
         "name_en": "India",
         "abbrev": "India",
+        "admin": "India",
         "pop_est": 1281935911,
         "pop_year": 2017,
         "gdp_md_est": 8721000,
@@ -44004,801 +44138,6 @@
         "coordinates": [
           82.74863427400004,
           21.151850284000083
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiPolygon",
-        "coordinates": [
-          [
-            [
-              [
-                7.022082560000115,
-                45.92525990899999
-              ],
-              [
-                7.183726440000044,
-                45.880456442000096
-              ],
-              [
-                7.541120646000138,
-                45.98411936500007
-              ],
-              [
-                7.831232137000143,
-                45.914459534000045
-              ],
-              [
-                8.110594930000076,
-                46.12695302300007
-              ],
-              [
-                8.07731530700002,
-                46.26203521800009
-              ],
-              [
-                8.441634155000116,
-                46.43494456000006
-              ],
-              [
-                8.427164754000074,
-                46.251441549000006
-              ],
-              [
-                8.601831095000136,
-                46.12281890900006
-              ],
-              [
-                9.002116740000105,
-                46.03930979500008
-              ],
-              [
-                9.224842163000119,
-                46.231184387
-              ],
-              [
-                9.263186076000125,
-                46.48512237600001
-              ],
-              [
-                9.674323771000047,
-                46.291800842000086
-              ],
-              [
-                10.133417195000078,
-                46.414015605000074
-              ],
-              [
-                10.295371135000096,
-                46.55108734100013
-              ],
-              [
-                10.453811076000136,
-                46.864427389000056
-              ],
-              [
-                10.996930379000105,
-                46.76911021000005
-              ],
-              [
-                11.091911662000115,
-                46.912434795000095
-              ],
-              [
-                11.31381026200009,
-                46.98726226800004
-              ],
-              [
-                12.111177612000063,
-                46.9929983520001
-              ],
-              [
-                12.405009806000095,
-                46.69012278300001
-              ],
-              [
-                13.231109253000056,
-                46.55217254700001
-              ],
-              [
-                13.700951375000102,
-                46.51974558600001
-              ],
-              [
-                13.365261271000094,
-                46.290302226000065
-              ],
-              [
-                13.622816610000086,
-                45.966394349000055
-              ],
-              [
-                13.581268758000078,
-                45.80924631800006
-              ],
-              [
-                13.778724406000038,
-                45.74341054300008
-              ],
-              [
-                13.711761915000068,
-                45.59320709800005
-              ],
-              [
-                13.72624759200005,
-                45.70376211100006
-              ],
-              [
-                13.131358269000089,
-                45.768866278000075
-              ],
-              [
-                12.943858269000089,
-                45.628566799000055
-              ],
-              [
-                12.487803582000083,
-                45.456732489000046
-              ],
-              [
-                12.272715691000087,
-                45.46360911700003
-              ],
-              [
-                12.376231316000087,
-                45.03896719000005
-              ],
-              [
-                12.52702884200005,
-                44.943345445000034
-              ],
-              [
-                12.25359134200005,
-                44.751288153000075
-              ],
-              [
-                12.36882571700005,
-                44.25067780200004
-              ],
-              [
-                12.71029707100007,
-                43.98289622600004
-              ],
-              [
-                12.947276238000086,
-                43.89760976800005
-              ],
-              [
-                13.61695397200009,
-                43.531317450000074
-              ],
-              [
-                13.834808790000068,
-                43.12726471600007
-              ],
-              [
-                13.94467207100007,
-                42.79828522300005
-              ],
-              [
-                14.075368686000047,
-                42.598822333000044
-              ],
-              [
-                14.740733269000089,
-                42.08462148600006
-              ],
-              [
-                15.123383009000065,
-                41.93427155200004
-              ],
-              [
-                15.446055535000085,
-                41.90692780200004
-              ],
-              [
-                16.02711022200009,
-                41.94407786700003
-              ],
-              [
-                16.192881707000083,
-                41.79092031500005
-              ],
-              [
-                15.925303582000083,
-                41.64004140800006
-              ],
-              [
-                16.021657748000052,
-                41.427801825000074
-              ],
-              [
-                16.593923373000052,
-                41.20697663000004
-              ],
-              [
-                17.05713951900009,
-                41.08185455900008
-              ],
-              [
-                17.476084832000083,
-                40.830145575000074
-              ],
-              [
-                18.007009311000047,
-                40.65070221600007
-              ],
-              [
-                18.43726647200009,
-                40.26788971600007
-              ],
-              [
-                18.517425977000073,
-                40.114162502000056
-              ],
-              [
-                18.383962436000047,
-                39.81391022300005
-              ],
-              [
-                18.007334832000083,
-                39.98607005400004
-              ],
-              [
-                17.847666863000086,
-                40.29002513200004
-              ],
-              [
-                17.512054884000065,
-                40.30369700700004
-              ],
-              [
-                17.049571160000085,
-                40.51911041900007
-              ],
-              [
-                16.912119988000086,
-                40.44521719000005
-              ],
-              [
-                16.604746941000087,
-                40.08445872600004
-              ],
-              [
-                16.631602410000085,
-                39.96621328300006
-              ],
-              [
-                16.515635613000086,
-                39.68960195500006
-              ],
-              [
-                16.74976647200009,
-                39.620021877000056
-              ],
-              [
-                17.15870201900009,
-                39.40619538000004
-              ],
-              [
-                17.127696160000085,
-                38.92877838700008
-              ],
-              [
-                16.838552280000044,
-                38.91819896000004
-              ],
-              [
-                16.53882897200009,
-                38.72333405200004
-              ],
-              [
-                16.569590691000087,
-                38.42951080900008
-              ],
-              [
-                16.169444207000083,
-                38.14321523600006
-              ],
-              [
-                16.090017123000052,
-                37.949204820000034
-              ],
-              [
-                15.66578209700009,
-                37.966864325000074
-              ],
-              [
-                15.650563998000052,
-                38.24103424700007
-              ],
-              [
-                15.78646894600007,
-                38.27802155200004
-              ],
-              [
-                15.904795769000089,
-                38.473944403000075
-              ],
-              [
-                15.844493035000085,
-                38.66038646000004
-              ],
-              [
-                16.12086022200009,
-                38.72093333500004
-              ],
-              [
-                16.22006269600007,
-                38.89907461100006
-              ],
-              [
-                16.08301842500009,
-                39.07526276200008
-              ],
-              [
-                15.995396030000052,
-                39.438768236000044
-              ],
-              [
-                15.867523634000065,
-                39.56391022300005
-              ],
-              [
-                15.781911655000044,
-                39.86859772300005
-              ],
-              [
-                15.610199415000068,
-                40.07318756700005
-              ],
-              [
-                15.410099591000062,
-                39.99396986000005
-              ],
-              [
-                14.911143425000091,
-                40.24164459800005
-              ],
-              [
-                14.998266587000046,
-                40.39755866100006
-              ],
-              [
-                14.752207879000082,
-                40.67670319200005
-              ],
-              [
-                14.544200066000087,
-                40.61359284100007
-              ],
-              [
-                14.294200066000087,
-                40.838771877000056
-              ],
-              [
-                14.052256707000083,
-                40.837591864000046
-              ],
-              [
-                13.721853061000047,
-                41.252386786000045
-              ],
-              [
-                13.324392123000052,
-                41.29482656500005
-              ],
-              [
-                13.04460696700005,
-                41.22752513200004
-              ],
-              [
-                12.893565300000091,
-                41.399318752000056
-              ],
-              [
-                12.619395379000082,
-                41.45913320500006
-              ],
-              [
-                12.239024285000085,
-                41.73627350500004
-              ],
-              [
-                12.147471550000091,
-                41.90346914300005
-              ],
-              [
-                11.82748457100007,
-                42.03416575700004
-              ],
-              [
-                11.658213738000086,
-                42.279364325000074
-              ],
-              [
-                11.18685957100007,
-                42.520819403000075
-              ],
-              [
-                10.99000084700009,
-                42.710272528000075
-              ],
-              [
-                10.499522332000083,
-                42.94049713700008
-              ],
-              [
-                10.54656009200005,
-                43.14712148600006
-              ],
-              [
-                10.326345248000052,
-                43.47687409100007
-              ],
-              [
-                10.264008009000065,
-                43.80939362200007
-              ],
-              [
-                10.105804884000065,
-                44.01675039300005
-              ],
-              [
-                9.771820509000065,
-                44.079413153000075
-              ],
-              [
-                9.230642123000052,
-                44.35370514500005
-              ],
-              [
-                8.762380405000044,
-                44.43211497600004
-              ],
-              [
-                8.466075066000087,
-                44.30426666900007
-              ],
-              [
-                8.144704623000052,
-                43.95258209800005
-              ],
-              [
-                7.9597274100000845,
-                43.852850653000075
-              ],
-              [
-                7.502289259000065,
-                43.792222398000035
-              ],
-              [
-                7.691912475000095,
-                44.08464874300007
-              ],
-              [
-                7.380820353000075,
-                44.12294098000008
-              ],
-              [
-                7.033451375000084,
-                44.24293365500007
-              ],
-              [
-                6.838837931000114,
-                44.502917786000026
-              ],
-              [
-                7.01898197400007,
-                44.73887237600003
-              ],
-              [
-                6.727940307000097,
-                44.92873158800002
-              ],
-              [
-                6.6027283120000675,
-                45.1034496060001
-              ],
-              [
-                7.062183471000111,
-                45.218533021000056
-              ],
-              [
-                7.160678752000081,
-                45.41092437800005
-              ],
-              [
-                6.982808471000055,
-                45.51112498000005
-              ],
-              [
-                6.800804077000095,
-                45.82645457000005
-              ],
-              [
-                7.022082560000115,
-                45.92525990899999
-              ]
-            ],
-            [
-              [
-                12.4294503590001,
-                43.892055514999996
-              ],
-              [
-                12.490325196000128,
-                43.93915858300009
-              ],
-              [
-                12.42138883600012,
-                43.96721888500012
-              ],
-              [
-                12.385628745000105,
-                43.924534153000124
-              ],
-              [
-                12.4294503590001,
-                43.892055514999996
-              ]
-            ],
-            [
-              [
-                12.45313691700008,
-                41.90275194100009
-              ],
-              [
-                12.454035442000077,
-                41.90275194100009
-              ],
-              [
-                12.453982588000144,
-                41.903861883999994
-              ],
-              [
-                12.45303120800014,
-                41.903914738000125
-              ],
-              [
-                12.45313691700008,
-                41.90275194100009
-              ]
-            ]
-          ],
-          [
-            [
-              [
-                15.52865644600007,
-                38.30263906500005
-              ],
-              [
-                15.500336134000065,
-                38.08494700700004
-              ],
-              [
-                15.206553582000083,
-                37.747748114000046
-              ],
-              [
-                15.096690300000091,
-                37.49445221600007
-              ],
-              [
-                15.11068769600007,
-                37.32184479400007
-              ],
-              [
-                15.32943769600007,
-                37.02773672100005
-              ],
-              [
-                15.174652540000068,
-                36.94407786700009
-              ],
-              [
-                15.07357832100007,
-                36.65912506700005
-              ],
-              [
-                14.487315300000091,
-                36.79336172100005
-              ],
-              [
-                14.278819207000083,
-                37.04401276200008
-              ],
-              [
-                13.894379102000073,
-                37.100816148000035
-              ],
-              [
-                13.452647332000083,
-                37.298814195000034
-              ],
-              [
-                13.174082879000082,
-                37.48700592700004
-              ],
-              [
-                12.942637566000087,
-                37.56850820500006
-              ],
-              [
-                12.697764519000089,
-                37.56273021000004
-              ],
-              [
-                12.427012566000087,
-                37.79702383000006
-              ],
-              [
-                12.504161004000082,
-                38.01121653900009
-              ],
-              [
-                12.725352410000085,
-                38.12592194200005
-              ],
-              [
-                12.901133660000085,
-                38.02806224200009
-              ],
-              [
-                13.10092207100007,
-                38.19009023600006
-              ],
-              [
-                13.31023196700005,
-                38.21954987200007
-              ],
-              [
-                13.79078209700009,
-                37.97361888200004
-              ],
-              [
-                14.020518425000091,
-                38.04938385600008
-              ],
-              [
-                14.27320397200009,
-                38.01512278900009
-              ],
-              [
-                14.634613477000073,
-                38.08148834800005
-              ],
-              [
-                14.907074415000068,
-                38.18768952000005
-              ],
-              [
-                15.087901238000086,
-                38.128241278000075
-              ],
-              [
-                15.52865644600007,
-                38.30263906500005
-              ]
-            ]
-          ],
-          [
-            [
-              [
-                9.792246941000087,
-                40.55695221600007
-              ],
-              [
-                9.626149936000047,
-                40.26308828300006
-              ],
-              [
-                9.732269727000073,
-                40.08392975500004
-              ],
-              [
-                9.644867384000065,
-                39.48395416900007
-              ],
-              [
-                9.557790561000047,
-                39.13971588700008
-              ],
-              [
-                9.078949415000068,
-                39.21234772300005
-              ],
-              [
-                9.018321160000085,
-                38.995306708000044
-              ],
-              [
-                8.84148196700005,
-                38.880560614000046
-              ],
-              [
-                8.642832879000082,
-                38.889960028000075
-              ],
-              [
-                8.371755405000044,
-                39.23061758000006
-              ],
-              [
-                8.386892123000052,
-                39.46979401200008
-              ],
-              [
-                8.555186394000089,
-                39.85268789300005
-              ],
-              [
-                8.398285352000073,
-                39.90534088700008
-              ],
-              [
-                8.49000084700009,
-                40.10447825700004
-              ],
-              [
-                8.462901238000086,
-                40.314520575000074
-              ],
-              [
-                8.312022332000083,
-                40.57807038000004
-              ],
-              [
-                8.133799675000091,
-                40.72890859600005
-              ],
-              [
-                8.31023196700005,
-                40.85065338700008
-              ],
-              [
-                8.520518425000091,
-                40.82697174700007
-              ],
-              [
-                8.764414910000085,
-                40.91380442900004
-              ],
-              [
-                9.230642123000052,
-                41.26264069200005
-              ],
-              [
-                9.546153191000087,
-                41.12091705900008
-              ],
-              [
-                9.573252800000091,
-                40.90639883000006
-              ],
-              [
-                9.792246941000087,
-                40.55695221600007
-              ]
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "name": "Italy",
-        "name_en": "Italy",
-        "abbrev": "Italy",
-        "pop_est": 62137802,
-        "pop_year": 2017,
-        "gdp_md_est": 2221000,
-        "gdp_year": 2016,
-        "iso_a2": "IT",
-        "id": 57,
-        "coordinates": [
-          12.56007714450007,
-          41.826061709500074
         ]
       }
     },
@@ -45529,12 +44868,13 @@
         "name": "United Kingdom",
         "name_en": "United Kingdom",
         "abbrev": "U.K.",
+        "admin": "United Kingdom",
         "pop_est": 64769452,
         "pop_year": 2017,
         "gdp_md_est": 2788000,
         "gdp_year": 2016,
         "iso_a2": "GB",
-        "id": 58,
+        "id": 57,
         "coordinates": [
           -3.192432722499916,
           55.19161611550004
@@ -53024,12 +52364,13 @@
         "name": "Russia",
         "name_en": "Russia",
         "abbrev": "Rus.",
+        "admin": "Russia",
         "pop_est": 142257519,
         "pop_year": 2017,
         "gdp_md_est": 3745000,
         "gdp_year": 2016,
         "iso_a2": "RU",
-        "id": 59,
+        "id": 58,
         "coordinates": [
           4.263256414560601e-14,
           61.240742495500065
@@ -53591,12 +52932,13 @@
         "name": "Sweden",
         "name_en": "Sweden",
         "abbrev": "Swe.",
+        "admin": "Sweden",
         "pop_est": 9960487,
         "pop_year": 2017,
         "gdp_md_est": 498100,
         "gdp_year": 2016,
         "iso_a2": "SE",
-        "id": 60,
+        "id": 59,
         "coordinates": [
           17.635630730000088,
           62.191185204500094
@@ -54290,12 +53632,13 @@
         "name": "Spain",
         "name_en": "Spain",
         "abbrev": "Sp.",
+        "admin": "Spain",
         "pop_est": 48958159,
         "pop_year": 2017,
         "gdp_md_est": 1690000,
         "gdp_year": 2016,
         "iso_a2": "ES",
-        "id": 61,
+        "id": 60,
         "coordinates": [
           -6.849639452499929,
           35.73847077050007
@@ -55205,10 +54548,12 @@
         "name": "South Australia",
         "name_en": "South Australia",
         "abbrev": "S.A.",
+        "admin": "Australia",
+        "geonunit": "Australia",
         "iso_a2": "AU",
         "iso_3166_2": "AU-SA",
         "type_en": "State",
-        "id": 62,
+        "id": 61,
         "pop_est": 1751693,
         "coordinates": [
           135.0000995213503,
@@ -55361,12 +54706,13 @@
         "name": "Belgium",
         "name_en": "Belgium",
         "abbrev": "Belg.",
+        "admin": "Belgium",
         "pop_est": 11491346,
         "pop_year": 2017,
         "gdp_md_est": 508600,
         "gdp_year": 2016,
         "iso_a2": "BE",
-        "id": 63,
+        "id": 62,
         "coordinates": [
           4.4297657472728815,
           50.49042053300006
@@ -55682,11 +55028,14 @@
         "name": "Wisconsin",
         "name_en": "Wisconsin",
         "abbrev": "Wis.",
+        "region": "Midwest",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-WI",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Wisconsin",
-        "id": 64,
+        "id": 63,
         "pop_est": 5822434,
         "coordinates": [
           -89.56690985655462,
@@ -55786,10 +55135,13 @@
       "properties": {
         "name": "Kanagawa",
         "name_en": "Kanagawa Prefecture",
+        "region": "Kanto",
+        "admin": "Japan",
+        "geonunit": "Japan",
         "iso_a2": "JP",
         "iso_3166_2": "JP-14",
         "type_en": "Prefecture",
-        "id": 65,
+        "id": 64,
         "coordinates": [
           139.34347997986708,
           35.38573668264662
@@ -56723,11 +56075,14 @@
         "name": "Texas",
         "name_en": "Texas",
         "abbrev": "Tex.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-TX",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Texas",
-        "id": 66,
+        "id": 65,
         "pop_est": 28995881,
         "coordinates": [
           -100.0884705015624,
@@ -57124,12 +56479,13 @@
         "name": "Egypt",
         "name_en": "Egypt",
         "abbrev": "Egypt",
+        "admin": "Egypt",
         "pop_est": 97041072,
         "pop_year": 2017,
         "gdp_md_est": 1105000,
         "gdp_year": 2016,
         "iso_a2": "EG",
-        "id": 67,
+        "id": 66,
         "coordinates": [
           30.791862752500094,
           26.825424706000064
@@ -57937,12 +57293,13 @@
         "name": "Iran",
         "name_en": "Iran",
         "abbrev": "Iran",
+        "admin": "Iran",
         "pop_est": 82021564,
         "pop_year": 2017,
         "gdp_md_est": 1459000,
         "gdp_year": 2016,
         "iso_a2": "IR",
-        "id": 68,
+        "id": 67,
         "coordinates": [
           53.6631116130001,
           32.412651216000036
@@ -58178,11 +57535,14 @@
         "name": "Nebraska",
         "name_en": "Nebraska",
         "abbrev": "Nebr.",
+        "region": "Midwest",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-NE",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Nebraska",
-        "id": 69,
+        "id": 68,
         "pop_est": 1934408,
         "coordinates": [
           -99.68549198596634,
@@ -58267,12 +57627,13 @@
         "name": "Lebanon",
         "name_en": "Lebanon",
         "abbrev": "Leb.",
+        "admin": "Lebanon",
         "pop_est": 6229794,
         "pop_year": 2017,
         "gdp_md_est": 85160,
         "gdp_year": 2016,
         "iso_a2": "LB",
-        "id": 70,
+        "id": 69,
         "coordinates": [
           35.85466820900007,
           33.86861807120964
@@ -58588,12 +57949,13 @@
         "name": "Iraq",
         "name_en": "Iraq",
         "abbrev": "Iraq",
+        "admin": "Iraq",
         "pop_est": 39192111,
         "pop_year": 2017,
         "gdp_md_est": 596700,
         "gdp_year": 2016,
         "iso_a2": "IQ",
-        "id": 71,
+        "id": 70,
         "coordinates": [
           43.65276391200004,
           33.21901997950006
@@ -58931,12 +58293,13 @@
         "name": "Oman",
         "name_en": "Oman",
         "abbrev": "Oman",
+        "admin": "Oman",
         "pop_est": 3424386,
         "pop_year": 2017,
         "gdp_md_est": 173100,
         "gdp_year": 2016,
         "iso_a2": "OM",
-        "id": 72,
+        "id": 71,
         "coordinates": [
           55.911594682500095,
           21.444199937000064
@@ -59480,12 +58843,13 @@
         "name": "Afghanistan",
         "name_en": "Afghanistan",
         "abbrev": "Afg.",
+        "admin": "Afghanistan",
         "pop_est": 34124811,
         "pop_year": 2017,
         "gdp_md_est": 64080,
         "gdp_year": 2016,
         "iso_a2": "AF",
-        "id": 73,
+        "id": 72,
         "coordinates": [
           67.6895422770001,
           33.930139364000084
@@ -59529,12 +58893,13 @@
         "name": "Bahrain",
         "name_en": "Bahrain",
         "abbrev": "Bahr.",
+        "admin": "Bahrain",
         "pop_est": 1410942,
         "pop_year": 2017,
         "gdp_md_est": 66370,
         "gdp_year": 2016,
         "iso_a2": "BH",
-        "id": 74,
+        "id": 73,
         "coordinates": [
           50.53386477950008,
           26.024400132000068
@@ -59640,12 +59005,13 @@
         "name": "Kuwait",
         "name_en": "Kuwait",
         "abbrev": "Kwt.",
+        "admin": "Kuwait",
         "pop_est": 2875422,
         "pop_year": 2017,
         "gdp_md_est": 301100,
         "gdp_year": 2016,
         "iso_a2": "KW",
-        "id": 75,
+        "id": 74,
         "coordinates": [
           47.48260848850009,
           29.315860290500055
@@ -60225,12 +59591,13 @@
         "name": "Algeria",
         "name_en": "Algeria",
         "abbrev": "Alg.",
+        "admin": "Algeria",
         "pop_est": 40969443,
         "pop_year": 2017,
         "gdp_md_est": 609400,
         "gdp_year": 2016,
         "iso_a2": "DZ",
-        "id": 76,
+        "id": 75,
         "coordinates": [
           1.6432377520000898,
           28.032339379000085
@@ -60520,12 +59887,13 @@
         "name": "Croatia",
         "name_en": "Croatia",
         "abbrev": "Cro.",
+        "admin": "Croatia",
         "pop_est": 4292095,
         "pop_year": 2017,
         "gdp_md_est": 94240,
         "gdp_year": 2016,
         "iso_a2": "HR",
-        "id": 77,
+        "id": 76,
         "coordinates": [
           16.33771101500008,
           44.48165314050009
@@ -60709,12 +60077,13 @@
         "name": "Switzerland",
         "name_en": "Switzerland",
         "abbrev": "Switz.",
+        "admin": "Switzerland",
         "pop_est": 8236303,
         "pop_year": 2017,
         "gdp_md_est": 496300,
         "gdp_year": 2016,
         "iso_a2": "CH",
-        "id": 78,
+        "id": 77,
         "coordinates": [
           8.258983805500094,
           46.840811259500086
@@ -60946,12 +60315,13 @@
         "name": "Austria",
         "name_en": "Austria",
         "abbrev": "Aust.",
+        "admin": "Austria",
         "pop_est": 8754413,
         "pop_year": 2017,
         "gdp_md_est": 416600,
         "gdp_year": 2016,
         "iso_a2": "AT",
-        "id": 79,
+        "id": 78,
         "coordinates": [
           13.334746337500093,
           47.71313527500007
@@ -61103,12 +60473,13 @@
         "name": "Israel",
         "name_en": "Israel",
         "abbrev": "Isr.",
+        "admin": "Israel",
         "pop_est": 8299706,
         "pop_year": 2017,
         "gdp_md_est": 297000,
         "gdp_year": 2016,
         "iso_a2": "IL",
-        "id": 80,
+        "id": 79,
         "coordinates": [
           35.06821170350008,
           31.448389692000035
@@ -61876,12 +61247,13 @@
         "name": "Pakistan",
         "name_en": "Pakistan",
         "abbrev": "Pak.",
+        "admin": "Pakistan",
         "pop_est": 204924861,
         "pop_year": 2017,
         "gdp_md_est": 988200,
         "gdp_year": 2016,
         "iso_a2": "PK",
-        "id": 81,
+        "id": 80,
         "coordinates": [
           68.94667484550007,
           30.377750552000087
@@ -64331,12 +63703,13 @@
         "name": "Brazil",
         "name_en": "Brazil",
         "abbrev": "Brazil",
+        "admin": "Brazil",
         "pop_est": 207353391,
         "pop_year": 2017,
         "gdp_md_est": 3081000,
         "gdp_year": 2016,
         "iso_a2": "BR",
-        "id": 82,
+        "id": 81,
         "coordinates": [
           -54.38839290699988,
           -14.236725569657125
@@ -64552,12 +63925,13 @@
         "name": "Georgia",
         "name_en": "Georgia",
         "abbrev": "Geo.",
+        "admin": "Georgia",
         "pop_est": 4926330,
         "pop_year": 2017,
         "gdp_md_est": 37270,
         "gdp_year": 2016,
         "iso_a2": "GE",
-        "id": 83,
+        "id": 82,
         "coordinates": [
           43.34038972821833,
           42.31029968300004
@@ -65235,12 +64609,13 @@
         "name": "Greece",
         "name_en": "Greece",
         "abbrev": "Greece",
+        "admin": "Greece",
         "pop_est": 10768477,
         "pop_year": 2017,
         "gdp_md_est": 290500,
         "gdp_year": 2016,
         "iso_a2": "GR",
-        "id": 84,
+        "id": 83,
         "coordinates": [
           24.119802279500078,
           38.322331546000065
@@ -65344,12 +64719,13 @@
         "name": "Macedonia",
         "name_en": "Republic of Macedonia",
         "abbrev": "Mkd.",
+        "admin": "Macedonia",
         "pop_est": 2103721,
         "pop_year": 2017,
         "gdp_md_est": 29520,
         "gdp_year": 2016,
         "iso_a2": "MK",
-        "id": 85,
+        "id": 84,
         "coordinates": [
           21.726869751000095,
           41.591247966000054
@@ -66675,12 +66051,13 @@
         "name": "Norway",
         "name_en": "Norway",
         "abbrev": "Nor.",
+        "admin": "Norway",
         "pop_est": 5320045,
         "pop_year": 2017,
         "gdp_md_est": 364700,
         "gdp_year": 2016,
         "iso_a2": "-99",
-        "id": 86,
+        "id": 85,
         "coordinates": [
           18.013723178000077,
           69.25525543850006
@@ -66976,12 +66353,13 @@
         "name": "Romania",
         "name_en": "Romania",
         "abbrev": "Rom.",
+        "admin": "Romania",
         "pop_est": 21529967,
         "pop_year": 2017,
         "gdp_md_est": 441000,
         "gdp_year": 2016,
         "iso_a2": "RO",
-        "id": 87,
+        "id": 86,
         "coordinates": [
           24.950926754500074,
           45.95662750300005
@@ -67283,12 +66661,13 @@
         "name": "Denmark",
         "name_en": "Denmark",
         "abbrev": "Den.",
+        "admin": "Denmark",
         "pop_est": 5605948,
         "pop_year": 2017,
         "gdp_md_est": 264800,
         "gdp_year": 2016,
         "iso_a2": "DK",
-        "id": 88,
+        "id": 87,
         "coordinates": [
           11.628916862500091,
           56.10986969600006
@@ -67482,12 +66861,13 @@
         "name": "Estonia",
         "name_en": "Estonia",
         "abbrev": "Est.",
+        "admin": "Estonia",
         "pop_est": 1251581,
         "pop_year": 2017,
         "gdp_md_est": 38700,
         "gdp_year": 2016,
         "iso_a2": "EE",
-        "id": 89,
+        "id": 88,
         "coordinates": [
           24.943451368500064,
           58.572233381000025
@@ -67669,12 +67049,13 @@
         "name": "Netherlands",
         "name_en": "Netherlands",
         "abbrev": "Neth.",
+        "admin": "Netherlands",
         "pop_est": 17084719,
         "pop_year": 2017,
         "gdp_md_est": 870800,
         "gdp_year": 2016,
         "iso_a2": "NL",
-        "id": 90,
+        "id": 89,
         "coordinates": [
           5.272002682500101,
           52.105282697500066
@@ -67714,12 +67095,13 @@
         "name": "San Marino",
         "name_en": "San Marino",
         "abbrev": "S.M.",
+        "admin": "San Marino",
         "pop_est": 33537,
         "pop_year": 2017,
         "gdp_md_est": 2023,
         "gdp_year": 2016,
         "iso_a2": "SM",
-        "id": 91,
+        "id": 90,
         "coordinates": [
           12.437976970500117,
           43.92963720000006
@@ -68047,12 +67429,13 @@
         "name": "Belarus",
         "name_en": "Belarus",
         "abbrev": "Bela.",
+        "admin": "Belarus",
         "pop_est": 9549747,
         "pop_year": 2017,
         "gdp_md_est": 165400,
         "gdp_year": 2016,
         "iso_a2": "BY",
-        "id": 92,
+        "id": 91,
         "coordinates": [
           27.942588541500044,
           53.72384073950006
@@ -70846,11 +70229,14 @@
         "name": "Québec",
         "name_en": "Quebec",
         "abbrev": "Que.",
+        "region": "Eastern Canada",
+        "admin": "Canada",
+        "geonunit": "Canada",
         "iso_a2": "CA",
         "iso_3166_2": "CA-QC",
         "type_en": "Province",
         "wikipedia": "http://en.wikipedia.org/wiki/Quebec",
-        "id": 93,
+        "id": 92,
         "pop_est": 8164361,
         "coordinates": [
           -68.38833574149993,
@@ -71143,12 +70529,13 @@
         "name": "Iceland",
         "name_en": "Iceland",
         "abbrev": "Iceland",
+        "admin": "Iceland",
         "pop_est": 339747,
         "pop_year": 2017,
         "gdp_md_est": 16150,
         "gdp_year": 2016,
         "iso_a2": "IS",
-        "id": 94,
+        "id": 93,
         "coordinates": [
           -18.861826138499936,
           64.96666087450004
@@ -71308,12 +70695,13 @@
         "name": "Lithuania",
         "name_en": "Lithuania",
         "abbrev": "Lith.",
+        "admin": "Lithuania",
         "pop_est": 2823859,
         "pop_year": 2017,
         "gdp_md_est": 85620,
         "gdp_year": 2016,
         "iso_a2": "LT",
-        "id": 95,
+        "id": 94,
         "coordinates": [
           23.911012610500066,
           55.16278391600002
@@ -72647,12 +72035,13 @@
         "name": "Mexico",
         "name_en": "Mexico",
         "abbrev": "Mex.",
+        "admin": "Mexico",
         "pop_est": 124574795,
         "pop_year": 2017,
         "gdp_md_est": 2307000,
         "gdp_year": 2016,
         "iso_a2": "MX",
-        "id": 96,
+        "id": 95,
         "coordinates": [
           -101.93334401247205,
           23.629557940500092
@@ -73270,12 +72659,13 @@
         "name": "New Zealand",
         "name_en": "New Zealand",
         "abbrev": "N.Z.",
+        "admin": "New Zealand",
         "pop_est": 4510327,
         "pop_year": 2017,
         "gdp_md_est": 174800,
         "gdp_year": 2016,
         "iso_a2": "NZ",
-        "id": 97,
+        "id": 96,
         "coordinates": [
           172.51685631600003,
           -40.878065687999936
@@ -73767,12 +73157,13 @@
         "name": "Nigeria",
         "name_en": "Nigeria",
         "abbrev": "Nigeria",
+        "admin": "Nigeria",
         "pop_est": 190632261,
         "pop_year": 2017,
         "gdp_md_est": 1089000,
         "gdp_year": 2016,
         "iso_a2": "NG",
-        "id": 98,
+        "id": 97,
         "coordinates": [
           8.671077514500098,
           9.07578074450008
@@ -75518,10 +74909,12 @@
         "name": "Western Australia",
         "name_en": "Western Australia",
         "abbrev": "W.A.",
+        "admin": "Australia",
+        "geonunit": "Australia",
         "iso_a2": "AU",
         "iso_3166_2": "AU-WA",
         "type_en": "State",
-        "id": 99,
+        "id": 98,
         "pop_est": 2621680,
         "coordinates": [
           120.95978010457588,
@@ -75722,12 +75115,13 @@
         "name": "Ireland",
         "name_en": "Ireland",
         "abbrev": "Ire.",
+        "admin": "Ireland",
         "pop_est": 5011102,
         "pop_year": 2017,
         "gdp_md_est": 322000,
         "gdp_year": 2016,
         "iso_a2": "IE",
-        "id": 100,
+        "id": 99,
         "coordinates": [
           -8.136179165499925,
           53.46108633000006
@@ -75787,12 +75181,13 @@
         "name": "Luxembourg",
         "name_en": "Luxembourg",
         "abbrev": "Lux.",
+        "admin": "Luxembourg",
         "pop_est": 594130,
         "pop_year": 2017,
         "gdp_md_est": 58740,
         "gdp_year": 2016,
         "iso_a2": "LU",
-        "id": 101,
+        "id": 100,
         "coordinates": [
           6.1075130615000575,
           49.80347279900003
@@ -75828,12 +75223,13 @@
         "name": "Monaco",
         "name_en": "Monaco",
         "abbrev": "Mco.",
+        "admin": "Monaco",
         "pop_est": 30645,
         "pop_year": 2017,
         "gdp_md_est": 7672,
         "gdp_year": 2015,
         "iso_a2": "MC",
-        "id": 102,
+        "id": 101,
         "coordinates": [
           7.401602119563048,
           43.743117918500026
@@ -75913,12 +75309,13 @@
         "name": "Qatar",
         "name_en": "Qatar",
         "abbrev": "Qatar",
+        "admin": "Qatar",
         "pop_est": 2314307,
         "pop_year": 2017,
         "gdp_md_est": 334500,
         "gdp_year": 2016,
         "iso_a2": "QA",
-        "id": 103,
+        "id": 102,
         "coordinates": [
           51.18376712300005,
           25.363913984500023
@@ -76336,12 +75733,13 @@
         "name": "Ecuador",
         "name_en": "Ecuador",
         "abbrev": "Ecu.",
+        "admin": "Ecuador",
         "pop_est": 16290913,
         "pop_year": 2017,
         "gdp_md_est": 182400,
         "gdp_year": 2016,
         "iso_a2": "EC",
-        "id": 104,
+        "id": 103,
         "coordinates": [
           -83.4578538649999,
           -1.7634670984999161
@@ -76631,12 +76029,13 @@
         "name": "Azerbaijan",
         "name_en": "Azerbaijan",
         "abbrev": "Aze.",
+        "admin": "Azerbaijan",
         "pop_est": 9961396,
         "pop_year": 2017,
         "gdp_md_est": 167900,
         "gdp_year": 2016,
         "iso_a2": "AZ",
-        "id": 105,
+        "id": 104,
         "coordinates": [
           47.50227481750011,
           40.14320973750006
@@ -76832,12 +76231,13 @@
         "name": "Czechia",
         "name_en": "Czech Republic",
         "abbrev": "Cz.",
+        "admin": "Czechia",
         "pop_est": 10674723,
         "pop_year": 2017,
         "gdp_md_est": 350900,
         "gdp_year": 2016,
         "iso_a2": "CZ",
-        "id": 106,
+        "id": 105,
         "coordinates": [
           15.540038086000095,
           49.80312398300006
@@ -76993,12 +76393,13 @@
         "name": "Armenia",
         "name_en": "Armenia",
         "abbrev": "Arm.",
+        "admin": "Armenia",
         "pop_est": 3045191,
         "pop_year": 2017,
         "gdp_md_est": 26300,
         "gdp_year": 2016,
         "iso_a2": "AM",
-        "id": 107,
+        "id": 106,
         "coordinates": [
           45.01914310700013,
           40.077076823500036
@@ -77154,12 +76555,13 @@
         "name": "Dominican Rep.",
         "name_en": "Dominican Republic",
         "abbrev": "Dom. Rep.",
+        "admin": "Dominican Republic",
         "pop_est": 10734247,
         "pop_year": 2017,
         "gdp_md_est": 161900,
         "gdp_year": 2016,
         "iso_a2": "DO",
-        "id": 108,
+        "id": 107,
         "coordinates": [
           -70.13417985399988,
           18.771246649000062
@@ -81869,12 +81271,13 @@
         "name": "Indonesia",
         "name_en": "Indonesia",
         "abbrev": "Indo.",
+        "admin": "Indonesia",
         "pop_est": 260580739,
         "pop_year": 2017,
         "gdp_md_est": 3028000,
         "gdp_year": 2016,
         "iso_a2": "ID",
-        "id": 109,
+        "id": 108,
         "coordinates": [
           118.08721907200007,
           -2.6357561174999375
@@ -82148,12 +81551,13 @@
         "name": "Portugal",
         "name_en": "Portugal",
         "abbrev": "Port.",
+        "admin": "Portugal",
         "pop_est": 10839514,
         "pop_year": 2017,
         "gdp_md_est": 297100,
         "gdp_year": 2016,
         "iso_a2": "PT",
-        "id": 110,
+        "id": 109,
         "coordinates": [
           -15.94334102749994,
           37.400416263500055
@@ -82189,12 +81593,13 @@
         "name": "Andorra",
         "name_en": "Andorra",
         "abbrev": "And.",
+        "admin": "Andorra",
         "pop_est": 85702,
         "pop_year": 2017,
         "gdp_md_est": 3327,
         "gdp_year": 2015,
         "iso_a2": "AD",
-        "id": 111,
+        "id": 110,
         "coordinates": [
           1.5681518960000886,
           42.51501586950006
@@ -82712,10 +82117,12 @@
         "name": "Tasmania",
         "name_en": "Tasmania",
         "abbrev": "Tas.",
+        "admin": "Australia",
+        "geonunit": "Australia",
         "iso_a2": "AU",
         "iso_3166_2": "AU-TAS",
         "type_en": "State",
-        "id": 112,
+        "id": 111,
         "pop_est": 534281,
         "coordinates": [
           146.16134687600004,
@@ -82892,12 +82299,13 @@
         "name": "Latvia",
         "name_en": "Latvia",
         "abbrev": "Lat.",
+        "admin": "Latvia",
         "pop_est": 1944643,
         "pop_year": 2017,
         "gdp_md_est": 50650,
         "gdp_year": 2016,
         "iso_a2": "LV",
-        "id": 113,
+        "id": 112,
         "coordinates": [
           24.59194014100008,
           56.862861023500045
@@ -83453,12 +82861,13 @@
         "name": "Morocco",
         "name_en": "Morocco",
         "abbrev": "Mor.",
+        "admin": "Morocco",
         "pop_est": 33986655,
         "pop_year": 2017,
         "gdp_md_est": 282800,
         "gdp_year": 2016,
         "iso_a2": "MA",
-        "id": 114,
+        "id": 113,
         "coordinates": [
           -9.030622863196513,
           28.67223747529175
@@ -83990,12 +83399,13 @@
         "name": "Saudi Arabia",
         "name_en": "Saudi Arabia",
         "abbrev": "Saud.",
+        "admin": "Saudi Arabia",
         "pop_est": 28571770,
         "pop_year": 2017,
         "gdp_md_est": 1731000,
         "gdp_year": 2016,
         "iso_a2": "SA",
-        "id": 115,
+        "id": 114,
         "coordinates": [
           45.132142167500064,
           24.244550886000077
@@ -84295,12 +83705,13 @@
         "name": "Senegal",
         "name_en": "Senegal",
         "abbrev": "Sen.",
+        "admin": "Senegal",
         "pop_est": 14668522,
         "pop_year": 2017,
         "gdp_md_est": 39720,
         "gdp_year": 2016,
         "iso_a2": "SN",
-        "id": 116,
+        "id": 115,
         "coordinates": [
           -14.37969132899994,
           14.474492289500091
@@ -84448,11 +83859,14 @@
         "name": "New Hampshire",
         "name_en": "New Hampshire",
         "abbrev": "N.H.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-NH",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/New_Hampshire",
-        "id": 117,
+        "id": 116,
         "pop_est": 1359711,
         "coordinates": [
           -71.64192281532604,
@@ -85035,11 +84449,14 @@
         "name": "Florida",
         "name_en": "Florida",
         "abbrev": "Fla.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-FL",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Florida",
-        "id": 118,
+        "id": 117,
         "pop_est": 21477737,
         "coordinates": [
           -83.82965067998012,
@@ -85356,11 +84773,14 @@
         "name": "Oregon",
         "name_en": "Oregon",
         "abbrev": "Ore.",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-OR",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Oregon",
-        "id": 119,
+        "id": 118,
         "pop_est": 4217737,
         "coordinates": [
           -120.50533834262885,
@@ -85665,11 +85085,14 @@
         "name": "Georgia",
         "name_en": "Georgia",
         "abbrev": "Ga.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-GA",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Georgia_(U.S._state)",
-        "id": 120,
+        "id": 119,
         "pop_est": 10617423,
         "coordinates": [
           -83.22068258120515,
@@ -87072,12 +86495,13 @@
         "name": "Argentina",
         "name_en": "Argentina",
         "abbrev": "Arg.",
+        "admin": "Argentina",
         "pop_est": 44293293,
         "pop_year": 2017,
         "gdp_md_est": 879400,
         "gdp_year": 2016,
         "iso_a2": "AR",
-        "id": 121,
+        "id": 120,
         "coordinates": [
           -63.626654215499926,
           -38.42173074799991
@@ -89267,12 +88691,13 @@
         "name": "Chile",
         "name_en": "Chile",
         "abbrev": "Chile",
+        "admin": "Chile",
         "pop_est": 17789267,
         "pop_year": 2017,
         "gdp_md_est": 436100,
         "gdp_year": 2016,
         "iso_a2": "CL",
-        "id": 122,
+        "id": 121,
         "coordinates": [
           -71.3604937374999,
           -36.567062457499944
@@ -89416,12 +88841,13 @@
         "name": "Jordan",
         "name_en": "Jordan",
         "abbrev": "Jord.",
+        "admin": "Jordan",
         "pop_est": 10248069,
         "pop_year": 2017,
         "gdp_md_est": 86190,
         "gdp_year": 2016,
         "iso_a2": "JO",
-        "id": 123,
+        "id": 122,
         "coordinates": [
           37.04788003839781,
           31.280817871500048
@@ -89627,11 +89053,14 @@
         "name": "Massachusetts",
         "name_en": "Massachusetts",
         "abbrev": "Mass.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-MA",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Massachusetts",
-        "id": 124,
+        "id": 123,
         "pop_est": 6892503,
         "coordinates": [
           -71.72305888370983,
@@ -89888,11 +89317,14 @@
         "name": "Arizona",
         "name_en": "Arizona",
         "abbrev": "Ariz.",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-AZ",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/Arizona",
-        "id": 125,
+        "id": 124,
         "pop_est": 7278717,
         "coordinates": [
           -111.93299895849756,
@@ -90303,11 +89735,14 @@
         "name": "North Carolina",
         "name_en": "North Carolina",
         "abbrev": "N.C.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-NC",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/North_Carolina",
-        "id": 126,
+        "id": 125,
         "pop_est": 10488084,
         "coordinates": [
           -80.02322978144363,
@@ -90686,11 +90121,14 @@
         "name": "New York",
         "name_en": "New York",
         "abbrev": "N.Y.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-NY",
         "type_en": "State",
         "wikipedia": "http://en.wikipedia.org/wiki/New_York",
-        "id": 127,
+        "id": 126,
         "pop_est": 19453561,
         "coordinates": [
           -75.8409706677239,
@@ -91271,12 +90709,13 @@
         "name": "Ukraine",
         "name_en": "Ukraine",
         "abbrev": "Ukr.",
+        "admin": "Ukraine",
         "pop_est": 44033874,
         "pop_year": 2017,
         "gdp_md_est": 352600,
         "gdp_year": 2016,
         "iso_a2": "UA",
-        "id": 128,
+        "id": 127,
         "coordinates": [
           31.137251424000127,
           48.79241852100008
@@ -91312,12 +90751,13 @@
         "name": "St-Barthélemy",
         "name_en": "Saint-Barthélemy",
         "abbrev": "St. B.",
+        "admin": "Saint Barthelemy",
         "pop_est": 7184,
         "pop_year": 2017,
         "gdp_md_est": 255,
         "gdp_year": 2016,
         "iso_a2": "BL",
-        "id": 129,
+        "id": 128,
         "coordinates": [
           -62.82453365799992,
           17.903509833000072
@@ -91517,12 +90957,13 @@
         "name": "Hungary",
         "name_en": "Hungary",
         "abbrev": "Hun.",
+        "admin": "Hungary",
         "pop_est": 9850845,
         "pop_year": 2017,
         "gdp_md_est": 267600,
         "gdp_year": 2016,
         "iso_a2": "HU",
-        "id": 130,
+        "id": 129,
         "coordinates": [
           19.485817912000087,
           47.156127930000025
@@ -92784,14 +92225,163 @@
         "name": "Northern Territory",
         "name_en": "Northern Territory",
         "abbrev": "N.T.",
+        "admin": "Australia",
+        "geonunit": "Australia",
         "iso_a2": "AU",
         "iso_3166_2": "AU-NT",
         "type_en": "Territory",
-        "id": 131,
+        "id": 130,
         "pop_est": 245869,
         "coordinates": [
           133.50015133877957,
           -18.516157321898987
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPolygon",
+        "coordinates": [
+          [
+            [
+              [
+                -6.654774542999917,
+                61.39594147300005
+              ],
+              [
+                -6.8274633449999556,
+                61.471869208000044
+              ],
+              [
+                -6.9230850899999155,
+                61.566107489000046
+              ],
+              [
+                -6.737456834999932,
+                61.57904694200005
+              ],
+              [
+                -6.654774542999917,
+                61.39594147300005
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -7.383697068999936,
+                62.09487539300005
+              ],
+              [
+                -7.286122199999909,
+                62.15525950700004
+              ],
+              [
+                -7.0383194649999155,
+                62.08860911700003
+              ],
+              [
+                -7.1848852199999556,
+                62.026556708000044
+              ],
+              [
+                -7.383697068999936,
+                62.09487539300005
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -7.222645636999914,
+                62.17059967700004
+              ],
+              [
+                -7.190256313999953,
+                62.309800523000035
+              ],
+              [
+                -7.072621222999942,
+                62.290269273000035
+              ],
+              [
+                -6.9973852199999556,
+                62.18423086100006
+              ],
+              [
+                -6.856068488999938,
+                62.14789459800005
+              ],
+              [
+                -6.715565558999913,
+                62.03400299700007
+              ],
+              [
+                -6.8569229809999115,
+                61.99477773600006
+              ],
+              [
+                -7.030873175999943,
+                62.11660390800006
+              ],
+              [
+                -7.222645636999914,
+                62.17059967700004
+              ]
+            ]
+          ],
+          [
+            [
+              [
+                -7.0550837879999335,
+                62.290350653000075
+              ],
+              [
+                -6.9406632149999155,
+                62.33698151200008
+              ],
+              [
+                -6.6086319649999155,
+                62.202378648000035
+              ],
+              [
+                -6.59203040299991,
+                62.11660390800006
+              ],
+              [
+                -6.691395636999914,
+                62.07339101800005
+              ],
+              [
+                -6.85960852799991,
+                62.163763739000046
+              ],
+              [
+                -6.957508917999917,
+                62.18960195500006
+              ],
+              [
+                -7.0550837879999335,
+                62.290350653000075
+              ]
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Eysturoyar",
+        "name_en": "Eysturoy",
+        "admin": "Faroe Islands",
+        "geonunit": "Faroe Islands",
+        "iso_a2": "FO",
+        "iso_3166_2": "FO-X00~",
+        "type_en": "Region",
+        "id": 131,
+        "pop_est": 51783,
+        "coordinates": [
+          -6.987863735999923,
+          61.866461492500065
         ]
       }
     },
@@ -92828,6 +92418,7 @@
         "name": "Gibraltar",
         "name_en": "Gibraltar",
         "abbrev": "Gib.",
+        "admin": "Gibraltar",
         "pop_est": 29396,
         "pop_year": 2017,
         "gdp_md_est": 2044,
@@ -92869,6 +92460,7 @@
         "name": "Liechtenstein",
         "name_en": "Liechtenstein",
         "abbrev": "Liech.",
+        "admin": "Liechtenstein",
         "pop_est": 38244,
         "pop_year": 2017,
         "gdp_md_est": 4978,
@@ -93198,6 +92790,7 @@
         "name": "Poland",
         "name_en": "Poland",
         "abbrev": "Pol.",
+        "admin": "Poland",
         "pop_est": 38476269,
         "pop_year": 2017,
         "gdp_md_est": 1052000,
@@ -93489,6 +93082,7 @@
         "name": "Tunisia",
         "name_en": "Tunisia",
         "abbrev": "Tun.",
+        "admin": "Tunisia",
         "pop_est": 11403800,
         "pop_year": 2017,
         "gdp_md_est": 130800,
@@ -93588,6 +93182,7 @@
         "name": "Palestine",
         "name_en": "Palestine",
         "abbrev": "Pal.",
+        "admin": "Palestine",
         "pop_est": 4543126,
         "pop_year": 2017,
         "gdp_md_est": 21220.77,
@@ -93749,6 +93344,7 @@
         "name": "Bosnia and Herz.",
         "name_en": "Bosnia and Herzegovina",
         "abbrev": "B.H.",
+        "admin": "Bosnia and Herzegovina",
         "pop_est": 3856181,
         "pop_year": 2017,
         "gdp_md_est": 42530,
@@ -93874,6 +93470,7 @@
         "name": "Slovenia",
         "name_en": "Slovenia",
         "abbrev": "Slo.",
+        "admin": "Slovenia",
         "pop_est": 1972126,
         "pop_year": 2017,
         "gdp_md_est": 68350,
@@ -94067,6 +93664,9 @@
         "name": "New Jersey",
         "name_en": "New Jersey",
         "abbrev": "N.J.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-NJ",
         "type_en": "State",
@@ -94778,6 +94378,7 @@
         "name": "South Africa",
         "name_en": "South Africa",
         "abbrev": "S.Af.",
+        "admin": "South Africa",
         "pop_est": 54841552,
         "pop_year": 2017,
         "gdp_md_est": 739100,
@@ -94967,6 +94568,9 @@
         "name": "Nevada",
         "name_en": "Nevada",
         "abbrev": "Nev.",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-NV",
         "type_en": "State",
@@ -95244,6 +94848,9 @@
         "name": "Tennessee",
         "name_en": "Tennessee",
         "abbrev": "Tenn.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-TN",
         "type_en": "State",
@@ -95593,6 +95200,9 @@
         "name": "Maryland",
         "name_en": "Maryland",
         "abbrev": "Md.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-MD",
         "type_en": "State",
@@ -95722,6 +95332,9 @@
         "name": "Colorado",
         "name_en": "Colorado",
         "abbrev": "Colo.",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-CO",
         "type_en": "State",
@@ -95867,6 +95480,7 @@
         "name": "Bhutan",
         "name_en": "Bhutan",
         "abbrev": "Bhutan",
+        "admin": "Bhutan",
         "pop_est": 758288,
         "pop_year": 2017,
         "gdp_md_est": 6432,
@@ -96396,6 +96010,7 @@
         "name": "Cameroon",
         "name_en": "Cameroon",
         "abbrev": "Cam.",
+        "admin": "Cameroon",
         "pop_est": 24994885,
         "pop_year": 2017,
         "gdp_md_est": 77240,
@@ -96769,6 +96384,9 @@
         "name": "Alberta",
         "name_en": "Alberta",
         "abbrev": "Alta.",
+        "region": "Western Canada",
+        "admin": "Canada",
+        "geonunit": "Canada",
         "iso_a2": "CA",
         "iso_3166_2": "CA-AB",
         "type_en": "Province",
@@ -97570,6 +97188,7 @@
         "name": "Colombia",
         "name_en": "Colombia",
         "abbrev": "Col.",
+        "admin": "Colombia",
         "pop_est": 47698524,
         "pop_year": 2017,
         "gdp_md_est": 688000,
@@ -97791,6 +97410,7 @@
         "name": "Costa Rica",
         "name_en": "Costa Rica",
         "abbrev": "C.R.",
+        "admin": "Costa Rica",
         "pop_est": 4930258,
         "pop_year": 2017,
         "gdp_md_est": 79260,
@@ -98580,6 +98200,7 @@
         "name": "Peru",
         "name_en": "Peru",
         "abbrev": "Peru",
+        "admin": "Peru",
         "pop_est": 31036656,
         "pop_year": 2017,
         "gdp_md_est": 410400,
@@ -98789,6 +98410,7 @@
         "name": "Serbia",
         "name_en": "Serbia",
         "abbrev": "Serb.",
+        "admin": "Republic of Serbia",
         "pop_est": 7111024,
         "pop_year": 2017,
         "gdp_md_est": 101800,
@@ -98966,6 +98588,7 @@
         "name": "Slovakia",
         "name_en": "Slovakia",
         "abbrev": "Svk.",
+        "admin": "Slovakia",
         "pop_est": 5445829,
         "pop_year": 2017,
         "gdp_md_est": 168800,
@@ -99135,6 +98758,7 @@
         "name": "Togo",
         "name_en": "Togo",
         "abbrev": "Togo",
+        "admin": "Togo",
         "pop_est": 7965055,
         "pop_year": 2017,
         "gdp_md_est": 11610,
@@ -99328,6 +98952,9 @@
         "name": "Pennsylvania",
         "name_en": "Pennsylvania",
         "abbrev": "Pa.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-PA",
         "type_en": "State",
@@ -99713,6 +99340,9 @@
         "name": "Kentucky",
         "name_en": "Kentucky",
         "abbrev": "Ky.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-KY",
         "type_en": "State",
@@ -99954,6 +99584,9 @@
         "name": "Indiana",
         "name_en": "Indiana",
         "abbrev": "Ind.",
+        "region": "Midwest",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-IN",
         "type_en": "State",
@@ -100375,6 +100008,9 @@
         "name": "Minnesota",
         "name_en": "Minnesota",
         "abbrev": "Minn.",
+        "region": "Midwest",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-MN",
         "type_en": "State",
@@ -100420,6 +100056,7 @@
         "name": "Vatican",
         "name_en": "Vatican City",
         "abbrev": "Vat.",
+        "admin": "Vatican",
         "pop_est": 1000,
         "pop_year": 2015,
         "gdp_md_est": 0,
@@ -100466,6 +100103,7 @@
         "name": "Malta",
         "name_en": "Malta",
         "abbrev": "Malta",
+        "admin": "Malta",
         "pop_est": 416338,
         "pop_year": 2017,
         "gdp_md_est": 16320,
@@ -100565,6 +100203,9 @@
         "name": "Rhode Island",
         "name_en": "Rhode Island",
         "abbrev": "R.I.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-RI",
         "type_en": "State",
@@ -100658,6 +100299,9 @@
         "name": "Connecticut",
         "name_en": "Connecticut",
         "abbrev": "Conn.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-CT",
         "type_en": "State",
@@ -100943,6 +100587,9 @@
         "name": "South Carolina",
         "name_en": "South Carolina",
         "abbrev": "S.C.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-SC",
         "type_en": "State",
@@ -101072,6 +100719,9 @@
         "name": "Utah",
         "name_en": "Utah",
         "abbrev": "Utah",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-UT",
         "type_en": "State",
@@ -101451,6 +101101,9 @@
         "name": "Hawaii",
         "name_en": "Hawaii",
         "abbrev": "Hawaii",
+        "region": "West",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-HI",
         "type_en": "State",
@@ -101728,6 +101381,9 @@
         "name": "Oklahoma",
         "name_en": "Oklahoma",
         "abbrev": "Okla.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-OK",
         "type_en": "State",
@@ -101985,6 +101641,7 @@
         "name": "Bulgaria",
         "name_en": "Bulgaria",
         "abbrev": "Bulg.",
+        "admin": "Bulgaria",
         "pop_est": 7101510,
         "pop_year": 2017,
         "gdp_md_est": 143100,
@@ -102026,6 +101683,7 @@
         "name": "Maldives",
         "name_en": "Maldives",
         "abbrev": "Mald.",
+        "admin": "Maldives",
         "pop_est": 392709,
         "pop_year": 2017,
         "gdp_md_est": 5407,
@@ -102405,6 +102063,7 @@
         "name": "Bangladesh",
         "name_en": "Bangladesh",
         "abbrev": "Bang.",
+        "admin": "Bangladesh",
         "pop_est": 157826578,
         "pop_year": 2017,
         "gdp_md_est": 628400,
@@ -102850,6 +102509,9 @@
         "name": "Virginia",
         "name_en": "Virginia",
         "abbrev": "Va.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-VA",
         "type_en": "State",
@@ -102903,6 +102565,9 @@
         "name": "District of Columbia",
         "name_en": "Washington",
         "abbrev": "D.C.",
+        "region": "South",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-DC",
         "type_en": "Federal District",
@@ -103056,6 +102721,7 @@
         "name": "Moldova",
         "name_en": "Moldova",
         "abbrev": "Mda.",
+        "admin": "Moldova",
         "pop_est": 3474121,
         "pop_year": 2017,
         "gdp_md_est": 18540,
@@ -103405,6 +103071,7 @@
         "name": "Paraguay",
         "name_en": "Paraguay",
         "abbrev": "Para.",
+        "admin": "Paraguay",
         "pop_est": 6943739,
         "pop_year": 2017,
         "gdp_md_est": 64670,
@@ -103558,6 +103225,9 @@
         "name": "Kansas",
         "name_en": "Kansas",
         "abbrev": "Kans.",
+        "region": "Midwest",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-KS",
         "type_en": "State",
@@ -103891,6 +103561,9 @@
         "name": "Missouri",
         "name_en": "Missouri",
         "abbrev": "Mo.",
+        "region": "Midwest",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-MO",
         "type_en": "State",
@@ -104040,6 +103713,9 @@
         "name": "Vermont",
         "name_en": "Vermont",
         "abbrev": "Vt.",
+        "region": "Northeast",
+        "admin": "United States of America",
+        "geonunit": "United States of America",
         "iso_a2": "US",
         "iso_3166_2": "US-VT",
         "type_en": "State",
@@ -104049,6 +103725,2300 @@
         "coordinates": [
           -72.47219594044931,
           43.87150381198679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.905526647137037,
+              42.901560778607006
+            ],
+            [
+              13.94467207100007,
+              42.79828522300005
+            ],
+            [
+              14.075368686000047,
+              42.598822333000044
+            ],
+            [
+              14.151262702889609,
+              42.531564237800374
+            ],
+            [
+              13.994567947352891,
+              42.54050676507512
+            ],
+            [
+              13.825070870524257,
+              42.495210132241766
+            ],
+            [
+              13.765415106122248,
+              42.420085617657094
+            ],
+            [
+              13.531648008049103,
+              42.44405778693732
+            ],
+            [
+              13.417587944428078,
+              42.529685230988605
+            ],
+            [
+              13.375883841466077,
+              42.603766044567294
+            ],
+            [
+              13.3375635276347,
+              42.68765764958084
+            ],
+            [
+              13.429760797123095,
+              42.70173113668261
+            ],
+            [
+              13.530417538538586,
+              42.807463562693215
+            ],
+            [
+              13.681721255731361,
+              42.81702166801557
+            ],
+            [
+              13.712790593111379,
+              42.86006610346789
+            ],
+            [
+              13.905526647137037,
+              42.901560778607006
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Teramo",
+        "name_en": "Province of Teramo",
+        "region": "Abruzzo",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-TE",
+        "type_en": "Province",
+        "id": 176,
+        "pop_est": 1311580,
+        "coordinates": [
+          13.744413115262155,
+          42.66082319813205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.863276657791516,
+              40.390919726364245
+            ],
+            [
+              16.737559441000087,
+              40.211004950000074
+            ],
+            [
+              16.640048698588544,
+              40.11874851563147
+            ],
+            [
+              16.41758073486301,
+              40.12928230803209
+            ],
+            [
+              16.39882130146185,
+              40.05553034594868
+            ],
+            [
+              16.394179855415985,
+              40.15769295356694
+            ],
+            [
+              16.319340985298197,
+              40.28011361225339
+            ],
+            [
+              16.175705726038416,
+              40.29884530246869
+            ],
+            [
+              16.056196443511055,
+              40.65636240560053
+            ],
+            [
+              16.145844885033398,
+              40.69573740745534
+            ],
+            [
+              16.12152115367826,
+              40.796108505303266
+            ],
+            [
+              16.245401190812288,
+              40.837546858600604
+            ],
+            [
+              16.396443038915095,
+              40.71296397071063
+            ],
+            [
+              16.49778093314353,
+              40.75782114982616
+            ],
+            [
+              16.62102556687637,
+              40.75849131652103
+            ],
+            [
+              16.71566180135102,
+              40.71539194957876
+            ],
+            [
+              16.711311214940622,
+              40.55153085926173
+            ],
+            [
+              16.863276657791516,
+              40.390919726364245
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Matera",
+        "name_en": "Province of Matera",
+        "region": "Basilicata",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-MT",
+        "type_en": "Province",
+        "id": 177,
+        "pop_est": 562869,
+        "coordinates": [
+          16.459736550651286,
+          40.44653860227464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              10.451828554544136,
+              46.54670442776711
+            ],
+            [
+              10.459082072000058,
+              46.62356353800003
+            ],
+            [
+              10.36916508000013,
+              46.67239776600009
+            ],
+            [
+              10.453811076000136,
+              46.864427389000056
+            ],
+            [
+              10.662480509000119,
+              46.86096506800003
+            ],
+            [
+              10.754774618000113,
+              46.790762634000046
+            ],
+            [
+              10.996930379000105,
+              46.76911021000005
+            ],
+            [
+              11.091911662000115,
+              46.912434795000095
+            ],
+            [
+              11.31381026200009,
+              46.98726226800004
+            ],
+            [
+              11.596480347000096,
+              47.0004397580001
+            ],
+            [
+              11.746445353000041,
+              46.97245697100003
+            ],
+            [
+              12.133146313751354,
+              47.07883160609373
+            ],
+            [
+              12.203896989000043,
+              47.067011988000004
+            ],
+            [
+              12.111177612000063,
+              46.9929983520001
+            ],
+            [
+              12.26910078900005,
+              46.788566387000046
+            ],
+            [
+              12.469632061270602,
+              46.67579888071373
+            ],
+            [
+              12.213969735015269,
+              46.59606600164466
+            ],
+            [
+              12.099140628737018,
+              46.66782870023428
+            ],
+            [
+              12.02203857512012,
+              46.5394095050446
+            ],
+            [
+              11.832238763508087,
+              46.50403352752522
+            ],
+            [
+              11.684099109486283,
+              46.50768098888648
+            ],
+            [
+              11.59530760136471,
+              46.386205153445076
+            ],
+            [
+              11.476567363293157,
+              46.359629224708954
+            ],
+            [
+              11.387556129211987,
+              46.281131908011105
+            ],
+            [
+              11.242009248528007,
+              46.23117707206421
+            ],
+            [
+              11.201755341036119,
+              46.339238599181954
+            ],
+            [
+              11.21445553639387,
+              46.46931672968333
+            ],
+            [
+              11.05528560844408,
+              46.51561311815084
+            ],
+            [
+              10.83993159596639,
+              46.43072175750308
+            ],
+            [
+              10.745229443883716,
+              46.48493928821756
+            ],
+            [
+              10.624709420503336,
+              46.45445222678882
+            ],
+            [
+              10.451828554544136,
+              46.54670442776711
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Bozen",
+        "name_en": "Trentino-South Tyrol",
+        "region": "Trentino-Alto Adige",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-BZ",
+        "type_en": "Province",
+        "id": 178,
+        "pop_est": 107436,
+        "coordinates": [
+          11.419398570635366,
+          46.65500433907897
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.640048698588544,
+              40.11874851563147
+            ],
+            [
+              16.596934441000087,
+              40.04677969000005
+            ],
+            [
+              16.631602410000085,
+              39.96621328300006
+            ],
+            [
+              16.491709832000083,
+              39.80548737200007
+            ],
+            [
+              16.515635613000086,
+              39.68960195500006
+            ],
+            [
+              16.624847852000073,
+              39.62531159100007
+            ],
+            [
+              16.74976647200009,
+              39.620021877000056
+            ],
+            [
+              16.84620201900009,
+              39.55267975500004
+            ],
+            [
+              17.019200709742577,
+              39.47922324146484
+            ],
+            [
+              16.96452411529566,
+              39.40388799273666
+            ],
+            [
+              16.857209657699514,
+              39.34863774713432
+            ],
+            [
+              16.73323992668128,
+              39.35916264973645
+            ],
+            [
+              16.765627623416094,
+              39.21575810345371
+            ],
+            [
+              16.61318132835561,
+              39.19426884453151
+            ],
+            [
+              16.498462085956476,
+              39.155487104746044
+            ],
+            [
+              16.48090593286247,
+              39.064652139984275
+            ],
+            [
+              16.26157486918487,
+              39.104104046464556
+            ],
+            [
+              16.096887947545625,
+              39.05041320096651
+            ],
+            [
+              16.03402716100004,
+              39.34524176800005
+            ],
+            [
+              15.995396030000052,
+              39.438768236000044
+            ],
+            [
+              15.867523634000065,
+              39.56391022300005
+            ],
+            [
+              15.80640709700009,
+              39.69550202000005
+            ],
+            [
+              15.781911655000044,
+              39.86859772300005
+            ],
+            [
+              15.745807744060896,
+              39.92460382764366
+            ],
+            [
+              15.858332666519345,
+              40.008180007801116
+            ],
+            [
+              15.951936186106082,
+              40.00437873898761
+            ],
+            [
+              16.068918612004325,
+              39.90668830522111
+            ],
+            [
+              16.345290692711274,
+              39.932550122789905
+            ],
+            [
+              16.39882130146185,
+              40.05553034594868
+            ],
+            [
+              16.41758073486301,
+              40.12928230803209
+            ],
+            [
+              16.640048698588544,
+              40.11874851563147
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Cosenza",
+        "name_en": "Province of Cosenza",
+        "region": "Calabria",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-CS",
+        "type_en": "Province",
+        "id": 179,
+        "pop_est": 1947131,
+        "coordinates": [
+          16.382504226901737,
+          39.5898477544993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              15.646651419391926,
+              40.046931666694626
+            ],
+            [
+              15.53492272200009,
+              40.077785549000055
+            ],
+            [
+              15.410099591000062,
+              39.99396986000005
+            ],
+            [
+              15.283050977000073,
+              40.02985260600008
+            ],
+            [
+              15.127207879000082,
+              40.169623114000046
+            ],
+            [
+              15.03492272200009,
+              40.17536041900007
+            ],
+            [
+              14.911143425000091,
+              40.24164459800005
+            ],
+            [
+              14.998266587000046,
+              40.39755866100006
+            ],
+            [
+              14.888845248000052,
+              40.57306549700007
+            ],
+            [
+              14.752207879000082,
+              40.67670319200005
+            ],
+            [
+              14.544200066000087,
+              40.61359284100007
+            ],
+            [
+              14.471364780000044,
+              40.624660549000055
+            ],
+            [
+              14.582204688095885,
+              40.68682749479302
+            ],
+            [
+              14.52533945165436,
+              40.77755259657505
+            ],
+            [
+              14.605539649934883,
+              40.84764537193632
+            ],
+            [
+              14.762314558270248,
+              40.80584239211271
+            ],
+            [
+              14.907795521346202,
+              40.80698496998036
+            ],
+            [
+              15.237385377133421,
+              40.72348887331282
+            ],
+            [
+              15.344260381911056,
+              40.820684921871646
+            ],
+            [
+              15.378515753798979,
+              40.72939951817318
+            ],
+            [
+              15.48947767185706,
+              40.653747660026454
+            ],
+            [
+              15.59219984394764,
+              40.43329599161672
+            ],
+            [
+              15.706259906669345,
+              40.374310393010205
+            ],
+            [
+              15.785427390062011,
+              40.268863612365806
+            ],
+            [
+              15.693999164130105,
+              40.16204353907807
+            ],
+            [
+              15.646651419391926,
+              40.046931666694626
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Salerno",
+        "name_en": "Province of Salerno",
+        "region": "Campania",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-SA",
+        "type_en": "Province",
+        "id": 180,
+        "pop_est": 5801692,
+        "coordinates": [
+          15.128396085031028,
+          40.42080761596819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.293337375319595,
+              44.80270167544194
+            ],
+            [
+              11.606271957684669,
+              44.69640894661558
+            ],
+            [
+              11.67320067077435,
+              44.6359292080665
+            ],
+            [
+              11.795895988708878,
+              44.62051538937368
+            ],
+            [
+              11.789348136407341,
+              44.55442163654925
+            ],
+            [
+              11.742414541397977,
+              44.50647729888823
+            ],
+            [
+              11.820329583043815,
+              44.39570214843536
+            ],
+            [
+              11.683352039065312,
+              44.31821557348991
+            ],
+            [
+              11.526269473557363,
+              44.16222283611495
+            ],
+            [
+              11.391994605466664,
+              44.232445306305806
+            ],
+            [
+              11.200106485326046,
+              44.10467889841243
+            ],
+            [
+              11.048254125927144,
+              44.09238278643642
+            ],
+            [
+              10.923229939809858,
+              44.067957995564996
+            ],
+            [
+              10.815869081692767,
+              44.11351293257576
+            ],
+            [
+              10.865749468163415,
+              44.23091820621022
+            ],
+            [
+              10.960583456361405,
+              44.23254418316748
+            ],
+            [
+              11.044760705841895,
+              44.409248291075755
+            ],
+            [
+              10.992399864162394,
+              44.444382570399284
+            ],
+            [
+              11.117973599002369,
+              44.53441553235092
+            ],
+            [
+              11.078071253585449,
+              44.64698145513
+            ],
+            [
+              11.129597134999756,
+              44.78080592295498
+            ],
+            [
+              11.293337375319595,
+              44.80270167544194
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Bologna",
+        "name_en": "Province of Bologna",
+        "region": "Emilia-Romagna",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-BO",
+        "type_en": "Province",
+        "id": 181,
+        "pop_est": 4459477,
+        "coordinates": [
+          11.318099332368291,
+          44.43532983550347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.588513778236168,
+              45.80648247701627
+            ],
+            [
+              13.699908416000142,
+              45.77052373600007
+            ],
+            [
+              13.778724406000038,
+              45.74341054300008
+            ],
+            [
+              13.89364052978658,
+              45.63375840632534
+            ],
+            [
+              13.86792570600008,
+              45.602169289000116
+            ],
+            [
+              13.711761915000068,
+              45.59320709800005
+            ],
+            [
+              13.72624759200005,
+              45.70376211100006
+            ],
+            [
+              13.583327116904757,
+              45.78678872131923
+            ],
+            [
+              13.588513778236168,
+              45.80648247701627
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Trieste",
+        "name_en": "Province of Trieste",
+        "region": "Friuli-Venezia Giulia",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-TS",
+        "type_en": "Province",
+        "id": 182,
+        "pop_est": 1215220,
+        "coordinates": [
+          13.738483823345668,
+          45.699844787508155
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              13.74366407134597,
+              41.23760326943394
+            ],
+            [
+              13.514414910000085,
+              41.229681708000044
+            ],
+            [
+              13.324392123000052,
+              41.29482656500005
+            ],
+            [
+              13.20484459700009,
+              41.28375885600008
+            ],
+            [
+              13.04460696700005,
+              41.22752513200004
+            ],
+            [
+              12.893565300000091,
+              41.399318752000056
+            ],
+            [
+              12.774405430874301,
+              41.420939951655406
+            ],
+            [
+              12.602841819993955,
+              41.55564832860745
+            ],
+            [
+              12.746982450579594,
+              41.57375379839908
+            ],
+            [
+              12.934541050928715,
+              41.70962172376352
+            ],
+            [
+              13.020080605135831,
+              41.57778578108889
+            ],
+            [
+              13.175207564277628,
+              41.583597549087585
+            ],
+            [
+              13.265778856808765,
+              41.527710095144755
+            ],
+            [
+              13.318073780880297,
+              41.4016529621145
+            ],
+            [
+              13.54964361396162,
+              41.41536390012385
+            ],
+            [
+              13.608662170922457,
+              41.331395390484886
+            ],
+            [
+              13.757702703716802,
+              41.31255383728973
+            ],
+            [
+              13.872575755366825,
+              41.3354054009385
+            ],
+            [
+              13.74366407134597,
+              41.23760326943394
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Latina",
+        "name_en": "Province of Latina",
+        "region": "Lazio",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-LT",
+        "type_en": "Province",
+        "id": 183,
+        "pop_est": 5879082,
+        "coordinates": [
+          13.23770878768039,
+          41.46857342788178
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.502289259000065,
+              43.792222398000035
+            ],
+            [
+              7.477868693000062,
+              43.86551483200013
+            ],
+            [
+              7.630934285000137,
+              43.993543193000036
+            ],
+            [
+              7.687931964188806,
+              44.09079857219632
+            ],
+            [
+              7.74002913453694,
+              44.13366722616155
+            ],
+            [
+              8.002118988300651,
+              44.118440175074
+            ],
+            [
+              7.992165374632293,
+              44.02133201635945
+            ],
+            [
+              8.130225812766355,
+              43.9403431039096
+            ],
+            [
+              7.9597274100000845,
+              43.852850653000075
+            ],
+            [
+              7.69499759200005,
+              43.79120514500005
+            ],
+            [
+              7.502289259000065,
+              43.792222398000035
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Imperia",
+        "name_en": "Province of Imperia",
+        "region": "Liguria",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-IM",
+        "type_en": "Province",
+        "id": 184,
+        "pop_est": 1550640,
+        "coordinates": [
+          7.804047252883208,
+          43.9624361855808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.728973717163285,
+              46.10823573289275
+            ],
+            [
+              8.834375041000015,
+              46.06638824500003
+            ],
+            [
+              8.767919149000079,
+              45.983085836
+            ],
+            [
+              8.870961954000052,
+              45.9470673630001
+            ],
+            [
+              8.908884719317435,
+              45.82829263130598
+            ],
+            [
+              8.931957890344336,
+              45.65116484298312
+            ],
+            [
+              9.05865560327345,
+              45.66137189369789
+            ],
+            [
+              9.05300525908541,
+              45.623215622502926
+            ],
+            [
+              8.926882206648486,
+              45.61590971456167
+            ],
+            [
+              8.837036012302121,
+              45.5684048297191
+            ],
+            [
+              8.705178097391297,
+              45.55678129372171
+            ],
+            [
+              8.565410025452309,
+              45.79862334419198
+            ],
+            [
+              8.598412956492723,
+              45.825990288720845
+            ],
+            [
+              8.593139518174212,
+              45.917506405396296
+            ],
+            [
+              8.720734738317503,
+              46.0120217898737
+            ],
+            [
+              8.728973717163285,
+              46.10823573289275
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Varese",
+        "name_en": "Province of Varese",
+        "region": "Lombardia",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-VA",
+        "type_en": "Province",
+        "id": 185,
+        "pop_est": 10060574,
+        "coordinates": [
+          8.81203281436288,
+          45.83250851330723
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.478026206000095,
+              43.92321640400006
+            ],
+            [
+              12.483090838371481,
+              43.9292006653784
+            ],
+            [
+              12.633054223073941,
+              43.84254050643921
+            ],
+            [
+              12.730832547583987,
+              43.88197043888465
+            ],
+            [
+              12.753835483000046,
+              43.97239817900004
+            ],
+            [
+              12.947276238000086,
+              43.89760976800005
+            ],
+            [
+              13.177206383015417,
+              43.751518513248975
+            ],
+            [
+              13.077626994390243,
+              43.727173070480774
+            ],
+            [
+              12.969060095946645,
+              43.60622457950075
+            ],
+            [
+              12.758166532859207,
+              43.46122701461502
+            ],
+            [
+              12.604687522910865,
+              43.430344445739536
+            ],
+            [
+              12.51049074215399,
+              43.51248922379864
+            ],
+            [
+              12.319943860121043,
+              43.546184293770125
+            ],
+            [
+              12.204807137139653,
+              43.61682638582903
+            ],
+            [
+              12.195820319851862,
+              43.65335592823345
+            ],
+            [
+              12.357626966511305,
+              43.72260275721146
+            ],
+            [
+              12.28584229568537,
+              43.76886618642533
+            ],
+            [
+              12.351452650319516,
+              43.86995139544052
+            ],
+            [
+              12.421106834936927,
+              43.89517351031211
+            ],
+            [
+              12.44126355892303,
+              43.89327621237619
+            ],
+            [
+              12.464397393142015,
+              43.900073246341904
+            ],
+            [
+              12.478026206000095,
+              43.92321640400006
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Pesaro e Urbino",
+        "name_en": "Pesaro and Urbino Province",
+        "region": "Marche",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-PU",
+        "type_en": "Province",
+        "id": 186,
+        "pop_est": 1525271,
+        "coordinates": [
+          12.68651335143364,
+          43.70137131236979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              14.76335696700005,
+              42.07794830900008
+            ],
+            [
+              14.993662957000083,
+              42.010646877000056
+            ],
+            [
+              15.143540133270506,
+              41.93118296042525
+            ],
+            [
+              15.107329219767678,
+              41.72747450744254
+            ],
+            [
+              14.935041615877878,
+              41.52599622834322
+            ],
+            [
+              14.995290641449913,
+              41.482072886354615
+            ],
+            [
+              14.602353614527658,
+              41.37311048046428
+            ],
+            [
+              14.51384842086793,
+              41.38903109590831
+            ],
+            [
+              14.382694794728991,
+              41.441960703923314
+            ],
+            [
+              14.500378513757369,
+              41.60452650429471
+            ],
+            [
+              14.490381434955225,
+              41.77607928113389
+            ],
+            [
+              14.744340924593985,
+              42.013042145278746
+            ],
+            [
+              14.76335696700005,
+              42.07794830900008
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Campobasso",
+        "name_en": "Province of Campobasso",
+        "region": "Molise",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-CB",
+        "type_en": "Province",
+        "id": 187,
+        "pop_est": 305617,
+        "coordinates": [
+          14.763117463999748,
+          41.72552939473218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.84962011600004,
+              45.93971206200011
+            ],
+            [
+              7.985848022000084,
+              45.99931223600002
+            ],
+            [
+              8.018197469000143,
+              46.08085764600007
+            ],
+            [
+              8.110594930000076,
+              46.12695302300007
+            ],
+            [
+              8.07731530700002,
+              46.26203521800009
+            ],
+            [
+              8.192553752000038,
+              46.30916412400008
+            ],
+            [
+              8.385906925000114,
+              46.45020601800009
+            ],
+            [
+              8.441634155000116,
+              46.43494456000006
+            ],
+            [
+              8.427164754000074,
+              46.251441549000006
+            ],
+            [
+              8.601831095000136,
+              46.12281890900006
+            ],
+            [
+              8.728973717163285,
+              46.10823573289275
+            ],
+            [
+              8.720734738317503,
+              46.0120217898737
+            ],
+            [
+              8.593139518174212,
+              45.917506405396296
+            ],
+            [
+              8.598412956492723,
+              45.825990288720845
+            ],
+            [
+              8.46077623193753,
+              45.86893584731149
+            ],
+            [
+              8.34990220462305,
+              45.77240996454822
+            ],
+            [
+              8.322304547117142,
+              45.853950495319054
+            ],
+            [
+              8.187238623663518,
+              45.947663876986326
+            ],
+            [
+              7.957031096208084,
+              45.90241119042406
+            ],
+            [
+              7.855934900175498,
+              45.91931914995877
+            ],
+            [
+              7.84962011600004,
+              45.93971206200011
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Verbano-Cusio-Ossola",
+        "name_en": "province of Verbano-Cusio-Ossola",
+        "region": "Piemonte",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-VB",
+        "type_en": "Province",
+        "id": 188,
+        "pop_est": 4356406,
+        "coordinates": [
+          8.289296916581662,
+          46.11130799127415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              16.544163645584927,
+              41.235193775759846
+            ],
+            [
+              16.593923373000052,
+              41.20697663000004
+            ],
+            [
+              17.05713951900009,
+              41.08185455900008
+            ],
+            [
+              17.27637780000009,
+              40.98021067900004
+            ],
+            [
+              17.392260470904205,
+              40.89368594834969
+            ],
+            [
+              17.317910358875963,
+              40.83278086994119
+            ],
+            [
+              17.353681844741345,
+              40.74855967508893
+            ],
+            [
+              17.257551470324074,
+              40.76494029106158
+            ],
+            [
+              17.150193067356156,
+              40.71355723278003
+            ],
+            [
+              16.923083683665027,
+              40.700879009658536
+            ],
+            [
+              16.71566180135102,
+              40.71539194957876
+            ],
+            [
+              16.62102556687637,
+              40.75849131652103
+            ],
+            [
+              16.49778093314353,
+              40.75782114982616
+            ],
+            [
+              16.396443038915095,
+              40.71296397071063
+            ],
+            [
+              16.245401190812288,
+              40.837546858600604
+            ],
+            [
+              16.196623695127414,
+              40.91143199588987
+            ],
+            [
+              16.253269205609342,
+              40.972263297413235
+            ],
+            [
+              16.335271161434946,
+              41.153493772319734
+            ],
+            [
+              16.500373706481355,
+              41.15191174163357
+            ],
+            [
+              16.544163645584927,
+              41.235193775759846
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Bari",
+        "name_en": "Province of Bari",
+        "region": "Apulia",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-BA",
+        "type_en": "Province",
+        "id": 189,
+        "pop_est": 4029053,
+        "coordinates": [
+          16.79444208301581,
+          40.968036392709195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              8.610337184669124,
+              38.954892976342286
+            ],
+            [
+              8.371755405000044,
+              39.23061758000006
+            ],
+            [
+              8.426442905000044,
+              39.283270575000074
+            ],
+            [
+              8.374034050000091,
+              39.37885163000004
+            ],
+            [
+              8.398064080242118,
+              39.44650217996972
+            ],
+            [
+              8.53062730910301,
+              39.47944097402171
+            ],
+            [
+              8.699267452530876,
+              39.37485112677808
+            ],
+            [
+              8.755539426902999,
+              39.20601322962682
+            ],
+            [
+              8.849033082610674,
+              39.08740482677132
+            ],
+            [
+              8.814250367160696,
+              39.04695316465683
+            ],
+            [
+              8.657629267176901,
+              39.035560342535746
+            ],
+            [
+              8.610337184669124,
+              38.954892976342286
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Carbonia-Iglesias",
+        "name_en": "Province of Carbonia-Iglesias",
+        "region": "Sardegna",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-CI",
+        "type_en": "Province",
+        "id": 190,
+        "pop_est": 1639591,
+        "coordinates": [
+          8.61039424380536,
+          39.217166975181996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.976111327443594,
+              38.044203885572955
+            ],
+            [
+              13.06967207100007,
+              38.091131903000075
+            ],
+            [
+              13.10092207100007,
+              38.19009023600006
+            ],
+            [
+              13.207204623000052,
+              38.17609284100007
+            ],
+            [
+              13.31023196700005,
+              38.21954987200007
+            ],
+            [
+              13.391368035000085,
+              38.103176174000055
+            ],
+            [
+              13.513519727000073,
+              38.110541083000044
+            ],
+            [
+              13.651133660000085,
+              38.00096263200004
+            ],
+            [
+              13.79078209700009,
+              37.97361888200004
+            ],
+            [
+              14.020518425000091,
+              38.04938385600008
+            ],
+            [
+              14.179581502313503,
+              38.025692058954064
+            ],
+            [
+              14.276389246966176,
+              37.920810544071344
+            ],
+            [
+              14.27994881758383,
+              37.84015990595486
+            ],
+            [
+              14.26480965634056,
+              37.7030175666074
+            ],
+            [
+              14.134929280461904,
+              37.616752915114944
+            ],
+            [
+              14.084721759301715,
+              37.64282347252521
+            ],
+            [
+              13.974704665388003,
+              37.583178695140646
+            ],
+            [
+              13.906501537415977,
+              37.60692015144383
+            ],
+            [
+              13.811272041771304,
+              37.7269457905158
+            ],
+            [
+              13.732390202845579,
+              37.682989490172815
+            ],
+            [
+              13.599565490654868,
+              37.64402098278208
+            ],
+            [
+              13.22765629670073,
+              37.628903794674386
+            ],
+            [
+              13.201574753172281,
+              37.674497058092754
+            ],
+            [
+              13.027463417702563,
+              37.74070067389698
+            ],
+            [
+              12.946340368413246,
+              37.84333495524396
+            ],
+            [
+              13.048227579339311,
+              37.954033201071354
+            ],
+            [
+              12.976111327443594,
+              38.044203885572955
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Palermo",
+        "name_en": "Province of Palermo",
+        "region": "Sicily",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-PA",
+        "type_en": "Province",
+        "id": 191,
+        "pop_est": 4999891,
+        "coordinates": [
+          13.613144592998538,
+          37.90136428357036
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.451496463502611,
+              42.3743712803365
+            ],
+            [
+              11.164190816000087,
+              42.43982808100009
+            ],
+            [
+              11.18685957100007,
+              42.520819403000075
+            ],
+            [
+              10.99000084700009,
+              42.710272528000075
+            ],
+            [
+              10.731293165000068,
+              42.80442942900004
+            ],
+            [
+              10.777679884000065,
+              42.89472077000005
+            ],
+            [
+              10.705054403294788,
+              42.940937583476476
+            ],
+            [
+              10.787746535773977,
+              43.05567768307861
+            ],
+            [
+              10.717280224302897,
+              43.10847797847589
+            ],
+            [
+              10.737385205362898,
+              43.14560078205045
+            ],
+            [
+              10.911650349184242,
+              43.162563673075056
+            ],
+            [
+              11.059548304110933,
+              43.176549269433224
+            ],
+            [
+              11.080905726917763,
+              43.0879665029517
+            ],
+            [
+              11.36101315883019,
+              43.08325336744895
+            ],
+            [
+              11.358925756818223,
+              42.99961444854796
+            ],
+            [
+              11.611874984942574,
+              42.947868841174056
+            ],
+            [
+              11.63501219305823,
+              42.79975115938845
+            ],
+            [
+              11.747226552863083,
+              42.79847674540548
+            ],
+            [
+              11.807893059017431,
+              42.738348569830634
+            ],
+            [
+              11.786909171421087,
+              42.65124895717361
+            ],
+            [
+              11.58816648789309,
+              42.56613786966693
+            ],
+            [
+              11.590166000060833,
+              42.44195939790785
+            ],
+            [
+              11.451496463502611,
+              42.3743712803365
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Grosseto",
+        "name_en": "Province of Grosseto",
+        "region": "Toscana",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-GR",
+        "type_en": "Province",
+        "id": 192,
+        "pop_est": 3729641,
+        "coordinates": [
+          11.25647373115611,
+          42.775460274884864
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.832238763508087,
+              46.50403352752522
+            ],
+            [
+              11.888247065649523,
+              46.467394122141
+            ],
+            [
+              11.803850090209494,
+              46.34528108015769
+            ],
+            [
+              11.969436034345506,
+              46.19630646497137
+            ],
+            [
+              11.896464839380826,
+              46.13266266415059
+            ],
+            [
+              11.712136219810702,
+              46.101065983208514
+            ],
+            [
+              11.684802233636162,
+              45.98432525550612
+            ],
+            [
+              11.4950463673959,
+              46.01243927045596
+            ],
+            [
+              11.278725558537701,
+              45.91895660086641
+            ],
+            [
+              11.130717740631212,
+              45.69959257883443
+            ],
+            [
+              10.876669879111603,
+              45.71581938645551
+            ],
+            [
+              10.844897416682443,
+              45.83405425410052
+            ],
+            [
+              10.728618115833342,
+              45.84883086625143
+            ],
+            [
+              10.579226020064766,
+              45.79472319761743
+            ],
+            [
+              10.460375918114096,
+              45.981589659934855
+            ],
+            [
+              10.558549750070881,
+              46.1180069010976
+            ],
+            [
+              10.590234320857235,
+              46.2333743379553
+            ],
+            [
+              10.527853947901349,
+              46.342644361448095
+            ],
+            [
+              10.61890863862277,
+              46.375361648021624
+            ],
+            [
+              10.624709420503336,
+              46.45445222678882
+            ],
+            [
+              10.745229443883716,
+              46.48493928821756
+            ],
+            [
+              10.83993159596639,
+              46.43072175750308
+            ],
+            [
+              11.05528560844408,
+              46.51561311815084
+            ],
+            [
+              11.21445553639387,
+              46.46931672968333
+            ],
+            [
+              11.201755341036119,
+              46.339238599181954
+            ],
+            [
+              11.242009248528007,
+              46.23117707206421
+            ],
+            [
+              11.387556129211987,
+              46.281131908011105
+            ],
+            [
+              11.476567363293157,
+              46.359629224708954
+            ],
+            [
+              11.59530760136471,
+              46.386205153445076
+            ],
+            [
+              11.684099109486283,
+              46.50768098888648
+            ],
+            [
+              11.832238763508087,
+              46.50403352752522
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Trento",
+        "name_en": "Trentino",
+        "region": "Trentino-Alto Adige",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-TN",
+        "type_en": "Province",
+        "id": 193,
+        "pop_est": 1072276,
+        "coordinates": [
+          11.214905976229801,
+          46.10760284849263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.901977573606132,
+              42.609599784802185
+            ],
+            [
+              12.880114779473502,
+              42.56468767419676
+            ],
+            [
+              12.716110866922975,
+              42.48960710498386
+            ],
+            [
+              12.528354511951136,
+              42.369504561286476
+            ],
+            [
+              12.465132967112709,
+              42.38693218327364
+            ],
+            [
+              12.280217296191267,
+              42.51040422497499
+            ],
+            [
+              12.23583252824858,
+              42.64757952267678
+            ],
+            [
+              12.156555181876115,
+              42.67542986629525
+            ],
+            [
+              12.033662110218188,
+              42.646030450344995
+            ],
+            [
+              11.930302731585755,
+              42.709102963131215
+            ],
+            [
+              11.973918455971955,
+              42.75597064053261
+            ],
+            [
+              11.889016109206068,
+              42.85038714814834
+            ],
+            [
+              11.931662005597047,
+              42.8716807928343
+            ],
+            [
+              12.068269045979662,
+              42.93848651643958
+            ],
+            [
+              12.300849620813324,
+              42.914799992525616
+            ],
+            [
+              12.298059093752158,
+              42.74799456589648
+            ],
+            [
+              12.447363297877871,
+              42.69163470078081
+            ],
+            [
+              12.49822999961475,
+              42.73267962406538
+            ],
+            [
+              12.733557157037126,
+              42.60215105462743
+            ],
+            [
+              12.852011751541113,
+              42.671112239138495
+            ],
+            [
+              12.901977573606132,
+              42.609599784802185
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Terni",
+        "name_en": "Province of Terni",
+        "region": "Umbria",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-TR",
+        "type_en": "Province",
+        "id": 194,
+        "pop_est": 882015,
+        "coordinates": [
+          12.3954968414061,
+          42.65399553886303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              7.022082560000115,
+              45.92525990899999
+            ],
+            [
+              7.183726440000044,
+              45.880456442000096
+            ],
+            [
+              7.361803426000108,
+              45.90784495100006
+            ],
+            [
+              7.541120646000138,
+              45.98411936500007
+            ],
+            [
+              7.693979533000061,
+              45.92867055300012
+            ],
+            [
+              7.84962011600004,
+              45.93971206200011
+            ],
+            [
+              7.855934900175498,
+              45.91931914995877
+            ],
+            [
+              7.863537439601146,
+              45.805995170640585
+            ],
+            [
+              7.91629378962665,
+              45.72966215968091
+            ],
+            [
+              7.8801707416863565,
+              45.60269316086067
+            ],
+            [
+              7.7493235685278705,
+              45.56414213405225
+            ],
+            [
+              7.545922681886225,
+              45.5898061978977
+            ],
+            [
+              7.3854783399534085,
+              45.524349652514445
+            ],
+            [
+              7.0753685430000814,
+              45.466285856000056
+            ],
+            [
+              6.982808471000055,
+              45.51112498000005
+            ],
+            [
+              6.963378133000049,
+              45.640729472000075
+            ],
+            [
+              6.843075398000082,
+              45.682742411999996
+            ],
+            [
+              6.783868043959269,
+              45.76499475113478
+            ],
+            [
+              6.800804077000095,
+              45.82645457000005
+            ],
+            [
+              6.969165893000138,
+              45.86975942000002
+            ],
+            [
+              7.022082560000115,
+              45.92525990899999
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Aoste",
+        "name_en": "Aosta",
+        "region": "Valle d'Aosta",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-AO",
+        "type_en": "Province",
+        "id": 195,
+        "pop_est": 125666,
+        "coordinates": [
+          7.35008091679296,
+          45.72520261050006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.469632061270602,
+              46.67579888071373
+            ],
+            [
+              12.671367649897093,
+              46.65246576338427
+            ],
+            [
+              12.74849856365779,
+              46.6410000853856
+            ],
+            [
+              12.757089872599522,
+              46.534476643582195
+            ],
+            [
+              12.663662134499873,
+              46.516535969159634
+            ],
+            [
+              12.500092240164747,
+              46.4041814599064
+            ],
+            [
+              12.335917981629507,
+              46.26947541276007
+            ],
+            [
+              12.456481951281035,
+              46.20638092863692
+            ],
+            [
+              12.501965350820285,
+              46.111030582995
+            ],
+            [
+              12.422431828066408,
+              46.043078760676224
+            ],
+            [
+              12.330908215541683,
+              46.082213442995965
+            ],
+            [
+              12.191579597320526,
+              46.00408966060934
+            ],
+            [
+              11.961437986573799,
+              45.95423370152406
+            ],
+            [
+              11.925205075653707,
+              45.88496490030985
+            ],
+            [
+              11.799697258421702,
+              45.880570369427005
+            ],
+            [
+              11.684802233636162,
+              45.98432525550612
+            ],
+            [
+              11.712136219810702,
+              46.101065983208514
+            ],
+            [
+              11.896464839380826,
+              46.13266266415059
+            ],
+            [
+              11.969436034345506,
+              46.19630646497137
+            ],
+            [
+              11.803850090209494,
+              46.34528108015769
+            ],
+            [
+              11.888247065649523,
+              46.467394122141
+            ],
+            [
+              11.832238763508087,
+              46.50403352752522
+            ],
+            [
+              12.02203857512012,
+              46.5394095050446
+            ],
+            [
+              12.099140628737018,
+              46.66782870023428
+            ],
+            [
+              12.213969735015269,
+              46.59606600164466
+            ],
+            [
+              12.469632061270602,
+              46.67579888071373
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "Belluno",
+        "name_en": "Province of Belluno",
+        "region": "Veneto",
+        "admin": "Italy",
+        "geonunit": "Italy",
+        "iso_a2": "IT",
+        "iso_3166_2": "IT-BL",
+        "type_en": "Province",
+        "id": 196,
+        "pop_est": 4905854,
+        "coordinates": [
+          12.220946053117842,
+          46.27818462507037
         ]
       }
     }
