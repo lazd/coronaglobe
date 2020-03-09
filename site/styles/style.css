@@ -106,7 +106,8 @@ body {
 	padding-right: 0;
 
 	text-align: center;
-	width: 140px;
+	width: 135px;
+	padding-left: 10px;
 
 	&::-webkit-inner-spin-button,
 	&::-webkit-clear-button {
@@ -495,12 +496,13 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 
 	thead {
 		border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+		margin-bottom: 4px;
 	}
 
 	th,
 	td {
 		text-align: left;
-		padding: 4px 15px;
+		padding: 2px 15px;
 		&:first-child {
 			padding-left: 0;
 		}
@@ -508,6 +510,26 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 			padding-right: 0;
 		}
 	}
+
+	tr:first-of-type {
+		td {
+			padding-top: 5px;
+		}
+	}
+}
+
+.gt_dataTable--interactive {
+	tr {
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+.gt_heading {
+	margin: 6px 0 10px 0;
 }
 
 .gt_finePrint {

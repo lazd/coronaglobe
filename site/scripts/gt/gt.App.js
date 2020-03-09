@@ -69,6 +69,15 @@ const App = function(options) {
 	// Shifty and unreliable way of detecting if we're on a mobile
 	let isMobile = this.isMobile = ('ontouchstart' in document.documentElement);
 
+	// Make a few things smaller on mobile
+	if (this.isMobile) {
+		this.dataLayer.classList.add('gt_layer--detail');
+		this.detailLayer.classList.add('gt_layer--detail');
+		this.detailLayer.classList.add('gt_layer--offset');
+		this.detailLayer.classList.add('gt_layer--bottom');
+		this.detailLayer.classList.add('gt_layer--left');
+	}
+
 	// It's very slow on mobiles, so assume touchscreens are mobiles and just update on change instead of move
 	let sliderChangeEvent = isMobile ? 'change' : 'input';
 	this.slider.addEventListener(sliderChangeEvent, () => {
@@ -241,6 +250,11 @@ const App = function(options) {
 		}
 	});
 
+
+	this.canvas.addEventListener(isMobile ? 'touchstart' : 'click', (evt) => {
+		this.toggleMenu(false);
+	});
+
 	// Add skybox
 	this.skybox = new Skybox({
 		scene: scene
@@ -325,7 +339,7 @@ App.defaults = {
 App.detailTemplate = function(info) {
 	return `
 	<div class="gt_output">
-		<h3 id="detailTitle">${info.name}</h3>
+		<h3 class="gt_heading" id="detailTitle">${info.name}</h3>
 		<dl class="gt_descriptionList" id="detailDescription">
 			<div class="gt_descriptionList-row">
 				<dt>Population</dt>
@@ -363,8 +377,8 @@ App.detailTemplate = function(info) {
 App.dataTableTemplate = function(title, columns, data, callback) {
 	let html = `
 	<div class="gt_output">
-		<h3 id="detailTitle">${title}</h3>
-		<table class="gt_dataTable">
+		<h3 class="gt_heading" id="detailTitle">${title}</h3>
+		<table class="gt_dataTable gt_dataTable--interactive">
 			<thead>
 `;
 	for (let column of columns) {
@@ -442,14 +456,7 @@ App.prototype.showInfoForFeature = function(feature, location) {
 	}
 
 	this.detailLayer.hidden = false;
-	if (this.isMobile) {
-		// Fullscreen
-		this.detailLayer.classList.add('gt_layer--detail');
-		this.detailLayer.classList.add('gt_layer--offset');
-		this.detailLayer.classList.add('gt_layer--bottom');
-		this.detailLayer.classList.add('gt_layer--left');
-	}
-	else {
+	if (!this.isMobile) {
 		if (location) {
 			this.detailLayer.style.left = location[0] + 'px';
 			this.detailLayer.style.top = location[1] + 'px';
@@ -800,9 +807,16 @@ App.prototype.positionSunForDate = function(date) {
 };
 
 App.prototype.toggleMenu = function(force) {
-	this.dataLayer.hidden = !this.dataLayer.hidden;
-	this.menuButton.classList.toggle('is-selected', !this.dataLayer.hidden);
-	if (!this.dataLayer.hidden) {
+	let show;
+	if (force !== undefined) {
+		show = force;
+	}
+	else {
+		show = !this.menuButton.classList.contains('is-selected');
+	}
+	this.dataLayer.hidden = !show;
+	this.menuButton.classList.toggle('is-selected', show);
+	if (show) {
 		this.hideInfo();
 	}
 };
