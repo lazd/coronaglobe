@@ -53,7 +53,7 @@ const Heatmap = function(options) {
 	this.mesh.updateMatrix();
 
 	// Add to scene
-	this.scene.add(this.mesh);
+	// this.scene.add(this.mesh);
 };
 
 Heatmap.defaults = {

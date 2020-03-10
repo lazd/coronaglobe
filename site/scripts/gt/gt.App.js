@@ -16,7 +16,7 @@ import config from '../../../data/config.json';
 import cases from '../../data/cases.json';
 import * as featureCollection from '../../data/features.json';
 import * as points from '../../data/points.json';
-import drawThreeGeo from './lib/threeGeoJSON.js';
+import drawThreeGeo from './lib/three3DGeoJSON.js';
 
 window.THREE = THREE;
 
@@ -307,6 +307,23 @@ const App = function(options) {
 		}
 	});
 
+	this.globeGeometry = new THREE.SphereGeometry(this.earthRadius - 0.5, 64, 64);
+	this.globeMaterial = new THREE.MeshPhongMaterial({
+		color: 'blue',
+		transparent: true,
+		depthWrite: false,
+		intensityToAlpha: false
+	});
+	this.globeMesh = new THREE.Mesh(this.globeGeometry, this.globeMaterial);
+	this.scene.add(this.globeMesh);
+
+	// Draw features
+	this.featureContainer = new THREE.Object3D();
+	this.scene.add(this.featureContainer);
+	if (this.drawFeatureLines) {
+		this.drawFeatures();
+	}
+
 	if (!args.lat && !args.long) {
 		if ((this.startAtGPS || this.watchGPS) && window.location.protocol === 'https:') {
 			// Watch GPS position
@@ -338,13 +355,6 @@ const App = function(options) {
 
 	// Start animation
 	this.animate(0);
-
-	// Draw features
-	this.featureContainer = new THREE.Object3D();
-	this.scene.add(this.featureContainer);
-	if (this.drawFeatureLines) {
-		this.drawFeatures();
-	}
 };
 
 App.defaults = {
@@ -451,11 +461,11 @@ App.dataTableTemplate = function(title, columns, data, callback) {
 	return html;
 }
 
-App.prototype.showFeature = function(feature) {
+App.prototype.showFeature = function(feature, options) {
 	// Hide the last feature
 	if (this._lastShownFeature) {
 		if (this._lastShownFeature.border) {
-			this._lastShownFeature.border.visible = false;
+			// this._lastShownFeature.border.visible = false;
 		}
 	}
 
@@ -467,11 +477,14 @@ App.prototype.showFeature = function(feature) {
 		feature.border = new THREE.Group();
 		feature.border.name = feature.properties.name;
 		this.featureContainer.add(feature.border);
-		drawThreeGeo(feature, this.earthRadius, 'sphere', {
-			color: 'rgb(220, 220, 220)',
+
+		let material = new THREE.MeshLambertMaterial({
+	    side: THREE.BackSide,
+			color: options ? options.color : new THREE.Color(0, 0.5, 0),
 			opacity: 1,
 			transparent: true
-		}, feature.border);
+		});
+		drawThreeGeo(feature, this.earthRadius, 'sphere', material, feature.border);
 	}
 	this._lastShownFeature = feature;
 };
@@ -541,7 +554,7 @@ App.prototype.showInfoForFeature = function(feature, location) {
 
 App.prototype.hideFeature = function(feature) {
 	if (feature.border) {
-		feature.border.visible = false;
+		// feature.border.visible = false;
 	}
 };
 
@@ -571,11 +584,15 @@ App.prototype.drawFeatures = function() {
 	// 	transparent: true,
 	// }, this.featureContainer);
 
-	drawThreeGeo(countries, this.earthRadius, 'sphere', {
-		color: 'rgb(0, 0, 0)',
-		opacity: 0.7,
-		transparent: true
-	}, this.featureContainer);
+	let material = new THREE.MeshLambertMaterial({
+    side: THREE.BackSide,
+		color: 'rgb(200, 200, 200)',
+		opacity: 1,
+		transparent: true,
+		depthWrite: false
+	});
+
+	drawThreeGeo(countries, this.earthRadius, 'sphere', material, this.featureContainer);
 
 	// Draw infected regions
 	/*
@@ -964,29 +981,41 @@ App.prototype.showData = function(type, date) {
 
 	let latestCasesByRegion = cases[date];
 	let count = 0;
+	let targetColor = new THREE.Color(1, 0, 0);
+	let worstRate = 0;
+	let rates = [];
 	for (let featureId in latestCasesByRegion) {
 		let feature = featureCollection.features[featureId];
 		let caseInfo = latestCasesByRegion[featureId];
 		let location = featureCollection.features[featureId];
 		let cases = caseInfo[type];
-		if (cases) {
+	if (cases) {
+			let infectionPercent = 0;
+			let population = location.properties.pop_est;
+			if (population) {
+				infectionPercent = cases / population;
+
+				if (infectionPercent > worstRate) {
+					worstRate = infectionPercent;
+				}
+				rates[featureId] = infectionPercent;
+			}
+			else {
+				console.log('NO POP DATA FOR %s', feature.properties.name);
+			}
+
 			if (points[featureId]) {
 				// Location has enough cases to have randomly distributed clusters
 				let clusterCount = Math.round(cases / config.caseDivisor);
 				let size = 2.5;
 				let intensity = 1;
-				let infectionPercent = 0;
-				let population = location.properties.pop_est;
-				if (population) {
-					infectionPercent = cases / population;
-				}
 
-				if (population) {
-					console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, infectionPercent.toFixed(8), clusterCount, size, intensity);
-				}
-				else {
-					console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, clusterCount, size, intensity);
-				}
+				// if (population) {
+				// 	console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, infectionPercent.toFixed(8), clusterCount, size, intensity);
+				// }
+				// else {
+				// 	console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, clusterCount, size, intensity);
+				// }
 
 				for (let i = 0; i < clusterCount && i < points[featureId].length; i++) {
 					let coordinates = points[featureId][i];
@@ -1005,7 +1034,7 @@ App.prototype.showData = function(type, date) {
 				// Location doesn't have enough cases for distribution, create a blob at center
 				let size = 5;
 				let intensity = 0.75;
-				console.log('  %s: %d %s (1 point of %dpx and %f intensity)', feature.properties.name, cases, type, size, intensity);
+				// console.log('  %s: %d %s (1 point of %dpx and %f intensity)', feature.properties.name, cases, type, size, intensity);
 
 				this.add({
 					coordinates: feature.properties.coordinates,
@@ -1015,6 +1044,19 @@ App.prototype.showData = function(type, date) {
 			}
 
 			count += cases;
+		}
+	}
+
+	for (let featureId in latestCasesByRegion) {
+		let feature = featureCollection.features[featureId];
+		if (rates[featureId]) {
+			let ratioToWorse = rates[featureId] / worstRate;
+			let scaledColorValue = Math.min(Math.tanh(ratioToWorse + 0.1) + 0.25, 1);
+			let colorValue = `hsl(0, ${Math.round(scaledColorValue * 100)}%, 75%)`;
+			console.log(feature.properties.name, colorValue);
+			this.showFeature(feature, {
+				color: new THREE.Color(colorValue)
+			});
 		}
 	}
 

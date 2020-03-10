@@ -72,7 +72,7 @@ const Globe = function(options) {
 	this.setSunPosition();
 
 	// Add root to scene
-	this.scene.add(this.root);
+	// this.scene.add(this.root);
 };
 
 Globe.defaults = {

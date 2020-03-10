@@ -36,6 +36,7 @@
     "@turf/turf": "^5.1.6",
     "autoprefixer": "^9.7.4",
     "csv": "^5.3.1",
+    "delaunator": "^4.0.1",
     "ghpages": "^0.0.10",
     "parcel": "^2.0.0-alpha.3.2",
     "postcss-nested": "^4.2.1",
