@@ -197,7 +197,7 @@ const App = function(options) {
 
 	// Add controls
 	this.controls = new OrbitControls(this.camera, this.container);
-	this.controls.minDistance = 250;
+	this.controls.minDistance = 225;
 	this.controls.enablePan = false;
 
 	// Update the hash when the camera is moved
@@ -856,7 +856,7 @@ App.prototype.updateRateTable = function(date) {
 		util.getRatio(info.active, info.population)
 	]);
 
-	rates = rates.slice(0, 15);
+	rates = rates.slice(0, this.isMobile ? config.topLocationsCount : config.topLocationsCount * 2);
 
 	this.dataLayer.innerHTML = App.dataTableTemplate(
 		'Rate of Infection',
