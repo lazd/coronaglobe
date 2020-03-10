@@ -43,26 +43,22 @@
 	<body>
 		<div class="gt_container">
 			<div class="gt_ui">
-				<div class="gt_layer gt_layer--top gt_layer--middle">
-					<button class="gt_button gt_menuButton" aria-label="">
-						<span class="gt_icon gt_icon--menu"></span>
-					</button>
+				<div class="gt_layer gt_layer--bottom gt_layer--middle">
 					<input type="range" min="0" step="1" class="gt_slider gt_dateSlider" aria-label="Day number">
 					<input type="date" class="gt_datePicker" aria-label="Current date">
 					<button class="gt_button gt_pauseButton" aria-label="Play date series">
 						<span class="gt_icon gt_icon--play"></span>
 					</button>
 				</div>
-				<div class="gt_layer gt_layer--bottom gt_layer--left gt_search">
-					<!-- <input type="search" class="gt_input" placeholder="location"/> -->
-					<button class="gt_button gt_locationButton" aria-label="Go to GPS location">
-						<span class="gt_icon gt_icon--location"></span>
-					</button>
-					<button class="gt_button gt_infoButton" aria-label="Get info">
-						<span class="gt_icon gt_icon--info"></span>
+				<div class="gt_layer gt_layer--top gt_layer--left">
+					<button class="gt_button gt_menuButton" aria-label="">
+						<span class="gt_icon gt_icon--menu"></span>
 					</button>
 				</div>
-				<div class="gt_layer gt_layer--bottom gt_layer--right">
+				<div class="gt_layer gt_layer--top gt_layer--right">
+					<button class="gt_button gt_tableButton" aria-label="">
+						<span class="gt_icon gt_icon--list"></span>
+					</button>
 					<div class="gt_output gt_count">-</div>
 					<label class="gt_select">
 						<select class="gt_typeSelect" aria-label="What to visualize">
@@ -71,21 +67,57 @@
 							<option value="deaths">deaths</option>
 							<option value="recovered">recovered</option>
 						</select>
-						<span class="gt_icon gt_icon--cheveron-down"></span>
+						<span class="gt_icon gt_icon--chevron-down"></span>
 					</label>
 				</div>
-				<div class="gt_overlay gt_overlay--loading is-open">
-					<div class="gt_indicator">
-						<span class="gt_icon gt_icon--spinner"></span>
+				<div class="gt_overlay gt_spinner">
+					<div class="gt_loading gt_icon-spinner">
+						<div class="gt_indicator">
+							<span class="gt_icon gt_icon--spinner"></span>
+						</div>
 					</div>
 				</div>
 
-				<div class="gt_layer gt_layer--offset gt_layer--left gt_layer--top gt_dataLayer" hidden></div>
+				<div class="gt_layer gt_layer--offset gt_layer--left gt_layer--top gt_menuLayer" hidden>
+					<div class="gt_menu">
+						<button class="gt_button gt_locationButton" aria-label="Go to GPS location">
+							<span class="gt_icon gt_icon--location"></span>
+							<span class="gt_button-label">Locate</span>
+						</button>
+						<button class="gt_button gt_settingsButton" aria-label="Settings" data-overlay="gt_settingsOverlay">
+							<span class="gt_icon gt_icon--cog"></span>
+							<span class="gt_button-label">Settings</span>
+						</button>
+						<button class="gt_button gt_aboutButton" aria-label="Get info" data-overlay="gt_aboutOverlay">
+							<span class="gt_icon gt_icon--info"></span>
+							<span class="gt_button-label">About</span>
+						</button>
+					</div>
+				</div>
+				<div class="gt_layer gt_layer--offset gt_layer--right gt_layer--top gt_tableLayer" hidden></div>
 
 				<div class="gt_layer gt_detailLayer" tabindex="0" role="dialog" aria-labelledby="detailTitle" aria-describedby="detailDescription"></div>
 
-				<div class="gt_overlay gt_layer gt_about gt_layer--full">
-					<div class="gt_output">
+				<div class="gt_overlay gt_layer gt_settingsLayer gt_layer--full" hidden>
+					<div class="gt_dialog">
+						<h3 class="gt_heading">Settings</h3>
+						<div class="gt_form">
+							<label class="gt_form-field">
+								<span class="gt_form-label">Texture</span>
+								<div class="gt_select">
+									<select class="gt_textureSelect" aria-label="The globe texture">
+										<option value="realistic">realistic</option>
+										<option value="topo">topo</option>
+									</select>
+									<span class="gt_icon gt_icon--chevron-down"></span>
+								</div>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="gt_overlay gt_layer gt_aboutLayer gt_layer--full" hidden>
+					<div class="gt_dialog">
 						<h3 class="gt_heading">CoronaGlobe</h3>
 						<p>© 2020 Larry Davis</p>
 						<p><a class="gt_link" target="_blank" href="https://blog.lazd.net">blog</a> • <a class="gt_link" target="_blank" href="https://github.com/lazd">github</a> • <a class="gt_link" target="_blank" href="https://twitter.com/lazdnet">twitter</a> • <a class="gt_link" target="_blank" href="https://www.patreon.com/lazd">patreon</a></p>

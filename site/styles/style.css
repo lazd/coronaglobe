@@ -5,6 +5,8 @@
 	--gt-component-background-color-focus: var(--gt-component-background-color-hover);
 	--gt-component-text-color: rgba(200, 200, 200, 0.65);
 
+	--gt-dialog-background-color: rgb(40, 40, 40);
+
 	--gt-component-height: 38px;
 	--gt-component-margin: 8px;
 	--gt-component-padding-x: 14px;
@@ -65,6 +67,7 @@ body {
 	cursor: crosshair;
 }
 
+.gt_dialog,
 .gt_output,
 .gt_select select,
 .gt_button,
@@ -82,7 +85,7 @@ body {
 	border-radius: var(--gt-component-border-radius);
 	background-color: var(--gt-component-background-color);
 
-  box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
+	box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
 
 	font-family: Helvetica, sans-serif;
 	font-size: var(--gt-component-font-size);
@@ -93,6 +96,10 @@ body {
 	&[hidden] {
 		display: none;
 	}
+}
+
+.gt_button-label {
+	margin-left: calc(var(--gt-component-padding-x) / 2);
 }
 
 .gt_input {
@@ -154,7 +161,7 @@ body {
 	.gt_icon {
 		display: block;
 		position: absolute;
-		top: 12px;
+		top: 11px;
 		right: 10px;
 
 		color: rgb(120, 120, 120);
@@ -224,6 +231,12 @@ body {
 			background-color: var(--gt-component-background-color-focus);
 		}
 	}
+}
+
+.gt_dialog {
+	height: auto;
+	display: block;
+	background: var(--gt-dialog-background-color);
 }
 
 .gt_link {
@@ -326,15 +339,15 @@ body {
 
 .gt_count {
 	font-weight: bold;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-right: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	margin-right: 0;
 }
 
 .gt_select .gt_typeSelect {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+	margin-left: 0;
 }
 
 .gt_overlay {
@@ -348,28 +361,19 @@ body {
 
 	background: rgba(0, 0, 0, 0.5);
 
-  transition: transform 250ms ease-in-out,
-            opacity 250ms ease-in-out,
-            visibility 0ms linear 250ms;
+	transition: transform 250ms ease-in-out,
+						opacity 250ms ease-in-out,
+						visibility 0ms linear 250ms;
 
-	opacity: 0;
-  visibility: hidden;
+	opacity: 1;
+	pointer-events: auto;
+	display: flex;
 
-  pointer-events: none;
-
-	&.is-open {
-	  visibility: visible;
-
-	  opacity: 1;
-
-	  transition-delay: 0ms;
-
-	  pointer-events: auto;
+	&[hidden] {
+		display: flex;
+		opacity: 0;
+		pointer-events: none;
 	}
-}
-
-.gt_overlay--loading {
-	pointer-events: none; /* Let mouse clicks pass through */
 }
 
 /*
@@ -377,15 +381,15 @@ Style placeholder text
 Via http://css-tricks.com/snippets/css/style-placeholder-text/
 */
 .gt_input::-webkit-input-placeholder {
-	 opacity: 0.35;
+	opacity: 0.35;
 }
 
 .gt_input:-moz-placeholder {
-	 opacity: 0.35;
+	opacity: 0.35;
 }
 
 .gt_input::-moz-placeholder {
-	 opacity: 0.35;
+	opacity: 0.35;
 }
 
 .gt_search > .gt_input {
@@ -401,8 +405,6 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 }
 
 .gt_loading {
-	display: block;
-
 	text-align: center;
 	color: rgba(100, 100, 100, 0.75);
 	font-size: 200px;
@@ -502,7 +504,7 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 	th,
 	td {
 		text-align: left;
-		padding: 2px 15px;
+		padding: 2px 12px;
 		&:first-child {
 			padding-left: 0;
 		}
@@ -536,6 +538,48 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 	width: 275px;
 	font-size: 10px;
 	text-align: left;
+}
+
+.gt_menu {
+	display: flex;
+	flex-direction: column;
+	margin: var(--gt-component-margin);
+	margin-top: 0;
+	box-shadow: 0 0 var(--gt-component-shadow-blur) var(--gt-component-shadow-width) var(--gt-component-shadow-color);
+
+	border-radius: var(--gt-component-border-radius);
+
+	padding: calc(var(--gt-component-padding-y) / 2) 0;
+
+	background-color: var(--gt-component-background-color);
+	> * {
+		text-align: left;
+		border-radius: 0;
+		width: 100%;
+		margin: 0;
+		padding: calc(var(--gt-component-padding-y) * 0.75) calc(var(--gt-component-padding-x) * 0.75);
+		background-color: transparent;
+
+		box-shadow: none;
+	}
+}
+
+.gt_form {
+	display: flex;
+	flex-direction: column;
+}
+
+.gt_form-field {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.gt_form-label {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	margin-right: var(--gt-component-margin);
 }
 
 /* Keyframes per https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */

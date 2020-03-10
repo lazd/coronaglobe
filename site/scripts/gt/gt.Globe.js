@@ -9,19 +9,25 @@ const Globe = function(options) {
 	// Initialize root object
 	this.root = new THREE.Object3D();
 
-	var loader = new THREE.TextureLoader();
-	this.handleLoad = this.handleLoad.bind(this, 2);
+	var loader = this.loader = new THREE.TextureLoader();
+	this.handleLoad = this.handleLoad.bind(this, 3);
 
 	// Setup globe mesh
 	var globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
-	var globeMaterial = new THREE.MeshPhongMaterial({
+	var globeMaterial = this.globeMaterial = new THREE.MeshPhongMaterial({
 		color: 'rgb(120, 120, 120)',
 		shininess: 20
 	});
+
+	this.textures = {
+		realistic: require('url:../../textures/globe/earthmap4k.jpg'),
+		topo: require('url:../../textures/globe/earthspec4k.jpg')
+	};
+
+	this.setTexture(options.texture || 'realistic');
+
 	// Main texture
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthlights4k.jpg'), this.handleLoad);
-	globeMaterial.map = loader.load(require('url:../../textures/globe/earthmap4k.jpg'), this.handleLoad);
-	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthspec4k.jpg'), this.handleLoad);
 	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthgrid.png'), this.handleLoad); // Lat/Long grid
 
 	// Bump map (disabled to work around broken optimized bundle)
@@ -73,6 +79,13 @@ Globe.defaults = {
 	radius: 200,
 	cloudRadius: 200.5,
 	cloudSpeed: 0.000005
+};
+
+Globe.prototype.setTexture = function(texture) {
+	if (this.textures[texture]) {
+		this.texture = texture;
+		this.globeMaterial.map = this.loader.load(this.textures[texture], this.handleLoad);
+	}
 };
 
 Globe.prototype.handleLoad = function(toLoad) {

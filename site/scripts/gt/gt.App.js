@@ -24,6 +24,9 @@ const App = function(options) {
 	util.extend(this, App.defaults, options);
 	this.el = (this.el && this.el.nodeType) || (this.el && document.querySelector(this.el)) || document.body;
 
+	// Get args
+	let args = util.getHashArgs();
+
 	// Permanantly bind animate so we don't have to call it in funny ways
 	this.animate = this.animate.bind(this);
 	this.play = this.play.bind(this);
@@ -47,7 +50,7 @@ const App = function(options) {
 	this.container = this.el.querySelector('.gt_container');
 	this.ui = this.el.querySelector('.gt_ui');
 	this.countEl = this.container.querySelector('.gt_count');
-	this.overlay = this.container.querySelector('.gt_overlay');
+	this.spinner = this.container.querySelector('.gt_spinner');
 	this.indicator = this.container.querySelector('.gt_indicator');
 	this.output = this.container.querySelector('.gt_output');
 	this.typeSelectContainer = this.container.querySelector('.gt_forSelect');
@@ -55,12 +58,16 @@ const App = function(options) {
 	this.pauseButton = this.container.querySelector('.gt_pauseButton');
 	this.locationButton = this.container.querySelector('.gt_locationButton');
 	this.slider = this.container.querySelector('.gt_dateSlider');
-	this.about = this.container.querySelector('.gt_about');
-	this.infoButton = this.container.querySelector('.gt_infoButton');
+	this.aboutLayer = this.container.querySelector('.gt_aboutLayer');
+	this.aboutButton = this.container.querySelector('.gt_aboutButton');
 	this.datePicker = this.container.querySelector('.gt_datePicker');
 	this.detailLayer = this.container.querySelector('.gt_detailLayer');
-	this.dataLayer = this.container.querySelector('.gt_dataLayer');
+	this.menuLayer = this.container.querySelector('.gt_menuLayer');
 	this.menuButton = this.container.querySelector('.gt_menuButton');
+	this.tableButton = this.container.querySelector('.gt_tableButton');
+	this.tableLayer = this.container.querySelector('.gt_tableLayer');
+	this.settingsLayer = this.container.querySelector('.gt_settingsLayer');
+	this.settingsButton = this.container.querySelector('.gt_settingsButton');
 
 	if (this.menus === false) {
 		this.typeSelectContainer.style.display = 'none';
@@ -71,7 +78,7 @@ const App = function(options) {
 
 	// Make a few things smaller on mobile
 	if (this.isMobile) {
-		this.dataLayer.classList.add('gt_layer--detail');
+		this.tableLayer.classList.add('gt_layer--detail');
 		this.detailLayer.classList.add('gt_layer--detail');
 		this.detailLayer.classList.add('gt_layer--offset');
 		this.detailLayer.classList.add('gt_layer--bottom');
@@ -106,20 +113,16 @@ const App = function(options) {
 		}
 	});
 
-	// Show info overlay
-	this.infoButton.addEventListener('click', (evt) => {
-		this.about.classList.add('is-open');
-	});
-
-	// Hide info overlay
-	this.about.addEventListener('click', (evt) => {
-		if (evt.target.classList.contains('gt_overlay')) {
-			this.about.classList.remove('is-open');
-		}
+	this.textureSelect = this.ui.querySelector('.gt_textureSelect')
+	this.textureSelect.addEventListener('change', (evt) => {
+		this.toggleOverlay(this.settingsLayer, null, false);
+		let texture = evt.target.value;
+		this.setTexture(texture);
+		this.setHashFromParameters();
 	});
 
 	// Show clicked items in table
-	this.dataLayer.addEventListener('click', (evt) => {
+	this.tableLayer.addEventListener('click', (evt) => {
 		let tr = evt.target.closest('tr');
 		if (tr) {
 			let featureId = tr.getAttribute('data-featureId');
@@ -137,7 +140,32 @@ const App = function(options) {
 	});
 
 	this.menuButton.addEventListener('click', (evt) => {
-		this.toggleMenu();
+		this.toggleOverlay(this.menuLayer, this.menuButton);
+	});
+
+	// Close menu on click
+	this.menuLayer.addEventListener('click', (evt) => {
+		this.toggleOverlay(this.menuLayer, this.menuButton, false);
+	});
+
+	this.settingsButton.addEventListener('click', (evt) => {
+		this.toggleOverlay(this.settingsLayer, null);
+	});
+
+	this.tableButton.addEventListener('click', (evt) => {
+		this.toggleOverlay(this.tableLayer, this.tableButton);
+	});
+
+	// Show info overlay
+	this.aboutButton.addEventListener('click', (evt) => {
+		this.toggleOverlay(this.aboutLayer, null, true);
+	});
+
+	// Hide overlay
+	this.ui.addEventListener('click', (evt) => {
+		if (evt.target.classList.contains('gt_overlay')) {
+			this.toggleOverlay(evt.target, null, false);
+		}
 	});
 
 	this.pauseButton.addEventListener('click', this.togglePause.bind(this));
@@ -214,7 +242,8 @@ const App = function(options) {
 		radius: this.earthRadius,
 		// cloudRadius: this.cloudRadius,
 		cloudSpeed: this.cloudSpeed,
-		loaded: this.handleLoaded.bind(this)
+		loaded: this.handleLoaded.bind(this),
+		texture: args.texture
 	});
 
 	let rayCaster = new THREE.Raycaster();
@@ -250,18 +279,14 @@ const App = function(options) {
 		}
 	});
 
-
-	this.canvas.addEventListener(isMobile ? 'touchstart' : 'click', (evt) => {
-		this.toggleMenu(false);
+	this.canvas.addEventListener(isMobile ? 'touchstart' : 'mousedown', (evt) => {
+		this.toggleOverlay(this.menuLayer, this.menuButton, false);
 	});
 
 	// Add skybox
 	this.skybox = new Skybox({
 		scene: scene
 	});
-
-	// Get args
-	var args = util.getHashArgs();
 
 	// Add heatmap
 	this.heatmap = new Heatmap({
@@ -441,6 +466,13 @@ App.prototype.showFeature = function(feature) {
 	this._lastShownFeature = feature;
 };
 
+App.prototype.setTexture = function(texture) {
+	if (this.globe.texture != texture) {
+		this.globe.setTexture(texture);
+	}
+	this.textureSelect.value = this.globe.texture;
+};
+
 App.prototype.hideInfo = function() {
 	this.detailLayer.hidden = true;
 	this.lastInfoFeature = null;
@@ -588,10 +620,10 @@ App.prototype.render = function() {
 
 App.prototype.moveToGPS = function() {
 	// Ask for and go to user's position
-	navigator.geolocation.getCurrentPosition((function(pos) {
-		let coordinates = [pos.coordinates.longitude, pos.coordinates.latitude];
+	navigator.geolocation.getCurrentPosition((pos) => {
+		let coordinates = [pos.coords.longitude, pos.coords.latitude];
 		this.rotateTo(coordinates);
-	}).bind(this));
+	});
 };
 
 App.prototype.startWatchingGPS = function() {
@@ -639,6 +671,10 @@ App.prototype.setParametersFromHash = function() {
 		this.playing = true;
 		this.play();
 	}
+
+	if (args.texture) {
+		this.setTexture(args.texture);
+	}
 };
 
 App.prototype.setHashFromParameters = function() {
@@ -662,7 +698,8 @@ App.prototype.setHashFromParameters = function() {
 		date: this.dateSet ? this.date : null,
 		type: this.type,
 		lat: lat,
-		long: long
+		long: long,
+		texture: this.globe.texture
 	});
 };
 
@@ -692,25 +729,12 @@ App.prototype.rotateTo = function(coordinates) {
 	this.camera.lookAt(this.scene.position);
 };
 
-App.prototype.showOverlay = function(type) {
-	this.overlay.classList.add('is-open');
-	if (type)
-		this.indicator.className = 'gt_'+type;
+App.prototype.showSpinner = function(type) {
+	this.spinner.hidden = false;
 };
 
-App.prototype.hideOverlay = function(type) {
-	this.overlay.classList.remove('is-open');
-	if (type)
-		this.indicator.className = 'gt_'+type;
-};
-
-// Handlers
-App.prototype.showSpinner = function() {
-	this.showOverlay('loading gt_icon-spinner');
-};
-
-App.prototype.hideSpinner = function() {
-	this.hideOverlay('loading gt_icon-spinner');
+App.prototype.hideSpinner = function(type) {
+	this.spinner.hidden = true;
 };
 
 App.prototype.handleLoaded = function() {
@@ -806,18 +830,17 @@ App.prototype.positionSunForDate = function(date) {
 	this.globe.setSunPosition(dayOfYear);
 };
 
-App.prototype.toggleMenu = function(force) {
+App.prototype.toggleOverlay = function(overlay, button, force) {
 	let show;
 	if (force !== undefined) {
 		show = force;
 	}
 	else {
-		show = !this.menuButton.classList.contains('is-selected');
+		show = overlay.hidden;
 	}
-	this.dataLayer.hidden = !show;
-	this.menuButton.classList.toggle('is-selected', show);
-	if (show) {
-		this.hideInfo();
+	overlay.hidden = !show;
+	if (button) {
+		button.classList.toggle('is-selected', show);
 	}
 };
 
@@ -850,20 +873,19 @@ App.prototype.updateRateTable = function(date) {
 	});
 
 	let rates = rateOrder.map((info, index) => [
-		index + 1,
-		info.name,
+		`${index + 1}. ${info.name}`,
 		info.active.toLocaleString(),
 		util.getRatio(info.active, info.population)
 	]);
 
 	rates = rates.slice(0, this.isMobile ? config.topLocationsCount : config.topLocationsCount * 2);
 
-	this.dataLayer.innerHTML = App.dataTableTemplate(
+	this.tableLayer.innerHTML = App.dataTableTemplate(
 		'Rate of Infection',
-		['Rank', 'Location', 'Cases', 'Ratio'],
+		['Location', 'Cases', 'Ratio'],
 		rates,
 		(html, row, index) => {
-			return html.replace('<tr', `<tr data-featureId="${rateOrder[index].featureId}"`);
+			return html.replace('<tr>', `<tr data-featureId="${rateOrder[index].featureId}">`);
 		}
 	);
 }
