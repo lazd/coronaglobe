@@ -69,18 +69,7 @@ function generateCasesByLocation() {
     return new Promise((resolve, reject) => {
       fs.createReadStream(csvFilePath, { encoding: 'utf8' })
         .pipe(csv({
-          columns: (columns) => {
-            return columns.map((column, index) => {
-              if (index > 3) {
-                // Format date properly from Italy data
-                let date = new Date(Date.parse(column));
-                return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-              }
-
-              // Strip bad data from Italy headers
-              return column.replace(/[^A-Za-z0-9\/]/g, '');
-            });
-          }
+          columns: true
         }))
         .on('data', (row) => {
           // Store location by name
