@@ -131,7 +131,7 @@ const App = function(options) {
 				if (feature) {
 					this.rotateTo(feature.properties.coordinates);
 
-					this.showInfoForFeature(feature, [this.canvas.offsetLeft + this.canvas.width / 2, this.canvas.offsetTop + this.canvas.height / 2]);
+					this.showInfoForFeature(feature);
 
 					this.showFeature(feature);
 				}
@@ -487,6 +487,10 @@ App.prototype.showInfoForFeature = function(feature, location) {
 		return;
 	}
 
+	if (!location) {
+		location = [this.canvas.offsetLeft + this.canvas.width / 2, this.canvas.offsetTop + this.canvas.height / 2];
+	}
+
 	this.detailLayer.hidden = false;
 	if (!this.isMobile) {
 		if (location) {
@@ -623,6 +627,11 @@ App.prototype.moveToGPS = function() {
 	navigator.geolocation.getCurrentPosition((pos) => {
 		let coordinates = [pos.coords.longitude, pos.coords.latitude];
 		this.rotateTo(coordinates);
+
+		let feature = this.drawFeatureAtCoordinates(coordinates);
+		if (feature) {
+			this.showInfoForFeature(feature);
+		}
 	});
 };
 
