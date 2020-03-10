@@ -266,7 +266,7 @@ const App = function(options) {
 	// Add heatmap
 	this.heatmap = new Heatmap({
 		scene: scene,
-		radius: this.earthRadius + 1,
+		radius: this.earthRadius,
 		ready: () => {
 			this.showData();
 		}
