@@ -3,22 +3,29 @@ import util from './gt.util.js';
 import WebGLHeatmap from './lib/webgl-heatmap.js';
 
 const Heatmap = function(options) {
-	this.set(options);
+	util.extend(this, this.constructor.defaults, options);
+
+	// Invert decay factor
+	this.decayFactor = this.decayFactor === 0 ? 0 : 1 - this.decayFactor;
 
 	this.lastUpdate = 0;
 
 	this.canvas = document.createElement('canvas');
 
+	// Load gradient
 	let gradientImage = new Image();
 	gradientImage.src = require('url:../../textures/heatmap-gradient.png');
+	Heatmap.styles.pinkToYellow = gradientImage;
 
+	// Store style ahead of initialization
 	this.heatmap = new WebGLHeatmap({
 		canvas: this.canvas,
 		width: this.width,
 		height: this.height,
-		gradientTexture: gradientImage
+		gradientTexture: Heatmap.styles[this.style]
 	});
 
+	// Add listener after we initialize heatmap, or we add data too soon
 	gradientImage.addEventListener('load', () => {
 		this.ready();
 	});
@@ -57,14 +64,13 @@ Heatmap.defaults = {
 	size: 20,
 	intensity: 0.03,
 	doBlur: false,
-	decayFactor: 0
+	decayFactor: 0,
+	style: 'pinkToYellow'
 };
 
-Heatmap.prototype.set = function(options) {
-	util.extend(this, this.constructor.defaults, options);
-
-	// Invert decay factor
-	this.decayFactor = this.decayFactor === 0 ? 0 : 1 - this.decayFactor;
+Heatmap.styles = {
+	'greenToRed': null,
+	'pinkToYellow': null
 };
 
 Heatmap.prototype.add = function(data) {
@@ -73,6 +79,11 @@ Heatmap.prototype.add = function(data) {
 		console.error('Got 0,0 coordinates', data)
 	}
 	this.heatmap.addPoint(pos.x, pos.y, data.size || this.size, data.intensity || this.intensity);
+};
+
+Heatmap.prototype.setStyle = function(style) {
+	this.style = style;
+	this.heatmap.setGradientTexture(Heatmap.styles[style]);
 };
 
 /*

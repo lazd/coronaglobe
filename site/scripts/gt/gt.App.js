@@ -113,11 +113,21 @@ const App = function(options) {
 		}
 	});
 
+	// Settings inputs
 	this.textureSelect = this.ui.querySelector('.gt_textureSelect')
 	this.textureSelect.addEventListener('change', (evt) => {
 		this.toggleOverlay(this.settingsLayer, null, false);
 		let texture = evt.target.value;
 		this.setTexture(texture);
+		this.setHashFromParameters();
+	});
+
+	this.pointStyleSelect = this.ui.querySelector('.gt_pointStyleSelect')
+	this.pointStyleSelect.addEventListener('change', (evt) => {
+		this.toggleOverlay(this.settingsLayer, null, false);
+		let color = evt.target.value;
+		this.setStyle(color);
+		this.showData();
 		this.setHashFromParameters();
 	});
 
@@ -470,7 +480,20 @@ App.prototype.setTexture = function(texture) {
 	if (this.globe.texture != texture) {
 		this.globe.setTexture(texture);
 	}
+	this.textureSet = true;
 	this.textureSelect.value = this.globe.texture;
+};
+
+App.prototype.setStyle = function(style) {
+	if (!style) {
+		return;
+	}
+
+	if (this.heatmap.style != style) {
+		this.heatmap.setStyle(style);
+	}
+	this.styleSet = true;
+	this.pointStyleSelect.value = this.heatmap.style;
 };
 
 App.prototype.hideInfo = function() {
@@ -684,6 +707,10 @@ App.prototype.setParametersFromHash = function() {
 	if (args.texture) {
 		this.setTexture(args.texture);
 	}
+
+	if (args.style) {
+		this.setStyle(args.style);
+	}
 };
 
 App.prototype.setHashFromParameters = function() {
@@ -708,7 +735,8 @@ App.prototype.setHashFromParameters = function() {
 		type: this.type,
 		lat: lat,
 		long: long,
-		texture: this.globe.texture
+		texture: this.textureSet ? this.globe.texture : null,
+		style: this.styleSet ? this.heatmap.style : null
 	});
 };
 

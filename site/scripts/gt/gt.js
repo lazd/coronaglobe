@@ -11,4 +11,6 @@ const gt = {
 	}
 };
 
+window.gt = gt;
+
 window.addEventListener('load', gt.init);
