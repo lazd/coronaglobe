@@ -45,24 +45,12 @@ const util = {
 	},
 
 	// Convert a latitude/longitude pair to a X/Y coordiante pair
-	// Via http://stackoverflow.com/a/14457180/1170723
+	// Via https://stackoverflow.com/a/4565555
 	latLongTo2dCoordinate: function(latitude, longitude, mapWidth, mapHeight) {
-		var pos = {};
-
-		// Get X value
-		pos.x = (mapWidth*(longitude)/360)%mapWidth+(mapWidth/2);
-		// pos.x = (longitude+180)*(mapWidth/360);
-		
-		// Convert from degrees to radians
-		var latRad = util.deg2rad(latitude);
-
-		var mercN = Math.log(Math.tan((Math.PI/4)+(latRad/2)));
-
-		// Adjust the coordinate position for the projection, sort of
-		mercN *= Math.cos(latRad/Math.PI*1.92);
-
-		// Get Y value
-		pos.y = (mapHeight/2)-(mapWidth*mercN/(2*Math.PI));
+		var pos = {
+			x: (mapWidth/360.0) * (180 + longitude),
+			y: (mapHeight/180.0) * (90 - latitude)
+		};
 
 		if (isNaN(pos.y) || isNaN(pos.x)) {
 			throw new Error('Failed to calculate position for '+latitude+','+longitude);
