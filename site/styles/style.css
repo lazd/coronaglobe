@@ -565,20 +565,22 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 }
 
 .gt_form {
-	display: flex;
-	flex-direction: column;
+	display: table;
 }
 
 .gt_form-field {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+	display: table-row;
+
+	> * {
+		display: table-cell;
+		text-align: left;
+		vertical-align: middle;
+	}
 }
 
 .gt_form-label {
-	display: flex;
-	align-items: center;
-	justify-content: right;
+	display: table-cell;
+	text-align: right;
 	margin-right: var(--gt-component-margin);
 }
 
