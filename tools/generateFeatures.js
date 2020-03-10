@@ -4,6 +4,7 @@ const path = require('path');
 const turf = require('@turf/turf');
 
 const countryData = require('../data/ne_10m_admin_0_countries-4pct.json');
+const usCountyData = require('../data/counties-500k.json');
 const provinceData = require('../data/ne_10m_admin_1_states_provinces-10pct.json');
 
 function cleanProps(obj) {
@@ -66,6 +67,10 @@ function generateFeatures({locationDays, locations}) {
     let index = featureCollection.features.indexOf(feature);
     if (index === -1) {
       index = featureCollection.features.push(feature) - 1;
+      if (feature.properties.geonunit) {
+        feature.properties.shortName = feature.properties.name;
+        feature.properties.name = feature.properties.name + ', ' + feature.properties.geonunit;
+      }
     }
 
     feature.properties.id = index;
@@ -86,7 +91,7 @@ function generateFeatures({locationDays, locations}) {
     cleanFeatures(countryData);
     cleanFeatures(provinceData);
 
-    for (let location of locations) {
+    locationLoop: for (let location of locations) {
       let found = false;
       let point = turf.point(location.coordinates);
 
@@ -96,6 +101,20 @@ function generateFeatures({locationDays, locations}) {
       }
 
       if (location.province) {
+        if (location.country === 'US') {
+          // Find county
+          for (let feature of usCountyData.features) {
+            if (feature.geometry) {
+              let poly = turf.feature(feature.geometry);
+              if (turf.booleanPointInPolygon(point, poly)) {
+                found = true;
+                storeFeature(feature, location);
+                continue locationLoop;
+              }
+            }
+          }
+        }
+
         // Check if the location exists within our provinces
         for (let feature of provinceData.features) {
           if (location.province === feature.properties.name || location.province === feature.properties.name_en) {

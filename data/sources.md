@@ -10,6 +10,7 @@
 * `population-australia-states.csv` - [Australian Bureau of Statistics 2019](https://www.abs.gov.au/AUSSTATS/abs@.nsf/mf/3101.0)
 * `population-supplemental.csv` - Google search
 * `population-italy-regions.csv` - [ISTAT 01/01/2019 via tuttitalia.it](https://www.tuttitalia.it/regioni/)
+* `counties-500k.json` - [EricTech](https://eric.clst.org/tech/usgeojson/)
 
 ## Missing data
 

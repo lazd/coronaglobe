@@ -77,7 +77,13 @@ async function generatePopulations({locationDays, locations, featureCollection})
     // Try population data by region
     if (country && province) {
       if (country === 'US') {
-        if (populations.US.county[province]) {
+        let countyName = province;
+        if (!countyName.match('County')) {
+          let parts = countyName.split(', ');
+          countyName = parts[0] + ' County, ' + parts[1];
+        }
+
+        if (populations.US.county[province] || populations.US.county[countyName]) {
           // Try counties
           population = populations.US.county[province];
         }
@@ -95,8 +101,10 @@ async function generatePopulations({locationDays, locations, featureCollection})
     }
 
     // Try population by country
-    if (!province || province === country) {
-      population = populations.byCountry[country];
+    if (!population) {
+      if (!province || province === country) {
+        population = populations.byCountry[country];
+      }
     }
 
     if (!population) {
@@ -110,17 +118,6 @@ async function generatePopulations({locationDays, locations, featureCollection})
     return population;
   }
 
-  for (let feature of featureCollection.features) {
-    if (!feature.properties.pop_est) {
-      let population = getPopulation(feature.properties.iso_a2, feature.properties.name);
-
-      if (population) {
-        console.log('  ✅ %s: %d', feature.properties.name, population);
-        feature.properties.pop_est = population;
-      }
-    }
-  }
-
   let populationFound = 0;
   for (let location of locations) {
     let population = getPopulation(location.country, location.province);
@@ -130,22 +127,42 @@ async function generatePopulations({locationDays, locations, featureCollection})
     }
     else {
       location.population = population;
-      console.log('  ✅ %s: %s', getLocationName(location), population);
+      // console.log('  ✅ %s: %s', getLocationName(location), population);
 
       if (location.featureId) {
         let feature = featureCollection.features[location.featureId];
         if (feature) {
           if (!feature.properties.pop_est) {
             feature.properties.pop_est = population;
-            console.log('      + added population to feature %s', feature.properties.name);
+            // console.log('  ✅ %s: %d', feature.properties.name, population);
           }
         }
       }
       populationFound++;
     }
   }
-
   console.log('✅ Found population data for %d out of %d locations', populationFound, Object.keys(locations).length);
+
+  let featurePopulationFound = 0;
+  for (let feature of featureCollection.features) {
+    if (feature.properties.pop_est) {
+      featurePopulationFound++
+    }
+    else {
+      let population = getPopulation(feature.properties.iso_a2 || 'US', feature.properties.name) || getPopulation(feature.properties.iso_a2 || 'US', feature.properties.shortName);
+
+      if (population) {
+        // console.log('  ✅ %s: %d', feature.properties.name, population);
+        feature.properties.pop_est = population;
+        featurePopulationFound++
+      }
+    }
+    if (!feature.properties.pop_est) {
+      console.error('  ❌ %s: ?', feature.properties.name);
+    }
+  }
+
+  console.log('✅ Found population data for %d out of %d features', featurePopulationFound, featureCollection.features.length);
 
   return {locationDays, locations, featureCollection};
 }

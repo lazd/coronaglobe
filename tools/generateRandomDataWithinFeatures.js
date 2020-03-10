@@ -15,12 +15,11 @@ function simplifyPointSet(pointFeatures) {
 }
 
 function generateRandomDataWithinFeatures({regionDays, featureCollection, locationDays, locations}) {
-  // Pull in existing points if present
   let points = {};
-  let pointsPath = path.join(__dirname, '../site/data/points.json');
-  if (fs.existsSync(pointsPath)) {
-    points = require(pointsPath);
-  }
+  // let pointsPath = path.join(__dirname, '../site/data/points.json');
+  // if (fs.existsSync(pointsPath)) {
+  //   points = require(pointsPath);
+  // }
 
   let latestDate = Object.keys(regionDays).pop();
   let lastestCasesByRegion = regionDays[latestDate];
@@ -45,7 +44,7 @@ function generateRandomDataWithinFeatures({regionDays, featureCollection, locati
         }
 
         if (pointsToGenerate > 0) {
-          console.log('  %s: generating %d points for %d cases', locationString, pointsToGenerate, cases);
+          // console.log('  %s: generating %d points for %d cases', locationString, pointsToGenerate, cases);
           try {
             let newPoints = simplifyPointSet(randomPointGenerator.random(pointsToGenerate, {
               features: feature
@@ -63,7 +62,7 @@ function generateRandomDataWithinFeatures({regionDays, featureCollection, locati
     }
 
     // Calculate the center and store it
-    feature.properties.coordinates = center(feature).geometry.coordinates
+    feature.properties.coordinates = center(feature).geometry.coordinates;
   }
 
   console.log('✅ Random point sets generated...');

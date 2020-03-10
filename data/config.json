@@ -1,5 +1,6 @@
 {
   "minCasesForSignifigance": 5,
   "caseDivisor": 2,
-  "minimumClusters": 3
+  "minimumClusters": 3,
+  "topLocationsCount": 15
 }
