@@ -894,7 +894,7 @@ App.prototype.updateRateTable = function(date) {
 		['Location', 'Cases', 'Ratio'],
 		rates,
 		(html, row, index) => {
-			return html.replace('<tr>', `<tr data-featureId="${rateOrder[index].featureId}">`);
+			return html.replace('<tr', `<tr data-featureId="${rateOrder[index].featureId}"`);
 		}
 	);
 }
