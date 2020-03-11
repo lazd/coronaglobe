@@ -502,11 +502,23 @@ App.prototype.showFeature = function(feature, options) {
 		});
 		drawThreeGeo(feature, this.earthRadius, 'sphere', material, feature.border);
 
-		// Add edges
+		/*
+		// Scaled outline
+		let outlineMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, side: THREE.BackSide } );
+    let featureMesh = feature.border.children[0].children[0];
+    let geometry = featureMesh.geometry;
+    let outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
+		outlineMesh.scale.multiplyScalar(1.05);
+    feature.border.add(outlineMesh);
+    */
+
+		/*
+		// EdgeGeometry outline
 		var edges = new THREE.EdgesGeometry(feature.border.children[0].children[0].geometry, 25);
 		var line = new THREE.LineSegments(edges, App.lineMaterial);
 		line.renderOrder = Infinity;
 		feature.border.add(line);
+		*/
 	}
 	this._lastShownFeature = feature;
 };

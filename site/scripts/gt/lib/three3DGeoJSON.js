@@ -124,6 +124,86 @@ function removeOuterTriangles(delaunator, points) {
   delaunator.triangles = newTriangles;
 }
 
+// 2D funcs
+function needsInterpolation(point2, point1) {
+    //If the distance between two latitude and longitude values is
+    //greater than five degrees, return true.
+    var lon1 = point1[0];
+    var lat1 = point1[1];
+    var lon2 = point2[0];
+    var lat2 = point2[1];
+    var lon_distance = Math.abs(lon1 - lon2);
+    var lat_distance = Math.abs(lat1 - lat2);
+
+    if (lon_distance > 5 || lat_distance > 5) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function interpolatePoints(interpolation_array) {
+    //This function is recursive. It will continue to add midpoints to the
+    //interpolation array until needsInterpolation() returns false.
+    var temp_array = [];
+    var point1, point2;
+
+    for (var point_num = 0; point_num < interpolation_array.length - 1; point_num++) {
+        point1 = interpolation_array[point_num];
+        point2 = interpolation_array[point_num + 1];
+
+        if (needsInterpolation(point2, point1)) {
+            temp_array.push(point1);
+            temp_array.push(getMidpoint(point1, point2));
+        } else {
+            temp_array.push(point1);
+        }
+    }
+
+    temp_array.push(interpolation_array[interpolation_array.length - 1]);
+
+    if (temp_array.length > interpolation_array.length) {
+        temp_array = interpolatePoints(temp_array);
+    } else {
+        return temp_array;
+    }
+    return temp_array;
+}
+
+function getMidpoint(point1, point2) {
+    var midpoint_lon = (point1[0] + point2[0]) / 2;
+    var midpoint_lat = (point1[1] + point2[1]) / 2;
+    var midpoint = [midpoint_lon, midpoint_lat];
+
+    return midpoint;
+}
+function createCoordinateArray(feature) {
+    //Loop through the coordinates and figure out if the points need interpolation.
+    var temp_array = [];
+    var interpolation_array = [];
+
+    for (var point_num = 0; point_num < feature.length; point_num++) {
+        var point1 = feature[point_num];
+        var point2 = feature[point_num - 1];
+
+        if (point_num > 0) {
+            if (needsInterpolation(point2, point1)) {
+                interpolation_array = [point2, point1];
+                interpolation_array = interpolatePoints(interpolation_array);
+
+                for (var inter_point_num = 0; inter_point_num < interpolation_array.length; inter_point_num++) {
+                    temp_array.push(interpolation_array[inter_point_num]);
+                }
+            } else {
+                temp_array.push(point1);
+            }
+        } else {
+            temp_array.push(point1);
+        }
+    }
+    return temp_array;
+}
+
 var x_values = [];
 var y_values = [];
 var z_values = [];
@@ -168,8 +248,18 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
           // convertCoordinates(refined[point_num], radius);
           convertCoordinates(delaunayVerts[point_num], radius);
         }
-        // drawLine(y_values, z_values, x_values, options);
+        // drawLine(y_values, z_values, x_values, options, targetGroup);
         drawMesh(group, y_values, z_values, x_values, d.triangles, options);
+      }
+
+      // Outline
+      for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates.length; segment_num++) {
+          let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[segment_num]);
+
+          for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
+              convertLineToSphereCoords(coordinate_array[point_num], radius);
+          }
+          drawLine(x_values, y_values, z_values, options, targetGroup);
       }
 
     } else if (json_geom[geom_num].type == 'MultiLineString') {
@@ -201,6 +291,18 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
           // drawLine(y_values, z_values, x_values, options);
           drawMesh(group, y_values, z_values, x_values, d.triangles, options)
         }
+      }
+
+
+      for (var polygon_num = 0; polygon_num < json_geom[geom_num].coordinates.length; polygon_num++) {
+          for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates[polygon_num].length; segment_num++) {
+              let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[polygon_num][segment_num]);
+
+              for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
+                  convertLineToSphereCoords(coordinate_array[point_num], radius);
+              }
+              drawLine(x_values, y_values, z_values, options, targetGroup);
+          }
       }
     } else {
       throw new Error('The geoJSON is not valid.');
@@ -252,6 +354,22 @@ function convertToSphereCoords(coordinates_array, sphere_radius) {
   z_values.push(Math.sin(lat * Math.PI / 180) * sphere_radius);
 }
 
+function convertLineToSphereCoords(coordinates_array, sphere_radius) {
+  var lon = coordinates_array[0];
+  var lat = coordinates_array[1];
+
+  var phi = (lon+90)*Math.PI/180; // Lon
+  var theta = lat*Math.PI/180; // Lat
+
+  var z = sphere_radius * Math.cos(phi) * Math.cos(theta); // Lon
+  var x = sphere_radius * Math.sin(phi) * Math.cos(theta); // Lat
+  var y = sphere_radius * Math.sin(theta);
+
+  x_values.push(x);
+  y_values.push(y);
+  z_values.push(z);
+}
+
 function convertToPlaneCoords(coordinates_array, radius) {
   var lon = coordinates_array[0];
   var lat = coordinates_array[1];
@@ -277,8 +395,13 @@ function drawLine(x_values, y_values, z_values, options, targetGroup) {
   var line_geom = new THREE.Geometry();
   createVertexForEachPoint(line_geom, x_values, y_values, z_values);
 
-  var line_material = new THREE.LineBasicMaterial(options);
+  // Todo: re-add options
+  var line_material = new THREE.LineBasicMaterial({
+    linewidth: 1,
+    color: 'black'
+  });
   var line = new THREE.Line(line_geom, line_material);
+  line.renderOrder = Infinity;
   targetGroup.add(line);
 
   clearArrays();

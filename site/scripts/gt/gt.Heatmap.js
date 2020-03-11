@@ -22,7 +22,8 @@ const Heatmap = function(options) {
 		canvas: this.canvas,
 		width: this.width,
 		height: this.height,
-		gradientTexture: Heatmap.styles[this.style]
+		gradientTexture: Heatmap.styles[this.style],
+		intensityToAlpha: false
 	});
 
 	// Add listener after we initialize heatmap, or we add data too soon
@@ -42,8 +43,7 @@ const Heatmap = function(options) {
 	this.material = new THREE.MeshPhongMaterial({
 		map: this.texture,
 		transparent: true,
-		depthWrite: false,
-		intensityToAlpha: false
+		depthWrite: false
 	});
 	this.mesh = new THREE.Mesh(this.geometry, this.material);
 	this.mesh.name = 'Heatmap';
