@@ -4,8 +4,25 @@ via https://stackoverflow.com/a/55166015/1170723
 */
 
 import Delaunator from 'delaunator';
+import * as THREE from 'three';
+
+var x_values = [];
+var y_values = [];
+var z_values = [];
 
 let TRIANGULATION_DENSITY = 5;
+
+let defaultLineMaterial = new THREE.LineBasicMaterial({
+  linewidth: 1,
+  color: 'black'
+});
+
+let defaultMeshMaterial = new THREE.MeshLambertMaterial({
+  side: THREE.DoubleSide,
+  color: 'green'
+});
+
+let defaultParticalMaterial = new THREE.ParticleSystemMaterial();
 
 function verts2array(coords) {
   let flat = [];
@@ -205,20 +222,14 @@ function createCoordinateArray(feature) {
     return temp_array;
 }
 
-var x_values = [];
-var y_values = [];
-var z_values = [];
-
-var clickableObjects = [];
-
-function drawThreeGeo(json, radius, shape, options, targetGroup) {
+function drawThreeGeo(json, radius, shape, options = {}, targetGroup) {
   var json_geom = createGeometryArray(json);
   var convertCoordinates = getConversionFunctionName(shape);
 
   for (var geom_num = 0; geom_num < json_geom.length; geom_num++) {
     if (json_geom[geom_num].type == 'Point') {
       convertCoordinates(json_geom[geom_num].coordinates, radius);
-      drawParticle(y_values[0], z_values[0], x_values[0], options);
+      drawParticle(y_values[0], z_values[0], x_values[0], options, targetGroup);
 
     } else if (json_geom[geom_num].type == 'MultiPoint') {
       for (let point_num = 0; point_num < json_geom[geom_num].coordinates.length; point_num++) {
@@ -234,8 +245,6 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
       drawLine(y_values, z_values, x_values, options, targetGroup);
 
     } else if (json_geom[geom_num].type == 'Polygon') {
-      let group = createGroup(geom_num, targetGroup);
-
       // Mesh
       for (let segment_num = 0; segment_num < json_geom[geom_num].coordinates.length; segment_num++) {
         let coords = json_geom[geom_num].coordinates[segment_num];
@@ -248,7 +257,7 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
         for (let point_num = 0; point_num < delaunayVerts.length; point_num++) {
           convertCoordinates(delaunayVerts[point_num], radius);
         }
-        drawMesh(group, y_values, z_values, x_values, d.triangles, options);
+        drawMesh(targetGroup, y_values, z_values, x_values, d.triangles, options);
       }
 
       // Outline
@@ -271,8 +280,6 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
       }
 
     } else if (json_geom[geom_num].type == 'MultiPolygon') {
-      let group = createGroup(geom_num, targetGroup);
-
       // Mesh
       for (let polygon_num = 0; polygon_num < json_geom[geom_num].coordinates.length; polygon_num++) {
         for (let segment_num = 0; segment_num < json_geom[geom_num].coordinates[polygon_num].length; segment_num++) {
@@ -286,7 +293,7 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
           for (let point_num = 0; point_num < delaunayVerts.length; point_num++) {
             convertCoordinates(delaunayVerts[point_num], radius);
           }
-          drawMesh(group, y_values, z_values, x_values, d.triangles, options)
+          drawMesh(targetGroup, y_values, z_values, x_values, d.triangles, options)
         }
       }
 
@@ -364,27 +371,24 @@ function convertToPlaneCoords(coordinates_array, radius) {
 }
 
 function drawParticle(x, y, z, options, targetGroup) {
-  var particle_geom = new THREE.Geometry();
-  particle_geom.vertices.push(new THREE.Vector3(x, y, z));
+  var geometry = new THREE.Geometry();
+  geometry.vertices.push(new THREE.Vector3(x, y, z));
 
-  var particle_material = new THREE.ParticleSystemMaterial(options);
+  var material = options.particleMaterial || defaultParticalMaterial;
 
-  var particle = new THREE.ParticleSystem(particle_geom, particle_material);
+  var particle = new THREE.ParticleSystem(geometry, material);
   targetGroup.add(particle);
 
   clearArrays();
 }
 
 function drawLine(x_values, y_values, z_values, options, targetGroup) {
-  var line_geom = new THREE.Geometry();
-  createVertexForEachPoint(line_geom, x_values, y_values, z_values);
+  var geometry = new THREE.Geometry();
+  createVertexForEachPoint(geometry, x_values, y_values, z_values);
 
   // Todo: re-add options
-  var line_material = new THREE.LineBasicMaterial({
-    linewidth: 1,
-    color: 'black'
-  });
-  var line = new THREE.Line(line_geom, line_material);
+  var material = options.lineMaterial || defaultLineMaterial;
+  var line = new THREE.Line(geometry, material);
   line.renderOrder = Infinity;
   targetGroup.add(line);
 
@@ -398,7 +402,7 @@ function createGroup(idx, targetGroup) {
   return group;
 }
 
-function drawMesh(group, x_values, y_values, z_values, triangles, material) {
+function drawMesh(group, x_values, y_values, z_values, triangles, options) {
   var geometry = new THREE.Geometry();
 
   for (let k = 0; k < x_values.length; k++) {
@@ -413,8 +417,8 @@ function drawMesh(group, x_values, y_values, z_values, triangles, material) {
 
   geometry.computeVertexNormals();
 
+  let material = options.meshMaterial || defaultMeshMaterial;
   var mesh = new THREE.Mesh(geometry, material);
-  clickableObjects.push(mesh);
   group.add(mesh);
 
   clearArrays();

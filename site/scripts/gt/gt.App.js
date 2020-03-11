@@ -284,15 +284,18 @@ const App = function(options) {
 		if (intersects.length > 0) {
 			let vec3 = intersects[0].point
 			let coordinates = util.vector3ToLatLong(vec3);
-			let feature = this.drawFeatureAtCoordinates(coordinates);
+			let feature = this.getFeatureAtCoordinates(coordinates);
 			if (feature) {
 				this.showInfoForFeature(feature, [evt.clientX, evt.clientY]);
+				this.highlightFeature(feature);
 			}
 			else {
+				this.unhighlightFeature();
 				this.hideInfo();
 			}
 		}
 		else {
+				this.unhighlightFeature();
 			this.hideInfo();
 		}
 	});
@@ -470,54 +473,66 @@ App.dataTableTemplate = function(title, columns, data, callback) {
 	return html;
 }
 
+App.lineColor = new THREE.Color('black');
+App.lineHighlightColor = new THREE.Color('pink');
+
 App.lineMaterial = new THREE.LineBasicMaterial({
 	linewidth: 1,
-	color: 0x000000
+	color: App.lineColor
+});
+
+App.meshMaterial = new THREE.MeshLambertMaterial({
+  side: THREE.BackSide,
+	depthTest: false
 });
 
 App.prototype.showFeature = function(feature, options) {
 	// Hide the last feature
-	if (this._lastShownFeature) {
-		if (this._lastShownFeature.border) {
-			// this._lastShownFeature.border.visible = false;
-		}
-	}
+	// if (this._lastShownFeature) {
+	// 	if (this._lastShownfeature.mapItems) {
+	// 		this._lastShownfeature.mapItems.visible = false;
+	// 	}
+	// }
 
-	if (feature.border) {
-		feature.border.visible = true;
+	if (feature.mapItems) {
+		feature.mapItems.visible = true;
 		if (options && options.color) {
-			feature.border.children[0].children[0].material.color.set(options.color);
+			feature.mapItems.children[0].material.color.set(options.color);
 		}
 	}
 	else {
 		// Cache border
-		feature.border = new THREE.Group();
-		feature.border.name = feature.properties.name;
-		this.featureContainer.add(feature.border);
+		feature.mapItems = new THREE.Group();
+		feature.mapItems.name = feature.properties.name;
+		this.featureContainer.add(feature.mapItems);
 
-		let material = new THREE.MeshLambertMaterial({
-	    side: THREE.BackSide,
-			depthTest: false,
-			color: options ? options.color : new THREE.Color(0, 0.5, 0)
-		});
-		drawThreeGeo(feature, this.earthRadius, 'sphere', material, feature.border);
+		let meshMaterial = App.meshMaterial.clone();
+		meshMaterial.color = options ? options.color : new THREE.Color(0, 0.5, 0);
+		let lineMaterial = App.lineMaterial.clone();
+		drawThreeGeo(feature, this.earthRadius, 'sphere', {
+			meshMaterial: meshMaterial,
+			lineMaterial: lineMaterial
+		}, feature.mapItems);
+
+		feature.meshMaterial = meshMaterial;
+		feature.lineMaterial = lineMaterial;
 
 		/*
 		// Scaled outline
 		let outlineMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, side: THREE.BackSide } );
-    let featureMesh = feature.border.children[0].children[0];
+    let featureMesh = feature.mapItems.children[0];
     let geometry = featureMesh.geometry;
     let outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
 		outlineMesh.scale.multiplyScalar(1.05);
-    feature.border.add(outlineMesh);
+    feature.mapItems.add(outlineMesh);
     */
 
 		/*
 		// EdgeGeometry outline
-		var edges = new THREE.EdgesGeometry(feature.border.children[0].children[0].geometry, 25);
+		var edges = new THREE.EdgesGeometry(feature.mapItems.children[0].geometry, 25);
 		var line = new THREE.LineSegments(edges, App.lineMaterial);
 		line.renderOrder = Infinity;
-		feature.border.add(line);
+		feature.mapItems.add(line);
 		*/
 	}
 	this._lastShownFeature = feature;
@@ -598,27 +613,45 @@ App.prototype.showInfoForFeature = function(feature, location) {
 	this.lastInfoFeature = feature;
 };
 
-App.prototype.hideFeature = function(feature) {
-	if (feature.border) {
-		// feature.border.visible = false;
-		feature.border.children[0].children[0].material.color.set(App.choroplethColors[0]);
+App.prototype.resetFeature = function(feature) {
+	if (feature.meshMaterial) {
+		feature.meshMaterial.color.set(App.choroplethColors[0]);
+		feature.lineMaterial.color.set(App.lineColor);
 	}
 };
 
-App.prototype.drawFeatureAtCoordinates = function(coordinates) {
+App.prototype.unhighlightFeature = function(feature) {
+	feature = feature || this._lastHighlightedFeature;
+
+	if (feature && feature.lineMaterial) {
+		feature.lineMaterial.color.set(App.lineColor);
+	}
+};
+
+App.prototype.highlightFeature = function(feature) {
+	this.unhighlightFeature();
+
+	if (feature) {
+		if (feature.lineMaterial) {
+			feature.lineMaterial.color.set(App.lineHighlightColor);
+
+			this._lastHighlightedFeature = feature;
+		}
+		else {
+			console.error('Cannot highlight feature %s: it has not been drawn', feature.properties.name);
+		}
+	}
+};
+
+App.prototype.getFeatureAtCoordinates = function(coordinates) {
 	let point = TurfPoint(coordinates);
 	let foundFeature = null;
 	for (let feature of featureCollection.features) {
-		// Cache feature
 		feature.turfFeature = feature.turfFeature || TurfFeature(feature.geometry);
 		if (booleanPointInPolygon(point, feature.turfFeature)) {
 			foundFeature = feature;
-			// this.showFeature(feature);
-			continue;
+			break;
 		}
-
-		// Hide everything else
-		// this.hideFeature(feature);
 	}
 	return foundFeature;
 };
@@ -638,7 +671,10 @@ App.prototype.drawFeatures = function() {
 	});
 
 	// Draw counties
-	drawThreeGeo(countries, this.earthRadius, 'sphere', material, this.featureContainer);
+	drawThreeGeo(countries, this.earthRadius, 'sphere', {
+		meshMaterial: material,
+		lineMaterial: App.lineMaterial
+	}, this.featureContainer);
 
 	// Draw all regions
 	// drawThreeGeo(provinces, this.earthRadius, 'sphere', material, this.featureContainer);
@@ -708,7 +744,7 @@ App.prototype.moveToGPS = function() {
 		let coordinates = [pos.coords.longitude, pos.coords.latitude];
 		this.rotateTo(coordinates);
 
-		let feature = this.drawFeatureAtCoordinates(coordinates);
+		let feature = this.getFeatureAtCoordinates(coordinates);
 		if (feature) {
 			this.showInfoForFeature(feature);
 		}
@@ -1115,7 +1151,7 @@ App.prototype.showData = function(type, date) {
 
 	for (let featureId in featureCollection.features) {
 		if (!latestCasesByRegion[featureId][type]) {
-			this.hideFeature(featureCollection.features[featureId]);
+			this.resetFeature(featureCollection.features[featureId]);
 		}
 	}
 
