@@ -979,12 +979,12 @@ App.prototype.toggleOverlay = function(overlay, button, force) {
 	}
 };
 
-App.prototype.getRateRanking = function(date, type) {
+App.prototype.getRateRanking = function(date, type, min = config.minCasesForSignifigance) {
 	let rateOrder = [];
 	for (let featureId in cases[date]) {
 		let info = cases[date][featureId];
 		let feature = featureCollection.features[featureId];
-		if (feature.properties.pop_est && info[type] > config.minCasesForSignifigance) {
+		if (feature.properties.pop_est && info[type] >= min) {
 			rateOrder.push(Object.assign({
 				name: feature.properties.name,
 				population: feature.properties.pop_est,
@@ -1139,7 +1139,7 @@ App.prototype.showData = function(type, date) {
 		}
 	}
 
-	let ranks = this.getRateRanking(date, type);
+	let ranks = this.getRateRanking(date, type, 1);
 	for (let [index, info] of Object.entries(ranks)) {
 		let feature = featureCollection.features[info.featureId];
 		let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
