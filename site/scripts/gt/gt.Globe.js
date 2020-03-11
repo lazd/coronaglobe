@@ -46,25 +46,26 @@ const Globe = function(options) {
 
 	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
 	this.globeMaterial = new THREE.MeshPhongMaterial({
-		side: THREE.DoubleSide,
-		color: '#207bb0',
-		// depthWrite: false
+		color: '#207bb0'
 	});
 	this.globeMesh = new THREE.Mesh(this.globeGeometry, this.globeMaterial);
-	// this.globeMesh.matrixAutoUpdate = false;
-	// this.globeMesh.updateMatrix();
+	this.globeMesh.matrixAutoUpdate = false;
+	this.globeMesh.updateMatrix();
 	this.globeMesh.name = 'Globe';
 	this.root.add(this.globeMesh);
 
 	// Setup cloud mesh
 	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 48, 48);
 	var cloudMaterial = new THREE.MeshPhongMaterial({
+		side: THREE.FrontSide,
 		map: loader.load(require('url:../../textures/globe/earthclouds4k.png'), this.handleLoad),
-		opacity: 0.1
+		opacity: 0.1,
+		transparent: true,
+		depthTest: false
 	});
 	this.cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
 	this.cloudMesh.name = 'Clouds';
-	// this.root.add(this.cloudMesh);
+	this.root.add(this.cloudMesh);
 
 	var atompsphereGeometry = this.globeGeometry.clone();
 	var atmosphereMaterial = createAtmosphereMaterial();
@@ -134,6 +135,5 @@ Globe.prototype.setSunPosition = function(dayOfYear, utcHour) {
 	this.directionalLight.position.copy(sunPos);
 	// console.log('%s on %d day of year: Sun at longitude %s, angle %s', utcHour.toFixed(3), dayOfYear, sunLong.toFixed(3), sunAngle.toFixed(3));
 };
-
 
 export default Globe;
