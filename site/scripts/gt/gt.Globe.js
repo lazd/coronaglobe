@@ -18,22 +18,14 @@ const Globe = function(options) {
 	};
 
 	// Setup globe mesh
-	/*
 	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
 	var globeMaterial = this.globeMaterial = new THREE.MeshPhongMaterial({
-		color: 'rgb(120, 120, 120)',
+		color: '#205fb0',
 		shininess: 20
 	});
-
-	this.setTexture(options.texture || 'realistic');
-
-	// Main texture
-	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthlights4k.jpg'), this.handleLoad);
-	// globeMaterial.map = loader.load(require('url:../../textures/globe/earthgrid.png'), this.handleLoad); // Lat/Long grid
-
-	// Bump map (disabled to work around broken optimized bundle)
 	globeMaterial.bumpMap = loader.load(require('url:../../textures/globe/earthbump4k.jpg'), this.handleLoad);
 	globeMaterial.bumpScale = 1;
+	this.setTexture(options.texture || 'realistic');
 
 	this.globeMesh = new THREE.Mesh(this.globeGeometry, globeMaterial);
 	this.globeMesh.name = 'Globe';
@@ -41,17 +33,6 @@ const Globe = function(options) {
 	// Since the earth is static, disable auto-updating of its matrix
 	this.globeMesh.matrixAutoUpdate = false;
 	this.globeMesh.updateMatrix();
-	this.root.add(this.globeMesh);
-	*/
-
-	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
-	this.globeMaterial = new THREE.MeshPhongMaterial({
-		color: '#207bb0'
-	});
-	this.globeMesh = new THREE.Mesh(this.globeGeometry, this.globeMaterial);
-	this.globeMesh.matrixAutoUpdate = false;
-	this.globeMesh.updateMatrix();
-	this.globeMesh.name = 'Globe';
 	this.root.add(this.globeMesh);
 
 	// Setup cloud mesh

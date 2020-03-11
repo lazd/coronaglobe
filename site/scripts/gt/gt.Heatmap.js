@@ -23,7 +23,7 @@ const Heatmap = function(options) {
 		width: this.width,
 		height: this.height,
 		gradientTexture: Heatmap.styles[this.style],
-		intensityToAlpha: false
+		intensityToAlpha: true
 	});
 
 	// Add listener after we initialize heatmap, or we add data too soon
@@ -53,7 +53,7 @@ const Heatmap = function(options) {
 	this.mesh.updateMatrix();
 
 	// Add to scene
-	// this.scene.add(this.mesh);
+	this.scene.add(this.mesh);
 };
 
 Heatmap.defaults = {
