@@ -1066,17 +1066,7 @@ App.prototype.showData = function(type, date) {
 	let ranks = this.getRateRanking(date, type);
 	for (let [index, info] of Object.entries(ranks)) {
 		let feature = featureCollection.features[info.featureId];
-
-		// Color based on rank
-		let rankRatio = (ranks.length - index) / ranks.length;
-
-		// Color based on how bad it is, relative to the worst place
-		// let rankRatio = (info[type] / info.population) / worstAffectedPercent;
-
-		// let a = 0;
-		// let b = 1.75;
-		// let scaledColorValue = Math.min(Math.tanh(rankRatio + a) * b, 1) ;
-		let scaledColorValue = rankRatio;
+		let scaledColorValue = App.choroplethStyles.rankRatio(info, type, ranks.length, index, worstAffectedPercent);
 
 		this.showFeature(feature, {
 			color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
@@ -1135,5 +1125,31 @@ App.choroplethColors = [
 	new THREE.Color('#ff7f00'),
 	new THREE.Color('#ff0000'),
 ];
+
+App.choroplethStyles =  {
+	'pureRatio': function(info, type, total, rank, worstAffectedPercent) {
+		// Color based on how bad it is, relative to the worst place
+		let percentRatio = (info[type] / info.population) / worstAffectedPercent;
+
+		return util.adjustTanh(percentRatio);
+	},
+	'rankAdjustedRatio': function(info, type, total, rank, worstAffectedPercent) {
+		// Color based on rank
+		let rankRatio = (total - rank) / total;
+
+		// Color based on how bad it is, relative to the worst place
+		let percentRatio = (info[type] / info.population) / worstAffectedPercent;
+
+		let ratio = (rankRatio + percentRatio) / 2;
+
+		return ratio
+	},
+	'rankRatio': function(info, type, total, rank, worstAffectedPercent) {
+		// Color based on rank
+		let rankRatio = (total - rank) / total;
+
+		return rankRatio;
+	}
+};
 
 export default App;

@@ -161,6 +161,10 @@ const util = {
 		let endColor = colors[index + 1];
 		let alpha = position * (colors.length - 1) - index;
 		return startColor.clone().lerp(endColor, alpha);
+	},
+
+	adjustTanh: function(value, a = 0.1, b = 1.75) {
+		let scaledColorValue = Math.min(Math.tanh(ratio + a) * b, 1);
 	}
 };
 
