@@ -17,17 +17,21 @@ const Globe = function(options) {
 		topo: require('url:../../textures/globe/earthspec4k.jpg')
 	};
 
-	// Setup globe mesh
-	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
-	var globeMaterial = this.globeMaterial = new THREE.MeshPhongMaterial({
-		color: '#205fb0',
+	// Basic material
+	this.globeBasicMaterial = new THREE.MeshPhongMaterial({
+		color: '#205fb0'
+	});
+
+	// Textured material
+	this.globeTextureMaterial = new THREE.MeshPhongMaterial({
+		color: 'rgb(120, 120, 120)',
 		shininess: 20
 	});
-	globeMaterial.bumpMap = loader.load(require('url:../../textures/globe/earthbump4k.jpg'), this.handleLoad);
-	globeMaterial.bumpScale = 1;
-	this.setTexture(options.texture || 'realistic');
+	this.globeTextureMaterial.bumpMap = loader.load(require('url:../../textures/globe/earthbump4k.jpg'), this.handleLoad);
+	this.globeTextureMaterial.bumpScale = 1;
 
-	this.globeMesh = new THREE.Mesh(this.globeGeometry, globeMaterial);
+	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
+	this.globeMesh = new THREE.Mesh(this.globeGeometry);
 	this.globeMesh.name = 'Globe';
 
 	// Since the earth is static, disable auto-updating of its matrix
@@ -75,10 +79,14 @@ Globe.defaults = {
 	cloudSpeed: 0.000005
 };
 
-Globe.prototype.setTexture = function(texture) {
-	if (this.textures[texture]) {
-		this.texture = texture;
-		this.globeMaterial.map = this.loader.load(this.textures[texture], this.handleLoad);
+Globe.prototype.setStyle = function(style) {
+	if (this.textures[style]) {
+		this.style = style;
+		this.globeTextureMaterial.map = this.loader.load(this.textures[style], this.handleLoad);
+		this.globeMesh.material = this.globeTextureMaterial;
+	}
+	else if (style === 'basic') {
+		this.globeMesh.material = this.globeBasicMaterial;
 	}
 };
 

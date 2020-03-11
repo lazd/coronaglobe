@@ -43,6 +43,14 @@
 	<body>
 		<div class="gt_container">
 			<div class="gt_ui">
+				<div class="gt_overlay gt_spinner">
+					<div class="gt_loading gt_icon-spinner">
+						<div class="gt_indicator">
+							<span class="gt_icon gt_icon--spinner"></span>
+						</div>
+					</div>
+				</div>
+
 				<div class="gt_layer gt_layer--bottom gt_layer--middle">
 					<input type="range" min="0" step="1" class="gt_slider gt_dateSlider" aria-label="Day number">
 					<input type="date" class="gt_datePicker" aria-label="Current date">
@@ -50,15 +58,8 @@
 						<span class="gt_icon gt_icon--play"></span>
 					</button>
 				</div>
-				<div class="gt_layer gt_layer--top gt_layer--left">
-					<button class="gt_button gt_menuButton" aria-label="">
-						<span class="gt_icon gt_icon--menu"></span>
-					</button>
-				</div>
+
 				<div class="gt_layer gt_layer--top gt_layer--right">
-					<button class="gt_button gt_tableButton" aria-label="">
-						<span class="gt_icon gt_icon--paper"></span>
-					</button>
 					<div class="gt_output gt_count">-</div>
 					<label class="gt_select">
 						<select class="gt_typeSelect" aria-label="What to visualize">
@@ -69,12 +70,21 @@
 						</select>
 						<span class="gt_icon gt_icon--chevron-down"></span>
 					</label>
+					<button class="gt_button gt_mapStyleButton" aria-label="Select map style">
+						<span class="gt_icon gt_icon--choropleth"></span>
+					</button>
 				</div>
-				<div class="gt_overlay gt_spinner">
-					<div class="gt_loading gt_icon-spinner">
-						<div class="gt_indicator">
-							<span class="gt_icon gt_icon--spinner"></span>
-						</div>
+
+				<div class="gt_layer gt_layer--offset gt_layer--right gt_layer--top gt_mapStyleLayer" hidden>
+					<div class="gt_menu gt_mapStyleMenu">
+						<button class="gt_button is-selected" data-value="choropleth" aria-label="Choropleth" data-overlay="gt_settingsOverlay">
+							<span class="gt_icon gt_icon--choropleth"></span>
+							<span class="gt_button-label">Choropleth</span>
+						</button>
+						<button class="gt_button" data-value="heatmap" aria-label="Heatmap" data-overlay="gt_aboutOverlay">
+							<span class="gt_icon gt_icon--heatmap"></span>
+							<span class="gt_button-label">Heatmap</span>
+						</button>
 					</div>
 				</div>
 
@@ -84,11 +94,15 @@
 							<span class="gt_icon gt_icon--location"></span>
 							<span class="gt_button-label">Locate</span>
 						</button>
+						<button class="gt_button gt_tableButton" aria-label="Show rate table">
+							<span class="gt_icon gt_icon--paper"></span>
+							<span class="gt_button-label">Show Rate Table</span>
+						</button>
 						<button class="gt_button gt_settingsButton" aria-label="Settings" data-overlay="gt_settingsOverlay">
 							<span class="gt_icon gt_icon--cog"></span>
 							<span class="gt_button-label">Settings</span>
 						</button>
-						<button class="gt_button gt_aboutButton" aria-label="Get info" data-overlay="gt_aboutOverlay">
+						<button class="gt_button gt_aboutButton" aria-label="About this project" data-overlay="gt_aboutOverlay">
 							<span class="gt_icon gt_icon--info"></span>
 							<span class="gt_button-label">About</span>
 						</button>
@@ -98,10 +112,16 @@
 
 				<div class="gt_layer gt_detailLayer" tabindex="0" role="dialog" aria-labelledby="detailTitle" aria-describedby="detailDescription"></div>
 
+				<div class="gt_layer gt_layer--top gt_layer--left">
+					<button class="gt_button gt_menuButton" aria-label="Main menu">
+						<span class="gt_icon gt_icon--menu"></span>
+					</button>
+				</div>
 				<div class="gt_overlay gt_layer gt_settingsLayer gt_layer--full" hidden>
 					<div class="gt_dialog">
 						<h3 class="gt_heading">Settings</h3>
 						<div class="gt_form">
+							<!-- 							
 							<label class="gt_form-field">
 								<span class="gt_form-label">Texture</span>
 								<div class="gt_form-field">
@@ -114,11 +134,12 @@
 									</div>
 								</div>
 							</label>
+							-->
 							<label class="gt_form-field">
-								<span class="gt_form-label">Choropleths Color Scheme</span>
+								<span class="gt_form-label">Choropleth Scale</span>
 								<div class="gt_form-field">
 									<div class="gt_select">
-										<select class="gt_choroplethStyleSelect" aria-label="The color scheme to use for choropleths">
+										<select class="gt_choroplethStyleSelect" aria-label="The scale to use for choropleths">
 											<option value="pureRatio">pure ratio</option>
 											<option value="rankAdjustedRatio">rank-adjusted ratio</option>
 											<option value="rankRatio">pure rank</option>
@@ -131,7 +152,7 @@
 								<span class="gt_form-label">Heatmap Point Style</span>
 								<div class="gt_form-field">
 									<div class="gt_select">
-										<select class="gt_pointStyleSelect" aria-label="The color of points for heatmaps">
+										<select class="gt_heatmapColorSelect" aria-label="The color of points for heatmaps">
 											<option value="greenToRed">green to red</option>
 											<option value="pinkToYellow">pink to yellow</option>
 										</select>

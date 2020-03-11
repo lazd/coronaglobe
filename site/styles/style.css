@@ -145,7 +145,6 @@ body {
 .gt_button {
 	&.is-selected {
 		background-color: var(--gt-component-background-color-selected);
-		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 	}
 }
 
@@ -263,6 +262,10 @@ body {
 	&:focus {
 		outline: none;
 	}
+}
+
+.gt_menuLayer {
+	z-index: 3;
 }
 
 .gt_layer--top {

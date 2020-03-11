@@ -114,19 +114,19 @@ const App = function(options) {
 	});
 
 	// Settings inputs
-	this.textureSelect = this.ui.querySelector('.gt_textureSelect')
-	this.textureSelect.addEventListener('change', (evt) => {
-		this.toggleOverlay(this.settingsLayer, null, false);
-		let texture = evt.target.value;
-		this.setTexture(texture);
-		this.setHashFromParameters();
-	});
+	// this.textureSelect = this.ui.querySelector('.gt_textureSelect')
+	// this.textureSelect.addEventListener('change', (evt) => {
+	// 	this.toggleOverlay(this.settingsLayer, null, false);
+	// 	let texture = evt.target.value;
+	// 	this.setStyle(texture);
+	// 	this.setHashFromParameters();
+	// });
 
-	this.pointStyleSelect = this.ui.querySelector('.gt_pointStyleSelect')
-	this.pointStyleSelect.addEventListener('change', (evt) => {
+	this.heatmapColorSelect = this.ui.querySelector('.gt_heatmapColorSelect')
+	this.heatmapColorSelect.addEventListener('change', (evt) => {
 		this.toggleOverlay(this.settingsLayer, null, false);
 		let color = evt.target.value;
-		this.setStyle(color);
+		this.setHeatmapColor(color);
 		this.showData();
 		this.setHashFromParameters();
 	});
@@ -136,6 +136,22 @@ const App = function(options) {
 		this.toggleOverlay(this.settingsLayer, null, false);
 		let style = evt.target.value;
 		this.setChoroplethStyle(style);
+		this.showData();
+		this.setHashFromParameters();
+	});
+
+	this.mapStyleLayer = this.ui.querySelector('.gt_mapStyleLayer');
+	this.mapStyleButton = this.ui.querySelector('.gt_mapStyleButton');
+	this.mapStyleButton.addEventListener('click', (evt) => {
+		this.toggleOverlay(this.mapStyleLayer, this.mapStyleButton);
+	});
+
+	this.mapStyleMenu = this.ui.querySelector('.gt_mapStyleMenu');
+	this.mapStyleMenu.addEventListener('click', (evt) => {
+		let button = evt.target.closest('button');
+		let style = button.getAttribute('data-value');
+		this.toggleOverlay(this.mapStyleLayer, this.mapStyleButton, false);
+		this.setStyle(style);
 		this.showData();
 		this.setHashFromParameters();
 	});
@@ -261,7 +277,8 @@ const App = function(options) {
 		radius: this.earthRadius,
 		cloudSpeed: this.cloudSpeed,
 		loaded: this.handleLoaded.bind(this),
-		texture: args.texture
+		texture: args.texture,
+		style: 'basic'
 	});
 
 	let rayCaster = new THREE.Raycaster();
@@ -302,6 +319,7 @@ const App = function(options) {
 
 	this.canvas.addEventListener(isMobile ? 'touchstart' : 'mousedown', (evt) => {
 		this.toggleOverlay(this.menuLayer, this.menuButton, false);
+		this.toggleOverlay(this.mapStyleLayer, this.mapStyleButton, false);
 	});
 
 	// Add skybox
@@ -350,8 +368,8 @@ const App = function(options) {
 	if (!args.choroplethStyle) {
 		this.setChoroplethStyle(this.choroplethStyle);
 	}
-	if (!args.style) {
-		this.setStyle(this.style);
+	if (!args.heatmapColor) {
+		this.setHeatmapColor(this.heatmapColor);
 	}
 
 	// Add listeners
@@ -385,7 +403,9 @@ App.defaults = {
 	itemNamePlural: 'items',
 
 	choroplethStyle: 'rankAdjustedRatio',
-	style: 'pinkToYellow'
+	heatmapColor: 'pinkToYellow',
+
+	style: 'choropleth'
 };
 
 App.detailTemplate = function(info) {
@@ -469,6 +489,11 @@ App.dataTableTemplate = function(title, columns, data, callback) {
 	return html;
 }
 
+App.styles = {
+	'heatmap': true,
+	'choropleth': true
+};
+
 App.lineColor = new THREE.Color('white');
 App.lineHighlightColor = new THREE.Color('black');
 
@@ -508,14 +533,6 @@ App.prototype.drawFeature = function(feature, options = {}) {
 	this._lastShownFeature = feature;
 };
 
-App.prototype.setTexture = function(texture) {
-	if (this.globe.texture != texture) {
-		this.globe.setTexture(texture);
-	}
-	this.textureSet = true;
-	this.textureSelect.value = this.globe.texture;
-};
-
 App.prototype.setChoroplethStyle = function(style) {
 	if (!style) {
 		return;
@@ -529,15 +546,36 @@ App.prototype.setChoroplethStyle = function(style) {
 };
 
 App.prototype.setStyle = function(style) {
-	if (!style) {
+	if (App.styles[style]) {
+		this.style = style;
+		if (style === 'choropleth') {
+			this.globe.setStyle('basic');
+			this.mapStyleButton.firstElementChild.classList.remove('gt_icon--heatmap');
+			this.mapStyleButton.firstElementChild.classList.add('gt_icon--choropleth');
+		}
+		else {
+			this.globe.setStyle('realistic');
+			this.mapStyleButton.firstElementChild.classList.remove('gt_icon--choropleth');
+			this.mapStyleButton.firstElementChild.classList.add('gt_icon--heatmap');
+		}
+
+		this.mapStyleMenu.querySelector(`button[data-value="${style}"]`).classList.add('is-selected');
+		for (let otherButton of this.mapStyleMenu.querySelectorAll(`button:not([data-value="${style}"])`)) {
+			otherButton.classList.remove('is-selected');
+		}
+
+		this.styleSet = true;
+	}
+};
+
+App.prototype.setHeatmapColor = function(color) {
+	if (!color) {
 		return;
 	}
 
-	if (this.heatmap.style != style) {
-		this.heatmap.setStyle(style);
-	}
-	this.styleSet = true;
-	this.pointStyleSelect.value = this.heatmap.style;
+	this.heatmap.setColor(color);
+	this.heatmapColorSet = true;
+	this.heatmapColorSelect.value = color;
 };
 
 App.prototype.hideInfo = function() {
@@ -640,7 +678,7 @@ App.prototype.drawBaseFeatures = function() {
 		depthTest: false
 	});
 
-	// Draw counties
+	// Draw countries
 	drawThreeGeo(countries, this.earthRadius, 'sphere', {
 		meshMaterial: material,
 		lineMaterial: App.lineMaterial
@@ -768,15 +806,19 @@ App.prototype.setParametersFromHash = function() {
 	}
 
 	if (args.texture) {
-		this.setTexture(args.texture);
+		this.setStyle(args.texture);
 	}
 
-	if (args.style) {
-		this.setStyle(args.style);
+	if (args.heatmapColor) {
+		this.setHeatmapColor(args.heatmapColor);
 	}
 
 	if (args.choroplethStyle) {
 		this.setChoroplethStyle(args.choroplethStyle);
+	}
+
+	if (args.style) {
+		this.setStyle(args.style);
 	}
 };
 
@@ -803,8 +845,9 @@ App.prototype.setHashFromParameters = function() {
 		lat: lat,
 		long: long,
 		texture: this.textureSet ? this.globe.texture : null,
-		style: this.styleSet ? this.heatmap.style : null,
-		choroplethStyle: this.choroplethStyleSet ? this.choroplethStyle : null
+		heatmapColor: this.heatmapColorSet ? this.heatmap.style : null,
+		choroplethStyle: this.choroplethStyleSet ? this.choroplethStyle : null,
+		style: this.styleSet ? this.style : null
 	});
 };
 
@@ -1066,66 +1109,78 @@ App.prototype.showData = function(type, date) {
 				worstAffectedPercent = affectedPercent;
 			}
 
-			if (points[featureId]) {
-				// Location has enough cases to have randomly distributed clusters
-				let clusterCount = Math.round(cases / config.caseDivisor);
-				let size = 2.5;
-				let intensity = 1;
+			if (this.style === 'heatmap') {
+				if (points[featureId]) {
+					// Location has enough cases to have randomly distributed clusters
+					let clusterCount = Math.round(cases / config.caseDivisor);
+					let size = 2.5;
+					let intensity = 1;
 
-				// if (population) {
-				// 	console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, affectedPercent.toFixed(8), clusterCount, size, intensity);
-				// }
-				// else {
-				// 	console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, clusterCount, size, intensity);
-				// }
+					// if (population) {
+					// 	console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, affectedPercent.toFixed(8), clusterCount, size, intensity);
+					// }
+					// else {
+					// 	console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, clusterCount, size, intensity);
+					// }
 
-				for (let i = 0; i < clusterCount && i < points[featureId].length; i++) {
-					let coordinates = points[featureId][i];
-					if (!coordinates) {
-						console.warn('%s: Could not find random point at index %d, we only have %d points', feature.properties.name, i, points[featureId].length);
-						coordinates = location.coordinates;
+					for (let i = 0; i < clusterCount && i < points[featureId].length; i++) {
+						let coordinates = points[featureId][i];
+						if (!coordinates) {
+							console.warn('%s: Could not find random point at index %d, we only have %d points', feature.properties.name, i, points[featureId].length);
+							coordinates = location.coordinates;
+						}
+						this.add({
+							coordinates: coordinates,
+							size: size,
+							intensity: intensity
+						});
 					}
+				}
+				else {
+					// Location doesn't have enough cases for distribution, create a blob at center
+					let size = 5;
+					let intensity = 0.75;
+					// console.log('  %s: %d %s (1 point of %dpx and %f intensity)', feature.properties.name, cases, type, size, intensity);
+
 					this.add({
-						coordinates: coordinates,
+						coordinates: feature.properties.coordinates,
 						size: size,
 						intensity: intensity
 					});
 				}
-			}
-			else {
-				// Location doesn't have enough cases for distribution, create a blob at center
-				let size = 5;
-				let intensity = 0.75;
-				// console.log('  %s: %d %s (1 point of %dpx and %f intensity)', feature.properties.name, cases, type, size, intensity);
-
-				this.add({
-					coordinates: feature.properties.coordinates,
-					size: size,
-					intensity: intensity
-				});
 			}
 
 			count += cases;
 		}
 	}
 
-	let ranks = this.getRateRanking(date, type, 1);
-	for (let [index, info] of Object.entries(ranks)) {
-		let feature = featureCollection.features[info.featureId];
-		let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
+	// Update the heatmap no matter what
+	this.heatmap.update();
 
-		this.drawFeature(feature, {
-			color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
-		});
+	if (this.style === 'heatmap') {
+		this.featureContainer.visible = false;
 	}
+	else if (this.style === 'choropleth') {
+		this.featureContainer.visible = true;
 
-	for (let featureId in featureCollection.features) {
-		if (!latestCasesByRegion[featureId][type]) {
-			let feature = featureCollection.features[featureId];
-			// this.drawFeature(feature, {
-			// 	color: App.choroplethColors[0]
-			// });
-			this.resetFeature(feature);
+		let ranks = this.getRateRanking(date, type, 1);
+		for (let [index, info] of Object.entries(ranks)) {
+			let feature = featureCollection.features[info.featureId];
+			let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
+
+			this.drawFeature(feature, {
+				color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
+			});
+		}
+
+		for (let featureId in featureCollection.features) {
+			if (!latestCasesByRegion[featureId][type]) {
+				let feature = featureCollection.features[featureId];
+				// this.drawFeature(feature, {
+				// 	color: App.choroplethColors[0]
+				// });
+				this.resetFeature(feature);
+			}
 		}
 	}
 
@@ -1137,8 +1192,6 @@ App.prototype.showData = function(type, date) {
 
 	// Update table
 	this.updateRateTable();
-
-	this.heatmap.update();
 };
 
 App.prototype.drawGradientKey = function() {

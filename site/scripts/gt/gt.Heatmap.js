@@ -15,14 +15,14 @@ const Heatmap = function(options) {
 	// Load gradient
 	let gradientImage = new Image();
 	gradientImage.src = require('url:../../textures/heatmap-gradient.png');
-	Heatmap.styles.pinkToYellow = gradientImage;
+	Heatmap.colors.pinkToYellow = gradientImage;
 
-	// Store style ahead of initialization
+	// Store color ahead of initialization
 	this.heatmap = new WebGLHeatmap({
 		canvas: this.canvas,
 		width: this.width,
 		height: this.height,
-		gradientTexture: Heatmap.styles[this.style],
+		gradientTexture: Heatmap.colors[this.color],
 		intensityToAlpha: true
 	});
 
@@ -65,10 +65,10 @@ Heatmap.defaults = {
 	intensity: 0.03,
 	doBlur: false,
 	decayFactor: 0,
-	style: 'pinkToYellow'
+	color: 'pinkToYellow'
 };
 
-Heatmap.styles = {
+Heatmap.colors = {
 	'greenToRed': null,
 	'pinkToYellow': null
 };
@@ -81,9 +81,11 @@ Heatmap.prototype.add = function(data) {
 	this.heatmap.addPoint(pos.x, pos.y, data.size || this.size, data.intensity || this.intensity);
 };
 
-Heatmap.prototype.setStyle = function(style) {
-	this.style = style;
-	this.heatmap.setGradientTexture(Heatmap.styles[style]);
+Heatmap.prototype.setColor = function(color) {
+	if (Heatmap.colors[color] !== undefined) {
+		this.color = color;
+		this.heatmap.setGradientTexture(Heatmap.colors[color]);
+	}
 };
 
 /*
