@@ -10,19 +10,20 @@ const Globe = function(options) {
 	this.root = new THREE.Object3D();
 
 	var loader = this.loader = new THREE.TextureLoader();
-	this.handleLoad = this.handleLoad.bind(this, 3);
-
-	// Setup globe mesh
-	var globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
-	var globeMaterial = this.globeMaterial = new THREE.MeshPhongMaterial({
-		color: 'rgb(120, 120, 120)',
-		shininess: 20
-	});
+	this.handleLoad = this.handleLoad.bind(this, 1);
 
 	this.textures = {
 		realistic: require('url:../../textures/globe/earthmap4k.jpg'),
 		topo: require('url:../../textures/globe/earthspec4k.jpg')
 	};
+
+	// Setup globe mesh
+	/*
+	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
+	var globeMaterial = this.globeMaterial = new THREE.MeshPhongMaterial({
+		color: 'rgb(120, 120, 120)',
+		shininess: 20
+	});
 
 	this.setTexture(options.texture || 'realistic');
 
@@ -34,12 +35,26 @@ const Globe = function(options) {
 	globeMaterial.bumpMap = loader.load(require('url:../../textures/globe/earthbump4k.jpg'), this.handleLoad);
 	globeMaterial.bumpScale = 1;
 
-	this.globeMesh = new THREE.Mesh(globeGeometry, globeMaterial);
+	this.globeMesh = new THREE.Mesh(this.globeGeometry, globeMaterial);
 	this.globeMesh.name = 'Globe';
 
 	// Since the earth is static, disable auto-updating of its matrix
 	this.globeMesh.matrixAutoUpdate = false;
 	this.globeMesh.updateMatrix();
+	this.root.add(this.globeMesh);
+	*/
+
+	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
+	this.globeMaterial = new THREE.MeshPhongMaterial({
+		// side: THREE.BackSide,
+		color: '#207bb0',
+		transparent: true,
+		depthWrite: false
+	});
+	this.globeMesh = new THREE.Mesh(this.globeGeometry, this.globeMaterial);
+	// this.globeMesh.matrixAutoUpdate = false;
+	// this.globeMesh.updateMatrix();
+	this.globeMesh.name = 'Globe';
 	this.root.add(this.globeMesh);
 
 	// Setup cloud mesh
@@ -54,25 +69,26 @@ const Globe = function(options) {
 	this.cloudMesh.name = 'Clouds';
 	this.root.add(this.cloudMesh);
 
-	var atompsphereGeometry = globeGeometry.clone();
+	var atompsphereGeometry = this.globeGeometry.clone();
 	var atmosphereMaterial = createAtmosphereMaterial();
 	atmosphereMaterial.side = THREE.BackSide;
+	atmosphereMaterial.depthTest = false;
 	atmosphereMaterial.uniforms.coeficient.value = 0.5;
 	atmosphereMaterial.uniforms.power.value = 12;
 	atmosphereMaterial.uniforms.glowColor.value = new THREE.Color(0, 0.9, 1);
 	var atomsphereMesh = new THREE.Mesh(atompsphereGeometry, atmosphereMaterial);
 	atomsphereMesh.scale.multiplyScalar(1.1);
-	this.root.add(atomsphereMesh);
-	this.atmosphereMaterial = atmosphereMaterial;
+	// this.root.add(atomsphereMesh);
 
 	// Add objects to root object
-	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
+	// this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
+	this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0);
 	this.root.add(this.directionalLight);
 
 	this.setSunPosition();
 
 	// Add root to scene
-	// this.scene.add(this.root);
+	this.scene.add(this.root);
 };
 
 Globe.defaults = {

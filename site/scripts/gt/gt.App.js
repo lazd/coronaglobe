@@ -307,16 +307,6 @@ const App = function(options) {
 		}
 	});
 
-	this.globeGeometry = new THREE.SphereGeometry(this.earthRadius, 64, 64);
-	this.globeMaterial = new THREE.MeshPhongMaterial({
-		color: '#207bb0',
-		transparent: true,
-		depthWrite: false,
-		intensityToAlpha: false
-	});
-	this.globeMesh = new THREE.Mesh(this.globeGeometry, this.globeMaterial);
-	this.scene.add(this.globeMesh);
-
 	// Draw features
 	this.featureContainer = new THREE.Object3D();
 	this.scene.add(this.featureContainer);
@@ -462,6 +452,12 @@ App.dataTableTemplate = function(title, columns, data, callback) {
 	return html;
 }
 
+App.lineMaterial = new THREE.LineBasicMaterial({
+  side: THREE.FrontSide,
+	linewidth: 1,
+	color: 0xFFFFFF
+});
+
 App.prototype.showFeature = function(feature, options) {
 	// Hide the last feature
 	if (this._lastShownFeature) {
@@ -492,10 +488,7 @@ App.prototype.showFeature = function(feature, options) {
 
 		// Add edges
 		var edges = new THREE.EdgesGeometry(feature.border.children[0].children[0].geometry, 25);
-		var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
-			linewidth: 1,
-			color: 0xFFFFFF
-		}));
+		var line = new THREE.LineSegments(edges, App.lineMaterial);
 		feature.border.add(line);
 	}
 	this._lastShownFeature = feature;
