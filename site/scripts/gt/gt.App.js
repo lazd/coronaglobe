@@ -473,8 +473,8 @@ App.dataTableTemplate = function(title, columns, data, callback) {
 	return html;
 }
 
-App.lineColor = new THREE.Color('black');
-App.lineHighlightColor = new THREE.Color('pink');
+App.lineColor = new THREE.Color('white');
+App.lineHighlightColor = new THREE.Color('black');
 
 App.lineMaterial = new THREE.LineBasicMaterial({
 	linewidth: 1,
@@ -620,9 +620,7 @@ App.prototype.resetFeature = function(feature) {
 	}
 };
 
-App.prototype.unhighlightFeature = function(feature) {
-	feature = feature || this._lastHighlightedFeature;
-
+App.prototype.unhighlightFeature = function(feature = this._lastHighlightedFeature) {
 	if (feature && feature.lineMaterial) {
 		feature.lineMaterial.color.set(App.lineColor);
 	}
@@ -657,17 +655,10 @@ App.prototype.getFeatureAtCoordinates = function(coordinates) {
 };
 
 App.prototype.drawFeatures = function() {
-	// Draw provinces
-	// drawThreeGeo(provinces, this.earthRadius, 'sphere', {
-	// 	color: 'rgb(0, 0, 0)',
-	// 	opacity: 0.95,
-	// 	transparent: true,
-	// }, this.featureContainer);
-
 	let material = new THREE.MeshLambertMaterial({
     side: THREE.BackSide,
 		color: App.choroplethColors[0],
-		depthTest: false,
+		depthTest: false
 	});
 
 	// Draw counties
