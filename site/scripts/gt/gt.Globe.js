@@ -46,7 +46,7 @@ const Globe = function(options) {
 
 	this.globeGeometry = new THREE.SphereGeometry(this.radius, 64, 64);
 	this.globeMaterial = new THREE.MeshPhongMaterial({
-		// side: THREE.BackSide,
+		side: THREE.DoubleSide,
 		color: '#207bb0',
 		// depthWrite: false
 	});
@@ -69,13 +69,12 @@ const Globe = function(options) {
 	var atompsphereGeometry = this.globeGeometry.clone();
 	var atmosphereMaterial = createAtmosphereMaterial();
 	atmosphereMaterial.side = THREE.BackSide;
-	atmosphereMaterial.depthTest = false;
 	atmosphereMaterial.uniforms.coeficient.value = 0.5;
 	atmosphereMaterial.uniforms.power.value = 12;
 	atmosphereMaterial.uniforms.glowColor.value = new THREE.Color(0, 0.9, 1);
 	var atomsphereMesh = new THREE.Mesh(atompsphereGeometry, atmosphereMaterial);
 	atomsphereMesh.scale.multiplyScalar(1.1);
-	// this.root.add(atomsphereMesh);
+	this.root.add(atomsphereMesh);
 
 	// Add objects to root object
 	// this.directionalLight =  new THREE.DirectionalLight(0xFFFFFF, 0.75);
