@@ -177,6 +177,7 @@ function getMidpoint(point1, point2) {
 
     return midpoint;
 }
+
 function createCoordinateArray(feature) {
     //Loop through the coordinates and figure out if the points need interpolation.
     var temp_array = [];
@@ -235,8 +236,8 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
     } else if (json_geom[geom_num].type == 'Polygon') {
       let group = createGroup(geom_num, targetGroup);
 
+      // Mesh
       for (let segment_num = 0; segment_num < json_geom[geom_num].coordinates.length; segment_num++) {
-
         let coords = json_geom[geom_num].coordinates[segment_num];
         let refined = genInnerVerts(coords);
         let flat = verts2array(refined);
@@ -245,21 +246,19 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
 
         let delaunayVerts = array2verts(d.coords);
         for (let point_num = 0; point_num < delaunayVerts.length; point_num++) {
-          // convertCoordinates(refined[point_num], radius);
           convertCoordinates(delaunayVerts[point_num], radius);
         }
-        // drawLine(y_values, z_values, x_values, options, targetGroup);
         drawMesh(group, y_values, z_values, x_values, d.triangles, options);
       }
 
       // Outline
       for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates.length; segment_num++) {
-          let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[segment_num]);
+        let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[segment_num]);
 
-          for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
-              convertLineToSphereCoords(coordinate_array[point_num], radius);
-          }
-          drawLine(x_values, y_values, z_values, options, targetGroup);
+        for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
+          convertCoordinates(coordinate_array[point_num], radius);
+        }
+        drawLine(y_values, z_values, x_values, options, targetGroup);
       }
 
     } else if (json_geom[geom_num].type == 'MultiLineString') {
@@ -274,9 +273,9 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
     } else if (json_geom[geom_num].type == 'MultiPolygon') {
       let group = createGroup(geom_num, targetGroup);
 
+      // Mesh
       for (let polygon_num = 0; polygon_num < json_geom[geom_num].coordinates.length; polygon_num++) {
         for (let segment_num = 0; segment_num < json_geom[geom_num].coordinates[polygon_num].length; segment_num++) {
-
           let coords = json_geom[geom_num].coordinates[polygon_num][segment_num];
           let refined = genInnerVerts(coords);
           let flat = verts2array(refined);
@@ -285,29 +284,26 @@ function drawThreeGeo(json, radius, shape, options, targetGroup) {
 
           let delaunayVerts = array2verts(d.coords);
           for (let point_num = 0; point_num < delaunayVerts.length; point_num++) {
-            // convertCoordinates(refined[point_num], radius);
             convertCoordinates(delaunayVerts[point_num], radius);
           }
-          // drawLine(y_values, z_values, x_values, options);
           drawMesh(group, y_values, z_values, x_values, d.triangles, options)
         }
       }
 
-
+      // Outline
       for (var polygon_num = 0; polygon_num < json_geom[geom_num].coordinates.length; polygon_num++) {
-          for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates[polygon_num].length; segment_num++) {
-              let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[polygon_num][segment_num]);
+        for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates[polygon_num].length; segment_num++) {
+          let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[polygon_num][segment_num]);
 
-              for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
-                  convertLineToSphereCoords(coordinate_array[point_num], radius);
-              }
-              drawLine(x_values, y_values, z_values, options, targetGroup);
+          for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
+              convertCoordinates(coordinate_array[point_num], radius);
           }
+          drawLine(y_values, z_values, x_values, options, targetGroup);
+        }
       }
     } else {
       throw new Error('The geoJSON is not valid.');
     }
-
   }
 }
 
@@ -327,7 +323,6 @@ function createGeometryArray(json) {
   } else {
     throw new Error('The geoJSON is not valid.');
   }
-  //alert(geometry_array.length);
   return geometry_array;
 }
 
@@ -344,26 +339,16 @@ function getConversionFunctionName(shape) {
   return conversionFunctionName;
 }
 
-
 function convertToSphereCoords(coordinates_array, sphere_radius) {
-  var lon = coordinates_array[0] + 90;
-  var lat = coordinates_array[1];
+  let lon = coordinates_array[0];
+  let lat = coordinates_array[1];
 
-  x_values.push(Math.cos(lat * Math.PI / 180) * Math.cos(lon * Math.PI / 180) * sphere_radius);
-  y_values.push(Math.cos(lat * Math.PI / 180) * Math.sin(lon * Math.PI / 180) * sphere_radius);
-  z_values.push(Math.sin(lat * Math.PI / 180) * sphere_radius);
-}
+  let phi = (lon + 90) * Math.PI / 180; // Lon
+  let theta = lat * Math.PI / 180; // Lat
 
-function convertLineToSphereCoords(coordinates_array, sphere_radius) {
-  var lon = coordinates_array[0];
-  var lat = coordinates_array[1];
-
-  var phi = (lon+90)*Math.PI/180; // Lon
-  var theta = lat*Math.PI/180; // Lat
-
-  var z = sphere_radius * Math.cos(phi) * Math.cos(theta); // Lon
-  var x = sphere_radius * Math.sin(phi) * Math.cos(theta); // Lat
-  var y = sphere_radius * Math.sin(theta);
+  let x = sphere_radius * Math.cos(phi) * Math.cos(theta); // Lon
+  let y = sphere_radius * Math.sin(phi) * Math.cos(theta); // Lat
+  let z = sphere_radius * Math.sin(theta);
 
   x_values.push(x);
   y_values.push(y);
@@ -373,7 +358,6 @@ function convertLineToSphereCoords(coordinates_array, sphere_radius) {
 function convertToPlaneCoords(coordinates_array, radius) {
   var lon = coordinates_array[0];
   var lat = coordinates_array[1];
-  var plane_offset = radius / 2;
 
   z_values.push((lat / 180) * radius);
   y_values.push((lon / 180) * radius);
@@ -447,18 +431,6 @@ function clearArrays() {
   x_values.length = 0;
   y_values.length = 0;
   z_values.length = 0;
-}
-
-function convert_lat_lng(lat, lng, radius) {
-  var phi = (90 - lat) * Math.PI / 180,
-    theta = (180 - lng) * Math.PI / 180,
-    position = new THREE.Vector3();
-
-  position.x = radius * Math.sin(phi) * Math.cos(theta);
-  position.y = radius * Math.cos(phi);
-  position.z = radius * Math.sin(phi) * Math.sin(theta);
-
-  return position;
 }
 
 export default drawThreeGeo;
