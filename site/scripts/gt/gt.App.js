@@ -259,7 +259,6 @@ const App = function(options) {
 	this.globe = new Globe({
 		scene: scene,
 		radius: this.earthRadius,
-		// cloudRadius: this.cloudRadius,
 		cloudSpeed: this.cloudSpeed,
 		loaded: this.handleLoaded.bind(this),
 		texture: args.texture
@@ -369,7 +368,6 @@ App.defaults = {
 	menus: true,
 	earthRadius: 200,
 	markerRadius: 200,
-	cloudRadius: 200.5,
 	cloudSpeed: 0.000003,
 	cameraDistance: 500,
 	pauseOnBlur: false,
@@ -473,9 +471,8 @@ App.dataTableTemplate = function(title, columns, data, callback) {
 }
 
 App.lineMaterial = new THREE.LineBasicMaterial({
-  side: THREE.FrontSide,
 	linewidth: 1,
-	color: 0xFFFFFF
+	color: 0x000000
 });
 
 App.prototype.showFeature = function(feature, options) {
@@ -500,15 +497,15 @@ App.prototype.showFeature = function(feature, options) {
 
 		let material = new THREE.MeshLambertMaterial({
 	    side: THREE.BackSide,
-			color: options ? options.color : new THREE.Color(0, 0.5, 0),
-			opacity: 1,
-			transparent: true
+			depthTest: false,
+			color: options ? options.color : new THREE.Color(0, 0.5, 0)
 		});
 		drawThreeGeo(feature, this.earthRadius, 'sphere', material, feature.border);
 
 		// Add edges
 		var edges = new THREE.EdgesGeometry(feature.border.children[0].children[0].geometry, 25);
 		var line = new THREE.LineSegments(edges, App.lineMaterial);
+		line.renderOrder = Infinity;
 		feature.border.add(line);
 	}
 	this._lastShownFeature = feature;
@@ -624,9 +621,7 @@ App.prototype.drawFeatures = function() {
 	let material = new THREE.MeshLambertMaterial({
     side: THREE.BackSide,
 		color: App.choroplethColors[0],
-		opacity: 1,
-		transparent: true,
-		depthWrite: false
+		depthTest: false,
 	});
 
 	drawThreeGeo(countries, this.earthRadius, 'sphere', material, this.featureContainer);

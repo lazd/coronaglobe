@@ -48,8 +48,7 @@ const Globe = function(options) {
 	this.globeMaterial = new THREE.MeshPhongMaterial({
 		// side: THREE.BackSide,
 		color: '#207bb0',
-		transparent: true,
-		depthWrite: false
+		// depthWrite: false
 	});
 	this.globeMesh = new THREE.Mesh(this.globeGeometry, this.globeMaterial);
 	// this.globeMesh.matrixAutoUpdate = false;
@@ -61,13 +60,11 @@ const Globe = function(options) {
 	var cloudGeometry = new THREE.SphereGeometry(this.cloudRadius, 48, 48);
 	var cloudMaterial = new THREE.MeshPhongMaterial({
 		map: loader.load(require('url:../../textures/globe/earthclouds4k.png'), this.handleLoad),
-		opacity: 0.1,
-		transparent: true,
-		depthWrite: false
+		opacity: 0.1
 	});
 	this.cloudMesh = new THREE.Mesh(cloudGeometry, cloudMaterial);
 	this.cloudMesh.name = 'Clouds';
-	this.root.add(this.cloudMesh);
+	// this.root.add(this.cloudMesh);
 
 	var atompsphereGeometry = this.globeGeometry.clone();
 	var atmosphereMaterial = createAtmosphereMaterial();
