@@ -307,9 +307,9 @@ const App = function(options) {
 		}
 	});
 
-	this.globeGeometry = new THREE.SphereGeometry(this.earthRadius - 0.5, 64, 64);
+	this.globeGeometry = new THREE.SphereGeometry(this.earthRadius, 64, 64);
 	this.globeMaterial = new THREE.MeshPhongMaterial({
-		color: 'blue',
+		color: '#207bb0',
 		transparent: true,
 		depthWrite: false,
 		intensityToAlpha: false
@@ -471,6 +471,9 @@ App.prototype.showFeature = function(feature, options) {
 
 	if (feature.border) {
 		feature.border.visible = true;
+		if (options && options.color) {
+			feature.border.children[0].children[0].material.color = options.color;
+		}
 	}
 	else {
 		// Cache border
@@ -586,7 +589,7 @@ App.prototype.drawFeatures = function() {
 
 	let material = new THREE.MeshLambertMaterial({
     side: THREE.BackSide,
-		color: 'rgb(200, 200, 200)',
+		color: App.choroplethColors[0],
 		opacity: 1,
 		transparent: true,
 		depthWrite: false
@@ -1051,12 +1054,16 @@ App.prototype.showData = function(type, date) {
 		let feature = featureCollection.features[featureId];
 		if (rates[featureId]) {
 			let ratioToWorse = rates[featureId] / worstRate;
-			let scaledColorValue = Math.min(Math.tanh(ratioToWorse + 0.1) + 0.25, 1);
-			let colorValue = `hsl(0, ${Math.round(scaledColorValue * 100)}%, 75%)`;
-			console.log(feature.properties.name, colorValue);
+			let a = 0;
+			let b = 1.75;
+			let scaledColorValue = Math.min(Math.tanh(ratioToWorse + a) * b, 1) ;
+			// let scaledColorValue = ratioToWorse;
 			this.showFeature(feature, {
-				color: new THREE.Color(colorValue)
+				color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
 			});
+		}
+		else {
+			console.warn('No rate data for %s', feature.properties.name);
 		}
 	}
 
@@ -1071,5 +1078,32 @@ App.prototype.showData = function(type, date) {
 
 	this.heatmap.update();
 };
+
+App.prototype.drawGradientKey = function() {
+	let container = document.createElement('div');
+	container.style.position = 'absolute';
+	container.style.left = '0';
+	container.style.right = '0';
+	container.style.top = '50%';
+	container.style.display = 'flex';
+	container.style.height = '40px';
+	container.style.zIndex = '100px';
+	for (var i = 0; i < 201; i++) {
+		let sliver = document.createElement('div');
+		sliver.style.backgroundColor = '#'+util.getColorOnGradient(App.choroplethColors, i / 200).getHexString();
+		sliver.style.height = '40px';
+		sliver.style.width = '2px';
+		container.appendChild(sliver)
+	}
+	document.body.appendChild(container);
+};
+
+App.choroplethColors = [
+	new THREE.Color('rgb(232, 222, 193)'),
+	new THREE.Color('rgb(239, 157, 101)'),
+	new THREE.Color('rgb(112, 165, 196)'),
+	new THREE.Color('rgb(38, 56, 144)'),
+	new THREE.Color('rgb(197, 33, 37)'),
+];
 
 export default App;

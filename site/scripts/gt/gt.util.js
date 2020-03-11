@@ -146,6 +146,21 @@ const util = {
 
 	formatDateForInput: function(dateString) {
 		return util.getDateFromDatasetString(dateString).toISOString().split("T")[0];
+	},
+
+	getColorOnGradient: function(colors, position) {
+		if (position === 1) {
+			return colors[colors.length - 1];
+		}
+		if (position === 0) {
+			return colors[0];
+		}
+
+		let index = Math.floor(position * (colors.length - 1));
+		let startColor = colors[index];
+		let endColor = colors[index + 1];
+		let alpha = position * (colors.length - 1) - index;
+		return startColor.clone().lerp(endColor, alpha);
 	}
 };
 
