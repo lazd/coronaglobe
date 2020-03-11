@@ -231,7 +231,7 @@ const App = function(options) {
 
 	var cameraLight = new THREE.PointLight(0xFFFFFF, 1, 750);
 	cameraLight.position.set(0, 0, this.cameraDistance);
-	camera.add(cameraLight);
+	// camera.add(cameraLight);
 
 	// Add controls
 	this.controls = new OrbitControls(this.camera, this.container);
@@ -439,7 +439,8 @@ App.dataTableTemplate = function(title, columns, data, callback) {
 		let rowHTML = `
 			<tr class="gt_dataTable-row">
 `;
-		for (let column of row) {
+		for (let i = 0; i < columns.length; i++) {
+			let column = row[i];
 		rowHTML += `
 				<td>${column}</td>
 `;
@@ -472,7 +473,7 @@ App.prototype.showFeature = function(feature, options) {
 	if (feature.border) {
 		feature.border.visible = true;
 		if (options && options.color) {
-			feature.border.children[0].children[0].material.color = options.color;
+			feature.border.children[0].children[0].material.color.set(options.color);
 		}
 	}
 	else {
@@ -569,12 +570,12 @@ App.prototype.drawFeatureAtCoordinates = function(coordinates) {
 		feature.turfFeature = feature.turfFeature || TurfFeature(feature.geometry);
 		if (booleanPointInPolygon(point, feature.turfFeature)) {
 			foundFeature = feature;
-			this.showFeature(feature);
+			// this.showFeature(feature);
 			continue;
 		}
 
 		// Hide everything else
-		this.hideFeature(feature);
+		// this.hideFeature(feature);
 	}
 	return foundFeature;
 };
@@ -901,9 +902,7 @@ App.prototype.toggleOverlay = function(overlay, button, force) {
 	}
 };
 
-App.prototype.updateRateTable = function(date) {
-	date = date || this.date;
-
+App.prototype.getRateRanking = function(date) {
 	let rateOrder = [];
 	for (let featureId in cases[date]) {
 		let info = cases[date][featureId];
@@ -929,10 +928,19 @@ App.prototype.updateRateTable = function(date) {
 		}
 	});
 
+	return rateOrder;
+}
+
+App.prototype.updateRateTable = function(date) {
+	date = date || this.date;
+
+	let rateOrder = this.getRateRanking(date);
+
 	let rates = rateOrder.map((info, index) => [
 		`${index + 1}. ${info.name}`,
 		info.active.toLocaleString(),
-		util.getRatio(info.active, info.population)
+		util.getRatio(info.active, info.population),
+		info.featureId
 	]);
 
 	rates = rates.slice(0, this.isMobile ? config.topLocationsCount : config.topLocationsCount * 2);
@@ -942,7 +950,7 @@ App.prototype.updateRateTable = function(date) {
 		['Location', 'Cases', 'Ratio'],
 		rates,
 		(html, row, index) => {
-			return html.replace('<tr', `<tr data-featureId="${rateOrder[index].featureId}"`);
+			return html.replace('<tr', `<tr data-featureId="${row[3]}"`);
 		}
 	);
 }
@@ -986,22 +994,21 @@ App.prototype.showData = function(type, date) {
 	let count = 0;
 	let targetColor = new THREE.Color(1, 0, 0);
 	let worstRate = 0;
-	let rates = [];
 	for (let featureId in latestCasesByRegion) {
 		let feature = featureCollection.features[featureId];
 		let caseInfo = latestCasesByRegion[featureId];
 		let location = featureCollection.features[featureId];
 		let cases = caseInfo[type];
-	if (cases) {
+
+		if (caseInfo.rate > worstRate) {
+			worstRate = caseInfo.rate;
+		}
+
+		if (cases) {
 			let infectionPercent = 0;
 			let population = location.properties.pop_est;
 			if (population) {
 				infectionPercent = cases / population;
-
-				if (infectionPercent > worstRate) {
-					worstRate = infectionPercent;
-				}
-				rates[featureId] = infectionPercent;
 			}
 			else {
 				console.log('NO POP DATA FOR %s', feature.properties.name);
@@ -1050,21 +1057,17 @@ App.prototype.showData = function(type, date) {
 		}
 	}
 
-	for (let featureId in latestCasesByRegion) {
-		let feature = featureCollection.features[featureId];
-		if (rates[featureId]) {
-			let ratioToWorse = rates[featureId] / worstRate;
-			let a = 0;
-			let b = 1.75;
-			let scaledColorValue = Math.min(Math.tanh(ratioToWorse + a) * b, 1) ;
-			// let scaledColorValue = ratioToWorse;
-			this.showFeature(feature, {
-				color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
-			});
-		}
-		else {
-			console.warn('No rate data for %s', feature.properties.name);
-		}
+	let ranks = this.getRateRanking(date);
+	for (let [index, info] of Object.entries(ranks)) {
+		let feature = featureCollection.features[info.featureId];
+		let rankRatio = (ranks.length - index) / ranks.length;
+		// let a = 0;
+		// let b = 1.75;
+		// let scaledColorValue = Math.min(Math.tanh(rankRatio + a) * b, 1) ;
+		let scaledColorValue = rankRatio;
+		this.showFeature(feature, {
+			color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
+		});
 	}
 
 	// this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
@@ -1098,12 +1101,20 @@ App.prototype.drawGradientKey = function() {
 	document.body.appendChild(container);
 };
 
+// App.choroplethColors = [
+// 	new THREE.Color('#e7ff9d'),
+// 	new THREE.Color('#edff9a'),
+// 	new THREE.Color('#fffc00'),
+// 	new THREE.Color('#ff7200'),
+// 	new THREE.Color('#c52125'),
+// ];
+
 App.choroplethColors = [
-	new THREE.Color('rgb(232, 222, 193)'),
-	new THREE.Color('rgb(239, 157, 101)'),
-	new THREE.Color('rgb(112, 165, 196)'),
-	new THREE.Color('rgb(38, 56, 144)'),
-	new THREE.Color('rgb(197, 33, 37)'),
+	new THREE.Color('#eeffcd'),
+	new THREE.Color('#b4ffa5'),
+	new THREE.Color('#ffff00'),
+	new THREE.Color('#ff7f00'),
+	new THREE.Color('#ff0000'),
 ];
 
 export default App;
