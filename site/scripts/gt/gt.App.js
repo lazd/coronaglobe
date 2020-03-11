@@ -152,7 +152,7 @@ const App = function(options) {
 
 					this.showInfoForFeature(feature);
 
-					this.showFeature(feature);
+					this.highlightFeature(feature);
 				}
 			}
 		}
@@ -314,16 +314,14 @@ const App = function(options) {
 		scene: scene,
 		radius: this.earthRadius,
 		ready: () => {
-			this.showData();
+			this.showData(args.type, args.date);
 		}
 	});
 
-	// Draw features
+	// Draw base features
 	this.featureContainer = new THREE.Object3D();
 	this.scene.add(this.featureContainer);
-	if (this.drawFeatureLines) {
-		this.drawFeatures();
-	}
+	this.drawBaseFeatures();
 
 	if (!args.lat && !args.long) {
 		if ((this.startAtGPS || this.watchGPS) && window.location.protocol === 'https:') {
@@ -376,8 +374,6 @@ App.defaults = {
 	pauseOnBlur: false,
 	realtimeHeatmap: false,
 	animateSun: false,
-
-	drawFeatureLines: true,
 
 	watchGPS: false,
 	startAtGPS: false,
@@ -486,17 +482,9 @@ App.meshMaterial = new THREE.MeshLambertMaterial({
 	depthTest: false
 });
 
-App.prototype.showFeature = function(feature, options) {
-	// Hide the last feature
-	// if (this._lastShownFeature) {
-	// 	if (this._lastShownfeature.mapItems) {
-	// 		this._lastShownfeature.mapItems.visible = false;
-	// 	}
-	// }
-
+App.prototype.drawFeature = function(feature, options = {}) {
 	if (feature.mapItems) {
-		feature.mapItems.visible = true;
-		if (options && options.color) {
+		if (options.color) {
 			feature.meshMaterial.color.set(options.color);
 		}
 	}
@@ -507,7 +495,7 @@ App.prototype.showFeature = function(feature, options) {
 		this.featureContainer.add(feature.mapItems);
 
 		let meshMaterial = App.meshMaterial.clone();
-		meshMaterial.color = options ? options.color : new THREE.Color(0, 0.5, 0);
+		meshMaterial.color = options.color || new THREE.Color('pink');
 		let lineMaterial = App.lineMaterial.clone();
 		drawThreeGeo(feature, this.earthRadius, 'sphere', {
 			meshMaterial: meshMaterial,
@@ -645,7 +633,7 @@ App.prototype.getFeatureAtCoordinates = function(coordinates) {
 	return foundFeature;
 };
 
-App.prototype.drawFeatures = function() {
+App.prototype.drawBaseFeatures = function() {
 	let material = new THREE.MeshLambertMaterial({
     side: THREE.BackSide,
 		color: App.choroplethColors[0],
@@ -1126,14 +1114,18 @@ App.prototype.showData = function(type, date) {
 		let feature = featureCollection.features[info.featureId];
 		let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
 
-		this.showFeature(feature, {
+		this.drawFeature(feature, {
 			color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
 		});
 	}
 
 	for (let featureId in featureCollection.features) {
 		if (!latestCasesByRegion[featureId][type]) {
-			this.resetFeature(featureCollection.features[featureId]);
+			let feature = featureCollection.features[featureId];
+			// this.drawFeature(feature, {
+			// 	color: App.choroplethColors[0]
+			// });
+			this.resetFeature(feature);
 		}
 	}
 
