@@ -903,16 +903,17 @@ App.prototype.toggleOverlay = function(overlay, button, force) {
 	}
 };
 
-App.prototype.getRateRanking = function(date) {
+App.prototype.getRateRanking = function(date, type) {
 	let rateOrder = [];
 	for (let featureId in cases[date]) {
 		let info = cases[date][featureId];
-		if (info.rate && info.active > config.minCasesForSignifigance) {
-			let feature = featureCollection.features[featureId];
+		let feature = featureCollection.features[featureId];
+		if (feature.properties.pop_est && info[type] > config.minCasesForSignifigance) {
 			rateOrder.push(Object.assign({
 				name: feature.properties.name,
 				population: feature.properties.pop_est,
-				featureId: featureId
+				featureId: featureId,
+				rate: info.type / feature.properties.pop_est
 			}, info));
 		}
 	}
@@ -935,7 +936,7 @@ App.prototype.getRateRanking = function(date) {
 App.prototype.updateRateTable = function(date) {
 	date = date || this.date;
 
-	let rateOrder = this.getRateRanking(date);
+	let rateOrder = this.getRateRanking(date, this.type);
 
 	let rates = rateOrder.map((info, index) => [
 		`${index + 1}. ${info.name}`,
@@ -1058,7 +1059,7 @@ App.prototype.showData = function(type, date) {
 		}
 	}
 
-	let ranks = this.getRateRanking(date);
+	let ranks = this.getRateRanking(date, type);
 	for (let [index, info] of Object.entries(ranks)) {
 		let feature = featureCollection.features[info.featureId];
 		let rankRatio = (ranks.length - index) / ranks.length;
