@@ -912,9 +912,10 @@ App.prototype.getRateRanking = function(date, type) {
 			rateOrder.push(Object.assign({
 				name: feature.properties.name,
 				population: feature.properties.pop_est,
-				featureId: featureId,
-				rate: info.type / feature.properties.pop_est
-			}, info));
+				featureId: featureId
+			}, info, {
+				rate: info[type] / feature.properties.pop_est
+			}));
 		}
 	}
 
@@ -933,23 +934,26 @@ App.prototype.getRateRanking = function(date, type) {
 	return rateOrder;
 }
 
-App.prototype.updateRateTable = function(date) {
+App.prototype.updateRateTable = function(date, type) {
 	date = date || this.date;
+	type = type || this.type;
 
-	let rateOrder = this.getRateRanking(date, this.type);
+	let rateOrder = this.getRateRanking(date, type);
 
 	let rates = rateOrder.map((info, index) => [
 		`${index + 1}. ${info.name}`,
-		info.active.toLocaleString(),
-		util.getRatio(info.active, info.population),
+		info[type].toLocaleString(),
+		util.getRatio(info[type], info.population),
 		info.featureId
 	]);
 
+
+	let typeFormal = type.substr(0,1).toUpperCase() + type.substr(1);
 	rates = rates.slice(0, this.isMobile ? config.topLocationsCount : config.topLocationsCount * 2);
 
 	this.tableLayer.innerHTML = App.dataTableTemplate(
-		'Rate of Infection',
-		['Location', 'Cases', 'Ratio'],
+		`Population-adjusted Ranking`,
+		['Location', typeFormal, 'Ratio'],
 		rates,
 		(html, row, index) => {
 			return html.replace('<tr', `<tr data-featureId="${row[3]}"`);
@@ -995,25 +999,25 @@ App.prototype.showData = function(type, date) {
 	let latestCasesByRegion = cases[date];
 	let count = 0;
 	let targetColor = new THREE.Color(1, 0, 0);
-	let worstRate = 0;
+	let worstAffectedPercent = 0;
 	for (let featureId in latestCasesByRegion) {
 		let feature = featureCollection.features[featureId];
 		let caseInfo = latestCasesByRegion[featureId];
 		let location = featureCollection.features[featureId];
 		let cases = caseInfo[type];
 
-		if (caseInfo.rate > worstRate) {
-			worstRate = caseInfo.rate;
-		}
-
 		if (cases) {
-			let infectionPercent = 0;
+			let affectedPercent = 0;
 			let population = location.properties.pop_est;
 			if (population) {
-				infectionPercent = cases / population;
+				affectedPercent = cases / population;
 			}
 			else {
 				console.log('NO POP DATA FOR %s', feature.properties.name);
+			}
+
+			if (affectedPercent > worstAffectedPercent) {
+				worstAffectedPercent = affectedPercent;
 			}
 
 			if (points[featureId]) {
@@ -1023,7 +1027,7 @@ App.prototype.showData = function(type, date) {
 				let intensity = 1;
 
 				// if (population) {
-				// 	console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, infectionPercent.toFixed(8), clusterCount, size, intensity);
+				// 	console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, affectedPercent.toFixed(8), clusterCount, size, intensity);
 				// }
 				// else {
 				// 	console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, clusterCount, size, intensity);
@@ -1062,11 +1066,18 @@ App.prototype.showData = function(type, date) {
 	let ranks = this.getRateRanking(date, type);
 	for (let [index, info] of Object.entries(ranks)) {
 		let feature = featureCollection.features[info.featureId];
+
+		// Color based on rank
 		let rankRatio = (ranks.length - index) / ranks.length;
+
+		// Color based on how bad it is, relative to the worst place
+		// let rankRatio = (info[type] / info.population) / worstAffectedPercent;
+
 		// let a = 0;
 		// let b = 1.75;
 		// let scaledColorValue = Math.min(Math.tanh(rankRatio + a) * b, 1) ;
 		let scaledColorValue = rankRatio;
+
 		this.showFeature(feature, {
 			color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
 		});
