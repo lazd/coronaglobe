@@ -497,7 +497,7 @@ App.prototype.showFeature = function(feature, options) {
 	if (feature.mapItems) {
 		feature.mapItems.visible = true;
 		if (options && options.color) {
-			feature.mapItems.children[0].material.color.set(options.color);
+			feature.meshMaterial.color.set(options.color);
 		}
 	}
 	else {
@@ -516,24 +516,6 @@ App.prototype.showFeature = function(feature, options) {
 
 		feature.meshMaterial = meshMaterial;
 		feature.lineMaterial = lineMaterial;
-
-		/*
-		// Scaled outline
-		let outlineMaterial = new THREE.MeshBasicMaterial( { color: 0xff0000, side: THREE.BackSide } );
-    let featureMesh = feature.mapItems.children[0];
-    let geometry = featureMesh.geometry;
-    let outlineMesh = new THREE.Mesh(geometry, outlineMaterial);
-		outlineMesh.scale.multiplyScalar(1.05);
-    feature.mapItems.add(outlineMesh);
-    */
-
-		/*
-		// EdgeGeometry outline
-		var edges = new THREE.EdgesGeometry(feature.mapItems.children[0].geometry, 25);
-		var line = new THREE.LineSegments(edges, App.lineMaterial);
-		line.renderOrder = Infinity;
-		feature.mapItems.add(line);
-		*/
 	}
 	this._lastShownFeature = feature;
 };
@@ -623,6 +605,11 @@ App.prototype.resetFeature = function(feature) {
 App.prototype.unhighlightFeature = function(feature = this._lastHighlightedFeature) {
 	if (feature && feature.lineMaterial) {
 		feature.lineMaterial.color.set(App.lineColor);
+
+		let lines = feature.mapItems.getObjectByName('Lines');
+		for (let line of lines.children) {
+			line.renderOrder = 10000;
+		}
 	}
 };
 
@@ -632,6 +619,10 @@ App.prototype.highlightFeature = function(feature) {
 	if (feature) {
 		if (feature.lineMaterial) {
 			feature.lineMaterial.color.set(App.lineHighlightColor);
+			let lines = feature.mapItems.getObjectByName('Lines');
+			for (let line of lines.children) {
+				line.renderOrder = Infinity;
+			}
 
 			this._lastHighlightedFeature = feature;
 		}

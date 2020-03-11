@@ -246,6 +246,9 @@ function drawThreeGeo(json, radius, shape, options = {}, targetGroup) {
 
     } else if (json_geom[geom_num].type == 'Polygon') {
       // Mesh
+      let meshGroup = new THREE.Group()
+      meshGroup.name = 'Meshes';
+      targetGroup.add(meshGroup);
       for (let segment_num = 0; segment_num < json_geom[geom_num].coordinates.length; segment_num++) {
         let coords = json_geom[geom_num].coordinates[segment_num];
         let refined = genInnerVerts(coords);
@@ -257,17 +260,20 @@ function drawThreeGeo(json, radius, shape, options = {}, targetGroup) {
         for (let point_num = 0; point_num < delaunayVerts.length; point_num++) {
           convertCoordinates(delaunayVerts[point_num], radius);
         }
-        drawMesh(targetGroup, y_values, z_values, x_values, d.triangles, options);
+        drawMesh(meshGroup, y_values, z_values, x_values, d.triangles, options);
       }
 
       // Outline
+      let lineGroup = new THREE.Group()
+      lineGroup.name = 'Lines';
+      targetGroup.add(lineGroup);
       for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates.length; segment_num++) {
         let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[segment_num]);
 
         for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
           convertCoordinates(coordinate_array[point_num], radius);
         }
-        drawLine(y_values, z_values, x_values, options, targetGroup);
+        drawLine(y_values, z_values, x_values, options, lineGroup);
       }
 
     } else if (json_geom[geom_num].type == 'MultiLineString') {
@@ -281,6 +287,9 @@ function drawThreeGeo(json, radius, shape, options = {}, targetGroup) {
 
     } else if (json_geom[geom_num].type == 'MultiPolygon') {
       // Mesh
+      let meshGroup = new THREE.Group()
+      meshGroup.name = 'Meshes';
+      targetGroup.add(meshGroup);
       for (let polygon_num = 0; polygon_num < json_geom[geom_num].coordinates.length; polygon_num++) {
         for (let segment_num = 0; segment_num < json_geom[geom_num].coordinates[polygon_num].length; segment_num++) {
           let coords = json_geom[geom_num].coordinates[polygon_num][segment_num];
@@ -293,11 +302,14 @@ function drawThreeGeo(json, radius, shape, options = {}, targetGroup) {
           for (let point_num = 0; point_num < delaunayVerts.length; point_num++) {
             convertCoordinates(delaunayVerts[point_num], radius);
           }
-          drawMesh(targetGroup, y_values, z_values, x_values, d.triangles, options)
+          drawMesh(meshGroup, y_values, z_values, x_values, d.triangles, options)
         }
       }
 
       // Outline
+      let lineGroup = new THREE.Group()
+      lineGroup.name = 'Lines';
+      targetGroup.add(lineGroup);
       for (var polygon_num = 0; polygon_num < json_geom[geom_num].coordinates.length; polygon_num++) {
         for (var segment_num = 0; segment_num < json_geom[geom_num].coordinates[polygon_num].length; segment_num++) {
           let coordinate_array = createCoordinateArray(json_geom[geom_num].coordinates[polygon_num][segment_num]);
@@ -305,7 +317,7 @@ function drawThreeGeo(json, radius, shape, options = {}, targetGroup) {
           for (var point_num = 0; point_num < coordinate_array.length; point_num++) {
               convertCoordinates(coordinate_array[point_num], radius);
           }
-          drawLine(y_values, z_values, x_values, options, targetGroup);
+          drawLine(y_values, z_values, x_values, options, lineGroup);
         }
       }
     } else {
@@ -389,17 +401,10 @@ function drawLine(x_values, y_values, z_values, options, targetGroup) {
   // Todo: re-add options
   var material = options.lineMaterial || defaultLineMaterial;
   var line = new THREE.Line(geometry, material);
-  line.renderOrder = Infinity;
+  line.renderOrder = 10000;
   targetGroup.add(line);
 
   clearArrays();
-}
-
-function createGroup(idx, targetGroup) {
-  var group = new THREE.Group();
-  group.userData.userText = "_" + idx;
-  targetGroup.add(group);
-  return group;
 }
 
 function drawMesh(group, x_values, y_values, z_values, triangles, options) {
