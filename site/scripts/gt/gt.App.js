@@ -600,7 +600,8 @@ App.prototype.showInfoForFeature = function(feature, location) {
 
 App.prototype.hideFeature = function(feature) {
 	if (feature.border) {
-		feature.border.visible = false;
+		// feature.border.visible = false;
+		feature.border.children[0].children[0].material.color.set(App.choroplethColors[0]);
 	}
 };
 
@@ -636,16 +637,11 @@ App.prototype.drawFeatures = function() {
 		depthTest: false,
 	});
 
+	// Draw counties
 	drawThreeGeo(countries, this.earthRadius, 'sphere', material, this.featureContainer);
 
-	// Draw infected regions
-	/*
-	drawThreeGeo(featureCollection, this.earthRadius, 'sphere', {
-		color: 'rgb(0, 0, 0)',
-		opacity: 0.95,
-		transparent: true,
-	}, this.featureContainer);
-	*/
+	// Draw all regions
+	// drawThreeGeo(provinces, this.earthRadius, 'sphere', material, this.featureContainer);
 };
 
 // Animation
