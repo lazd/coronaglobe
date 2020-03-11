@@ -115,10 +115,23 @@
 								</div>
 							</label>
 							<label class="gt_form-field">
-								<span class="gt_form-label">Point Style</span>
+								<span class="gt_form-label">Choropleths Color Scheme</span>
 								<div class="gt_form-field">
 									<div class="gt_select">
-										<select class="gt_pointStyleSelect" aria-label="The color of points">
+										<select class="gt_choroplethStyleSelect" aria-label="The color scheme to use for choropleths">
+											<option value="pureRatio">pure ratio</option>
+											<option value="rankAdjustedRatio">rank-adjusted ratio</option>
+											<option value="rankRatio">pure rank</option>
+										</select>
+										<span class="gt_icon gt_icon--chevron-down"></span>
+									</div>
+								</div>
+							</label>
+							<label class="gt_form-field">
+								<span class="gt_form-label">Heatmap Point Style</span>
+								<div class="gt_form-field">
+									<div class="gt_select">
+										<select class="gt_pointStyleSelect" aria-label="The color of points for heatmaps">
 											<option value="greenToRed">green to red</option>
 											<option value="pinkToYellow">pink to yellow</option>
 										</select>

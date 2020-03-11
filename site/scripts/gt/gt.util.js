@@ -164,7 +164,7 @@ const util = {
 	},
 
 	adjustTanh: function(value, a = 0.1, b = 1.75) {
-		let scaledColorValue = Math.min(Math.tanh(ratio + a) * b, 1);
+		return Math.min(Math.tanh(value + a) * b, 1);
 	}
 };
 

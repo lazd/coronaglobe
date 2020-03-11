@@ -131,6 +131,15 @@ const App = function(options) {
 		this.setHashFromParameters();
 	});
 
+	this.choroplethStyleSelect = this.ui.querySelector('.gt_choroplethStyleSelect')
+	this.choroplethStyleSelect.addEventListener('change', (evt) => {
+		this.toggleOverlay(this.settingsLayer, null, false);
+		let style = evt.target.value;
+		this.setChoroplethStyle(style);
+		this.showData();
+		this.setHashFromParameters();
+	});
+
 	// Show clicked items in table
 	this.tableLayer.addEventListener('click', (evt) => {
 		let tr = evt.target.closest('tr');
@@ -337,6 +346,14 @@ const App = function(options) {
 	// Set default parameters based on hash, show data if arguments passed
 	this.setParametersFromHash();
 
+	// Make sure selects are set right
+	if (!args.choroplethStyle) {
+		this.setChoroplethStyle(this.choroplethStyle);
+	}
+	if (!args.style) {
+		this.setStyle(this.style);
+	}
+
 	// Add listeners
 	window.addEventListener('popstate', this.setParametersFromHash.bind(this));
 	window.addEventListener('resize', this.handleWindowResize.bind(this));
@@ -368,7 +385,10 @@ App.defaults = {
 	type: 'cases',
 
 	itemName: 'item',
-	itemNamePlural: 'items'
+	itemNamePlural: 'items',
+
+	choroplethStyle: 'rankAdjustedRatio',
+	style: 'pinkToYellow'
 };
 
 App.detailTemplate = function(info) {
@@ -500,6 +520,18 @@ App.prototype.setTexture = function(texture) {
 	}
 	this.textureSet = true;
 	this.textureSelect.value = this.globe.texture;
+};
+
+App.prototype.setChoroplethStyle = function(style) {
+	if (!style) {
+		return;
+	}
+
+	if (App.choroplethStyles[style]) {
+		this.choroplethStyle = style;
+		this.choroplethStyleSet = true;
+		this.choroplethStyleSelect.value = style;
+	}
 };
 
 App.prototype.setStyle = function(style) {
@@ -733,6 +765,10 @@ App.prototype.setParametersFromHash = function() {
 	if (args.style) {
 		this.setStyle(args.style);
 	}
+
+	if (args.choroplethStyle) {
+		this.setChoroplethStyle(args.choroplethStyle);
+	}
 };
 
 App.prototype.setHashFromParameters = function() {
@@ -758,7 +794,8 @@ App.prototype.setHashFromParameters = function() {
 		lat: lat,
 		long: long,
 		texture: this.textureSet ? this.globe.texture : null,
-		style: this.styleSet ? this.heatmap.style : null
+		style: this.styleSet ? this.heatmap.style : null,
+		choroplethStyle: this.choroplethStyleSet ? this.choroplethStyle : null
 	});
 };
 
@@ -1066,7 +1103,7 @@ App.prototype.showData = function(type, date) {
 	let ranks = this.getRateRanking(date, type);
 	for (let [index, info] of Object.entries(ranks)) {
 		let feature = featureCollection.features[info.featureId];
-		let scaledColorValue = App.choroplethStyles.rankRatio(info, type, ranks.length, index, worstAffectedPercent);
+		let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
 
 		this.showFeature(feature, {
 			color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
