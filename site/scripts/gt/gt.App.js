@@ -489,6 +489,14 @@ App.prototype.showFeature = function(feature, options) {
 			transparent: true
 		});
 		drawThreeGeo(feature, this.earthRadius, 'sphere', material, feature.border);
+
+		// Add edges
+		var edges = new THREE.EdgesGeometry(feature.border.children[0].children[0].geometry, 25);
+		var line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
+			linewidth: 1,
+			color: 0xFFFFFF
+		}));
+		feature.border.add(line);
 	}
 	this._lastShownFeature = feature;
 };
@@ -558,7 +566,7 @@ App.prototype.showInfoForFeature = function(feature, location) {
 
 App.prototype.hideFeature = function(feature) {
 	if (feature.border) {
-		// feature.border.visible = false;
+		feature.border.visible = false;
 	}
 };
 
@@ -1068,6 +1076,12 @@ App.prototype.showData = function(type, date) {
 		this.showFeature(feature, {
 			color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
 		});
+	}
+
+	for (let featureId in featureCollection.features) {
+		if (!latestCasesByRegion[featureId][type]) {
+			this.hideFeature(featureCollection.features[featureId]);
+		}
 	}
 
 	// this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
