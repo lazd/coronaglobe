@@ -92,6 +92,7 @@ const App = function(options) {
 		let dateString = Object.keys(cases)[dateIndex];
 		if (dateString) {
 			this.setDate(dateString);
+			this.dateSet = true;
 			this.pause();
 		}
 	});
@@ -101,15 +102,20 @@ const App = function(options) {
 		this.slider.addEventListener('input', () => {
 			let dateIndex = this.slider.value;
 			let dateString = Object.keys(cases)[dateIndex];
-			this.datePicker.value = util.formatDateForInput(dateString);
+			if (dateString) {
+				this.datePicker.value = util.formatDateForInput(dateString);
+			}
 		});
 	}
 
 	this.datePicker.addEventListener('input', () => {
 		if (this.datePicker.value) {
 			let dateString = util.formatDateForDataset(this.datePicker.value);
-			this.pause();
-			this.setDate(dateString);
+			if (dateString) {
+				this.setDate(dateString);
+				this.dateSet = true;
+				this.pause();
+			}
 		}
 	});
 
@@ -127,6 +133,7 @@ const App = function(options) {
 		this.toggleOverlay(this.settingsLayer, null, false);
 		let color = evt.target.value;
 		this.setHeatmapColor(color);
+		this.heatmapColorSet = true;
 		this.showData();
 		this.setHashFromParameters();
 	});
@@ -136,6 +143,7 @@ const App = function(options) {
 		this.toggleOverlay(this.settingsLayer, null, false);
 		let style = evt.target.value;
 		this.setChoroplethStyle(style);
+		this.choroplethStyleSet = true;
 		this.showData();
 		this.setHashFromParameters();
 	});
@@ -152,6 +160,7 @@ const App = function(options) {
 		let style = button.getAttribute('data-value');
 		this.toggleOverlay(this.mapStyleLayer, this.mapStyleButton, false);
 		this.setStyle(style);
+		this.styleSet = true;
 		this.showData();
 		this.setHashFromParameters();
 	});
@@ -277,7 +286,7 @@ const App = function(options) {
 		radius: this.earthRadius,
 		cloudSpeed: this.cloudSpeed,
 		loaded: this.handleLoaded.bind(this),
-		texture: args.texture,
+		// texture: args.texture,
 		style: 'basic'
 	});
 
@@ -332,7 +341,7 @@ const App = function(options) {
 		scene: scene,
 		radius: this.earthRadius,
 		ready: () => {
-			this.showData(args.type, args.date);
+			this.showData();
 		}
 	});
 
@@ -356,27 +365,13 @@ const App = function(options) {
 		}
 	}
 
-	// Show data if no arguments passed
-	if (!args.type && !args.date) {
-		this.showData();
-	}
-
-	// Set default parameters based on hash, show data if arguments passed
-	this.setParametersFromHash();
-
-	// Make sure selects are set right
-	if (!args.choroplethStyle) {
-		this.setChoroplethStyle(this.choroplethStyle);
-	}
-	if (!args.heatmapColor) {
-		this.setHeatmapColor(this.heatmapColor);
-	}
-
 	// Add listeners
 	window.addEventListener('popstate', this.setParametersFromHash.bind(this));
 	window.addEventListener('resize', this.handleWindowResize.bind(this));
 	window.addEventListener('blur', this.handleBlur.bind(this));
 	window.addEventListener('focus', this.handleFocus.bind(this));
+
+	this.setParametersFromHash();
 
 	// Start animation
 	this.animate(0);
@@ -540,7 +535,6 @@ App.prototype.setChoroplethStyle = function(style) {
 
 	if (App.choroplethStyles[style]) {
 		this.choroplethStyle = style;
-		this.choroplethStyleSet = true;
 		this.choroplethStyleSelect.value = style;
 	}
 };
@@ -563,8 +557,6 @@ App.prototype.setStyle = function(style) {
 		for (let otherButton of this.mapStyleMenu.querySelectorAll(`button:not([data-value="${style}"])`)) {
 			otherButton.classList.remove('is-selected');
 		}
-
-		this.styleSet = true;
 	}
 };
 
@@ -574,7 +566,6 @@ App.prototype.setHeatmapColor = function(color) {
 	}
 
 	this.heatmap.setColor(color);
-	this.heatmapColorSet = true;
 	this.heatmapColorSelect.value = color;
 };
 
@@ -773,7 +764,6 @@ App.prototype.stopWatchingGPS = function() {
 
 App.prototype.setDate = function(date) {
 	// Store the date in the hash if it was set explicitly
-	this.dateSet = true;
 	this.showData(this.type, date);
 	this.setHashFromParameters();
 };
@@ -792,33 +782,55 @@ App.prototype.setParametersFromHash = function() {
 		this.rotateTo([long, lat]);
 	}
 
-	if (args.type || args.date) {
-		if (args.date) {
-			// Store the date in the hash if it came from the hash
-			this.dateSet = true;
-		}
-		this.showData(args.type, args.date);
-	}
-
-	if (args.playing === 'true') {
-		this.playing = true;
-		this.play();
-	}
-
-	if (args.texture) {
-		this.setStyle(args.texture);
-	}
+	// if (args.texture) {
+	// 	this.setStyle(args.texture);
+	// }
+	// else {
+	// 	this.setStyle(this.style);
+	// }
 
 	if (args.heatmapColor) {
+		this.heatmapColorSet = true;
 		this.setHeatmapColor(args.heatmapColor);
+	}
+	else {
+		this.setHeatmapColor(this.heatmapColor);
 	}
 
 	if (args.choroplethStyle) {
+		this.choroplethStyleSet = true;
 		this.setChoroplethStyle(args.choroplethStyle);
+	}
+	else {
+		this.setChoroplethStyle(this.choroplethStyle);
 	}
 
 	if (args.style) {
+		this.styleSet = true;
 		this.setStyle(args.style);
+	}
+	else {
+		this.setStyle(this.style);
+	}
+
+	if (args.type || args.date) {
+		if (args.date) {
+			this.dateSet = true;
+		}
+		if (args.type) {
+			this.typeSet = true;
+		}
+
+		this.type = args.type;
+		this.date = args.date;
+	}
+
+	this.showData();
+
+	if (args.playing === 'true') {
+		this.playingSet = true;
+		this.playing = true;
+		this.play();
 	}
 };
 
@@ -839,13 +851,13 @@ App.prototype.setHashFromParameters = function() {
 	lat = util.round(lat, 1000);
 
 	util.setHashFromArgs({
-		playing: this.playing,
+		playing: this.playingSet ? this.playing : null,
 		date: this.dateSet ? this.date : null,
-		type: this.type,
+		type: this.typeSet ? this.type : null,
 		lat: lat,
 		long: long,
-		texture: this.textureSet ? this.globe.texture : null,
-		heatmapColor: this.heatmapColorSet ? this.heatmap.style : null,
+		// texture: this.textureSet ? this.globe.texture : null,
+		heatmapColor: this.heatmapColorSet ? this.heatmap.color : null,
 		choroplethStyle: this.choroplethStyleSet ? this.choroplethStyle : null,
 		style: this.styleSet ? this.style : null
 	});

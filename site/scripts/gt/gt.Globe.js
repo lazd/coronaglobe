@@ -76,7 +76,8 @@ const Globe = function(options) {
 Globe.defaults = {
 	radius: 200,
 	cloudRadius: 200.5,
-	cloudSpeed: 0.000005
+	cloudSpeed: 0.000005,
+	texture: 'realistic'
 };
 
 Globe.prototype.setStyle = function(style) {
