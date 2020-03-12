@@ -48,6 +48,7 @@ async function readPopulationData(featureCollection) {
   // Done  
   populations.byProvince.CN = populations.byProvince['Mainland China'];
   populations.byProvince.CA = populations.byProvince['Canada'];
+  populations.byProvince.IT = populations.byProvince['Italy'];
   populations.byProvince.AUS = populations.byProvince['Australia'];
 
   // Store data from features

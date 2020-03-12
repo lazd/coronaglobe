@@ -3,9 +3,12 @@ const path = require('path');
 
 const turf = require('@turf/turf');
 
+const usStates = require('../data/us-states.json');
 const countryData = require('../data/ne_10m_admin_0_countries-4pct.json');
 const usCountyData = require('../data/counties-500k.json');
 const provinceData = require('../data/ne_10m_admin_1_states_provinces-10pct.json');
+
+const DEBUG = false;
 
 function cleanProps(obj) {
   if (obj.wikipedia === -99) {
@@ -56,6 +59,30 @@ let props = [
   'wikipedia'
 ];
 
+const locationTransforms = {
+  // Correct missing county
+  'Island, WA': (location) => {
+    location.province = 'Island County, WA';
+  },
+
+  // 🇭🇰
+  'Hong Kong': (location) => {
+    location.country = 'Hong Kong';
+    delete location.province;
+  },
+
+  // Why is this in Denmark?
+  'Faroe Islands': (location) => {
+    location.country = 'Faroe Islands';
+    delete location.province;
+  },
+
+  // Why is it UK, United Kingdom?
+  'UK': (location) => {
+    delete location.province;
+  }
+}
+
 function cleanFeatures(set) {
   for (let feature of set.features) {
     feature.properties = cleanProps(takeOnlyProps(normalizeProps(feature.properties), props));
@@ -71,6 +98,10 @@ function generateFeatures({locationDays, locations}) {
         feature.properties.shortName = feature.properties.name;
         feature.properties.name = feature.properties.name + ', ' + feature.properties.geonunit;
       }
+    }
+
+    if (DEBUG) {
+      console.log('Storing %s in %s', location.name, feature.properties.name);
     }
 
     feature.properties.id = index;
@@ -95,15 +126,33 @@ function generateFeatures({locationDays, locations}) {
       let found = false;
       let point = turf.point(location.coordinates);
 
+      // Apply transforms
+      if (locationTransforms[location.province]) {
+        locationTransforms[location.province](location);
+      }
+
       if (location.country === 'Italy' && !location.province) {
         // We have province level data for Italy, don't consider it as a feature
+        console.log('  ⚠️  Skipping country-level data for %s', location.country);
+        foundCount++;
         continue;
       }
 
       if (location.province) {
         if (location.country === 'US') {
+          // Ignore state-level data
+          if (usStates[location.province]) {
+            console.log('  ⚠️  Skipping state-level data for %s', location.province);
+            foundCount++;
+            continue;
+          }
           // Find county
           for (let feature of usCountyData.features) {
+            if (feature.properties.name === location.province) {
+              found = true;
+              storeFeature(feature, location);
+              continue locationLoop;
+            }
             if (feature.geometry) {
               let poly = turf.feature(feature.geometry);
               if (turf.booleanPointInPolygon(point, poly)) {
