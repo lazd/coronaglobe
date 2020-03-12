@@ -233,6 +233,7 @@ const App = function(options) {
 	// Listen to visualization type change
 	this.typeSelect.addEventListener('input', (evt) => {
 		var type = evt.target.value;
+		this.typeSet = true;
 		this.setType(type);
 	});
 
