@@ -163,6 +163,7 @@ const util = {
 		return startColor.clone().lerp(endColor, alpha);
 	},
 
+	// Via https://math.stackexchange.com/a/57510
 	adjustTanh: function(value, a = 0.1, b = 1.75) {
 		return Math.min(Math.tanh(value + a) * b, 1);
 	}
