@@ -264,6 +264,7 @@ body {
 	}
 }
 
+.gt_mapStyleLayer,
 .gt_menuLayer {
 	z-index: 3;
 }
