@@ -415,7 +415,7 @@ App.detailTemplate = function(info) {
 			</div>
 			<div class="gt_descriptionList-row">
 				<dt>Infection Rate</dt>
-				<dd>${info.population ? info.rate.toFixed(8) : '-'}%</dd>
+				<dd>${info.rate ? info.rate.toFixed(8) : '-'}%</dd>
 			</div>
 			<div class="gt_descriptionList-row">
 				<dt>Infected Ratio</dt>
@@ -814,16 +814,13 @@ App.prototype.setParametersFromHash = function() {
 		this.setStyle(this.style);
 	}
 
-	if (args.type || args.date) {
-		if (args.date) {
-			this.dateSet = true;
-		}
-		if (args.type) {
-			this.typeSet = true;
-		}
-
-		this.type = args.type;
+	if (args.date) {
 		this.date = args.date;
+		this.dateSet = true;
+	}
+	if (args.type) {
+		this.type = args.type;
+		this.typeSet = true;
 	}
 
 	this.showData();
