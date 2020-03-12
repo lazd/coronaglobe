@@ -340,6 +340,7 @@ const App = function(options) {
 	this.heatmap = new Heatmap({
 		scene: scene,
 		radius: this.earthRadius,
+		color: args.heatmapColor || this.heatmapColor,
 		ready: () => {
 			this.showData();
 		}
