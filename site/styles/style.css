@@ -22,6 +22,9 @@
 	--gt-component-shadow-width: 2px;
 	--gt-component-shadow-blur: 4px;
 
+	--gt-message-font-size: 18px;
+	--gt-message-padding: 20px;
+
 	--gt-layer-padding: 6px;
 
 	--gt-slider-thumb-height: 24px;
@@ -98,6 +101,14 @@ body {
 	}
 }
 
+.gt_message {
+	font-family: Helvetica, sans-serif;
+	font-size: var(--gt-message-font-size);
+	color: var(--gt-component-text-color);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0 ,0.25);
+	padding: var(--gt-message-padding);
+}
+
 .gt_button-label {
 	margin-left: calc(var(--gt-component-padding-x) / 2);
 }
@@ -105,6 +116,10 @@ body {
 .gt_input {
 	text-align: left;
 	cursor: text;
+
+	&::-webkit-search-cancel-button {
+		color: inherit;
+	}
 }
 
 .gt_datePicker {
@@ -129,12 +144,17 @@ body {
 
 .gt_select select,
 .gt_button,
-.gt_datePicker,
-.gt_input {
+.gt_datePicker {
+	&.is-highlighted,
 	&:hover {
 		background-color: var(--gt-component-background-color-hover);
 	}
+}
 
+.gt_select select,
+.gt_button,
+.gt_datePicker,
+.gt_input {
 	&:focus {
 		outline: none;
 		background-color: var(--gt-component-background-color-focus);
@@ -154,7 +174,7 @@ body {
 	select {
 		height: 100%;
 		appearance: none;
-		padding-right: 40px;
+		padding-right: 34px;
 	}
 
 	.gt_icon {
@@ -302,6 +322,16 @@ body {
 	right: 0;
 }
 
+.gt_overlay--search {
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.gt_layer--search {
+	align-items: center;
+	justify-content: start;
+	flex-direction: column;
+}
+
 .gt_layer--detail {
 	h3 {
 		margin: 0;
@@ -377,6 +407,10 @@ body {
 		display: flex;
 		opacity: 0;
 		pointer-events: none;
+
+		* {
+			pointer-events: none;
+		}
 	}
 }
 
@@ -396,8 +430,40 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 	opacity: 0.35;
 }
 
-.gt_search > .gt_input {
-	color: rgba(200, 200, 200, 0.575);
+.gt_search {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+}
+.gt_search-input {
+	flex: 1;
+	margin-right: 0;
+
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+
+	&:focus + .gt_search-button {
+		outline: none;
+		background-color: var(--gt-component-background-color-focus);
+		box-shadow: 0 0 var(--gt-component-focus-blur) var(--gt-component-focus-width) var(--gt-component-focus-color);
+	}
+}
+.gt_search-button {
+	margin-left: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.gt_searchResults {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+
+	.gt_menu {
+		overflow-x: auto;
+		flex: 1;
+	}
 }
 
 .gt_logo {
@@ -595,5 +661,21 @@ Via http://css-tricks.com/snippets/css/style-placeholder-text/
 	}
 	100% {
 		-webkit-transform: rotate(360deg);
+	}
+}
+
+/* Responsive bits */
+.gt_searchMenuItem {
+	display: none;
+}
+
+@media only screen 
+and (max-width: 415px) {
+	.gt_searchMenuItem {
+		display: block;
+	}
+
+	.gt_searchButtonTop {
+		display: none;
 	}
 }

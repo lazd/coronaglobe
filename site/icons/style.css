@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'icomoon';
   src:
-    url('fonts/icomoon.ttf?623ra') format('truetype'),
-    url('fonts/icomoon.woff?623ra') format('woff'),
-    url('fonts/icomoon.svg?623ra#icomoon') format('svg');
+    url('fonts/icomoon.ttf?mvh2u') format('truetype'),
+    url('fonts/icomoon.woff?mvh2u') format('woff'),
+    url('fonts/icomoon.svg?mvh2u#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -36,6 +36,12 @@
 .gt_icon--chevron-down:before {
   content: "\e908";
 }
+.gt_icon--close:before {
+  content: "\e90b";
+}
+.gt_icon--search:before {
+  content: "\e90e";
+}
 .gt_icon--paper:before {
   content: "\e909";
 }
@@ -59,18 +65,6 @@
 }
 .gt_icon--play:before {
   content: "\e905";
-}
-.gt_icon--fire:before {
-  content: "\e90b";
-}
-.gt_icon--flame:before {
-  content: "\e90b";
-}
-.gt_icon--hot:before {
-  content: "\e90b";
-}
-.gt_icon--popular:before {
-  content: "\e90b";
 }
 .gt_icon--spinner:before {
   content: "\e900";

@@ -90,6 +90,10 @@
 
 				<div class="gt_layer gt_layer--offset gt_layer--left gt_layer--top gt_menuLayer" hidden>
 					<div class="gt_menu">
+						<button class="gt_button gt_showSearch gt_searchMenuItem" aria-label="Location search">
+							<span class="gt_icon gt_icon--search"></span>
+							<span class="gt_button-label">Search</span>
+						</button>
 						<button class="gt_button gt_locationButton" aria-label="Go to GPS location">
 							<span class="gt_icon gt_icon--location"></span>
 							<span class="gt_button-label">Locate</span>
@@ -116,8 +120,26 @@
 					<button class="gt_button gt_menuButton" aria-label="Main menu">
 						<span class="gt_icon gt_icon--menu"></span>
 					</button>
+					<button class="gt_button gt_showSearch gt_searchButtonTop" aria-label="Location search">
+						<span class="gt_icon gt_icon--search"></span>
+					</button>
 				</div>
-				<div class="gt_overlay gt_layer gt_settingsLayer gt_layer--full" hidden>
+
+				<div class="gt_overlay gt_overlay--search gt_layer gt_layer--search gt_searchLayer gt_layer--full" hidden>
+					<form class="gt_search">
+						<button class="gt_button gt_closeOverlay" type="button" aria-label="Exit search">
+							<span class="gt_icon gt_icon--close"></span>
+						</button>
+						<input class="gt_input gt_search-input" type="search">
+						<button class="gt_button gt_search-button" type="submit" aria-label="Search">
+							<span class="gt_icon gt_icon--search"></span>
+						</button>
+					</form>
+					<div class="gt_searchResults">
+					</div>
+				</div>
+
+				<div class="gt_overlay gt_layer gt_layer--full gt_settingsLayer" hidden>
 					<div class="gt_dialog">
 						<h3 class="gt_heading">Settings</h3>
 						<div class="gt_form">

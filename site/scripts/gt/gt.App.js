@@ -173,11 +173,7 @@ const App = function(options) {
 			if (featureId) {
 				let feature = featureCollection.features[featureId];
 				if (feature) {
-					this.rotateTo(feature.properties.coordinates);
-
-					this.showInfoForFeature(feature);
-
-					this.highlightFeature(feature);
+					this.goToFeature(feature);
 				}
 			}
 		}
@@ -205,10 +201,140 @@ const App = function(options) {
 		this.toggleOverlay(this.aboutLayer, null, true);
 	});
 
+	const searchTemplate = (results) => {
+		let html = `<div class="gt_menu">`;
+		// results
+
+		for (let [index, feature] of Object.entries(results)) {
+			html += `<a class="gt_button${index == "0" ? ' is-highlighted' : ''}" data-featureId="${feature.properties.id}" href="#">${feature.properties.name}</a>`;
+		}
+		if (!results.length) {
+			html += '<div class="gt_message">No results.</div>';
+		}
+
+		html += `</div>`;
+		return html;
+	};
+
+	// Search bits
+	this.searchForm = this.ui.querySelector('.gt_search');
+	this.searchResults = this.ui.querySelector('.gt_searchResults');
+	this.searchLayer = this.ui.querySelector('.gt_searchLayer');
+	this.searchInput = this.ui.querySelector('.gt_search-input');
+
+	// Navigate to search results
+	this.searchResults.addEventListener('click', (evt) => {
+		let tr = evt.target.closest('a');
+		if (tr) {
+			let featureId = tr.getAttribute('data-featureId');
+			if (featureId) {
+				let feature = featureCollection.features[featureId];
+				if (feature) {
+					this.toggleOverlay(this.searchLayer, null, false);
+					this.goToFeature(feature);
+				}
+			}
+		}
+	});
+
+	// Navigate around search results
+	const navigateKeys = {
+		'ArrowDown': (index, length) => {
+			return index + 1;
+		},
+		'ArrowUp': (index, length) => {
+			return index - 1;
+		},
+		'Home': (index, length) => {
+      return 0;
+    },
+    'End': (index, length) => {
+      return length - 1;
+    }
+	};
+	this.searchResults.addEventListener('keydown', (evt) => {
+		if (evt.key === 'Escape') {
+			this.searchInput.focus();
+			return;
+		}
+
+		let navigateFunc = navigateKeys[evt.key];
+		if (navigateFunc) {
+			let results = Array.prototype.slice.call(this.searchResults.querySelectorAll('a'));
+			let currentIndex = results.indexOf(evt.target);
+			currentIndex = navigateFunc(currentIndex, results.length);
+			if (currentIndex < 0) {
+				currentIndex = results.length - 1;
+			}
+			else if (currentIndex > results.length - 1) {
+				currentIndex = 0;
+			}
+			evt.preventDefault();
+			if (results[currentIndex]) {
+				results[currentIndex].focus();
+			}
+		}
+	});
+
+	const removeResultHighlight = (evt) => {
+		let anchor = this.searchResults.querySelector('a.is-highlighted');
+		if (anchor) {
+			anchor.classList.remove('is-highlighted');
+		}
+	};
+	this.searchResults.addEventListener('focusin', removeResultHighlight);
+	this.searchResults.addEventListener('mouseover', removeResultHighlight);
+
+	// Handle search input
+	this.searchInput.addEventListener('keydown', (evt) => {
+		if (evt.key === 'Escape' && this.searchInput.value === '') {
+			this.toggleOverlay(this.searchLayer, null, false);
+			return;
+		}
+		else if (evt.key === 'ArrowDown') {
+			let firstResult = this.searchResults.querySelector('a');
+			if (firstResult) {
+				evt.preventDefault();
+				firstResult.focus();
+			}
+		}
+	});
+	this.searchInput.addEventListener('input', (evt) => {
+		let results = this.search(this.searchInput.value.trim().toLowerCase());
+		this.searchResults.innerHTML = searchTemplate(results);
+	});
+	this.searchForm.addEventListener('submit', (evt) => {
+		evt.preventDefault();
+
+		// Go to first result
+		let results = this.search(this.searchInput.value.trim().toLowerCase());
+		if (results.length) {
+			this.toggleOverlay(this.searchLayer, null, false);
+			this.goToFeature(results[0]);
+		}
+	});
+
+	// Show search
+	this.ui.addEventListener('click', (evt) => {
+		let button = evt.target.closest('button');
+		if (button && button.classList.contains('gt_showSearch')) {
+			this.toggleOverlay(this.searchLayer, null, true);
+			this.searchInput.focus();
+			this.toggleOverlay(this.menuLayer, this.menuButton, false);
+			this.toggleOverlay(this.mapStyleLayer, this.mapStyleButton, false);
+		}
+	});
+
 	// Hide overlay
 	this.ui.addEventListener('click', (evt) => {
 		if (evt.target.classList.contains('gt_overlay')) {
 			this.toggleOverlay(evt.target, null, false);
+		}
+
+		let button = evt.target.closest('button');
+		if (button && button.classList.contains('gt_closeOverlay')) {
+			let overlay = button.closest('.gt_overlay');
+			this.toggleOverlay(overlay, null, false);
 		}
 	});
 
@@ -296,6 +422,10 @@ const App = function(options) {
 	this.canvas.addEventListener(isMobile ? 'touchend' : 'mousemove', (evt) => {
 		evt.preventDefault();
 
+		if (this.persistFeatureInfo) {
+			return;
+		}
+
 		if (isMobile) {
 			mousePosition.x = (evt.changedTouches[0].clientX / this.canvas.width) * 2 - 1;
 			mousePosition.y = -(evt.changedTouches[0].clientY / this.canvas.height) * 2 + 1;
@@ -322,7 +452,7 @@ const App = function(options) {
 			}
 		}
 		else {
-				this.unhighlightFeature();
+			this.unhighlightFeature();
 			this.hideInfo();
 		}
 	});
@@ -446,7 +576,15 @@ App.detailTemplate = function(info) {
 App.dataTableTemplate = function(title, columns, data, callback) {
 	let html = `
 	<div class="gt_output">
-		<h3 class="gt_heading" id="detailTitle">${title}</h3>
+`;
+
+	if (title) {
+		html += `
+			<h3 class="gt_heading" id="detailTitle">${title}</h3>
+		`;
+	}
+
+	html += `
 		<table class="gt_dataTable gt_dataTable--interactive">
 			<thead>
 `;
@@ -530,6 +668,27 @@ App.prototype.drawFeature = function(feature, options = {}) {
 	this._lastShownFeature = feature;
 };
 
+
+App.prototype.goToFeature = function(feature) {
+	if (feature) {
+		this.rotateTo(feature.properties.coordinates);
+
+		this.showInfoForFeature(feature, null, true);
+
+		this.highlightFeature(feature);
+	}
+};
+
+App.prototype.search = function(searchString) {
+	let results = [];
+	for (let feature of featureCollection.features) {
+		if (feature.properties.name.toLowerCase().match(searchString)) {
+			results.push(feature);
+		}
+	}
+	return results;
+};
+
 App.prototype.setChoroplethStyle = function(style) {
 	if (!style) {
 		return;
@@ -576,13 +735,21 @@ App.prototype.hideInfo = function() {
 	this.lastInfoFeature = null;
 };
 
-App.prototype.showInfoForFeature = function(feature, location) {
+App.prototype.showInfoForFeature = function(feature, location, persist) {
 	if (!feature) {
 		feature = this.lastInfoFeature;
 	}
 
 	if (!feature) {
 		return;
+	}
+
+	if (persist) {
+		this.persistFeatureInfo = persist;
+		clearTimeout(this._featurePersistTimeout);
+		this._featurePersistTimeout = setTimeout(() => {
+			this.persistFeatureInfo = false;
+		}, 2000);
 	}
 
 	if (!location) {
@@ -1094,7 +1261,7 @@ App.prototype.showData = function(type, date) {
 
 	this.heatmap.clear();
 
-	console.log('🗓 %s', date);
+	// console.log('🗓 %s', date);
 
 	let latestCasesByRegion = cases[date];
 	let count = 0;
@@ -1113,7 +1280,7 @@ App.prototype.showData = function(type, date) {
 				affectedPercent = cases / population;
 			}
 			else {
-				console.log('NO POP DATA FOR %s', feature.properties.name);
+				console.error('No population data for %s!', feature.properties.name);
 			}
 
 			if (affectedPercent > worstAffectedPercent) {
