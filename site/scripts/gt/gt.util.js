@@ -131,12 +131,19 @@ const util = {
 		return Math.round(number * factor) / factor;
 	},
 
+	getDateAsYYYYDDMM: function(dateString) {
+		let parts = dateString.split('-');
+		let newDate = parts.map(part => String(part).padStart(2, '0')).join('-');
+		console.log(newDate);
+		return newDate;
+	},
+
 	getDateFromInputString: function(dateString) {
-		return new Date(dateString + 'T12:00:00');
+		return new Date(this.getDateAsYYYYDDMM(dateString) + 'T12:00:00');
 	},
 
 	getDateFromDatasetString: function(dateString) {
-		return new Date(dateString);
+		return new Date(this.getDateAsYYYYDDMM(dateString));
 	},
 
 	formatDateForDataset: function(dateString) {
