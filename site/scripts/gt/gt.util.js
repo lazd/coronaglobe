@@ -134,7 +134,6 @@ const util = {
 	getDateAsYYYYDDMM: function(dateString) {
 		let parts = dateString.split('-');
 		let newDate = parts.map(part => String(part).padStart(2, '0')).join('-');
-		console.log(newDate);
 		return newDate;
 	},
 
