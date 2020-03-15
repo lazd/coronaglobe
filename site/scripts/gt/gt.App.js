@@ -831,12 +831,24 @@ App.prototype.highlightFeature = function(feature) {
 	}
 };
 
+App.prototype.shouldSkipLocation = function(location) {
+	if (
+		// Skip States, we have county data
+		(location.country === 'USA' && location.state && !location.county) ||
+		// Skip Italy; we have province data
+		(location.country === 'ITA' && !location.state)
+	) {
+		return true;
+	}
+	return false;
+};
+
 App.prototype.getFeatureAtCoordinates = function(coordinates) {
 	let point = TurfPoint(coordinates);
 	let foundFeature = null;
 	for (let feature of featureCollection.features) {
 		let location = locations[feature.properties.locationId];
-		if (location.country === 'USA' && location.state && !location.county) {
+		if (this.shouldSkipLocation(location)) {
 			continue;
 		}
 
@@ -1218,8 +1230,7 @@ App.prototype.getRateRanking = function(date, type, min = config.minCasesForSign
 		let location = locations[locationId];
 		let feature = featureCollection.features[location.featureId];
 
-		// Skip states for now
-		if (location.country === 'USA' && location.state && !location.county) {
+		if (this.shouldSkipLocation(location)) {
 			continue;
 		}
 
@@ -1327,8 +1338,7 @@ App.prototype.showData = function(type, date) {
 			console.error('Cannot find feature for %s', getName(location));
 		}
 
-		// Skip states for now
-		if (location.country === 'USA' && location.state && !location.county) {
+		if (this.shouldSkipLocation(location)) {
 			continue;
 		}
 
