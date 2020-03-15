@@ -9,13 +9,14 @@ import Heatmap from './gt.Heatmap.js';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { point as TurfPoint, feature as TurfFeature } from '@turf/helpers';
 
-import countries from '../../../data/ne_10m_admin_0_countries-4pct.json';
+import countries from '../../../coronavirus-data-sources/geojson/world-countries.json';
 // import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
 
 import config from '../../../data/config.json';
-import cases from '../../data/cases.json';
-import * as featureCollection from '../../data/features.json';
-import * as points from '../../data/points.json';
+import cases from '../../../coronadatascraper/timeseries-pivoted.json';
+import locations from '../../../coronadatascraper/locations.json';
+import * as featureCollection from '../../../coronadatascraper/features.json';
+// import * as points from '../../data/points.json';
 import drawThreeGeo from './lib/three3DGeoJSON.js';
 
 window.THREE = THREE;
@@ -206,7 +207,7 @@ const App = function(options) {
 		// results
 
 		for (let [index, feature] of Object.entries(results)) {
-			html += `<a class="gt_button${index == "0" ? ' is-highlighted' : ''}" data-featureId="${feature.properties.id}" href="#">${feature.properties.name}</a>`;
+			html += `<a class="gt_button${index == "0" ? ' is-highlighted' : ''}" data-featureId="${feature.properties.locationId}" href="#">${feature.properties.name}</a>`;
 		}
 		if (!results.length) {
 			html += '<div class="gt_message">No results.</div>';
@@ -540,34 +541,51 @@ App.detailTemplate = function(info) {
 	<div class="gt_output">
 		<h3 class="gt_heading" id="detailTitle">${info.name}</h3>
 		<dl class="gt_descriptionList" id="detailDescription">
-			<div class="gt_descriptionList-row">
-				<dt>Population</dt>
-				<dd>${info.population ? info.population.toLocaleString() : '-'}</dd>
-			</div>
-			<div class="gt_descriptionList-row">
-				<dt>Infection Rate</dt>
-				<dd>${info.rate ? info.rate.toFixed(8) : '-'}%</dd>
-			</div>
-			<div class="gt_descriptionList-row">
-				<dt>Infected Ratio</dt>
-				<dd>${info.population ? util.getRatio(info.active, info.population) : '-'}</dd>
-			</div>
-			<div class="gt_descriptionList-row">
-				<dt>Cases</dt>
-				<dd>${info.cases.toLocaleString()}</dd>
-			</div>
-			<div class="gt_descriptionList-row">
-				<dt>Recovered</dt>
-				<dd>${info.recovered.toLocaleString()}</dd>
-			</div>
-			<div class="gt_descriptionList-row">
-				<dt>Deaths</dt>
-				<dd>${info.deaths.toLocaleString()}</dd>
-			</div>
-			<div class="gt_descriptionList-row">
-				<dt>Active</dt>
-				<dd>${info.active.toLocaleString()}</dd>
-			</div>
+			${
+				info.population ?
+				`
+				<div class="gt_descriptionList-row">
+					<dt>Population</dt>
+					<dd>${info.population ? info.population.toLocaleString() : '-'}</dd>
+				</div>
+				<div class="gt_descriptionList-row">
+					<dt>Infection Rate</dt>
+					<dd>${info.rate ? info.rate.toFixed(8) : '-'}%</dd>
+				</div>
+				<div class="gt_descriptionList-row">
+					<dt>Infected Ratio</dt>
+					<dd>${info.population ? util.getRatio(info.active, info.population) : '-'}</dd>
+				</div>
+				` : ''
+			}
+			${
+				info.cases ?
+				`<div class="gt_descriptionList-row">
+					<dt>Cases</dt>
+					<dd>${info.cases.toLocaleString()}</dd>
+				</div>` : ''
+			}
+			${
+				info.recovered ?
+				`<div class="gt_descriptionList-row">
+					<dt>Recovered</dt>
+					<dd>${info.recovered.toLocaleString()}</dd>
+				</div>` : ''
+			}
+			${
+				info.deaths ?
+				`<div class="gt_descriptionList-row">
+					<dt>Deaths</dt>
+					<dd>${info.deaths.toLocaleString()}</dd>
+				</div>`: ''
+			}
+			${
+				info.active ?
+				`<div class="gt_descriptionList-row">
+					<dt>Active</dt>
+					<dd>${info.active.toLocaleString()}</dd>
+				</div>`: ''
+			}
 		</dl>
 	</div>
 `;
@@ -773,7 +791,7 @@ App.prototype.showInfoForFeature = function(feature, location, persist) {
 	let info = Object.assign({
 		name: feature.properties.name,
 		population: feature.properties.pop_est
-	}, cases[this.date][feature.properties.id]);
+	}, cases[this.date][feature.properties.locationId]);
 
 	this.detailLayer.innerHTML = App.detailTemplate(info);
 
@@ -1170,18 +1188,41 @@ App.prototype.toggleOverlay = function(overlay, button, force) {
 	}
 };
 
+function getName(location) {
+  let name = '';
+  let sep = '';
+  if (location.city) {
+    name += location.county;
+    sep = ', ';
+  }
+  if (location.county) {
+    name += sep + location.county;
+    sep = ', ';
+  }
+  if (location.state) {
+    name += sep + location.state;
+    sep = ', ';
+  }
+  if (location.country) {
+    name += sep + location.country;
+    sep = ', ';
+  }
+  return name;
+}
+
 App.prototype.getRateRanking = function(date, type, min = config.minCasesForSignifigance) {
 	let rateOrder = [];
-	for (let featureId in cases[date]) {
-		let info = cases[date][featureId];
-		let feature = featureCollection.features[featureId];
-		if (feature.properties.pop_est && info[type] >= min) {
+	for (let locationId in cases[date]) {
+		let info = cases[date][locationId];
+		let location = locations[locationId];
+		let feature = featureCollection.features[location.featureId];
+		if (location.population && info[type] >= min) {
 			rateOrder.push(Object.assign({
-				name: feature.properties.name,
-				population: feature.properties.pop_est,
-				featureId: featureId
+				name: getName(location),
+				population: location.population,
+				featureId: location.featureId
 			}, info, {
-				rate: info[type] / feature.properties.pop_est
+				rate: info[type] / location.population
 			}));
 		}
 	}
@@ -1267,20 +1308,23 @@ App.prototype.showData = function(type, date) {
 	let count = 0;
 	let targetColor = new THREE.Color(1, 0, 0);
 	let worstAffectedPercent = 0;
-	for (let featureId in latestCasesByRegion) {
-		let feature = featureCollection.features[featureId];
-		let caseInfo = latestCasesByRegion[featureId];
-		let location = featureCollection.features[featureId];
-		let cases = caseInfo[type];
 
-		if (cases) {
+	for (let [locationId, caseInfo] of Object.entries(latestCasesByRegion)) {
+		let location = locations[locationId];
+		let feature = featureCollection.features[location.featureId];
+		if (feature) {
+			feature.properties.locationId = locationId;
+		}
+		let caseCount = caseInfo[type];
+
+		if (caseCount) {
 			let affectedPercent = 0;
-			let population = location.properties.pop_est;
+			let population = location.population
 			if (population) {
-				affectedPercent = cases / population;
+				affectedPercent = caseCount / population;
 			}
 			else {
-				console.error('No population data for %s!', feature.properties.name);
+				console.error('No population data for %s!', getName(location));
 			}
 
 			if (affectedPercent > worstAffectedPercent) {
@@ -1288,23 +1332,23 @@ App.prototype.showData = function(type, date) {
 			}
 
 			if (this.style === 'heatmap') {
-				if (points[featureId]) {
+				if (false && points[featureId]) {
 					// Location has enough cases to have randomly distributed clusters
-					let clusterCount = Math.round(cases / config.caseDivisor);
+					let clusterCount = Math.round(caseCount / config.caseDivisor);
 					let size = 2.5;
 					let intensity = 1;
 
 					// if (population) {
-					// 	console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, population, affectedPercent.toFixed(8), clusterCount, size, intensity);
+					// 	console.log('  %s: %d %s out of %d population (%s %) (%d points of %dpx and %f intensity)', feature.properties.name, caseCount, type, population, affectedPercent.toFixed(8), clusterCount, size, intensity);
 					// }
 					// else {
-					// 	console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, cases, type, clusterCount, size, intensity);
+					// 	console.log('  %s: %d %s (%d points of %dpx and %f intensity)', feature.properties.name, caseCount, type, clusterCount, size, intensity);
 					// }
 
 					for (let i = 0; i < clusterCount && i < points[featureId].length; i++) {
 						let coordinates = points[featureId][i];
 						if (!coordinates) {
-							console.warn('%s: Could not find random point at index %d, we only have %d points', feature.properties.name, i, points[featureId].length);
+							console.warn('%s: Could not find random point at index %d, we only have %d points', getName(location), i, points[featureId].length);
 							coordinates = location.coordinates;
 						}
 						this.add({
@@ -1318,17 +1362,17 @@ App.prototype.showData = function(type, date) {
 					// Location doesn't have enough cases for distribution, create a blob at center
 					let size = 5;
 					let intensity = 0.75;
-					// console.log('  %s: %d %s (1 point of %dpx and %f intensity)', feature.properties.name, cases, type, size, intensity);
+					// console.log('  %s: %d %s (1 point of %dpx and %f intensity)', feature.properties.name, caseCount, type, size, intensity);
 
 					this.add({
-						coordinates: feature.properties.coordinates,
+						coordinates: location.coordinates,
 						size: size,
 						intensity: intensity
 					});
 				}
 			}
 
-			count += cases;
+			count += caseCount;
 		}
 	}
 
@@ -1343,23 +1387,25 @@ App.prototype.showData = function(type, date) {
 
 		let ranks = this.getRateRanking(date, type, 1);
 		for (let [index, info] of Object.entries(ranks)) {
-			let feature = featureCollection.features[info.featureId];
-			let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
+			if (info.featureId) {
+				let feature = featureCollection.features[info.featureId];
+				let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
 
-			this.drawFeature(feature, {
-				color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
-			});
-		}
-
-		for (let featureId in featureCollection.features) {
-			if (!latestCasesByRegion[featureId][type]) {
-				let feature = featureCollection.features[featureId];
-				// this.drawFeature(feature, {
-				// 	color: App.choroplethColors[0]
-				// });
-				this.resetFeature(feature);
+				this.drawFeature(feature, {
+					color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
+				});
 			}
 		}
+
+		// for (let featureId in featureCollection.features) {
+		// 	if (!latestCasesByRegion[featureId][type]) {
+		// 		let feature = featureCollection.features[featureId];
+		// 		// this.drawFeature(feature, {
+		// 		// 	color: App.choroplethColors[0]
+		// 		// });
+		// 		this.resetFeature(feature);
+		// 	}
+		// }
 	}
 
 	// this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');

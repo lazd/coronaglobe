@@ -1,6 +1,7 @@
-[submodule "COVID-19"]
-	path = COVID-19
-	url = https://github.com/CSSEGISandData/COVID-19.git
-[submodule "ItalyCovid19"]
-	path = ItalyCovid19
-	url = https://github.com/AnthonyEbert/ItalyCovid19.git
+[submodule "coronavirus-data-sources"]
+	path = coronavirus-data-sources
+	url = git@github.com:lazd/coronavirus-data-sources
+[submodule "coronadatascraper"]
+	path = coronadatascraper
+	url = git@github.com:lazd/coronadatascraper.git
+	branch = gh-pages
