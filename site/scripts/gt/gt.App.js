@@ -796,7 +796,7 @@ App.prototype.showInfoForFeature = function(feature, screenCoordinates, persist)
 
 App.prototype.resetFeature = function(feature) {
 	if (feature.meshMaterial) {
-		feature.meshMaterial.color.set(App.choroplethColors[0]);
+		feature.meshMaterial.color.set(App.choroplethColors[0].clone());
 		feature.lineMaterial.color.set(App.lineColor);
 	}
 };
@@ -852,7 +852,7 @@ App.prototype.getFeatureAtCoordinates = function(coordinates) {
 App.prototype.drawBaseFeatures = function() {
 	let material = new THREE.MeshLambertMaterial({
     side: THREE.BackSide,
-		color: App.choroplethColors[0],
+		color: App.choroplethColors[0].clone(),
 		depthTest: false
 	});
 

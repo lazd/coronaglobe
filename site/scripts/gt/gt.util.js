@@ -150,10 +150,10 @@ const util = {
 
 	getColorOnGradient: function(colors, position) {
 		if (position === 1) {
-			return colors[colors.length - 1];
+			return colors[colors.length - 1].clone();
 		}
 		if (position === 0) {
-			return colors[0];
+			return colors[0].clone();
 		}
 
 		let index = Math.floor(position * (colors.length - 1));
