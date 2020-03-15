@@ -549,10 +549,6 @@ App.detailTemplate = function(info) {
 					<dd>${info.population ? info.population.toLocaleString() : '-'}</dd>
 				</div>
 				<div class="gt_descriptionList-row">
-					<dt>Infection Rate</dt>
-					<dd>${info.rate ? info.rate.toFixed(8) : '-'}%</dd>
-				</div>
-				<div class="gt_descriptionList-row">
 					<dt>Infected Ratio</dt>
 					<dd>${info.population ? util.getRatio(info.active, info.population) : '-'}</dd>
 				</div>
@@ -753,7 +749,7 @@ App.prototype.hideInfo = function() {
 	this.lastInfoFeature = null;
 };
 
-App.prototype.showInfoForFeature = function(feature, location, persist) {
+App.prototype.showInfoForFeature = function(feature, screenCoordinates, persist) {
 	if (!feature) {
 		feature = this.lastInfoFeature;
 	}
@@ -770,15 +766,15 @@ App.prototype.showInfoForFeature = function(feature, location, persist) {
 		}, 2000);
 	}
 
-	if (!location) {
-		location = [this.canvas.offsetLeft + this.canvas.width / 2, this.canvas.offsetTop + this.canvas.height / 2];
+	if (!screenCoordinates) {
+		screenCoordinates = [this.canvas.offsetLeft + this.canvas.width / 2, this.canvas.offsetTop + this.canvas.height / 2];
 	}
 
 	this.detailLayer.hidden = false;
 	if (!this.isMobile) {
-		if (location) {
-			this.detailLayer.style.left = location[0] + 'px';
-			this.detailLayer.style.top = location[1] + 'px';
+		if (screenCoordinates) {
+			this.detailLayer.style.left = screenCoordinates[0] + 'px';
+			this.detailLayer.style.top = screenCoordinates[1] + 'px';
 		}
 	}
 	this.detailLayer.focus();
@@ -788,10 +784,9 @@ App.prototype.showInfoForFeature = function(feature, location, persist) {
 		return;
 	}
 
-	let info = Object.assign({
-		name: feature.properties.name,
-		population: feature.properties.pop_est
-	}, cases[this.date][feature.properties.locationId]);
+	let location = locations[feature.properties.locationId];
+
+	let info = Object.assign({}, location, cases[this.date][feature.properties.locationId]);
 
 	this.detailLayer.innerHTML = App.detailTemplate(info);
 
@@ -840,6 +835,11 @@ App.prototype.getFeatureAtCoordinates = function(coordinates) {
 	let point = TurfPoint(coordinates);
 	let foundFeature = null;
 	for (let feature of featureCollection.features) {
+		let location = locations[feature.properties.locationId];
+		if (location.country === 'USA' && location.state && !location.county) {
+			continue;
+		}
+
 		feature.turfFeature = feature.turfFeature || TurfFeature(feature.geometry);
 		if (booleanPointInPolygon(point, feature.turfFeature)) {
 			foundFeature = feature;
@@ -1213,13 +1213,21 @@ function getName(location) {
 App.prototype.getRateRanking = function(date, type, min = config.minCasesForSignifigance) {
 	let rateOrder = [];
 	for (let locationId in cases[date]) {
+
 		let info = cases[date][locationId];
 		let location = locations[locationId];
 		let feature = featureCollection.features[location.featureId];
+
+		// Skip states for now
+		if (location.country === 'USA' && location.state && !location.county) {
+			continue;
+		}
+
 		if (location.population && info[type] >= min) {
 			rateOrder.push(Object.assign({
 				name: getName(location),
 				population: location.population,
+				locationId: locationId,
 				featureId: location.featureId
 			}, info, {
 				rate: info[type] / location.population
@@ -1304,17 +1312,26 @@ App.prototype.showData = function(type, date) {
 
 	// console.log('🗓 %s', date);
 
-	let latestCasesByRegion = cases[date];
+	let latestCasesByLocation = cases[date];
 	let count = 0;
 	let targetColor = new THREE.Color(1, 0, 0);
 	let worstAffectedPercent = 0;
 
-	for (let [locationId, caseInfo] of Object.entries(latestCasesByRegion)) {
+	for (let [locationId, caseInfo] of Object.entries(latestCasesByLocation)) {
 		let location = locations[locationId];
 		let feature = featureCollection.features[location.featureId];
 		if (feature) {
 			feature.properties.locationId = locationId;
 		}
+		else {
+			console.error('Cannot find feature for %s', getName(location));
+		}
+
+		// Skip states for now
+		if (location.country === 'USA' && location.state && !location.county) {
+			continue;
+		}
+
 		let caseCount = caseInfo[type];
 
 		if (caseCount) {
@@ -1387,25 +1404,30 @@ App.prototype.showData = function(type, date) {
 
 		let ranks = this.getRateRanking(date, type, 1);
 		for (let [index, info] of Object.entries(ranks)) {
-			if (info.featureId) {
-				let feature = featureCollection.features[info.featureId];
-				let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
+			let feature = featureCollection.features[info.featureId];
+			if (feature) {
+				let location = locations[info.locationId];
+				if (feature) {
+					let scaledColorValue = App.choroplethStyles[this.choroplethStyle](info, type, ranks.length, index, worstAffectedPercent);
 
-				this.drawFeature(feature, {
-					color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
-				});
+					this.drawFeature(feature, {
+						color: util.getColorOnGradient(App.choroplethColors, scaledColorValue)
+					});
+				}
+			}
+			else {
+				console.error('Cannot find feature for %s', getName(location));
 			}
 		}
 
-		// for (let featureId in featureCollection.features) {
-		// 	if (!latestCasesByRegion[featureId][type]) {
-		// 		let feature = featureCollection.features[featureId];
-		// 		// this.drawFeature(feature, {
-		// 		// 	color: App.choroplethColors[0]
-		// 		// });
-		// 		this.resetFeature(feature);
-		// 	}
-		// }
+		for (let [featureId, feature] of Object.entries(featureCollection.features)) {
+			if (!latestCasesByLocation[feature.properties.locationId] || !latestCasesByLocation[feature.properties.locationId][type]) {
+				// this.drawFeature(feature, {
+				// 	color: App.choroplethColors[0]
+				// });
+				this.resetFeature(feature);
+			}
+		}
 	}
 
 	// this.countEl.innerText = count.toLocaleString()+' '+(count === 1 ? this.itemName : this.itemNamePlural || this.itemName || 'items');
