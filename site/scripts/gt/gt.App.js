@@ -13,7 +13,7 @@ import countries from '../../../coronavirus-data-sources/geojson/world-countries
 // import provinces from '../../../data/ne_10m_admin_1_states_provinces-10pct.json';
 
 import config from '../../../data/config.json';
-import cases from '../../../coronadatascraper/timeseries-pivoted.json';
+import cases from '../../../coronadatascraper/timeseries.json';
 import locations from '../../../coronadatascraper/locations.json';
 import * as featureCollection from '../../../coronadatascraper/features.json';
 // import * as points from '../../data/points.json';
@@ -1416,7 +1416,7 @@ App.prototype.showData = function(type, date) {
 				}
 			}
 			else {
-				console.error('Cannot find feature for %s', getName(location));
+				console.error('Cannot find feature for %s', info.name);
 			}
 		}
 
