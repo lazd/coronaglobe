@@ -50,6 +50,10 @@ body {
 	margin: 0;
 }
 
+[hidden] {
+	display: none !important;
+}
+
 .gt_container {
 	position: fixed;
 	top: 0;

@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="description" content="3D heatmap of the COVID-19 coronavirus">
+		<meta name="description" content="3D population-adjusted choropleth map of the COVID-19 coronavirus">
 		<meta name="author" content="Aysegul Yonet, Larry Davis">
-		<title>CoronaGlobe - COVID-19 Heatmap</title>
+		<title>CoronaGlobe - COVID-19 Globe</title>
 
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0">
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,7 +23,7 @@
 		<meta name="twitter:title" content="CoronaGlobe">
 		<meta name="twitter:creator" content="@lazdnet">
 		<meta name="twitter:image" content="https://blog.lazd.net/coronaglobe/icon-512.png">
-		<meta name="twitter:description" content="3D heatmap of the COVID-19 coronavirus">
+		<meta name="twitter:description" content="3D population-adjusted choropleth map of the COVID-19 coronavirus">
 
 		<link rel="stylesheet" href="icons/style.css">
 		<link rel="stylesheet" href="styles/style.css">
@@ -70,7 +70,7 @@
 						</select>
 						<span class="gt_icon gt_icon--chevron-down"></span>
 					</label>
-					<button class="gt_button gt_mapStyleButton" aria-label="Select map style">
+					<button class="gt_button gt_mapStyleButton" aria-label="Select map style" hidden>
 						<span class="gt_icon gt_icon--choropleth"></span>
 					</button>
 				</div>
@@ -170,7 +170,7 @@
 									</div>
 								</div>
 							</label>
-							<label class="gt_form-field">
+							<label class="gt_form-field" hidden>
 								<span class="gt_form-label">Heatmap Point Style</span>
 								<div class="gt_form-field">
 									<div class="gt_select">
