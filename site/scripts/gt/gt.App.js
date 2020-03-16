@@ -832,6 +832,10 @@ App.prototype.highlightFeature = function(feature) {
 };
 
 App.prototype.shouldSkipLocation = function(location) {
+	if (!location) {
+		return true;
+	}
+
 	if (
 		// Skip States, we have county data
 		(location.country === 'USA' && location.state && !location.county) ||
