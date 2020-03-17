@@ -685,7 +685,7 @@ App.prototype.drawFeature = function(feature, options = {}) {
 
 App.prototype.goToFeature = function(feature) {
 	if (feature) {
-		this.rotateTo(feature.properties.coordinates);
+		this.rotateTo(locations[feature.properties.locationId].coordinates);
 
 		this.showInfoForFeature(feature, null, true);
 
@@ -841,6 +841,10 @@ App.prototype.shouldSkipLocation = function(location) {
 		(location.country === 'USA' && location.state && !location.county) ||
 		// Skip Italy; we have province data
 		(location.country === 'ITA' && !location.state) ||
+		// Skip Italy; we have province data
+		// (location.country === 'FRA' && !location.state) ||
+		// Skip Italy; we have province data
+		// (location.country === 'ESP' && !location.state) ||
 		// Breaks France
 		(location.country === 'REU') ||
 		(location.country === 'MTQ') ||
