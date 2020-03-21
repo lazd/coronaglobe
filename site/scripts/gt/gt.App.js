@@ -840,6 +840,8 @@ App.prototype.shouldSkipLocation = function(location) {
 		// Skip States, we have county data
 		(location.country === 'USA' && location.state && !location.county) ||
 		// Skip Italy; we have province data
+		(location.country === 'USA' && !location.state && !location.county) ||
+		// Skip Italy; we have province data
 		(location.country === 'ITA' && !location.state) ||
 		// Skip Italy; we have province data
 		// (location.country === 'FRA' && !location.state) ||
