@@ -8049,10 +8049,10 @@ three-orbitcontrols@2.96.0:
   resolved "https://registry.yarnpkg.com/three-orbitcontrols/-/three-orbitcontrols-2.96.0.tgz#26dc9fd78d14735d2ae36fa38a6d9582e58f0877"
   integrity sha512-OZhybFuCp1t/PR64r254CuaPXO59PttY24JRPVLy5TWmKuEv/0EpL4scshefRdE6/k96SBkh3iA+JCDMs85X4A==
 
-three@0.87:
-  version "0.87.1"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.87.1.tgz#466a34edc4543459ced9b9d7d276b65216fe2ba8"
-  integrity sha1-Rmo07cRUNFnO2bnX0na2Uhb+K6g=
+three@0.137:
+  version "0.137.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.137.0.tgz#0ebd6ba66637a332c31f234bcdd35aeec071a6e3"
+  integrity sha512-rzSDhia6cU35UCy6y+zEEws6vSgytfHqFMSaBvUcySgzwvDO6vETyswtSNi/+aVqJw8WLMwyT1mlQQ1T/dxxOA==
 
 timers-browserify@^2.0.11, timers-browserify@^2.0.4:
   version "2.0.11"

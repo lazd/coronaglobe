@@ -41,7 +41,7 @@
     "parcel": "^2.0.0-alpha.3.2",
     "postcss-nested": "^4.2.1",
     "random-points-generator": "^1.7.4",
-    "three": "0.87",
+    "three": "0.137",
     "three-orbitcontrols": "2.96.0"
   }
 }
